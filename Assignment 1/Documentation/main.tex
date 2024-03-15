@@ -1,0 +1,263 @@
+
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[main=english]{babel}
+\usepackage{graphicx} % 1pt = 0.035146cm
+\graphicspath{{Figures/}}
+\usepackage[justification=default]{subfig} %Manage sub-figures 
+\usepackage[update]{epstopdf}
+\usepackage[labelfont=bf]{caption}
+\usepackage{titlesec} % Allows customization of titles
+\usepackage{booktabs}
+
+\usepackage{color}
+\usepackage[textwidth = 450pt,top = 80pt, bottom = 60pt]{geometry}
+\usepackage{soul}
+\newcommand{\hlc}[2][yellow]{{\sethlcolor{#1}\hl{#2}}}
+\usepackage[inline]{enumitem}
+\usepackage[symbol]{footmisc}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%--------------------------------------------------------------------------------
+%       MATH PACKAGES
+%--------------------------------------------------------------------------------
+\usepackage{amsmath}
+%\usepackage{mathtools}
+\usepackage[leqno,fleqn,intlimits]{empheq}
+\usepackage{bm}
+%\usepackage{amssymb}
+\usepackage{empheq}
+
+%--------------------------------------------------------------------------------
+%       MATLAB CODE
+%--------------------------------------------------------------------------------
+\usepackage{mcode}
+
+%--------------------------------------------------------------------------------
+%       MY COMMANDS
+%--------------------------------------------------------------------------------
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\tr}{\textcolor{red}}
+\newcommand{\mathbi}[1]{\bm{\textbf{\em #1}}}
+
+%--------------------------------------------------------------------------------
+%       BIBLIOGRAPHY PACKAGES
+%--------------------------------------------------------------------------------
+% \usepackage{csquotes}
+% \usepackage[sorting=nyt,%
+% sortcites=true,%
+% bibencoding=ascii,%
+% autopunct=true,%
+% hyperref=true,%
+% language=auto,%
+% %backref=true,%
+% url=false,%
+% maxcitenames=10,%
+% minbibnames = 3,%
+% maxbibnames=3,%
+% giveninits, 
+% natbib = false,
+% isbn=false,%
+% backend=biber]{biblatex}
+% \addbibresource{bibliograhy_assignment.tex}
+
+%--------------------------------------------------------------------------------
+%       MISCELLANEA
+%--------------------------------------------------------------------------------
+\usepackage[]{hyperref}
+\usepackage{cleveref}
+%%% CREF setup
+\crefname{equation}{Eq.}{Eqs.}
+\crefname{table}{Table}{Tables}
+\crefname{figure}{Fig.}{Figs.}
+
+%--------------------------------------------------------------------------------
+%       TITLE SECTION
+%--------------------------------------------------------------------------------
+\newcommand\headlinecolor{\normalcolor}
+
+\makeatletter
+\renewcommand*\maketitle{%
+    \begingroup
+    \centering
+    \fontsize{15}{15}% 72pt on 80pt leading
+    \selectfont
+    \headlinecolor
+    \@title\\
+    \vspace{5mm}
+    \@author
+    \par
+    \vskip1in
+    \endgroup
+    \vspace{-22mm}
+}
+\makeatother
+
+\title{MSAS -- Assignment \#1: Simulation} % Article title
+\author{\large \tr{Student Name}, \tr{123456}}
+\date{}
+
+%--------------------------------------------------------------------------------
+% HEADING packages
+\usepackage{fancyhdr} % Headers and footers control
+\setlength{\headheight}{32pt}
+\pagestyle{fancyplain} % Defines a new header for all pages (absolutely all pages, use fancy to exclude title-page and chapters, if book class is used) 
+\fancyhf{} % clears the header and footer, otherwise the elements of the default "plain" page style will appear
+%
+\lhead{\tr{Student Name}, MSAS -- Assignment \#1}
+\rhead{\vspace{-0.5cm}\includegraphics[width=0.3\textwidth]{newlogo.eps}}
+\lfoot{AY 2023-24 -- Prof.\ F.\ Topputo; TA: C.\ Balossi, S.\ Borgia}
+\rfoot{\thepage}
+
+
+%--------------------------------------------------------------------------------
+%       BEGIN DOCUMENT
+%--------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\section{Implicit equations}
+
+\subsection*{Exercise 1}
+
+Let $\vec{f}$ be a two-dimensional vector-valued function $\vec{f}(\vec{x}) = (x_2^2-x_1-2, \ -x_1^2+x_2+10)^\top$, where $\vec{x} = (x_1, x_2)^\top$. Find the zero(s) of $\vec{f}$ by using Newton's method with $\partial\vec f/\partial\vec x$ 
+\begin{enumerate*}[label=\arabic*)]
+    \item computed analytically, and
+    \item estimated through finite differences.
+\end{enumerate*}
+Which version is more accurate?
+
+\rightline{\small(3 points)}
+\medskip  \hrule \medskip
+
+
+\tr{\textit{Write your answer here}}
+
+%%%%%%%%%% TO BE DELETED (BEGINS) %%%%%%%%%%
+\tr{
+\begin{itemize}
+\item Develop the exercises in \underline{one Matlab script}; name the file \mcode{lastname123456_Assign1.m}
+\item Organize the script in sections, one for each exercise; use local functions if needed. 
+\item Download the \underline{PDF} from the Main menu.
+\item \underline{Create a single .zip file} containing both the \underline{report in PDF} and the \underline{MATLAB file}. The name shall be \mcode{lastname123456_Assign1.zip}.
+\item Red text indicates where answers are needed; be sure there is no red stuff in your report.
+\item In your answers, \underline{be concise}: to the point.
+\item \textbf{Deadline for the submission: Nov 20 2023, 23:59}.
+\item \textbf{Load the compressed file to the Homework folder on Webeep}.
+\end{itemize}
+}
+%%%%%%%%%% TO BE DELETED (ENDS) %%%%%%%%%%
+
+%--------------------------------------------------------------------------------
+%       IMPLICIT EQUATION
+%--------------------------------------------------------------------------------
+
+
+
+
+\clearpage
+
+%--------------------------------------------------------------------------------
+%       NUMERICAL SOLUTION OF NONLINEAR ODE
+%--------------------------------------------------------------------------------
+
+\section{Numerical solution of ODE}
+\subsection*{Exercise 2}
+
+The Initial Value Problem $\dot x = x- 2t^2+2$, $x(0) = 1$, has analytic solution $x(t) = 2t^2 + 4t - e^t + 2$. 
+\begin{enumerate*}[label=\arabic*)]
+    \item Implement a general-purpose, fixed-step Heun's method (RK2);
+    \item Solve the IVP in $t\in[0,2]$ for $h_1 = 0.5$, $h_2 = 0.2$, $h_3 = 0.05$, $h_4 = 0.01$ and compare the numerical vs the analytical solution;
+    \item Repeat points 1)--2) with RK4;
+    \item Trade off between CPU time \& integration error.
+\end{enumerate*}
+
+\rightline{\small(4 points)}
+\medskip \hrule \medskip
+
+\tr{\textit{Write your answer here}}
+
+\subsection*{Exercise 3}
+
+Let $\dot{\vec x} = A(\alpha) \vec x$ be a two-dimensional system with $A(\alpha) = [0, 1; -1, 2\cos\alpha]$. Notice that $A(\alpha)$ has a pair of complex conjugate eigenvalues on the unit circle; $\alpha$ denotes the angle from the $\operatorname{Re}\{\lambda\}$-axis. 
+\begin{enumerate*}[label=\arabic*)]
+    \item Write the operator $F_{\rm RK2}(h,\alpha)$ that maps $\vec x_k$ into $\vec x_{k+1}$, namely $\vec x_{k+1} = F_{\rm RK2}(h,\alpha) \, \vec x_k$.
+    \item\!With $\alpha = \pi$, solve the problem ``Find $h\ge 0$ s.t.$\max\left(|{\rm eig}(F(h,\alpha))|\right) = 1$''.
+    \item Repeat point 2) for $\alpha\in[0, \pi]$ and draw the solutions in the $(h\lambda)$-plane.
+    \item Repeat points 1)--3) with RK4.
+\end{enumerate*}
+
+\rightline{\small(5 points)}
+\medskip \hrule \medskip
+
+\tr{\textit{Write your answer here}}
+
+
+\subsection*{Exercise 4}
+
+Consider the IVP $\dot{\vec x}=A(\alpha)\vec x$, $\vec x(0) = [1, 1]^T$, to be integrated in $t\in[0, 1]$.
+\begin{enumerate*}[label=\arabic*)]
+    \item Take $\alpha\in[0, \pi]$ and solve the problem ``Find $h\ge 0$ s.t. $\left\|\vec x_{\rm an}(1)-\vec x_{\rm RK1}(1)\right\|_\infty = \mathrm{tol}$'', where $\vec x_{\rm an}(1)$ and $\vec x_{\rm RK1}(1)$ are the analytical and the numerical solution (with RK1) at the final time, respectively, and $\rm tol = \{10^{-3}, 10^{-4}, 10^{-5}, 10^{-6}\}$.
+    \item Plot the four locus of solutions in the $(h\lambda)$-plane; plot also the function evaluations vs tol for $\alpha= \pi$.
+    \item Repeat points 1)--2) for RK2 and RK4.
+\end{enumerate*}
+
+\rightline{\small(4 points)}
+\medskip \hrule \medskip
+
+\tr{\textit{Write your answer here}}
+
+\subsection*{Exercise 5}
+Consider the backinterpolation method $\textrm{BI2}_{0.4}$. 1) Derive the expression of the linear operator $B_{\rm BI2_{0.4}}(h,\alpha)$ such that $\vec x_{k+1} = B_{\rm BI2_{0.4}}(h,\alpha) \vec x_k$. 2) Following the approach of point 3) in Exercise 3, draw the stability domain of $\textrm{BI2}_{0.4}$ in the $(h\lambda)$-plane. 3) Derive the domain of numerical stability of $\textrm{BI2}_{\theta}$ for the values of $\theta = [0.1,\, 0.3,\, 0.7,\, 0.9]$.
+
+\rightline{\small(5 points)}
+\medskip \hrule \medskip
+
+\tr{\textit{Write your answer here}}
+
+\subsection*{Exercise 6}
+
+Consider the IVP $\dot{\vec x} = B \vec x$ with $B =[-180.5, 219.5; 179.5, -220.5]$ and $\vec{x}(0)=[1, 1]^T$ to be integrated in $t\in[0, 5]$. Notice that $\vec{x}(t)=e^{Bt}\vec{x}(0)$.
+\begin{enumerate*}[label=\arabic*)]
+    \item Solve the IVP using RK4 with $h=0.1$;
+    \item Repeat point 1) using implicit extrapolation technique IEX4;
+    \item Compare the numerical results in points 1) and 2) against the analytic solution;
+    \item Compute the eigenvalues associated to the IVP and represent them on the $(h\lambda)$-plane both for RK4 and IEX4;
+    \item Discuss the results.
+\end{enumerate*}
+
+\rightline{\small(4 points)}
+\medskip \hrule \medskip
+
+\tr{\textit{Write your answer here}}
+
+
+\subsection*{Exercise 7}
+
+Consider the two-dimensional IVP 
+$$\begin{bmatrix}\dot{x}_1 \\ \dot{x}_2\end{bmatrix}=\begin{bmatrix}-\frac{5}{2}\left[1+8\sin(t)\right]x_1 \\ (1-x_1)x_2+x_1\end{bmatrix}, \qquad \begin{bmatrix} x_1(t_0)\\ x_2(t_0)\end{bmatrix}=\begin{bmatrix} 1\\ 1\end{bmatrix}$$
+\begin{enumerate*}[label=\arabic*)]
+    \item Solve the IVP using AB3 in $t\in[0,3]$ for $h=0.1$;
+    \item Repeat point 1) using AM3, ABM3, and BDF3;
+    \item Discuss the results.
+\end{enumerate*}
+
+\rightline{\small(5 points)}
+\medskip \hrule \medskip
+
+
+
+\tr{\textit{Write your answer here}}
+
+
+
+\end{document}
+
+%--------------------------------------------------------------------------------
+%       END DOCUMENT
+%--------------------------------------------------------------------------------
