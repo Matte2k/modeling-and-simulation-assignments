@@ -1,0 +1,185 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{lumiosysnova}{report}{}
+      \name{author}{19}{}{%
+        {{hash=d33241a05e2f1c101b6d8b8bf4df705e}{%
+           family={Topputo},
+           familyi={T\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=897de23be85d18bf54b1cb9648f3678f}{%
+           family={Massari},
+           familyi={M\bibinitperiod},
+           given={Mauro},
+           giveni={M\bibinitperiod}}}%
+        {{hash=93281b29f6ed0b37cb7f32bce18de9a0}{%
+           family={Biggs},
+           familyi={B\bibinitperiod},
+           given={James\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=7651f962d2f295ca4296e921641dfdbf}{%
+           family={Dei\bibnamedelima Tos},
+           familyi={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Diogene\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=2dad05651cec0b33069c5055aedc0ec0}{%
+           family={Ceccherini},
+           familyi={C\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod}}}%
+        {{hash=079e937b3e6957cf7793091641c4fcd9}{%
+           family={Mani},
+           familyi={M\bibinitperiod},
+           given={Karthik},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f80f6fffd402a4af0854b6275ab3f867}{%
+           family={Franzese},
+           familyi={F\bibinitperiod},
+           given={Vittorio},
+           giveni={V\bibinitperiod}}}%
+        {{hash=300094125e44020dee39c3ea645817f4}{%
+           family={Cervone},
+           familyi={C\bibinitperiod},
+           given={Angelo},
+           giveni={A\bibinitperiod}}}%
+        {{hash=13c881870bb719bdfb8bb3a9afe12971}{%
+           family={Sundaramoorthy},
+           familyi={S\bibinitperiod},
+           given={Prem},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f5e142a7f7ef95c454f43726d3984e6a}{%
+           family={Mestry},
+           familyi={M\bibinitperiod},
+           given={Samiksha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=05e5ba962f1dbfd2e41c1a5a360ef3c2}{%
+           family={Speretta},
+           familyi={S\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ee2188d932456134ecf4ef2a2105d375}{%
+           family={Cipriano},
+           familyi={C\bibinitperiod},
+           given={Ana\bibnamedelima M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=420aca9e3c7e7869b91dfa59969a932e}{%
+           family={Ivanov},
+           familyi={I\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+        {{hash=329f407df1b94ff8c99c2db1ba6f5797}{%
+           family={Labate},
+           familyi={L\bibinitperiod},
+           given={Demetrio},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ab246e1ee6f28a6237e57c596ae85ad0}{%
+           family={Tommasi},
+           familyi={T\bibinitperiod},
+           given={Leonardo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e810ed624be3eebbc4c384db27ee7521}{%
+           family={Jochemsen},
+           familyi={J\bibinitperiod},
+           given={Arnoud},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5f9e66fe24c1ad90e0ac8a0e0b7bef85}{%
+           family={Leroy},
+           familyi={L\bibinitperiod},
+           given={Quentin},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=cc014062f5c99674859d9f6308484b64}{%
+           family={Furfaro},
+           familyi={F\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2e770e85e4e926cced80e67e67cca29d}{%
+           family={Jacquinot},
+           familyi={J\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ad6209db6bc497735c7fedcf598b79f8}
+      \strng{fullhash}{be00580215fad49058aacdcb31bf51f9}
+      \strng{bibnamehash}{ad6209db6bc497735c7fedcf598b79f8}
+      \strng{authorbibnamehash}{ad6209db6bc497735c7fedcf598b79f8}
+      \strng{authornamehash}{ad6209db6bc497735c7fedcf598b79f8}
+      \strng{authorfullhash}{be00580215fad49058aacdcb31bf51f9}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lunar Meteoroid Impacts Observer}
+      \field{type}{techreport}
+      \field{year}{2017}
+    \endentry
+    \entry{zhang2015low}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c9191dc69bc22ce41fc456ae9eb63db8}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Chen},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d33241a05e2f1c101b6d8b8bf4df705e}{%
+           family={Topputo},
+           familyi={T\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=2247b6bb7fb7ea9652d3ebb59147fd5a}{%
+           family={Bernelli-Zazzera},
+           familyi={B\bibinithyphendelim Z\bibinitperiod},
+           given={Franco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b9dc68357f2b7a6f85f986c46f1655d5}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yu-Shan},
+           giveni={Y\bibinithyphendelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {American Institute of Aeronautics}%
+        {Astronautics}%
+      }
+      \strng{namehash}{2348f5826634af872a0634ea83f5916a}
+      \strng{fullhash}{83a7c263dccf1ea0dc651cfa7678da75}
+      \strng{bibnamehash}{2348f5826634af872a0634ea83f5916a}
+      \strng{authorbibnamehash}{2348f5826634af872a0634ea83f5916a}
+      \strng{authornamehash}{2348f5826634af872a0634ea83f5916a}
+      \strng{authorfullhash}{83a7c263dccf1ea0dc651cfa7678da75}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Guidance, Control, and Dynamics}
+      \field{number}{8}
+      \field{title}{Low-thrust minimum-fuel optimization in the circular restricted three-body problem}
+      \field{volume}{38}
+      \field{year}{2015}
+      \field{pages}{1501\bibrangedash 1510}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.2514/1.G001080
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
