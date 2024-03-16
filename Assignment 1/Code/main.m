@@ -6,6 +6,9 @@ addpath(genpath('src\'));
 
 %% Ex 1 - CELL
 clearvars; close all; clc;
+%clearvars; close all; 
+
+% nota il sistema dev'essere quadrato (n variabili ed n equazioni)
 
 %%% FUNCTION INPUT
 f = @(x1,x2) [x2.^2 + x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
@@ -13,7 +16,7 @@ xGuess = [-1 1]';
 toll = 1e-10;
 nmax = 200;
 feval = 0;
-fevalStep = 2;  % DA CAPIRE SE POSSO EVITARE DI METTERLO COME INPUT
+dimSys = 2;  % DA CAPIRE SE POSSO EVITARE DI METTERLO COME INPUT
 
 % pick up a method:
 method = 's';
@@ -30,30 +33,39 @@ timerStart = tic;   % timer start
 err = toll + 1;     % error
 k = 0;              % iterator
 errVect = [];       % error vector
-xkVect = [];        % zeros vector
+xkVect = [];        % solutions vector
 xGuessCell = num2cell(xGuess);  % inital guess cell array
 
 
 %%% Newton method body
-% Check if initial guess is already a zero
+% Check if initial guess is already a solution
 if f(xGuessCell{:,1}) < toll*ones(length(xGuess),1)
-    zero = xGuess;
+    solution = xGuess;
     converge = true;
     elapsedTime = toc(timerStart);
 
     info.iteration = 0;
-    info.zeroVector = zero;
+    info.solutionVector = solution;
     info.errorVector = f(xGuessCell{:,1});
     info.timeCost = elapsedTime;
-    info.fevalCost = fevalStep;
+    info.fevalCost = dimSys;
+    info.methodUsed = 'none';
 
     if printFlag == true
-        fprintf('The initial guess is the zero of f\n');
+        fprintf('Function zeros are equal to the initial guess\n');
+        fprintf('The error %.3d is less than the tollerance %.3d \n', ...
+                   errVect(end), toll);
+
+        solPrint = sprintf(' %.4f\n',solution);
+        fprintf('\n Zeros computed:\n%s \n',solPrint)
     end
+    
+    % function in this "lucky" case ends here
+    return
 
 else
     
-    feval = feval + fevalStep;  % function evaluation used to check if is already a zero
+    feval = feval + dimSys;     % function evaluation used to check if the guess is already a solution
     xk = xGuess;                % start point of the iteration process
    
     % symbolic manipulation to compute jacobian matrix
@@ -63,33 +75,78 @@ else
         J = matlabFunction(JSym);
     end
 
-    % Iterative loop to find the zero starts
+    % Iterative loop to find the solution starts
     while k < nmax && err > toll
 
         if method == 's'            %  - TO SUBSTITUTE IT WITH A SWITCH CASE - 
             % function eval
             xkCell = num2cell(xk);
             fk = f(xkCell{:,1});          % feval + z
-            feval = feval + fevalStep;                      % TO CONTROL
+            feval = feval + dimSys;                         % TO CONTROL
 
             Jk = J(xkCell{:,1});          % feval + z^z
-            feval = feval + fevalStep^(fevalStep);          % TO CONTROL
+            feval = feval + dimSys^(dimSys);                % TO CONTROL
+
+            methodString = 'SYMBOLIC MATH';  % method used saved for the output
 
         elseif method == 'f'
-            epsilon = max(sqrt(eps),sqrt(eps)*abs(xk));
-            % TO DO
+            epsilon = max(sqrt(eps),sqrt(eps)*abs(xk));     % dimSys,1 vector
+            Jk = zeros(dimSys);
+
+            xkCell = num2cell(xk);
+            fk = f(xkCell{:,1});
+            feval = feval + dimSys;                         % TO CONTROL
+
+            for i=1:dimSys
+                epsilonVect = (zeros(dimSys,1));
+                epsilonVect(i,1) = epsilon(i,1);
+                
+                xkForward =  xk + epsilonVect;
+                xkForwardCell = num2cell(xkForward);
+                fkForward = f(xkForwardCell{:,1});
+                feval = feval + dimSys;                     % TO CONTROL
+
+                Jk(:,i) = (fkForward - fk) / epsilon(i,1); 
+            end
+
+            methodString = 'FORWARD DIFF';  % method used saved for the output
+
         elseif method == 'c'
             epsilon = max(sqrt(eps),sqrt(eps)*abs(xk));
-            % TO DO 
+            Jk = zeros(dimSys);
+
+            xkCell = num2cell(xk);
+            fk = f(xkCell{:,1});
+            feval = feval + dimSys;                         % TO CONTROL
+
+            for i=1:dimSys
+                epsilonVect = (zeros(dimSys,1));
+                epsilonVect(i,1) = epsilon(i,1);
+                
+                xkForward =  xk + epsilonVect;
+                xkForwardCell = num2cell(xkForward);
+                fkForward = f(xkForwardCell{:,1});
+                feval = feval + dimSys;                     % TO CONTROL
+
+                xkBackward =  xk - epsilonVect;
+                xkBackwardCell = num2cell(xkBackward);
+                fkBackward = f(xkBackwardCell{:,1});
+                feval = feval + dimSys;                     % TO CONTROL
+                
+                Jk(:,i) = (fkForward - fkBackward) / (2*epsilon(i,1)); 
+            end        
+ 
+            methodString = 'CENTERED DIFF';  % method used saved for the output
+
         end
 
-        % check if f is sufficiently well behaved
+        % check if f is sufficiently well-behaved
         if rank(Jk) == zeros(length(xGuess))
-            error('Jk has become zero, f not sufficiently well-behaved near zero\n');
+            error('Jk has become zero, f not sufficiently well-behaved near solution\n');
 
         else
             y = Jk \ (-fk);
-            xNew = xk + y;              % zeros for the k iteration
+            xNew = xk + y;              % solutions for the k iteration
             err = norm(y);              % errore commesso differenza iterate
 
             errVect = [errVect, err];   % error vector update
@@ -103,25 +160,34 @@ end
 elapsedTime = toc(timerStart);   % timer stop
 
 %%% Output organization
-zero = xkVect(:,end);   % final result
+solution = xkVect(:,end);   % final result
 if err > toll           % convergence flag 
     converge = false;
 else
     converge = true;
 end
 
-if nargout == 3         % info struct for detailed output
-    info = struct;      
+info = struct;      % info struct for detailed output
     info.iteration = k;
-    info.zeroVector = xkVect;
+    info.solutionVector = xkVect;
     info.errorVector = errVect;
     info.timeCost = elapsedTime;
     info.fevalCost = feval;
-end
+    info.methodUsed = methodString;
 
 % main output print on command window
 if printFlag == true
-    fprintf('Calcola che ho un risultato :) \n');
+    if converge == true
+        fprintf('Function zeros has been successfully computed using %s method \n',methodString);
+        fprintf('After %d interations the error %.3d is less than the tollerance %.3d \n', ...
+                    k, errVect(end), toll);
+    else
+        fprintf('Function zeros has NOT been computed using %s method \n',methodString);
+        fprintf('After %d interations the error %.3d is still grater than the tollerance %.3d \n', ...
+                    k, errVect(end), toll);
+    end
+    solPrint = sprintf(' %.4f\n',solution);
+    fprintf('\n Zeros computed:\n%s \n',solPrint)
 end
 
 % convergence plot 
@@ -131,9 +197,24 @@ end
 
 
 %%% DEBUG - compare with built in function
-disp('----------------------------------------')
-fMatlab = @(x) [x(2).^2 + x(1) - 2; -x(1).^2 + x(2) + 10];
-fsolve(fMatlab, xGuess)
+% disp('----------------------------------------')
+% fMatlab = @(x) [x(2).^2 + x(1) - 2; -x(1).^2 + x(2) + 10];
+% fsolve(fMatlab, xGuess)
+
+%% prova
+
+f = @(x1,x2) [x2.^2 + x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
+xGuess = [-1 1]';
+toll = 1e-10;
+
+% figure()
+% grid on
+% hold on
+
+[solution,converge,info] = newton(f, xGuess, 'f', toll, 200, false, true);
+% [solution,converge,info] = newton(f, xGuess, toll, 'f', 200)
+% [solution,converge,info] = newton(f, xGuess, toll, 'c', 200)
+
 
 
 %% Ex 1 - MODEL WITHOUT CELL ARRAY (incomplete)
