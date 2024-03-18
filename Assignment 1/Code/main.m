@@ -61,35 +61,37 @@ hold on
 axis padded
 
 
-%%% RK1
+%%% RUNGE-KUTTA METHODS
+% RK1
 RK1 = struct;
     RK1.method = 'RK1';
     RK1.submethod = [];
     RK1.alpha = [];
     RK1.beta = [];
-[x_rk1,t] = rungeKutta(f,x0,tmax,h,RK1);
+    RK1.solution = [];
+[RK1.solution.x,RK1.solution.t,RK1.solution.info] = rungeKutta(f,x0,tmax,0.5,RK1);
 
-
-%%% RK2
+% RK2
 RK2 = struct;
     RK2.method = 'RK2';
-    RK2.submethod = [];
+    RK2.submethod = 'Heun';
     RK2.alpha = [];
     RK2.beta = [];
-[x_rk2] = rungeKutta(f,x0,tmax,h,RK2);
+    RK2.solution = [];
+[RK2.solution.x,RK2.solution.t,RK2.solution.info] = rungeKutta(f,x0,tmax,0.2,RK1);
 
-
-%%% RK4
+% RK4
 RK4 = struct;
     RK4.method = 'RK4';
-    RK4.submethod = [];
+    RK4.submethod = 'Runge-Kutta';
     RK4.alpha = [];
     RK4.beta = [];
-[x_rk4] = rungeKutta(f,x0,tmax,h,RK4);
+    RK4.solution = [];
+[RK4.solution.x,RK4.solution.t,RK4.solution.info] = rungeKutta(f,x0,tmax,0.01,RK1);
 
 
 %%% ANALYTIC SOLUTION
-tspan = [0,tmax];
+t = RK1.solution.t;
 fIVP_solution = @(t)(2.*t.^2 + 4.*t - exp(t) + 2);
 plot(t, fIVP_solution(t), '--')
 hold on
