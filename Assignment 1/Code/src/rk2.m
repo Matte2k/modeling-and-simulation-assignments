@@ -1,12 +1,6 @@
-function [x,t] = rk2(f,x0,tmax,h,rkOptions)
+function [x,t,info] = rk2(f,x0,tmax,h,rkOptions)
 %RK2 Summary of this function goes here
 %   Detailed explanation goes here
-
-
-%%% Initialization
-t = 0:h:tmax;                   % time vector definition
-x = zeros(1,length(t));         % solution vector allocation
-x(1) = x0;                      % initial condition in solution vector
 
 
 %%% Default submethod
@@ -60,12 +54,30 @@ switch rkOptions.submethod
 end
 
 
+%%% Initialization
+timerStart = tic;               % timer start
+feval = 0;                      % function evaluation counter starts
+dimSys = length(x0);            % function evaluation step
+t = 0:h:tmax;                   % time vector definition
+x = zeros(1,length(t));         % solution vector allocation
+x(1) = x0;                      % initial condition in solution vector
+
+
 %%% RK2 loop
 for i=1:(length(t)-1)
-    xp = x(i) + beta2(1,1) * h * f(x(i),t(i));    % x(i)=xk && t(i)=tk
+    fk = f(x(i),t(i));
+    xp = x(i) + beta2(1,1) * h * fk;    % x(i)=xk && t(i)=tk
     tp = t(i) + alpha2(1,1) * h;
-    x(i+1) = x(i) + alpha2(2,1) * h * (beta2(2,1) * f(x(i),t(i)) + beta2(2,2) * f(xp,tp));
+    x(i+1) = x(i) + alpha2(2,1) * h * (beta2(2,1) * fk + beta2(2,2) * f(xp,tp));
+    feval = feval + 2*dimSys;             % function evaluation counter update
 end
+
+elapsedTime = toc(timerStart);   % timer stop
+
+info = struct;
+    info.timeCost = elapsedTime;
+    info.fevalCost = feval;
+
 
 end
 

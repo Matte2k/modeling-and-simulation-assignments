@@ -1,4 +1,4 @@
-function [x,t] = rk1(f,x0,tmax,h,rkOptions)
+function [x,t,info] = rk1(f,x0,tmax,h,rkOptions)
 %RK1 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -8,12 +8,6 @@ if nargin < 5
     rkOptions.alpha = [];
     rkOptions.beta = [];
 end
-
-
-%%% Initialization
-t = 0:h:tmax;                   % time vector definition
-x = zeros(1,length(t));         % solution vector allocation
-x(1) = x0;                      % initial condition in solution vector
 
 
 %%% Default submethod
@@ -27,10 +21,26 @@ if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO
 end
 
 
+%%% Initialization
+timerStart = tic;               % timer start
+feval = 0;                      % function evaluation counter starts
+dimSys = length(x0);            % function evaluation step
+t = 0:h:tmax;                   % time vector definition
+x = zeros(1,length(t));         % solution vector allocation
+x(1) = x0;                      % initial condition in solution vector
+
+
 %%% RK1 loop
 for i=1:(length(t)-1)
     x(i+1) = x(i) + h * f(x(i),t(i));
+    feval = feval + dimSys;             % function evaluation counter update
 end
+
+elapsedTime = toc(timerStart);   % timer stop
+
+info = struct;
+    info.timeCost = elapsedTime;
+    info.fevalCost = feval;
 
 end
 
