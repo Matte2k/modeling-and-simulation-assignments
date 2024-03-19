@@ -5,44 +5,44 @@
 addpath(genpath('src\'));
 
 %% Ex 1
-clearvars; close all; clc;
-
-config = struct;
-    config.print = true;
-    config.plot = true;
-
-f = @(x1,x2) [x2.^2 + x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
-xGuess = [-1 1]';
-toll = 1e-12;
-nmax = 1e3;
-
-figure()
-grid on
-hold on
-axis padded
-
-[solutionSym,convergeSym,infoSym] = newton(f, xGuess, 's', toll, nmax, config);
-[solutionFD,convergeFD,infoFD] = newton(f, xGuess, 'f', toll, nmax, config);
-[solutionCD,convergeCD,infoCD] = newton(f, xGuess, 'c', toll, nmax, config);
-legend('sym','FD','CD',Location='best')
-
-errSym = infoSym.errorVector(end);
-errFD  = infoFD.errorVector(end);
-errCD  = infoCD.errorVector(end);
-
-if errSym < errFD && errSym < errCD
-    fprintf('Sym is the best method\n');
-elseif errFD < errSym && errFD < errCD
-    fprintf('FD is the best method\n');
-elseif errCD < errFD && errCD < errSym
-    fprintf('CD is the best method\n');
-end
-
-%%% DEBUG - compare with built in function
-% disp('----------------------------------------')
-% fMatlab = @(x) [x(2).^2 + x(1) - 2; -x(1).^2 + x(2) + 10];
-% fsolve(fMatlab, xGuess)
-
+% %code ex1
+% clearvars; close all; clc;
+% 
+% config = struct;
+%     config.print = true;
+%     config.plot = true;
+% 
+% f = @(x1,x2) [x2.^2 + x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
+% xGuess = [-1 1]';
+% toll = 1e-12;
+% nmax = 1e3;
+% 
+% figure()
+% grid on
+% hold on
+% axis padded
+% 
+% [solutionSym,convergeSym,infoSym] = newton(f, xGuess, 's', toll, nmax, config);
+% [solutionFD,convergeFD,infoFD] = newton(f, xGuess, 'f', toll, nmax, config);
+% [solutionCD,convergeCD,infoCD] = newton(f, xGuess, 'c', toll, nmax, config);
+% legend('sym','FD','CD',Location='best')
+% 
+% errSym = infoSym.errorVector(end);
+% errFD  = infoFD.errorVector(end);
+% errCD  = infoCD.errorVector(end);
+% 
+% if errSym < errFD && errSym < errCD
+%     fprintf('Sym is the best method\n');
+% elseif errFD < errSym && errFD < errCD
+%     fprintf('FD is the best method\n');
+% elseif errCD < errFD && errCD < errSym
+%     fprintf('CD is the best method\n');
+% end
+% 
+% %%% DEBUG - compare with built in function
+% % disp('----------------------------------------')
+% % fMatlab = @(x) [x(2).^2 + x(1) - 2; -x(1).^2 + x(2) + 10];
+% % fsolve(fMatlab, xGuess)
 
 %% Ex 2
 clearvars; close all; clc;
