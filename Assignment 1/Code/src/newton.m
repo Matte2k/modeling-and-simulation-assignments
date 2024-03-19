@@ -2,6 +2,9 @@ function [solution,converge,info] = newton(f, xGuess, method ,toll, nmax , visua
 %newtonSym
 %   Function that compute the zero of given function using the Newton's
 %   method. The jacobian can be computed in 3 different ways:   TO BE DONE
+%   
+%   NOTE:   error is computed between the previus iteration and the next
+%           valule 
 
 %%% Prelimirary check                                           
 if nargin < 6                   % default options without visual config flags
@@ -35,10 +38,10 @@ xGuessCell = num2cell(xGuess);  % inital guess cell array
 
 %%% Newton method body
 % Check if initial guess is already a solution
-if f(xGuessCell{:,1}) < toll*ones(length(xGuess),1)
-    solution = xGuess;
-    converge = true;
+if f(xGuessCell{:,1}) == zeros(length(xGuess),1)
     elapsedTime = toc(timerStart);
+    solution = xGuess;
+    converge = true; 
 
     info.iteration = 0;
     info.solutionVector = solution;
@@ -48,9 +51,7 @@ if f(xGuessCell{:,1}) < toll*ones(length(xGuess),1)
     info.methodUsed = 'none';
 
     if visualConfig.print == true
-        fprintf('Function zeros are equal to the initial guess\n');
-        fprintf('The error %.3d is less than the tollerance %.3d \n', ...
-            errVect(end), toll);
+        fprintf('Function zeros are exactly equal to the initial guess\n');
 
         solPrint = sprintf(' %.4f\n',solution);
         fprintf('\n Zeros computed:\n%s \n',solPrint)
