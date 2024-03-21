@@ -5,27 +5,25 @@ clc
 
 addpath(genpath('src\'));
 
-% 1nd order Runge-Kutta growth factor
-F1_2var = @(h,alpha) I + (h*A(alpha));
-% 2nd order Runge-Kutta growth factor
-F2_2var = @(h,alpha) I + (h*A(alpha)) + 0.5*(h*A(alpha)).^2;
-% 4th order Runge-Kutta growth factor
-F4_2var = @(h,alpha) I + (h*A(alpha)) + 1/2*(h*A(alpha)).^2 + ...
-                1/6*(h*A(alpha)).^3 + 1/24*(h*A(alpha)).^4;
+% % 1nd order Runge-Kutta growth factor
+% F1_2var = @(h,alpha) I + (h*A(alpha));
+% % 2nd order Runge-Kutta growth factor
+% F2_2var = @(h,alpha) I + (h*A(alpha)) + 0.5*(h*A(alpha)).^2;
+% % 4th order Runge-Kutta growth factor
+% F4_2var = @(h,alpha) I + (h*A(alpha)) + 1/2*(h*A(alpha)).^2 + ...
+%                 1/6*(h*A(alpha)).^3 + 1/24*(h*A(alpha)).^4;
 
-% alpha = deg2rad(0);
-% h = 0.5;
+%%% Variables initialization
+I = eye(2);
+alphalim = deg2rad([179 91]);
+alphaVec = linspace(alphalim(1),alphalim(2),50);
+Afun = @(a) [0, 1; -1, 2*cos(a)];
+guess = 2.4;  %rk1 = 2  rk2
 
-I = diag(ones(2));
-A = @(alpha) [0, 1; -1, 2.*cos(alpha)];
-F1 = @(h) I + (h*A(alpha));
+% fsolve options settings
+options = optimset('Display','iter');
 
-alphalim = deg2rad([180 95]);
-
-alphaVec = linspace(alphalim(1),alphalim(2),100);
-guess = 1.1;
-%[solution,converge,info] = newton(f, xGuess, method ,toll, nmax , visualConfig)
-
+% figure initialization
 figure
 hold on
 axis equal
@@ -34,30 +32,48 @@ grid on
 for i=1:length(alphaVec)
     
     alpha = alphaVec(i);
-    %F4 = @(h) I + (h*A(alpha)) + 1/2*(h*A(alpha)).^2 + ...
-    %            1/6*(h*A(alpha)).^3 + 1/24*(h*A(alpha)).^4;
-    F2 = @(h) I + (h*A(alpha)) + 0.5*(h*A(alpha)).^2;
-    F1 = @(h) I + (h*A(alpha));
-    
-    prob = @(h) max(abs(eig( F2(h) ))) - 1;
-    
-    %[h(i),conv(i)] = newton(prob, guess , 'f' ,1e-7, 1e4);
-    [h(i),fval(i),conv(i)]=fsolve(prob,guess);
-    
-    eig_iterVec = eig(A(alpha));
-    %eig_iterVec = eig(F1(h(i)));
+    A = Afun(alpha);
 
-    x(i) = h(i)*real(eig_iterVec(1));
-    y(i) = h(i)*imag(eig_iterVec(1));
+    %%% RK4 and RK2
+    F4 = @(h) I + (h*A) + 0.5*(h*A).^2 + ...
+                 1/6*(h*A).^3 + 1/24*(h*A).^4;  % - DON'T WORK -
     
-    guess = h(i);
-    %if conv(i)==1
-    plot(x(i),y(i),Marker="o",MarkerEdgeColor='k')
-    % else
-    % plot(x(i),y(i),Marker="o",MarkerEdgeColor='r')
-    % end
+    F2 = @(h) I + (h*A) + 0.5*(h*A).^2;         % - DON'T WORK -
+    
+    F1 = @(h) I + (h*A);
+    
+    prob = @(h) max(abs(eig(F1(h)))) - 1;    
+    
+    %abs(eig(F1(guess)))
+    %fplot(prob,[0 2]);
+
+    %%% H COMPUTATIONS
+    %[hvec(i),conv(i)] = newton(prob, guess , 'f' ,1e-7, 1e3);
+    %[hvec(i),fval(i),conv(i)]=fsolve(prob,guess);
+    [hvec(i),fval(i),conv(i)]=fzero(prob,guess,options);
+    
+    guess = hvec(i);    % initial guess update
+
+    %%% Eigenvalue of continuous problem
+    eig_iterVec = eig(A);
+    xA(i) = real(eig_iterVec(1));
+    yA(i) = imag(eig_iterVec(1));
+    plot(xA(i),yA(i),Marker="o",MarkerEdgeColor='k')
+    
+    %%% Eigenvalue of discrete problem
+    xF(i) = hvec(i)*real(eig_iterVec(1));
+    yF(i) = hvec(i)*imag(eig_iterVec(1));
+    plot(xF(i),yF(i),Marker="+",MarkerEdgeColor='r')
+    
 end
 
-%figure
-%plot(cos(alphaVec),sin(alphaVec))
+% final stability region computed plot
+figure(2)
+plot(xF,yF)
+axis equal
+grid on
 
+
+% KNOWN ISSUE:  with F2 and F4 the stability region is worng, the second
+%               eigenvalue is way bigger than expected and so cause the h to be smaller
+%               than expected.
