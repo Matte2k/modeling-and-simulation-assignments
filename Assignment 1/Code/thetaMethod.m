@@ -1,5 +1,7 @@
 clearvars; close all; clc
 
+%%% --- Shoul be ok ---
+
 f = @(x,t) [-x(1); -100*(x(2)-sin(t))+cos(t)];    % function handle of RHS of the ODE
 tmax = 1;           % start and ending time
 x0 = [1 2]';             % initial guess
@@ -18,7 +20,7 @@ for i = 1 : (length(t)-1)         % main loop of the method
     xk = x(:,i);
 
     tinter = tk + theta * h;                    % t_k+1/2
-    xinter = xk + theta * h * (f(xk,tk));       % y_k+1/2
+    xinter = xk + theta * h * (f(xk,tk));       % x_k+1/2
     
     tn = tk + h;
     thetaFunction = @(xn) xn - xk - h * theta * f(xk,tk) - (1-theta) * h * f(xn,tn) ;
