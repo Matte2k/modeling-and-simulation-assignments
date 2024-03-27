@@ -26,13 +26,13 @@ timerStart = tic;               % timer start
 feval = 0;                      % function evaluation counter starts
 dimSys = length(x0);            % function evaluation step
 t = 0:h:tmax;                   % time vector definition
-x = zeros(1,length(t));         % solution vector allocation
-x(1) = x0;                      % initial condition in solution vector
+x = zeros(dimSys,length(t));         % solution vector allocation
+x(:,1) = x0;                      % initial condition in solution vector
 
 
 %%% RK1 loop
 for i=1:(length(t)-1)
-    x(i+1) = x(i) + h * f(x(i),t(i));
+    x(:,i+1) = x(:,i) + h * f(x(:,i),t(i));
     feval = feval + dimSys;             % function evaluation counter update
 end
 

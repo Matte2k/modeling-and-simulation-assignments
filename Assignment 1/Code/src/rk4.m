@@ -2,6 +2,13 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
 %RK4 Summary of this function goes herefIVP
 %   Detailed explanation goes here
 
+%%% Optional input definition
+if nargin < 5
+    rkOptions.submethod = [];
+    rkOptions.alpha = [];
+    rkOptions.beta = [];
+end
+
 
 %%% Default submethod
 if isempty(rkOptions.submethod)
@@ -53,23 +60,23 @@ timerStart = tic;               % timer start
 feval = 0;                      % function evaluation counter starts
 dimSys = length(x0);            % function evaluation step
 t = 0:h:tmax;                   % time vector definition
-x = zeros(1,length(t));         % solution vector allocation
-x(1) = x0;                      % initial condition in solution vector
+x = zeros(dimSys,length(t));    % solution vector allocation
+x(:,1) = x0;                      % initial condition in solution vector
 
 
 %%% RK4 loop
 for i=1:(length(t)-1)                                % calculation loop
-    fk = f(x(i),t(i));
-    xp1 = x(i) + beta4(1,1) * h * fk;    % x(i)=xk && t(i)=tk
+    fk = f(x(:,i),t(i));
+    xp1 = x(:,i) + beta4(1,1) * h * fk;    % x(i)=xk && t(i)=tk
     tp1 = t(i) + alpha4(1,1) * h;
 
-    xp2 = x(i) + beta4(2,2) * h * f(xp1,tp1);    % x(i)=xk && t(i)=tk
+    xp2 = x(:,i) + beta4(2,2) * h * f(xp1,tp1);    % x(i)=xk && t(i)=tk
     tp2 = t(i) + alpha4(2,1) * h;
 
-    xp3 = x(i) + beta4(3,3) * h * f(xp2,tp2);    % x(i)=xk && t(i)=tk
+    xp3 = x(:,i) + beta4(3,3) * h * f(xp2,tp2);    % x(i)=xk && t(i)=tk
     tp3 = t(i) + alpha4(3,1) * h;
 
-    x(i+1) = x(i) + alpha4(4,1) * h * ( beta4(4,1) * fk ...
+    x(:,i+1) = x(:,i) + alpha4(4,1) * h * ( beta4(4,1) * fk ...
         + beta4(4,2) * f(xp1,tp1) ...
         + beta4(4,3) * f(xp2,tp2)...
         + beta4(4,4) * f(xp3,tp3) );
