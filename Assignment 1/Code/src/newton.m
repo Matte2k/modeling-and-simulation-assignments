@@ -2,11 +2,11 @@ function [solution,converge,info] = newton(f, xGuess, method ,toll, nmax , visua
 %newtonSym
 %   Function that compute the zero of given function using the Newton's
 %   method. The jacobian can be computed in 3 different ways:   TO BE DONE
-%   
+%
 %   NOTE:   error is computed between the previus iteration and the next
-%           valule 
+%           valule
 
-%%% Prelimirary check                                           
+%%% Prelimirary check
 if nargin < 6                   % default options without visual config flags
     visualConfig.print = true;
     visualConfig.plot = false;
@@ -24,6 +24,8 @@ if method ~= 's' && method ~= 'f' && method ~= 'c'
     error ('Method not valid, please insert a valid method as input')
 end
 
+% inizializza struct di info se nargout contiene info
+%
 
 %%% Initialization
 timerStart = tic;               % timer start
@@ -41,7 +43,7 @@ xGuessCell = num2cell(xGuess);  % inital guess cell array
 if f(xGuessCell{:,1}) == zeros(length(xGuess),1)
     elapsedTime = toc(timerStart);
     solution = xGuess;
-    converge = true; 
+    converge = true;
 
     info.iteration = 0;
     info.solutionVector = solution;
@@ -170,12 +172,12 @@ else
 end
 
 info = struct;      % info struct for detailed output
-info.iteration = k;
-info.solutionVector = xkVect;
-info.errorVector = errVect;
-info.timeCost = elapsedTime;
-info.fevalCost = feval;
-info.methodUsed = methodString;
+    info.iteration = k;
+    info.solutionVector = xkVect;
+    info.errorVector = errVect;
+    info.timeCost = elapsedTime;
+    info.fevalCost = feval;
+    info.methodUsed = methodString;
 
 % main output print on command window
 if visualConfig.print == true
