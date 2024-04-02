@@ -6,15 +6,23 @@ if nargin < 6
     visualConfig.plot = true;
 end
 
+%%% Dimension Check for initial guess
+if size(x0,2) > 1
+    error('The initial guess is invalid, too many input in x0 vector compare to the order selected\n')
+end
+
 %%% Runge-Kutta method selector based on 'rkOptions'
-switch rkOptions.method
-    case 'RK1'
+switch rkOptions.order
+    case 1
         [x,t,info] = rk1(f,x0,tmax,h,rkOptions);
 
-    case 'RK2'
+    case 2
         [x,t,info] = rk2(f,x0,tmax,h,rkOptions);
 
-    case 'RK4'
+    case 3
+        error('TO BE ADDED\n');
+
+    case 4
         [x,t,info] = rk4(f,x0,tmax,h,rkOptions);
 
     otherwise

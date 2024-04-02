@@ -4,30 +4,29 @@ function [x,t,info] = rk1(f,x0,tmax,h,rkOptions)
 
 %%% Optional input definition
 if nargin < 5
-    rkOptions.submethod = [];
+    rkOptions.method = [];
     rkOptions.alpha = [];
     rkOptions.beta = [];
 end
 
 
-%%% Default submethod
-if isempty(rkOptions.submethod)
-    rkOptions.submethod = 'FowardEuler';       % Heun parameters sets as default
+%%% Default method
+if isempty(rkOptions.method)
+    rkOptions.method = 'FowardEuler';       % Heun parameters sets as default
 end
 
 if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
     warning('Parameters matrix unused, standard %s parameters are used instead\n',...
-        rkOptions.submethod);
+        rkOptions.method);
 end
 
 
 %%% Initialization
 timerStart = tic;               % timer start
 feval = 0;                      % function evaluation counter starts
-dimSys = length(x0);            % function evaluation step
+dimSys = size(x0,1);            % function evaluation step
 t = 0:h:tmax;                   % time vector definition
-x = zeros(dimSys,length(t));         % solution vector allocation
-x(:,1) = x0;                      % initial condition in solution vector
+x = [x0 zeros(dimSys,length(t)-1)];    % solution vector allocation
 
 
 %%% RK1 loop

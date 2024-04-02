@@ -4,27 +4,27 @@ function [x,t,info] = rk2(f,x0,tmax,h,rkOptions)
 
 %%% Optional input definition
 if nargin < 5
-    rkOptions.submethod = [];
+    rkOptions.method = [];
     rkOptions.alpha = [];
     rkOptions.beta = [];
 end
 
 
-%%% Default submethod
-if isempty(rkOptions.submethod)
-    rkOptions.submethod = 'Heun';       % Heun parameters sets as default
+%%% Default method
+if isempty(rkOptions.method)
+    rkOptions.method = 'Heun';       % Heun parameters sets as default
 end
 
 
 %%% Parameters definition
-switch rkOptions.submethod
+switch rkOptions.method
     case 'Heun'
         alpha2 = [1 1]';                 % rk alpha matrix
         beta2 = [1, 0; 0.5, 0.5];        % rk beta matrix
 
         if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
             warning('Parameters matrix unused, standard %s parameters are used instead\n',...
-                rkOptions.submethod);
+                rkOptions.method);
         end
 
     case 'MidPoint'
@@ -33,15 +33,16 @@ switch rkOptions.submethod
 
         if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
             warning('Parameters matrix unused, standard %s parameters are used instead\n',...
-                rkOptions.submethod);
+                rkOptions.method);
         end
 
     case 'Custom'
         if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            % TO DEBUG
             error('No parameters matrix has been given as input\n');
 
-        % elseif size(rkOptions.alpha) ~= size(zeros(2,1)) || size(rkOptions.beta) ~= size(zeros(2,2))
-        %     error('Parameters matrix dimensions are invalid\n');
+        elseif not(isequal(size(rkOptions.alpha),[2,1])) || not(isequal(size(rkOptions.beta),[2,2]))
+            error('Parameters matrix dimensions are invalid\n');
+            
         end
 
         alpha2 = rkOptions.alpha;
@@ -53,21 +54,20 @@ switch rkOptions.submethod
         eC3 = 2 * alpha2(1,1) * beta2(2,2) == 1;
 
         if eC1 ~= true ||  eC2 ~= true ||  eC3 ~= true
-            error('Insert a valid parameters matrix as input\n');
+            error('Insert a valid parameters matrix as input');
         end
 
     otherwise
-        error('Insert a valid submethod as input\n');
+        error('Insert a valid method as input');
 end
 
 
 %%% Initialization
 timerStart = tic;               % timer start
 feval = 0;                      % function evaluation counter starts
-dimSys = length(x0);            % function evaluation step
+dimSys = size(x0,1);            % function evaluation step
 t = 0:h:tmax;                   % time vector definition
-x = zeros(dimSys,length(t));         % solution vector allocation
-x(:,1) = x0;                      % initial condition in solution vector
+x = [x0 zeros(dimSys,length(t)-1)];    % solution vector allocation
 
 
 %%% RK2 loop

@@ -4,20 +4,20 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
 
 %%% Optional input definition
 if nargin < 5
-    rkOptions.submethod = [];
+    rkOptions.method = [];
     rkOptions.alpha = [];
     rkOptions.beta = [];
 end
 
 
-%%% Default submethod
-if isempty(rkOptions.submethod)
-    rkOptions.submethod = 'Runge-Kutta';       % Heun parameters sets as default
+%%% Default method
+if isempty(rkOptions.method)
+    rkOptions.method = 'Runge-Kutta';       % Heun parameters sets as default
 end
 
 
 %%% Parameters definition
-switch rkOptions.submethod
+switch rkOptions.method
     case 'Runge-Kutta'
         alpha4 = [0.5 0.5 1 1]';           % rk alpha matrix
         beta4 = diag([0.5 0.5 1 1/6]);     % rk beta matrix
@@ -25,17 +25,17 @@ switch rkOptions.submethod
 
         if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
             warning('Parameters matrix unused, standard %s parameters are used instead\n',...
-                rkOptions.submethod);
+                rkOptions.method);
         end
 
-    case 'Butcher'                  % NOT IMPLEMENTED YET
-        %alpha4 = []';           % TBD
-        %beta4 = diag([]);     % rk beta matrix
+    case 'Butcher'                  % NOT IMPLEMENTED YET !!!!
+        %alpha4 = []';              % TBD
+        %beta4 = diag([]);          % rk beta matrix
         %beta4(4,:) = [];
 
         if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
             warning('Parameters matrix unused, standard %s parameters are used instead\n',...
-                rkOptions.submethod);
+                rkOptions.method);
         end
         error ('Method has not been implemented yet\n');
 
@@ -43,25 +43,25 @@ switch rkOptions.submethod
         if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            % TO DEBUG
             error('No parameters matrix has been given as input\n');
 
-        % elseif size(rkOptions.alpha) ~= size(zeros(2,1)) || size(rkOptions.beta) ~= size(zeros(2,2))
-        %     error('Parameters matrix dimensions are invalid\n');
+        elseif not(isequal(size(rkOptions.alpha),[4,1])) || not(isequal(size(rkOptions.beta),[4,4]))            % TO DEBUG
+            error('Parameters matrix dimensions are invalid\n');
+
         end
 
         alpha4 = rkOptions.alpha;
         beta4 = rkOptions.beta;
 
     otherwise
-        error('Insert a valid submethod as input\n');
+        error('Insert a valid method as input\n');
 end
 
 
 %%% Initialization
 timerStart = tic;               % timer start
 feval = 0;                      % function evaluation counter starts
-dimSys = length(x0);            % function evaluation step
+dimSys = size(x0,1);            % function evaluation step
 t = 0:h:tmax;                   % time vector definition
-x = zeros(dimSys,length(t));    % solution vector allocation
-x(:,1) = x0;                      % initial condition in solution vector
+x = [x0 zeros(dimSys,length(t)-1)];    % solution vector allocation
 
 
 %%% RK4 loop
@@ -80,7 +80,7 @@ for i=1:(length(t)-1)                                % calculation loop
         + beta4(4,2) * f(xp1,tp1) ...
         + beta4(4,3) * f(xp2,tp2)...
         + beta4(4,4) * f(xp3,tp3) );
-    
+
     feval = feval + 4*dimSys;             % function evaluation counter update
 end
 
