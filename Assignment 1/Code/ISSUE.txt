@@ -1,11 +1,8 @@
-- do the same as AB for AMn
-- do the same as AB for ABMn
-- do the same as AB for BDFn
 - fix "stabRegion.m"
 - implement in main all the ex. connected with multistep, theta and IEX4
 - debug all the entry condition and check of the different function
 
 
-CHECK IMPORTANTE: switch case in rungeKutta and multistep changed, now use the order number as input
-
 NEED TO REMOVE \n in every error string  ---- REMEMBERRRRR
+
+Review all the "feval" of the different methods
