@@ -4,7 +4,6 @@ function [x0,infoStartup] = startupGuess(f,x0,order,h,abOptions)
 %
 %   startup method
 %
-%
 
 infoStartup = struct;
     infoStartup.timeCost = 0;
@@ -55,15 +54,37 @@ switch abOptions.startup
         end
 
     case 'AM'
+        while size(x0,2) ~= order
+            amStarter = amSettings(size(x0,2),[],[],[],[]);
+            tmaxLoop = amStarter.order * h;
+            [x0,~,infoStartupLoop] = adamsMoulton(f,x0,tmaxLoop,h,amStarter,visualConf);
+            
+            infoStartup.timeCost = infoStartup.timeCost + infoStartupLoop.timeCost;
+            infoStartup.fevalCost = infoStartup.fevalCost + infoStartupLoop.fevalCost;
+        end
     
     case 'ABM'
+        while size(x0,2) ~= order
+            abmStarter = abmSettings(size(x0,2),[],[],[],[]);
+            tmaxLoop = abmStarter.order * h;
+            [x0,~,infoStartupLoop] = adamsBashforthMoulton(f,x0,tmaxLoop,h,abmStarter,visualConf);
+            
+            infoStartup.timeCost = infoStartup.timeCost + infoStartupLoop.timeCost;
+            infoStartup.fevalCost = infoStartup.fevalCost + infoStartupLoop.fevalCost;
+        end
     
     case 'BDF'
+        while size(x0,2) ~= order
+            bdfStarter = bdfSettings(size(x0,2),[],[],[],[],[]);
+            tmaxLoop = bdfStarter.order * h;
+            [x0,~,infoStartupLoop] = backwardDifferenceFormula(f,x0,tmaxLoop,h,bdfStarter,visualConf);
+            
+            infoStartup.timeCost = infoStartup.timeCost + infoStartupLoop.timeCost;
+            infoStartup.fevalCost = infoStartup.fevalCost + infoStartupLoop.fevalCost;
+        end
 
     otherwise
         error('Please insert a valid method as input\n');
 end
 
-
 end
-
