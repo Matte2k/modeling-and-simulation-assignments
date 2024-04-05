@@ -1,8 +1,11 @@
+
 - fix "stabRegion.m"
 - implement in main all the ex. connected with multistep, theta and IEX4
 - debug all the entry condition and check of the different function
-
-
-NEED TO REMOVE \n in every error string  ---- REMEMBERRRRR
+    left debug flag only on order one of each methods
 
 Review all the "feval" of the different methods
+    DONE FOR:   AB, AM, ABM, BDF, iex4, newton, rk, theta
+
+Comment, description and cosmetic of the functions. TO COMPLETE FOR
+    - newton {NOT FINISHED OUTPUT DESCRIPTION}
