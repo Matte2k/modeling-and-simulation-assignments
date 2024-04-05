@@ -1,16 +1,36 @@
 function [iOptions] = iSettings(method,options)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+%I SETTINGS - Create the options struct for iex4 methods
+%
+%   Syntax:
+%       [iOptions] = iSettings(method,options)
+%
+%   Input:
+%       method(*),        char:  define the solver (available 'fsolve' only in the current realese)
+%       options(*),     fsolve:  optimization options, for details see optimoptions.m
+%
+%   Output:
+%       iOptions,  struct:  contains settings for IEX4 method:
+%           - iOptions.method = method
+%           - iOptions.options = options
+%
+%   Default settings for optional input (*):
+%       method:  set as 'fsolve' by default inside iex4 function
+%       options: set to don't display iteration by default inside iex4 function
+%
 
-if nargin < 2
-    if nargin < 1
-        method = [];
+
+    %%% Default value for optional input
+    if nargin < 2
+        options = [];
+        if nargin < 1
+            method = [];
+        end
     end
-    options = [];
-end
 
-iOptions = struct;
-    iOptions.method = method;
-    iOptions.options = options;
-end
 
+    %%% Struct definition
+    iOptions = struct;
+        iOptions.method  = method;
+        iOptions.options = options;
+
+end
