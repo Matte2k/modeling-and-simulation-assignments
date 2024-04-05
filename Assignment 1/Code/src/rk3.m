@@ -1,8 +1,8 @@
-function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
-%RK4 - Runge-Kutta method of order 4
+function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
+%RK4 - Runge-Kutta method of order 3
 %
 %   Syntax:
-%       [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
+%       [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
 %
 %   Input:
 %       f,       function(x,t):  IVP problem
@@ -21,7 +21,7 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
 %           - info.implicit,       bool:  true if the method is implicit
 %
 %   Default settings for optional input (*):
-%       rkOptions:  set with default 'Runge-Kutta' alpha and beta
+%       rkOptions:  set with default 'Heun' alpha and beta
 %
 
     %%% Optional input definition
@@ -34,16 +34,16 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
 
     %%% Default method
     if isempty(rkOptions.method)
-        rkOptions.method = 'Runge-Kutta';      % Runge-Kutta parameters sets as default
+        rkOptions.method = 'Heun';           % Heun parameters sets as default
     end
 
 
     %%% Parameters definition
     switch rkOptions.method
-        case 'Runge-Kutta'
-            alpha4 = [0.5 0.5 1 1]';           % rk alpha matrix
-            beta4 = diag([0.5 0.5 1 1/6]);     % rk beta matrix
-            beta4(4,:) = [1/6 1/3 1/3 1/6];
+        case 'Heun'
+            alpha3 = [1/3 2/3 1]';           % rk alpha matrix   TO ADDD
+            beta3 = diag([1/3 2/3 3/4 ]);       % rk beta matrix    TO ADDD
+            beta3(3,:) = [1/4 0 3/4];
 
             if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
                 warning('Parameters matrix unused, standard %s parameters are used instead',...
@@ -54,13 +54,13 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
             if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            % TO DEBUG
                 error('No parameters matrix has been given as input');  % missing parameters matrix
 
-            elseif not(isequal(size(rkOptions.alpha),[4,1])) || not(isequal(size(rkOptions.beta),[4,4]))            % TO DEBUG
+            elseif not(isequal(size(rkOptions.alpha),[3,1])) || not(isequal(size(rkOptions.beta),[3,3]))            % TO DEBUG
                 error('Parameters matrix dimensions are invalid');      % parameters matrix with wrong size
 
             end
 
-            alpha4 = rkOptions.alpha;        % custom alpha parameter
-            beta4 = rkOptions.beta;          % custom beta parameter
+            alpha3 = rkOptions.alpha;        % custom alpha parameter
+            beta3 = rkOptions.beta;          % custom beta parameter
 
         otherwise
             error('Insert a valid method as input');
@@ -79,24 +79,20 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
     feval = feval + dimSys;                       % function evaluation counter update
 
 
-    %%% RK4 loop
+    %%% RK3 loop
     for i=1:(length(t)-1)                              % calculation loop
         fk = fvalVec(:,i);
-        xp1 = x(:,i) + beta4(1,1) * h * fk;            % x(i)=xk && t(i)=tk
-        tp1 = t(i) + alpha4(1,1) * h;
+        xp1 = x(:,i) + beta3(1,1) * h * fk;            % x(i)=xk && t(i)=tk
+        tp1 = t(i) + alpha3(1,1) * h;
 
-        xp2 = x(:,i) + beta4(2,2) * h * f(xp1,tp1);    % x(i)=xk && t(i)=tk
-        tp2 = t(i) + alpha4(2,1) * h;
+        xp2 = x(:,i) + beta3(2,2) * h * f(xp1,tp1);    % x(i)=xk && t(i)=tk
+        tp2 = t(i) + alpha3(2,1) * h;
 
-        xp3 = x(:,i) + beta4(3,3) * h * f(xp2,tp2);    % x(i)=xk && t(i)=tk
-        tp3 = t(i) + alpha4(3,1) * h;
-
-        x(:,i+1) = x(:,i) + alpha4(4,1) * h * ( beta4(4,1) * fk ...
-            + beta4(4,2) * f(xp1,tp1) ...
-            + beta4(4,3) * f(xp2,tp2)...
-            + beta4(4,4) * f(xp3,tp3) );
+        x(:,i+1) = x(:,i) + alpha3(3,1) * h * ( beta3(3,1) * fk ...
+            + beta3(3,2) * f(xp1,tp1) ...
+            + beta3(3,3) * f(xp2,tp2));
         fvalVec(:,i+1) = f(x(:,i+1),t(i+1));
-        feval = feval + 4*dimSys;             % function evaluation counter update
+        feval = feval + 3*dimSys;             % function evaluation counter update
     end
 
     elapsedTime = toc(timerStart);   % timer stop
