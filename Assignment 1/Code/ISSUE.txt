@@ -1,11 +1,26 @@
 
+- add a color palet for all the plot
+- add plot export
 - fix "stabRegion.m"
+- fix time cost with an average CPU time [see appendix 1]
 - implement in main all the ex. connected with multistep, theta and IEX4
 - debug all the entry condition and check of the different function
     left debug flag only on order one of each methods
+
+NOTE!       theta.m IS NOT BI2 required in ex5... is BI1
 
 Review all the "feval" of the different methods
     DONE FOR:   AB, AM, ABM, BDF, iex4, newton, rk, theta
 
 Comment, description and cosmetic of the functions. TO COMPLETE FOR
     - newton {NOT FINISHED OUTPUT DESCRIPTION}
+
+
+~ appendix 1 ~
+Maybe best choiche is to implement it only for high level function as rungeKutta.m, adamsBashforth.m, etc.etc.
+Code:
+    tic                                      % Starting keeping track of the CPU time
+    for j = 1:N
+        [t_H1,x_H1] = heun(f,t_max,x0,h_vect(1));
+    end 
+    CPU_H1 = toc/N;                          % Computing an average CPU time
