@@ -56,7 +56,7 @@ function [x,t,info] = rungeKutta(f,x0,tmax,h,rkOptions,visualConfig)
             error('Please insert a valid method as input\n');
     end
 
-    if visualConfig.plot == true
+    if visualConfig == true
         plot(t,x,'o-');
     end
 
