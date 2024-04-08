@@ -23,7 +23,7 @@ function [amOptions] = amSettings(order,startup,method,options,alpha,beta)
 %
 %   Default settings for optional input (*):
 %       startup: set as empty by default
-%       method:  set as 'Standard' by default inside ab# functions
+%       method:  set as 'Standard' by default inside am# functions
 %       options: set to don't display iteration by default inside am# functions
 %       alpha:   set as empty by default
 %       beta:    set as empty by default
