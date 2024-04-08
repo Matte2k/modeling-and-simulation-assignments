@@ -18,15 +18,15 @@ function [solution,converge,info] = newton(f,xGuess,method,toll,nmax,visualConfi
 %               - visualConfig.plot: plot the convergence plot
 %
 %   Output:
-%       solution,      double[n,m]:  solution vector
+%       solution,           double:  solution vector
 %       convergence,   double[1,m]:  time istant associated to solutions
 %       info,               struct:  information on method used:
-%           - info.timeCost,        double:  time spent
-%           - info.fevalCost,       double:  # of function evaluations
-%           - info.iteration,       double:      - WIP -
-%           - info.solutionVector,  double:      - WIP -
-%           - info.errorVector,     double:      - WIP -
-%           - info.methodUsed,        char:      - WIP -
+%           - info.iteration,           double:  number of iteration (m)
+%           - info.solutionVector, double[n,m]:  solution vector for each iteration
+%           - info.errorVector,    double[1,m]:  error for each iteration
+%           - info.timeCost,            double:  time spent
+%           - info.fevalCost,           double:  # of function evaluations
+%           - info.methodUsed,            char:  string describing the method used
 %
 %   Default settings for optional input (*):
 %       method:        set as 'f' by default
