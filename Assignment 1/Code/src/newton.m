@@ -232,7 +232,7 @@ function [solution,converge,info] = newton(f,xGuess,method,toll,nmax,visualConfi
     % convergence plot
     if visualConfig.plot == true
         iterationVector = (1:k);
-        plot(iterationVector,errVect,'o-')
+        semilogy(iterationVector,errVect,'o-')
     end
 
 end
