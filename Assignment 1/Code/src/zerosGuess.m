@@ -1,9 +1,9 @@
-function [Z1mesh,Z2mesh] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualConfig)
+function [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualConfig)
 %ZEROS GUESS - plot the two functions on a defined mesh to find an educated
 % guess for 2x2 Newton method
 %
 %   Syntax:
-%       [Z1mesh,Z2mesh] = zerosGuess(f1,f2,meshMin,meshMax,visualConfig)
+%       [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,visualConfig)
 %
 %   Input:
 %       f1,  function(x1,...,xn):  function 1 for which to compute zeros
@@ -16,6 +16,7 @@ function [Z1mesh,Z2mesh] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualConfi
 %   Output:
 %       Z1mesh,   double[n,m]:  mesh evaluated on f1
 %       Z2mesh,   double[n,m]:  mesh evaluated on f2
+%       t,   TiledChartLayout:  visual output object
 %
 %   Default settings for optional input (*):
 %       meshMin:       set equal to -5 by default
@@ -74,22 +75,21 @@ function [Z1mesh,Z2mesh] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualConfi
             s2.FaceColor = 'b';
             s2.FaceAlpha = 0.4;
         
-        % versors
-        x1ax = quiver3(0,0,0,1,0,0);
-            x1ax.LineWidth = 2;
-            x1ax.Color = 'k';
-        x2ax = quiver3(0,0,0,0,1,0);
-            x2ax.LineWidth = 2;
-            x2ax.Color = 'k';
-        zax = quiver3(0,0,0,0,0,1);
-            zax.LineWidth = 2;
-            zax.Color = 'k';
+        % % versors
+        % x1ax = quiver3(0,0,0,1,0,0);
+        %     x1ax.LineWidth = 2;
+        %     x1ax.Color = 'k';
+        % x2ax = quiver3(0,0,0,0,1,0);
+        %     x2ax.LineWidth = 2;
+        %     x2ax.Color = 'k';
+        % zax = quiver3(0,0,0,0,0,1);
+        %     zax.LineWidth = 2;
+        %     zax.Color = 'k';
         
         % labels
-        xlabel('x1')
-        ylabel('x2')
+        xlabel('$x_1$');   ylabel('$x_2$');
         title('Surface plot')
-        legend('zero','f1','f2')
+        legend('$zero$','$f_1$','$f_2$')
         
         
         %%% contour plot of the zero level
@@ -104,9 +104,9 @@ function [Z1mesh,Z2mesh] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualConfi
             c2.EdgeColor = 'b';
         
         % labels
-        xlabel('x1');   ylabel('x2');  zlabel('f(x1,x2)')
+        xlabel('$x_1$');   ylabel('$x_2$');  zlabel('$f(x_1,x_2)$')
         title('Contour plot')
-        legend('$f1=0$','$f2=0$')
+        legend('$f_1=0$','$f_2=0$')
     
     end
 
