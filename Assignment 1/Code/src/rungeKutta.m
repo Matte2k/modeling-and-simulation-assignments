@@ -20,6 +20,8 @@ function [x,t,info] = rungeKutta(f,x0,tmax,h,rkOptions,visualConfig)
 %           - info.fevalCost,    double:  # of function evaluations
 %           - info.fvalVec, dobule[n,m]:  f evaluated in solution points
 %           - info.implicit,       bool:  true if the method is implicit
+%           - info.iterations,    double:
+%           - info.avgTimeCost,  double:  averge time spent on 'avgTime' iterations
 %
 %   Default settings for optional input (*):
 %       visualConfig:  set as true by default
@@ -37,27 +39,45 @@ function [x,t,info] = rungeKutta(f,x0,tmax,h,rkOptions,visualConfig)
         error('The initial guess is invalid, too many input in x0 vector compare to the order selected\n')
     end
 
-
+    
     %%% Runge-Kutta method selector based on 'rkOptions'
     switch rkOptions.order
-        case 1
-            [x,t,info] = rk1(f,x0,tmax,h,rkOptions);
+        case 1 
+            tic
+            for i = 1:rkOptions.iterations
+                [x,t,info] = rk1(f,x0,tmax,h,rkOptions);
+            end
+            info.avgTimeCost = toc/rkOptions.iterations;
 
         case 2
-            [x,t,info] = rk2(f,x0,tmax,h,rkOptions);
+            tic
+            for i = 1:rkOptions.iterations
+                [x,t,info] = rk2(f,x0,tmax,h,rkOptions);
+            end
+            info.avgTimeCost = toc/rkOptions.iterations;
 
         case 3
-            [x,t,info] = rk3(f,x0,tmax,h,rkOptions);
+            tic
+            for i = 1:rkOptions.iterations
+                [x,t,info] = rk3(f,x0,tmax,h,rkOptions);
+            end
+            info.avgTimeCost = toc/rkOptions.iterations;
 
         case 4
-            [x,t,info] = rk4(f,x0,tmax,h,rkOptions);
+            tic
+            for i = 1:rkOptions.iterations
+                [x,t,info] = rk4(f,x0,tmax,h,rkOptions);
+            end
+            info.avgTimeCost = toc/rkOptions.iterations;
 
         otherwise
             error('Please insert a valid method as input\n');
     end
+    info.iterations = rkOptions.iterations;
+
 
     if visualConfig == true
-        plot(t,x,'o-');
+        plot(t,x,'-');
     end
 
 end
