@@ -9,7 +9,7 @@ function [x0,infoStartup] = startupGuess(f,x0,guessOrder,h,methodOptions)
 %       x0,        double[n,#]:  generic initial guess 
 %       guessOrder,     double:  number of element in initial guess
 %       h,              double:  time step of the integration
-%       methodOptions,  struct:  see corresponding method Settings.m for details
+%       methodOptions,  struct:  see corresponding methodSettings.m for details
 %
 %   Output:
 %       x,     double[n,m]:  solution vector
@@ -58,11 +58,6 @@ function [x0,infoStartup] = startupGuess(f,x0,guessOrder,h,methodOptions)
             rkStarter = rkSettings(4);
             tmaxSingleStep = (guessOrder - size(x0,2)) * h;
             [x0,~,infoStartup] = rungeKutta(f,x0,tmaxSingleStep,h,rkStarter,visualConf);
-
-        case 'THETA'
-            tStarter = tSettings(0.5);
-            tmaxSingleStep = (guessOrder - size(x0,2)) * h;
-            [x0,~,infoStartup] = theta(f,x0,tmaxSingleStep,h,tStarter,visualConf);
 
         case 'IEX4'
             iStarter = iSettings();
