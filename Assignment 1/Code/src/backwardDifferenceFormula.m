@@ -91,7 +91,7 @@ function [x,t,info] = backwardDifferenceFormula(f,x0,tmax,h,bdfOptions,visualCon
     end
 
     if visualConfig == true
-        plot(t,x,'o-');
+        plot(t,x,'-');
     end
 
 

@@ -90,7 +90,7 @@ function [x,t,info] = adamsBashforth(f,x0,tmax,h,abOptions,visualConfig)
     end
 
     if visualConfig == true
-        plot(t,x,'o-');     % plot of the solution
+        plot(t,x,'-');     % plot of the solution
     end
 
 

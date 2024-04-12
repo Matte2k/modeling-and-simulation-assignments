@@ -106,7 +106,7 @@ function [x,t,info] = adamsMoulton(f,x0,tmax,h,amOptions,visualConfig)
     end
 
     if visualConfig == true
-        plot(t,x,'o-');     % plot of the solution
+        plot(t,x,'-');     % plot of the solution
     end
 
 

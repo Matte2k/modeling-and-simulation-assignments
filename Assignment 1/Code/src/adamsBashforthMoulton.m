@@ -91,7 +91,7 @@ function [x,t,info] = adamsBashforthMoulton(f,x0,tmax,h,abmOptions,visualConfig)
     end
 
     if visualConfig == true
-        plot(t,x,'o-');     % plot of the solution
+        plot(t,x,'-');     % plot of the solution
     end
 
 
