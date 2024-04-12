@@ -1,12 +1,9 @@
 
 - Find a good color palette
 - Add plot export
+- Add general graphic settings
+- Multistep stability reigion
+- Eigenvalue analysis for ex7
 - debug all the entry condition and check of the different function
     left debug flag only on order one of each methods
 
-NOTE!       theta.m IS NOT BI2 required in ex5... is BI1
-
-Review all the "feval" of the different methods
-    DONE FOR:   AB, AM, ABM, BDF, iex4, newton, rk, theta
-
-Comment, description and cosmetic of the functions. TO COMPLETE FOR
