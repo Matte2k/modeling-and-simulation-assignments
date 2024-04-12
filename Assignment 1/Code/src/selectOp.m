@@ -1,19 +1,41 @@
-function [F,guess,degVec,hVec]=selectOp(method,dimSys,params)
+function [F,guess,degVec,hVec] = selectOp(method,dimSys,params)
+%SELECT OP - Finds the F(h,alpha) operator and associated settings usefull
+% to compute stability region of the desired integration method 
 %
+%    Syntax:
+%       [F,guess,degVec,hVec] = selectOp(method,dimSys,params)
 %
+%   Input:
+%       method,       char:  select method to obtain the operator
+%       dimSys(*),  double:  analyzed system dimension 
+%       params(*),  double:  input used in BI2 method (sets theta value)
 %
+%   Output:
+%       F,      function(h,A):  corresponding method operator
+%       guess,         double:  eductaed initial guess used for fzero in stabRegion.m
+%       degVec,   double[1,2]:  starting and ending alpha used in stability region analysis
+%       hVec,     double[1,2]:  starting and ending h used in stability guess analysis
 %
+%   Default settings for optional input (*):
+%       dimSys:     set to 2 by default for stability region analysis
+%       params:     set to 0.4 by default
 %
+%   Note:   'guess','degVec','hVec' has been pre defined throught an iterarive
+%           based on graphic analysis obtained using the function stabGuess.m
 %
-% guess and degVec retrived graphically from stabGuess.m
 
 
-if nargin < 3       % Temporary
-    params = 0.4;
+%%% Optional input definition
+if nargin < 2
+    dimSys = 2;
+    if nargin < 3       
+        params = 0.4;
+    end
 end
          
-I = eye(dimSys);
 
+%%% Operator selection
+I = eye(dimSys);
 switch method
     case 'RK1'
         F = @(h,A) I + (h*A);
@@ -47,7 +69,7 @@ switch method
             degVec = [0 180];
             hVec = [0 12];
 
-        elseif params >= 0.5    % debug params = 0.5
+        elseif params >= 0.5    % DEBUG params = 0.5
             guess  = 10;
             degVec = [180 0];
             hVec = [0 12];
@@ -89,5 +111,7 @@ switch method
 
     otherwise
         error('Insert a valid method')
+
+end
 
 end
