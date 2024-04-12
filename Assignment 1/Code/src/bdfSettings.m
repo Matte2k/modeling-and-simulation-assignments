@@ -6,7 +6,7 @@ function [bdfOptions] = bdfSettings(order,startup,method,options,alpha,beta,gamm
 %
 %   Input:
 %       order,          double:  select AB method order
-%       startup(*),       char:  see startupGuess.m for details
+%       startup(*),       char:  see startupGuess.m for all the possibility
 %       method(*),        char:  chose between 'Standard' parameters and 'Custom'
 %       options(*),     fsolve:  optimization options, for details see optimoptions.m
 %       alpha(*),  double[1,1]:  insert custom parameter alpha for AB method

@@ -6,7 +6,7 @@ function [abOptions] = abSettings(order,startup,method,alpha,beta)
 %
 %   Input:
 %       order,          double:  select AB method order
-%       startup(*),       char:  see startupGuess.m for details
+%       startup(*),       char:  see startupGuess.m for all the possibility
 %       method(*),        char:  chose between 'Standard' parameters and 'Custom' 
 %       alpha(*),  double[1,1]:  insert custom parameter alpha for AB method
 %       beta(*),   double[1,n]:  insert custom parameter beta for AB method

@@ -6,7 +6,7 @@ function [abmOptions] = abmSettings(order,startup,method,alpha,betaP,betaC)
 %
 %   Input:
 %       order,          double:  select ABM method order
-%       startup(*),       char:  see startupGuess.m for details
+%       startup(*),       char:  see startupGuess.m for all the possibility
 %       method(*),        char:  chose between 'Standard' parameters and 'Custom' 
 %       alpha(*),  double[1,1]:  insert custom parameter alpha for ABM method
 %       betaP(*),  double[1,n]:  insert custom parameter beta predictor for ABM method
