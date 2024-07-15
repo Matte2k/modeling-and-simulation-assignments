@@ -1,9 +1,19 @@
 
-- Find a good color palette
 - Add plot export
-- Add general graphic settings
-- Multistep stability reigion
-- Eigenvalue analysis for ex7
 - debug all the entry condition and check of the different function
     left debug flag only on order one of each methods
 
+ex1:    DONE
+ex2:    DONE
+ex3:    DONE
+ex4:    DONE    
+ex5:    DONE    
+ex6:    DONE 
+ex7:    find a way to rappresent stability region
+        + deep dive in oscillatory behavior of ABM x1
+            =>  visto che quello che da problemi è la soluzione x1 analizzo lo sviluppo
+                degli autovalori del sistema linearizzato sulla traiettoria x1
+                Per fare ciò risolvo l'eq1 e ne ricavo la sua soluzione particolare...
+                sostituisco nella seconda e ricavo un sistema di due equazioni
+                in due incognite indipendenti [CAPIRE SE É LECITA STA COSA] !!!
+        
