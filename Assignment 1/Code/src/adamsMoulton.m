@@ -33,7 +33,7 @@ function [x,t,info] = adamsMoulton(f,x0,tmax,h,amOptions,visualConfig)
         
         
     %%% Dimension Check for initial guess
-    if size(x0,2) > 1
+    if size(x0,2) > 1 && visualConfig == true
         % warning to remember that initial guess correct input format
         warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step',h);      % DEBUG
     end
