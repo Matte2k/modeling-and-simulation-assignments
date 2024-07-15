@@ -44,7 +44,7 @@ function [x,t,info] = abm3(f,x0,tmax,h,abmOptions)
     switch abmOptions.method
         case 'Standard'
             alpha = 12;             % standard alpha parameter
-            betaP = [23 -15  5];    % standard beta predictor parameter
+            betaP = [23 -16  5];    % standard beta predictor parameter
             betaC = [5   8  -1];    % standard beta corrector parameter
 
             if not(isempty(abmOptions.alpha)) || not(isempty(abmOptions.betaP)) || not(isempty(abmOptions.betaC))
