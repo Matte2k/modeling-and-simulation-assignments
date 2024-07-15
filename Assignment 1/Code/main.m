@@ -7,26 +7,28 @@ addpath(genpath('src\'));
 %% Ex 1
 %code ex1
 clearvars; close all; clc;
+graphicSettings;
 
 %%% DATA INPUT
 f = @(x1,x2) [x2.^2 - x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
+xGuess = [[3.5 2.5]',[2.5 -2]'];
 toll = 1e-12;
 nmax = 1e3;
 config = struct;
     config.print = true;
-    config.plot = true;
+    config.plot = false;
 
 
 %%% INITIAL GUESS DEFINITION
 % Initial guess graphic analysis
-f1 = @(x1,x2) x2.^2 - x1 - 2;
-f2 = @(x1,x2) -x1.^2 + x2 + 10;
-[Z1mesh,Z2mesh] = zerosGuess(f1,f2);
+f1 = @(x1,x2) x2.^2 - x1 - 2;           f2 = @(x1,x2) -x1.^2 + x2 + 10;
+[Z1mesh,Z2mesh] = zerosGuess(f1,f2);            % plot functions
+plot(xGuess(1,:),xGuess(2,:),'ko');             % plot guess
+legend('$f_1=0$','$f_2=0$','Initial guess')     % plot legend
 % -add graphic export here-
 
 
 % Variable initialization
-xGuess = [[3.5 2.5]',[2.5 -2]'];
 numZeros = size(xGuess,2);
 solutionSym = zeros(2,numZeros);    solutionFD  = zeros(2,numZeros);    solutionCD  = zeros(2,numZeros);
 convergeSym = zeros(1,numZeros);    convergeFD =  zeros(1,numZeros);    convergeCD =  zeros(1,numZeros);
@@ -34,27 +36,17 @@ infoSym = cell(1,numZeros);         infoFD = cell(1,numZeros);          infoCD =
 
 
 %%% NEWTON'S METHODS
-figure('Name','Convergence');   % Figure initialization
-    t1 = tiledlayout(1,2);
-    title(t1,'Newton convergence')
 for i = 1:numZeros
-    nexttile
-        % Solution with different submethod
-        [solutionSym(:,i),convergeSym(i),infoSym{i}] = newton(f, xGuess(:,i), 's', toll, nmax, config);
-        hold on;
-        [solutionFD(:,i), convergeFD(i), infoFD{i}]  = newton(f, xGuess(:,i), 'f', toll, nmax, config);
-        [solutionCD(:,i), convergeCD(i), infoCD{i}]  = newton(f, xGuess(:,i), 'c', toll, nmax, config);
-        grid on;    axis padded;    box on
-        legend('$sym$','$FD$','$CD$',Location='best')
-        tString = sprintf('$z_{%d}=[%.4f,%.4f]$',i,solutionFD(1,i),solutionFD(1,i));
-        title(tString)
-    % -add graphic export here-
-    
+    [solutionSym(:,i),convergeSym(i),infoSym{i}] = newton(f, xGuess(:,i), 's', toll, nmax, config); % symbolic math
+    [solutionFD(:,i), convergeFD(i), infoFD{i}]  = newton(f, xGuess(:,i), 'f', toll, nmax, config); % forward difference
+    [solutionCD(:,i), convergeCD(i), infoCD{i}]  = newton(f, xGuess(:,i), 'c', toll, nmax, config); % centered difference
+
     % Error compare between different submethod
     errSym = infoSym{i}.errorVector(end);
     errFD  = infoFD{i}.errorVector(end);
     errCD  = infoCD{i}.errorVector(end);
     
+    % Compare error to find best method
     if errSym < errFD && errSym < errCD
         fprintf('Sym is the best method for the zero %d \n\n',i);
     elseif errFD < errSym && errFD < errCD
@@ -62,29 +54,39 @@ for i = 1:numZeros
     elseif errCD < errFD && errCD < errSym
         fprintf('CD is the best method for the zero %d \n\n',i);
     end
-
 end
 
-%%% Plot della progressione?
 
-%%% DEBUG
-% compare with built in function
-% disp('----------------------------------------')
-% fMatlab = @(x) [x(2).^2 + x(1) - 2; -x(1).^2 + x(2) + 10];
-% fsolve(fMatlab, xGuess)
+%%% RESULTS PLOT
+figure('Name','Convergence zero'); 
+t1 = tiledlayout(1,2);
+    tileTitle = title(t1,'Newton''s error evolution');     tileTitle.Interpreter = 'latex';
+for i=1:numZeros
+    nexttile
+        semilogy((1:infoFD{i}.iteration),infoFD{i}.errorVector,'o-');   % forward diff error plot
+        hold on;    grid on;    axis padded;    box on; 
+        semilogy((1:infoCD{i}.iteration),infoCD{i}.errorVector,'--');   % centered diff error plot
+        semilogy((1:infoSym{i}.iteration),infoSym{i}.errorVector,'*');  % symolic math error plot
+        xlabel('$Iteration$');    ylabel('$Error$');
+        legend('$FD$','$CD$','$sym$',Location='best')
+        tString = sprintf('$z_{%d}=[%.4f,%.4f]$',i,solutionFD(i,1),solutionFD(i,1));
+        title(tString)
+end
+% -add graphic export here-
 
 
 %% Ex2 
 %code ex2
 clearvars; close all; clc;
+[cmap]=graphicSettings();
 
 %%% DATA INPUT
 f = @(x,t)(x - 2.*(t).^2 + 2);
 solutionIVP = @(t)(2.*t.^2 + 4.*t - exp(t) + 2);
-avgTimeIter = 10;
+avgTimeIter = 100;
 x0   = 1;
 tmax = 2; 
-h = [0.5 0.2 0.05 0.01];     % step size
+h = [0.5 0.2 0.05 0.01]';     % step size
 
 % Variable initialization
 RK2 = cell(1,length(h));
@@ -106,7 +108,8 @@ lString{end} = 'Analytic';
 % Figure initialization
 figure('Name','RK2 results');
     t1 = tiledlayout(1,2);
-    title(t1,'Heun method')
+    tileTitle = title(t1,'Heun method');
+    tileTitle.Interpreter = 'latex';
 
 % Solution
 nexttile
@@ -124,7 +127,7 @@ nexttile
 nexttile       
     for i = 1:length(h)
         RK2{i}.error = Analytic{i}.x - RK2{i}.x;
-        semilogy(RK2{i}.t,RK2{i}.error)
+        semilogy(RK2{i}.t,RK2{i}.error,'o-',MarkerSize=5)
         hold on
     end
     grid on;    box on;    axis padded;
@@ -140,7 +143,8 @@ drawnow
 % Figure initialization
 figure('Name','RK4 results');
     t2 = tiledlayout(1,2);
-    title(t2,'RK4 method')
+    tileTitle = title(t2,'RK4 method');
+    tileTitle.Interpreter = 'latex';
 
 % Solution
 nexttile
@@ -158,7 +162,7 @@ nexttile
 nexttile       
     for i = 1:length(h)
         RK4{i}.error = Analytic{i}.x - RK4{i}.x;
-        semilogy(RK4{i}.t,RK4{i}.error)
+        semilogy(RK4{i}.t,RK4{i}.error,'o-',MarkerSize=5)
         hold on
     end
     grid on;    box on;    axis padded;
@@ -170,37 +174,38 @@ drawnow
 % -add graphic export here-
 
 
-%%% POST PROCESSING   //WIP                 NEED HELP FOR THE LEGEND
+%%% POST PROCESSING
 % Error vs CPU time
-colorPalette = ['r','g','b','m'];           % Temporary
 figure('Name','Trade off')
+cmap = cmap(1:length(h),:);             % color map definition
+    cbTicksCount = 1:length(h);
+    cbTicksPos = [0.5, cbTicksCount, (cbTicksCount(end)+0.5)];
 hold on;    grid on;    box on;     axis padded
 for i = 1:length(h)
-    scatter(RK2{i}.error(end),RK2{i}.info.avgTimeCost,[],colorPalette(i),"filled","o");
-    scatter(RK4{i}.error(end),RK4{i}.info.avgTimeCost,[],colorPalette(i),"filled","square")
-    %scatterString = {scatterString, lString{i}};
+    scatter(RK2{i}.error(end),RK2{i}.info.avgTimeCost,50,cmap(i,:),"filled","o");
+    scatter(RK4{i}.error(end),RK4{i}.info.avgTimeCost,60,cmap(i,:),"filled","square")
 end
-title('Integration solution')
-legend(lString{1:end},'Location','best')    % Find better way to do
-xlabel('Final error');   ylabel('Time cost');
+
+colormap(cmap)                              % apply colormap
+clim([cbTicksPos(1),cbTicksPos(end)])       
+    cb = colorbar;                          % apply colorbar
+    cb.Label.Interpreter = 'latex';
+    cb.Label.String = '$h$';
+    cb.Ticks = cbTicksPos;
+    cb.TickLabels = {'',num2str(h),''};
+set(cb,'TickLabelInterpreter','latex')
+
+title('Integration solution');      legend('RK2','RK4','Location','best');  % title + legend
+xlabel('Final error');   ylabel('Time cost');                               % axis label
 
 drawnow
 % -add graphic export here-
-
-%%% DEBUG
-% compare with built in function
-% disp('----------------------------------------')
-% fIVP_ode = @(t,x)(x - 2.*(t).^2 + 2);
-% y0 = x0;
-% [tx, yx] = ode45(fIVP_ode, [0 tmax], y0);
-% plot(tx, yx, '--')
-% 
-% legend('rk1','rk2','rk4','ana','ode',Location='best')
 
 
 %% Ex3
 %code ex3
 clearvars; close all; clc;
+graphicSettings;
 
 dimSys = 2;
 stepNum = 100;
@@ -208,7 +213,8 @@ stepNum = 100;
 %%% RK2 STABILITY PROBLEM
 figure('Name','RK2');
     t1 = tiledlayout(1,2);
-    title(t1,'RK2 stability analysis')
+    tileTitle = title(t1,'RK2 stability analysis');
+    tileTitle.Interpreter = 'latex';
 
 nexttile
     [RK2.F,RK2.guess,RK2.degVec,RK2.hVec]=selectOp('RK2',dimSys);
@@ -228,7 +234,8 @@ fprintf('Solution of the problem in alpha = pi using RK2 is:\n h = %.4f \n\n',RK
 %%% RK4 STABILITY PROBLEM
 figure('Name','RK4');
     t2 = tiledlayout(1,2);
-    title(t2,'RK4 stability analysis')
+    tileTitle = title(t2,'RK4 stability analysis');
+    tileTitle.Interpreter = 'latex';
 
 nexttile
     [RK4.F,RK4.guess,RK4.degVec,RK4.hVec]=selectOp('RK4',dimSys);
@@ -265,11 +272,12 @@ figure('Name','RK4 vs. RK2');
 %% Ex4
 %code ex4
 clearvars; close all; clc;
+[cmap]=graphicSettings();
 
 %%% INPUT
 x0      = [1 1]';
 tmax    = 1;
-tollVec = [1e-3 1e-4 1e-5 1e-6];
+tollVec = [1e-3 1e-4 1e-5 1e-6]';
 degVec  = [180 0];
 dimSys  = 2;
 stepNum = 100;
@@ -287,14 +295,14 @@ alphaVec = linspace(alphalim(1),alphalim(2),stepNum);
 
 %%% VARIABLES INITIALIZATION
 Gcell    = cell(length(orders),length(tollVec));
-stabEdge = cell(length(orders),length(tollVec));
+solEdge = cell(length(orders),length(tollVec));
 hVec  = zeros(length(orders),length(tollVec));
 feval = zeros(length(orders),length(tollVec));
 xF    = zeros(1,length(alphaVec));
 yF    = zeros(1,length(alphaVec));
 
 
-%%% STABILITY PLOT RK1,2,4 
+%%% COMPUTE SOLUTION RK1,2,4 
 for ord = 1:length(RKcell) 
     RK = RKcell{ord};
     
@@ -311,10 +319,10 @@ for ord = 1:length(RKcell)
             analSol = expm(A*tmax)*x0;              % Analytic solution
             
             G = @(h) norm((analSol-rkSol(h)),inf)-tollVec(tols);    % Problem function   
-            [hVec(ord,tols),~,conv]=fzero(G,guess);                    % Problem solution
+            [hVec(ord,tols),~,conv]=fzero(G,guess);                 % Problem solution
 
             if i == 1
-                Gcell{ord,tols} = G;                                % Initial guess analysis
+                Gcell{ord,tols} = G;                                   % Initial guess analysis
                 feval(ord,tols) = orders(ord) * nstep(hVec(ord,tols)); % Function evaluation count
             end
             guess = hVec(ord,tols);    % initial guess update
@@ -329,12 +337,12 @@ for ord = 1:length(RKcell)
             end
         end
         
-        stabEdge{ord,tols} = [xF,flip(xF,2);yF,-flip(yF,2)];    % Stability region
+        solEdge{ord,tols} = [xF,flip(xF,2);yF,-flip(yF,2)];    % Solution edge
     end
 end
 
 
-%%% STABILITY PLOT RK1,2,4
+%%% PLOT SOLUTION RK1,2,4
 % Visual settings
 hMax = 0.5;
 view = struct;
@@ -351,7 +359,8 @@ for ord = 1:length(RKcell)
     tstring = sprintf('RK%.0f',orders(ord));
     figure("Name",tstring)
     t = tiledlayout(1,2);
-        title(t,tstring);
+    tileTitle = title(t,tstring);
+    tileTitle.Interpreter = 'latex';
     
     ax1 = nexttile;
         hold (ax1,'on')
@@ -359,7 +368,7 @@ for ord = 1:length(RKcell)
         yline(0, LineStyle = '--')
         xlim(view.ax1.x(ord,:));    ylim(view.ax1.y(ord,:));
         xlabel('$h$');              ylabel('$G(h)$');
-        title('Stability function in alpha = pi')
+        title('Stability function in $\alpha = \pi$')
 
     ax2 = nexttile;
         hold (ax2,'on')
@@ -369,22 +378,27 @@ for ord = 1:length(RKcell)
         xlabel('$Re\{h\lambda\}$'); ylabel('$Im\{h\lambda\}$');
         title('Stability region')
     
-    cmap = colormap(hsv(length(tollVec)));     % colormap definition
+    cmap = cmap(1:length(tollVec),:);             % color map definition
+        cbTicksCount = 1:length(tollVec);
+        cbTicksPos = [0.5, cbTicksCount, (cbTicksCount(end)+0.5)];
     
     for tols = 1:length(tollVec)
-        fplot(ax1,Gcell{ord,tols},[0 hMax],'Color',cmap(tols,:));
+        fplot(ax1,Gcell{ord,tols},[0 hMax],'Color',cmap(tols,:),LineWidth=1.2);
         xline(ax1,hVec(ord,tols),'Color',cmap(tols,:),'LineStyle',':');
-        fill (ax2,stabEdge{ord,tols}(1,:), stabEdge{ord,tols}(2,:),cmap(tols,:),'FaceAlpha',0.7);
+        plot (ax2,solEdge{ord,tols}(1,:), solEdge{ord,tols}(2,:));
     end
     
     ax1.Layer = 'top';      hold(ax1,'off');
     ax2.Layer = 'top';      hold(ax2,'off');
     
-    cbar = colorbar;
-        cbar.Ticks = linspace(0.1,0.9,length(tollVec));
-        cbar.TickLabels = tollVec;
-        cbar.Label.String = '$toll$';
-        cbar.Label.Interpreter = 'latex';
+    colormap(cmap)                              % apply colormap
+    clim([cbTicksPos(1),cbTicksPos(end)])       
+        cb = colorbar;                          % apply colorbar
+        cb.Label.Interpreter = 'latex';
+        cb.Label.String = '$toll$';
+        cb.Ticks = cbTicksPos;
+        cb.TickLabels = {'',num2str(tollVec),''};
+    set(cb,'TickLabelInterpreter','latex')
     % -add graphic export here-
 end
 
@@ -399,7 +413,8 @@ ord = 1;
 tstring = sprintf('RK1 zoom');
 figure("Name",tstring)
 t = tiledlayout(1,2);
-        title(t,tstring);
+tileTitle = title(t,tstring);
+tileTitle.Interpreter = 'latex';
     
     ax1 = nexttile;
         hold (ax1,'on')
@@ -407,7 +422,7 @@ t = tiledlayout(1,2);
         yline(0, LineStyle = '--')
         xlim(view.ax1.xZoom(ord,:));    ylim(view.ax1.yZoom(ord,:));
         xlabel('$h$');                  ylabel('$G(h)$');
-        title('Stability function in alpha = pi')
+        title('Stability function in $\alpha = \pi$')
 
     ax2 = nexttile;
         hold (ax2,'on')
@@ -417,16 +432,28 @@ t = tiledlayout(1,2);
         xlabel('$Re\{h\lambda\}$');     ylabel('$Im\{h\lambda\}$');
         title ('Stability region')
     
-    cmap = colormap(hsv(length(tollVec)));     % colormap definition
+    cmap = cmap(1:length(tollVec),:);             % color map definition
+        cbTicksCount = 1:length(tollVec);
+        cbTicksPos = [0.5, cbTicksCount, (cbTicksCount(end)+0.5)];
     
     for tols = 1:length(tollVec)
-        fplot(ax1,Gcell{ord,tols},[0 hMax],'Color',cmap(tols,:));
+        fplot(ax1,Gcell{ord,tols},[0 hMax],'Color',cmap(tols,:),LineWidth=1.2);
         xline(ax1,hVec(ord,tols),'Color',cmap(tols,:),'LineStyle',':');
-        fill (ax2,stabEdge{ord,tols}(1,:), stabEdge{ord,tols}(2,:),cmap(tols,:),'FaceAlpha',0.7);
+        plot (ax2,solEdge{ord,tols}(1,:), solEdge{ord,tols}(2,:));
     end
-ax1.Layer = 'top';      hold(ax1,'off');
-ax2.Layer = 'top';      hold(ax2,'off');
-% -add graphic export here-
+
+    ax1.Layer = 'top';      hold(ax1,'off');
+    ax2.Layer = 'top';      hold(ax2,'off');
+
+    colormap(cmap)                              % apply colormap
+    clim([cbTicksPos(1),cbTicksPos(end)])       
+        cb = colorbar;                          % apply colorbar
+        cb.Label.Interpreter = 'latex';
+        cb.Label.String = '$toll$';
+        cb.Ticks = cbTicksPos;
+        cb.TickLabels = {'',num2str(tollVec),''};
+    set(cb,'TickLabelInterpreter','latex')
+    % -add graphic export here-
 
 
 %%% FUNCTION EVALUATION vs TOLLERANCE
@@ -446,11 +473,12 @@ legend(lString)
 %% Ex5
 %code ex5
 clearvars; close all; clc;
+[cmap]=graphicSettings();
 
-thetaVec = [0.1 0.3 0.4 0.7 0.9];
+thetaVec = [0.1 0.3 0.4 0.7 0.9]';
 dimSys   = 2;
 stepNum  = 100;
-stabEdge = cell(1,length(thetaVec));
+solEdge = cell(1,length(thetaVec));
 lstring  = cell(1,length(thetaVec));
 pal = 'grmcb';
 
@@ -458,15 +486,16 @@ pal = 'grmcb';
 for i = 1:length(thetaVec)
     figure('Name','BI2');
         t = tiledlayout(1,2);
-        tstring = sprintf('BI2_{%.1f} stability analysis',thetaVec(i));
-        title(t,tstring)
+        tstring = sprintf('$BI2_{%.1f}$ stability analysis',thetaVec(i));
+        tileTitle = title(t,tstring);
+        tileTitle.Interpreter = 'latex';
     
     nexttile
         [F,guess,degVec,hVec]=selectOp('BI2',dimSys,thetaVec(i));
         stabGuess(F,degVec(1),hVec);
     
     nexttile
-        [~,~,~,stabEdge{i}]=stabRegion(F,stepNum,degVec,guess);
+        [~,~,~,solEdge{i}]=stabRegion(F,stepNum,degVec,guess);
         xlim([-5.5 10.5])
     
     lstring{i} = sprintf('$BI2_{%.1f}$',thetaVec(i));
@@ -477,22 +506,27 @@ end
 
 figure('Name','BI2 compare');
     axis equal;     grid on;    box on;     hold on
-    cmapBI2 = colormap(hsv(length(thetaVec)));     % colormap definition
+    cmap = cmap(1:length(thetaVec),:);             % color map definition
+        cbTicksCount = 1:length(thetaVec);
+        cbTicksPos = [0.5, cbTicksCount, (cbTicksCount(end)+0.5)];
         
     for i = 1:length(thetaVec)
-        plot(stabEdge{i}(1,:),stabEdge{i}(2,:),'Color',cmapBI2(i,:))
+        plot(solEdge{i}(1,:),solEdge{i}(2,:),'Color',cmap(i,:))
     end
 
-cbarBI2 = colorbar;
-    cbarBI2.Ticks = linspace(0.1,0.9,length(thetaVec));
-    cbarBI2.TickLabels = thetaVec;
-    cbarBI2.Label.String = '$h$';
-    cbarBI2.Label.Interpreter = 'latex';
+    colormap(cmap)                              % apply colormap
+    clim([cbTicksPos(1),cbTicksPos(end)])       
+        cb = colorbar;                          % apply colorbar
+        cb.Label.Interpreter = 'latex';
+        cb.Label.String = '$theta$';
+        cb.Ticks = cbTicksPos;
+        cb.TickLabels = {'',num2str(thetaVec),''};
+    set(cb,'TickLabelInterpreter','latex')
 
 xline(0,LineStyle='--');        yline(0,LineStyle='--');
 xlabel('$Re\{h\lambda\}$');     ylabel('$Im\{h\lambda\}$');
 xlim([-6 11]);
-tstring = sprintf('BI2_{n} stability analysis');
+tstring = sprintf('$BI2_{n}$ stability analysis');
 title(tstring)
 % -add graphic export here-
     
@@ -500,6 +534,7 @@ title(tstring)
 %% Ex6
 %code ex6
 clearvars; close all; clc;
+[cmap]=graphicSettings();
 
 %%% DATA INPUT
 B = [-180.5, 219.5; 179.5, -220.5];             % IVP definition
@@ -528,36 +563,38 @@ IEX4 = iSettings();
 solutionIVP =  @(t) expm(B.*t) * x0;            % 'expm' matrix exponential
 Analytic.t = IEX4.t;
 Analytic.x(:,1) = [1;1];
-for i = 2 : (length(Analytic.t))       % CHIEDERE A RIC SE É IL MODO PIU' SMART
+for i = 2 : (length(Analytic.t))
     tNow = Analytic.t(i);
     Analytic.x(:,i) = solutionIVP(tNow);
 end
 
 
-%%% INTEGRATION RESULTS                 [Fix linestyle and color]
+%%% INTEGRATION RESULTS
 figure('Name','Integration results');
     t1 = tiledlayout(1,2);
-    title(t1,'Integration results')
+    tileTitle = title(t1,'Integration results');
+    tileTitle.Interpreter = 'latex';
 
 nexttile
     axis padded;     grid on;    box on;     hold on
-    plot(RK4.t,RK4.x(1,:))
-    plot(RK4mod.t,RK4mod.x(1,:))
-    plot(IEX4.t,IEX4.x(1,:))
-    plot(Analytic.t,Analytic.x(1,:),'r--')
-    xlabel('$Time$');   ylabel('$x1$');
-    ylim([-0.5 1.5])
+    plot(RK4.t,RK4.x(1,:),'Color',cmap(1,:))
+    plot(IEX4.t,IEX4.x(1,:),'Color',cmap(2,:))
+    %plot(RK4mod.t,RK4mod.x(1,:),'--','Color',cmap(3,:))
+    plot(Analytic.t,Analytic.x(1,:),'o','Color',cmap(5,:),MarkerSize=2)
+    xlabel('$Time$');   ylabel('$x_1$');
+    ylim([-0.2 1.2])
     
 nexttile
     axis padded;     grid on;    box on;     hold on
-    plot(RK4.t,RK4.x(2,:))
-    plot(RK4mod.t,RK4mod.x(2,:))
-    plot(IEX4.t,IEX4.x(2,:))
-    plot(Analytic.t,Analytic.x(2,:),'r--')
-    xlabel('$Time$');   ylabel('$x2$');
-    ylim([-0.5 1.5])
+    plot(RK4.t,RK4.x(2,:),'Color',cmap(1,:))
+    plot(IEX4.t,IEX4.x(2,:),'Color',cmap(2,:))
+    %plot(RK4mod.t,RK4mod.x(2,:),'--','Color',cmap(3,:))
+    plot(Analytic.t,Analytic.x(2,:),'o','Color',cmap(5,:),MarkerSize=2)
+    xlabel('$Time$');   ylabel('$x_2$');
+    ylim([-0.2 1.2])
 
-leg = legend('$RK4$','$RK4mod$','$IEX4$','$Analytical$','Orientation', 'Horizontal');
+leg = legend('$RK4$','$IEX4$','$Analytical$','Orientation', 'Horizontal');
+%leg = legend('$RK4$','$IEX4$','$RK4mod$','$Analytical$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';
 % -add graphic export here-
     
@@ -572,7 +609,8 @@ eigB = eig(B);
 % IEX4
 figure('Name','IEX4');
     t1 = tiledlayout(1,2);
-    title(t1,'IEX4 stability analysis')
+    tileTitle = title(t1,'IEX4 stability analysis');
+    tileTitle.Interpreter = 'latex';
 
 nexttile
     [IEX4.F,IEX4.stability.guess,IEX4.stability.degVec,IEX4.stability.hMax]=selectOp('IEX4',dimSys);
@@ -589,7 +627,8 @@ leg = legend('$IEX4$','$Stable$','Orientation', 'Horizontal');
 % RK4    
 figure('Name','RK4');
     t2 = tiledlayout(1,2);
-    title(t2,'RK4 stability analysis')
+    tileTitle = title(t2,'RK4 stability analysis');
+    tileTitle.Interpreter = 'latex';
 
 nexttile
     [RK4.F,RK4.guess,RK4.degVec,RK4.hVec]=selectOp('RK4',dimSys);
@@ -605,7 +644,7 @@ leg = legend('$RK4$','$Stable$','Orientation', 'Horizontal');
 
 % IEX4 vs RK4 vs matrixB
 figure('Name','IEX4 vs. RK2');
-    axis equal;     grid on;    box on;     hold on
+    axis equal;     grid on;    box on;     hold on;
     stabIEX4 = fill(IEX4.stability.stabEdge(1,:),IEX4.stability.stabEdge(2,:),'b','FaceAlpha',0.3);
         stabIEX4.LineWidth = 1.5;
         stabIEX4.EdgeColor = 'b';
@@ -628,10 +667,10 @@ figure('Name','IEX4 vs. RK2');
         eigsPlotMod.MarkerFaceColor = [0.50 0.50 0.50];
         eigsPlotMod.MarkerSize = 5;
     
-    xline(0,LineStyle='--');        yline(0,LineStyle='--');
-    xlabel('$Re\{h\lambda\}$');     ylabel('$Im\{h\lambda\}$');
+    xline(0,LineStyle='--');       yline(0,LineStyle='--');
+    xlabel('$Re_{h\lambda}$');     ylabel('$Im_{h\lambda}$');
     xlim([-45 15]);
-    legend('$IEX4$','$RK4$','$h\lambda\$','$h_{mod}\lambda\$')
+    legend('$IEX4$','$RK4$','$h\lambda$','$h_{mod}\lambda$')
     title('$RK4$ vs $IEX4$')
 % -add graphic export here-
 
@@ -639,78 +678,174 @@ figure('Name','IEX4 vs. RK2');
 %% Ex7
 %code ex7
 clearvars; close all; clc;
+[cmap]=graphicSettings();
 
 %%% DATA INPUT
-f = @(x,t) [-5/2.*(1+8*sin(t)).*x(1); (1-x(1)).*x(2) + x(1)];
-x0   = [1 1]';
-tmax = 3;
-h    = 0.1;
+f = @(x,t) [-5/2*(1+8*sin(t))*x(1); (1-x(1))*x(2) + x(1)];
+eig1 = @(t) -5/2*(1+8*sin(t));
+eig2 = @(t) 1-exp(-5/2*t+20*(cos(t)-1));
+x0     = [1 1]';
+tmax   = 3;
+h      = 0.1;
+visual = false;
 
-%%% AB
-figure("Name",'Adams Bashforth')
-hold on
-grid on
-
+%%% INTEGRATION
 abOptionsRK = abSettings(3,'RK');
 [AB.startupRK.x,AB.startupRK.t,AB.startupRK.info] = ...
-    adamsBashforth(f,x0,tmax,h,abOptionsRK);
+    adamsBashforth(f,x0,tmax,h,abOptionsRK,visual);
 
 abOptionsAB = abSettings(3,'AB');
 [AB.startupAB.x,AB.startupAB.t,AB.startupAB.info] = ...
-    adamsBashforth(f,x0,tmax,h,abOptionsAB);
-
-
-%%% AM
-figure("Name",'Adams Moulton')
-hold on
-grid on
+    adamsBashforth(f,x0,tmax,h,abOptionsAB,visual);
 
 amOptionsRK = amSettings(3,'RK');
 [AM.startupRK.x,AM.startupRK.t,AM.startupRK.info] = ...
-    adamsMoulton(f,x0,tmax,h,amOptionsRK);
+    adamsMoulton(f,x0,tmax,h,amOptionsRK,visual);
 
 amOptionsAM = amSettings(3,'AM');
 [AM.startupAM.x,AM.startupAM.t,AM.startupAM.info] = ...
-    adamsMoulton(f,x0,tmax,h,amOptionsAM);
-
-
-%%% ABM
-figure("Name",'Adams Bashforth Moulton')
-hold on
-grid on
+    adamsMoulton(f,x0,tmax,h,amOptionsAM,visual);
 
 abmOptionsRK = abmSettings(3,'RK');
 [ABM.startupRK.x,ABM.startupRK.t,ABM.startupRK.info] = ...
-    adamsBashforthMoulton(f,x0,tmax,h,abmOptionsRK);
+    adamsBashforthMoulton(f,x0,tmax,h,abmOptionsRK,visual);
 
 abmOptionsABM = abmSettings(3,'ABM');
 [ABM.startupABM.x,ABM.startupABM.t,ABM.startupABM.info] = ...
-    adamsBashforthMoulton(f,x0,tmax,h,abmOptionsABM);
-
-
-%%% BDF
-figure("Name",'Backward Difference Formula')
-hold on
-grid on
+    adamsBashforthMoulton(f,x0,tmax,h,abmOptionsABM,visual);
 
 bdfOptionsRK = bdfSettings(3,'RK');
 [BDF.startupRK.x,BDF.startupRK.t,BDF.startupRK.info] =  ...
-    backwardDifferenceFormula(f,x0,tmax,h,bdfOptionsRK);
+    backwardDifferenceFormula(f,x0,tmax,h,bdfOptionsRK,visual);
 
 bdfOptionsBDF = bdfSettings(3,'BDF');
 [BDF.startupBDF.x,BDF.startupBDF.t,BDF.startupBDF.info] = ...
-    backwardDifferenceFormula(f,x0,tmax,h,bdfOptionsBDF);
+    backwardDifferenceFormula(f,x0,tmax,h,bdfOptionsBDF,visual);
 
+
+%%% PLOT
+figure("Name",'Adams Bashforth')
+t1 = tiledlayout(2,1);
+    tileTitle = title(t1,'Adams Bashforth');
+    tileTitle.Interpreter = 'latex';
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AB.startupRK.t, AB.startupRK.x(1,:), 'b');
+    plot(AB.startupAB.t, AB.startupAB.x(1,:), 'r--');
+    ylabel('$x_{1}$');      xlabel('Time');
+    ylim([-10 10]);
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AB.startupRK.t, AB.startupRK.x(2,:), 'b');
+    plot(AB.startupAB.t, AB.startupAB.x(2,:), 'r--');
+    ylabel('$x_{2}$');      xlabel('Time');
+    ylim([-10 10]);
+    legend('Runge-Kutta starter', 'Adams Bashforth starter', ...
+                Location='southoutside', Orientation='horizontal');
+
+% AM
+figure("Name",'Adams Moulton')
+t1 = tiledlayout(2,1);
+    tileTitle = title(t1,'Adams Moulton');
+    tileTitle.Interpreter = 'latex';
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AM.startupRK.t, AM.startupRK.x(1,:), 'b');
+    plot(AM.startupAM.t, AM.startupAM.x(1,:), 'r--');
+    ylabel('$x_{1}$');      xlabel('Time');
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AM.startupRK.t, AM.startupRK.x(2,:), 'b');
+    plot(AM.startupAM.t, AM.startupAM.x(2,:), 'r--');
+    ylabel('$x_{2}$');      xlabel('Time');
+    legend('Runge-Kutta starter', 'Adams Moulton starter', ...
+                Location='southoutside', Orientation='horizontal');
+
+% ABM
+figure("Name",'Adams Bashforth Moulton')
+t1 = tiledlayout(2,1);
+    tileTitle = title(t1,'Adams Bashforth Moulton');
+    tileTitle.Interpreter = 'latex';
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(ABM.startupRK.t,  ABM.startupRK.x(1,:),  'b');
+    plot(ABM.startupABM.t, ABM.startupABM.x(1,:), 'r--');
+    ylabel('$x_{1}$');      xlabel('Time');
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(ABM.startupRK.t,  ABM.startupRK.x(2,:),  'b');
+    plot(ABM.startupABM.t, ABM.startupABM.x(2,:), 'r--');
+    ylabel('$x_{2}$');      xlabel('Time');
+    legend('Runge-Kutta starter', 'Adams Bashforth Moulton starter', ...
+                Location='southoutside', Orientation='horizontal');
+
+% BDF
+figure("Name",'Backward Difference Formula')
+t1 = tiledlayout(2,1);
+    tileTitle = title(t1,'Backward Difference Formula');
+    tileTitle.Interpreter = 'latex';
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(BDF.startupRK.t,  BDF.startupRK.x(1,:),  'b');
+    plot(BDF.startupBDF.t, BDF.startupBDF.x(1,:), 'r--');
+    ylabel('$x_{1}$');      xlabel('Time');
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(BDF.startupRK.t,  BDF.startupRK.x(2,:),  'b');
+    plot(BDF.startupBDF.t, BDF.startupBDF.x(2,:), 'r--');
+    ylabel('$x_{2}$');      xlabel('Time');
+    legend('Runge-Kutta starter', 'Backward Difference Formula starter', ...
+                Location='southoutside', Orientation='horizontal');
 
 %%% COMPARE
 figure("Name",'Multistep method compare')
-hold on
-grid on
-plot(AB.startupRK.t,AB.startupRK.x,  'k-')
-plot(AM.startupRK.t,AM.startupRK.x,  'r-')
-plot(ABM.startupRK.t,ABM.startupRK.x,'g-')
-plot(BDF.startupRK.t,BDF.startupRK.x,'b-')
-xlabel('t')
-ylabel('x')
-legend('AM','AM','AB','AB','ABM','ABM','BDF','BDF','location','best')
+t1 = tiledlayout(2,1);
+    tileTitle = title(t1,'Multistep method compare');
+    tileTitle.Interpreter = 'latex';
 
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AB.startupRK.t,  AB.startupRK.x(1,:),  'Color', cmap(1,:))
+    plot(AM.startupRK.t,  AM.startupRK.x(1,:),  'Color', cmap(2,:))
+    plot(ABM.startupRK.t, ABM.startupRK.x(1,:), 'Color', cmap(3,:))
+    plot(BDF.startupRK.t, BDF.startupRK.x(1,:), 'o', 'Color', cmap(5,:), MarkerSize=3)
+    ylabel('$x_{1}$');      xlabel('Time');
+    ylim([-4 2]);
+
+nexttile
+    hold on;    grid on;    axis padded;    box on;
+    plot(AB.startupRK.t,  AB.startupRK.x(2,:),  'Color', cmap(1,:))
+    plot(AM.startupRK.t,  AM.startupRK.x(2,:),  'Color', cmap(2,:))
+    plot(ABM.startupRK.t, ABM.startupRK.x(2,:), 'Color', cmap(3,:))
+    plot(BDF.startupRK.t, BDF.startupRK.x(2,:), 'o', 'Color', cmap(5,:), MarkerSize=3)
+    ylabel('$x_{2}$');      xlabel('Time');
+    ylim([-2 22]);
+    legend('AM','AB','ABM','BDF', Location='southoutside', Orientation='horizontal');
+
+
+%%% EIGENVALUE ENVELOP
+timeVec = 0:h:tmax;
+figure("Name",'Eigenvalue evolution')
+    hold on;    grid on;    box on;
+    plot(timeVec,h*eig1(timeVec),'r')
+    plot(timeVec,h*eig2(timeVec),'b')
+    limitAB3 = yline(-0.6,Color=cmap(3,:),LineWidth=1.5,LineStyle='--',Label='AB3');
+        limitAB3.LabelHorizontalAlignment='center';
+    limitAM3 = yline(-6,Color=cmap(5,:),LineWidth=1.5,LineStyle='--',Label='AM3');
+        limitAM3.LabelHorizontalAlignment='center';
+    limitABM3 = yline(-1.7,Color=cmap(6,:),LineWidth=1.5,LineStyle='--',Label='ABM3');
+        limitABM3.LabelHorizontalAlignment='center';        
+    xlabel('Time');     ylabel('$h\lambda_{i}$');     ylim([-6.5,0.5])
+    legend('$h\lambda_{1}$','$h\lambda_{2}$',Location='best')
+
+%%% --- END CODE --- 
+
+%% FUNCTIONS
