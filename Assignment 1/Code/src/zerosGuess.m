@@ -50,9 +50,10 @@ function [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualCon
     if visualConfig == true
         fig = figure();
             fig.Name = 'Function plot';
-            %fig.Position = [1 1 4000 2000];    % to find valuse
+            %fig.Position = [1 1 4000 2000];    % to find values
         t = tiledlayout(1,2);
-        title(t,'Initial guess graphic search')
+        tString = title(t,'Initial guess graphic search');
+        tString.Interpreter = 'latex';
         
         %%% plot 3d of the surface
         nexttile
