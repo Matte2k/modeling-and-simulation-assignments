@@ -4,7 +4,7 @@
 
 clearvars;  close all;  clc;
 cmap = graphicSettings();
-
+addpath("figures\");
 
 %% Data input
 
@@ -53,7 +53,7 @@ tiledlayout(2,1)
     plot(mModel.ode89.time,  mModel.ode89.Ti,  'Color', cmap(2,:))
     plot(mModel.ode113.time, mModel.ode113.Ti, 'Color', cmap(3,:))
     plot(mModel.ode15s.time, mModel.ode15s.Ti, 'Color', cmap(4,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.Ti , 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T1 , 'Color', cmap(5,:))
     legend('ode45','ode89','ode113','ode15s','Simscape', Location='best')
     title('T intern')
 
@@ -106,108 +106,24 @@ tiledlayout(3,1)
 
 
 % CPU-Time cost histogram
-visual.timeCostVec = [mModel.ode45.CPUtime mModel.ode89.CPUtime mModel.ode113.CPUtime mModel.ode15s.CPUtime];
-visual.timeLabel   = categorical({'ode45', 'ode89','ode113','ode15s'});
-visual.timeLabel   = reordercats(visual.timeLabel,{'ode45', 'ode89','ode113','ode15s'});
+plot.timeCostVec = [mModel.ode45.CPUtime mModel.ode89.CPUtime mModel.ode113.CPUtime mModel.ode15s.CPUtime];
+plot.timeLabel   = categorical({'ode45', 'ode89','ode113','ode15s'});
+plot.timeLabel   = reordercats(plot.timeLabel,{'ode45', 'ode89','ode113','ode15s'});
 figure(Name='time cost')
     hold on;    grid on;    axis padded;    box on;
-    bar(visual.timeLabel,visual.timeCostVec)
+    bar(plot.timeLabel,plot.timeCostVec)
     ylabel('Time cost [s]');
 
 
-% Eigenvalues
+%% Eigenanalysis
 figure(Name='Eigenvalues')
-    hold on;    grid on;    axis equal;    box on;
-    plot(real(mModel.lambda), imag(mModel.lambda) , 'o', MarkerFaceColor='auto')
+    hold on;    grid on;    axis padded;    box on;
+    plot(real(mModel.lambda), imag(mModel.lambda),  'o')
     yline(0)
     xline(0)
 
 
-
 %% FUNCTIONS
-
-function [cmap] = graphicSettings()
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-
-    % Graphic settings
-    set(0,'defaulttextinterpreter','latex');  
-    set(0,'defaultAxesTickLabelInterpreter','latex');  
-    set(0,'defaultLegendInterpreter','latex');
-    set(0,'DefaultLineLineWidth',1.2)
-
-    cmap = [0, 0.4470, 0.7410; 0.8500, 0.3250, 0.0980; 0.9290, 0.6940, 0.1250; 0.4940, 0.1840, 0.5560; 0.4660, 0.6740, 0.1880; 0.3010, 0.7450, 0.9330; 0.6350, 0.0780, 0.1840];
-
-    warning('off','MATLAB:fplot:NotVectorized');
-    
-end
-
-
-function [time, temp, nozzle] = initData()
-%INITIALIZATION DATA - initialize all the data for the simulation
-%
-%   Syntax:     
-%
-%
-%   Reference:  MatWeb
-%
-
-    time = struct;
-        time.t0 = 0;        % initial simulation time       [sec]
-        time.t1 = 1;        % end of fire-up time           [sec]
-        time.tf = 60;       % final simulation time         [sec]
-    
-    temp = struct;
-        temp.tInt0 =  293.15;       % initial internal temperature:     20 C°  |   293.15 K
-        temp.tInt1 = 1273.15;       % regime  internal temperature:   1000 C°  |  1273.15 K
-        temp.tExt  =  293.15;       % fixed   external tempertaure:     20 C°  |   293.15 K
-    
-    nozzle = struct;   
-        nozzle.lining = struct;
-            nozzle.lining.mat = 'Inconel';
-            nozzle.lining.rho = 8.440;          % material density          [kg/m^3]
-            nozzle.lining.k   = 14.5;           % material conductivity     [W/(K*m)]
-            nozzle.lining.l   = 0.32;           % material thickness        [m]
-            nozzle.lining.c   = [];             % material specific heat    [J/(K*kg)]
-    
-        nozzle.conductor = struct;
-            nozzle.conductor.mat = 'Copper';      
-            nozzle.conductor.rho = 8.960;       % material density          [kg/m^3]
-            nozzle.conductor.k   = 400;         % material conductivity     [W/(K*m)]
-            nozzle.conductor.l   = 0.54;        % material thickness        [m]
-            nozzle.conductor.c   = 385;         % material specific heat    [J/(K*kg)]
-    
-        nozzle.interface = struct;
-            nozzle.interface.mat = '';      
-            nozzle.interface.rho = [];          % material density          [kg/m^3]
-            nozzle.interface.k   = [];          % material conductivity     [W/(K*m)]
-            nozzle.interface.l   = 0.18;        % material thickness        [m]
-            nozzle.interface.K   = 0.000678;    % material thickness        [K/W]
-            nozzle.interface.c   = [];          % material specific heat    [J/(K*kg)]
-    
-        nozzle.insulator = struct;
-            nozzle.insulator.mat = 'Ceramic';
-            nozzle.insulator.rho = 2.800;       % material density          [kg/m^3]
-            nozzle.insulator.k   = 1.5;         % material conductivity     [W/(K*m)]
-            nozzle.insulator.l   = 0.36;        % material thickness        [m]
-            nozzle.insulator.c   = 800;         % material specific heat    [J/(K*kg)]
-    
-        nozzle.coating = struct;
-            nozzle.coating.mat = 'Stainless Steel';
-            nozzle.coating.rho = 8.000;         % material density          [kg/m^3]
-            nozzle.coating.k   = 16;            % material conductivity     [W/(K*m)]
-            nozzle.coating.l   = 0.36;          % material thickness        [m]
-            nozzle.coating.c   = [];            % material specific heat    [J/(K*kg)]
-        
-        nozzle.section = 1.3273;                % nozzle cross-section      [m^2]
-        nozzle.length  = nozzle.lining.l ...    % nozzle length             [m]
-                          + nozzle.conductor.l ...
-                          + nozzle.interface.l ... 
-                          + nozzle.insulator.l ...
-                          + nozzle.coating.l;               
-
-end
-
 
 function [part] = cmpPart(part,crossSection)
 %COMPUTE PART - compute thermal resistence and/or capacitance of the part
@@ -405,13 +321,13 @@ function [modelSol] = execSimscapeModel(modelName, timeCostIter, caseID, timeLim
     
     if caseID == 1 || caseID == 0
         % retrive simulink simulation solutions for model case 1
-        modelSol.case1.Ti = simulinkModel.simOut.simlog.Ti_1.T.series.values('K');
+        modelSol.case1.Ti = simulinkModel.simOut.simlog.T;
         modelSol.case1.T1 = simulinkModel.simOut.simlog.T1_1.T.series.values('K');
         modelSol.case1.T2 = simulinkModel.simOut.simlog.T2_1.T.series.values('K');
         modelSol.case1.T3 = simulinkModel.simOut.simlog.T3_1.T.series.values('K');
         modelSol.case1.T4 = simulinkModel.simOut.simlog.T4_1.T.series.values('K');
         modelSol.case1.T5 = simulinkModel.simOut.simlog.T5_1.T.series.values('K');
-        modelSol.case1.To = simulinkModel.simOut.simlog.To_1.A.T.series.values('K');
+        %modelSol.case1.To = simulinkModel.simOut.simlog.To_1.T.series.values('K');
         modelSol.case1.time = simulinkModel.simOut.simlog.T1_1.T.series.time;
     end
 
@@ -426,7 +342,7 @@ function [modelSol] = execSimscapeModel(modelName, timeCostIter, caseID, timeLim
         modelSol.case2.T4in  = simulinkModel.simOut.simlog.T4_in_2.T .series.values('K');
         modelSol.case2.T4out = simulinkModel.simOut.simlog.T4_out_2.T.series.values('K');
         modelSol.case2.T5    = simulinkModel.simOut.simlog.T5_2.T.series.values('K');
-        modelSol.case2.To    = simulinkModel.simOut.simlog.To_2.A.T.series.values('K');
+        modelSol.case2.To    = simulinkModel.simOut.simlog.To_2.T.series.values('K');
         modelSol.case2.time = simulinkModel.simOut.simlog.T1_2.T.series.time;
     end
 
