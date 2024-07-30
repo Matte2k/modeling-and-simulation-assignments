@@ -2,7 +2,8 @@
 % Assignment # 1
 % Author: Matteo Baio 10667431
 
-addpath(genpath('src\'));
+addpath(genpath('src/'));
+addpath(genpath('figure/'));
 
 %% Ex 1
 %code ex1
@@ -25,7 +26,8 @@ f1 = @(x1,x2) x2.^2 - x1 - 2;           f2 = @(x1,x2) -x1.^2 + x2 + 10;
 [Z1mesh,Z2mesh] = zerosGuess(f1,f2);            % plot functions
 plot(xGuess(1,:),xGuess(2,:),'ko');             % plot guess
 legend('$f_1=0$','$f_2=0$','Initial guess')     % plot legend
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,20,10]);
+exportgraphics(gcf,'figure\ex1_initGuess.eps',Resolution=1000);
 
 
 % Variable initialization
@@ -72,7 +74,9 @@ for i=1:numZeros
         tString = sprintf('$z_{%d}=[%.4f,%.4f]$',i,solutionFD(i,1),solutionFD(i,1));
         title(tString)
 end
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,20,10]);
+exportgraphics(gcf,'figure\ex1_convergence.eps');
+
 
 
 %% Ex2 
