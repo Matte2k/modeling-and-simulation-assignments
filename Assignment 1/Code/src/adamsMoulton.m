@@ -30,12 +30,11 @@ function [x,t,info] = adamsMoulton(f,x0,tmax,h,amOptions,visualConfig)
     if nargin < 6
         visualConfig = true;
     end
-        
-        
+               
     %%% Dimension Check for initial guess
     if size(x0,2) > 1 && visualConfig == true
         % warning to remember that initial guess correct input format
-        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step',h);      % DEBUG
+        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step',h);
     end
 
     % case for AM order grater than 1
@@ -74,7 +73,6 @@ function [x,t,info] = adamsMoulton(f,x0,tmax,h,amOptions,visualConfig)
         end
     end
 
-
     %%% Adams Bashforth order selector based on 'amOptions'
     switch amOptions.order
         case 1
@@ -108,7 +106,6 @@ function [x,t,info] = adamsMoulton(f,x0,tmax,h,amOptions,visualConfig)
     if visualConfig == true
         plot(t,x,'-');     % plot of the solution
     end
-
 
     if nargout == 3
         info = struct;

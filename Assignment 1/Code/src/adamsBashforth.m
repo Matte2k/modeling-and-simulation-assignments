@@ -31,11 +31,10 @@ function [x,t,info] = adamsBashforth(f,x0,tmax,h,abOptions,visualConfig)
         visualConfig = true;
     end
 
-
     %%% Dimension Check for initial guess
     if size(x0,2) > 1 && visualConfig == true
         % warning to remember that initial guess correct input format
-        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step',h);      % DEBUG
+        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step',h);
     end
 
     if size(x0,2) > abOptions.order
@@ -51,7 +50,6 @@ function [x,t,info] = adamsBashforth(f,x0,tmax,h,abOptions,visualConfig)
             warning('Startup method defined will not be used, x0 is already valid')
         end
     end
-
 
     %%% Adams Bashforth order selector based on 'abOptions'
     switch abOptions.order
@@ -92,7 +90,6 @@ function [x,t,info] = adamsBashforth(f,x0,tmax,h,abOptions,visualConfig)
     if visualConfig == true
         plot(t,x,'-');     % plot of the solution
     end
-
 
     if nargout == 3
         info = struct;      % info struct build-up

@@ -1,6 +1,6 @@
 % Modeling and Simulation of Aerospace Systems (2023/2024)
 % Assignment # 1
-% Author: Matteo Baio 10667431
+% Author: Matteo Baio 232805
 
 addpath(genpath('src/'));
 addpath(genpath('figure/'));
@@ -12,13 +12,13 @@ graphicSettings;
 
 %%% DATA INPUT
 f = @(x1,x2) [x2.^2 - x1 - 2; -x1.^2 + x2 + 10];    % # di funzioni = z
-xGuess = [[3.5 2.5]',[2.5 -2]'];
-toll = 1e-12;
+xGuess = [[3 2]',[3 -2]'];
+toll = 1e-6;
 nmax = 1e3;
+avgTimeIter = 50;
 config = struct;
     config.print = true;
     config.plot = false;
-
 
 %%% INITIAL GUESS DEFINITION
 % Initial guess graphic analysis
@@ -26,9 +26,9 @@ f1 = @(x1,x2) x2.^2 - x1 - 2;           f2 = @(x1,x2) -x1.^2 + x2 + 10;
 [Z1mesh,Z2mesh] = zerosGuess(f1,f2);            % plot functions
 plot(xGuess(1,:),xGuess(2,:),'ko');             % plot guess
 legend('$f_1=0$','$f_2=0$','Initial guess')     % plot legend
-set(gcf,'units','centimeters','position',[0,0,20,10]);
-exportgraphics(gcf,'figure\ex1_initGuess.eps',Resolution=1000);
-
+set(gcf,'units','centimeters','position',[0,0,20,9]);
+exportgraphics(gcf,'figure\ex1_initGuess.eps');
+%exportgraphics(gcf,'figure\ex1_initGuess.png',Resolution=1500);
 
 % Variable initialization
 numZeros = size(xGuess,2);
@@ -36,47 +36,40 @@ solutionSym = zeros(2,numZeros);    solutionFD  = zeros(2,numZeros);    solution
 convergeSym = zeros(1,numZeros);    convergeFD =  zeros(1,numZeros);    convergeCD =  zeros(1,numZeros);
 infoSym = cell(1,numZeros);         infoFD = cell(1,numZeros);          infoCD = cell(1,numZeros);
 
-
 %%% NEWTON'S METHODS
 for i = 1:numZeros
-    [solutionSym(:,i),convergeSym(i),infoSym{i}] = newton(f, xGuess(:,i), 's', toll, nmax, config); % symbolic math
-    [solutionFD(:,i), convergeFD(i), infoFD{i}]  = newton(f, xGuess(:,i), 'f', toll, nmax, config); % forward difference
-    [solutionCD(:,i), convergeCD(i), infoCD{i}]  = newton(f, xGuess(:,i), 'c', toll, nmax, config); % centered difference
+    [solutionSym(:,i),convergeSym(i),infoSym{i}] = newton(f, xGuess(:,i), 's', toll, nmax, avgTimeIter, config); % symbolic math
+    [solutionFD(:,i), convergeFD(i), infoFD{i}]  = newton(f, xGuess(:,i), 'f', toll, nmax, avgTimeIter, config); % forward difference
+    [solutionCD(:,i), convergeCD(i), infoCD{i}]  = newton(f, xGuess(:,i), 'c', toll, nmax, avgTimeIter, config); % centered difference
 
     % Error compare between different submethod
-    errSym = infoSym{i}.errorVector(end);
-    errFD  = infoFD{i}.errorVector(end);
-    errCD  = infoCD{i}.errorVector(end);
+    errSym(i) = infoSym{i}.absError;
+    errFD(i)  = infoFD{i}.absError;
+    errCD(i)  = infoCD{i}.absError;
     
-    % Compare error to find best method
-    if errSym < errFD && errSym < errCD
-        fprintf('Sym is the best method for the zero %d \n\n',i);
-    elseif errFD < errSym && errFD < errCD
-        fprintf('FD is the best method for the zero %d \n\n',i);
-    elseif errCD < errFD && errCD < errSym
-        fprintf('CD is the best method for the zero %d \n\n',i);
-    end
 end
-
 
 %%% RESULTS PLOT
 figure('Name','Convergence zero'); 
 t1 = tiledlayout(1,2);
-    tileTitle = title(t1,'Newton''s error evolution');     tileTitle.Interpreter = 'latex';
+     tileTitle = title(t1,'Newton''s error evolution');     tileTitle.Interpreter = 'latex';
 for i=1:numZeros
     nexttile
         semilogy((1:infoFD{i}.iteration),infoFD{i}.errorVector,'o-');   % forward diff error plot
         hold on;    grid on;    axis padded;    box on; 
         semilogy((1:infoCD{i}.iteration),infoCD{i}.errorVector,'--');   % centered diff error plot
         semilogy((1:infoSym{i}.iteration),infoSym{i}.errorVector,'*');  % symolic math error plot
+        yl = yline(toll,'--','Label','tollerance');                             % tollerance value
+            yl.LabelHorizontalAlignment = 'left';
+            yl.Interpreter = 'latex';
         xlabel('$Iteration$');    ylabel('$Error$');
-        legend('$FD$','$CD$','$sym$',Location='best')
-        tString = sprintf('$z_{%d}=[%.4f,%.4f]$',i,solutionFD(i,1),solutionFD(i,1));
+        ylim([10e-12,10e0])
+        legend('$FD$','$CD$','$sym$',Location='northeast')
+        tString = sprintf('$z_{%d}=[%.4f,%.4f]$',i,solutionFD(1,i),solutionFD(2,i));
         title(tString)
 end
-set(gcf,'units','centimeters','position',[0,0,20,10]);
+set(gcf,'units','centimeters','position',[0,0,20,9]);
 exportgraphics(gcf,'figure\ex1_convergence.eps');
-
 
 
 %% Ex2 
@@ -87,7 +80,7 @@ clearvars; close all; clc;
 %%% DATA INPUT
 f = @(x,t)(x - 2.*(t).^2 + 2);
 solutionIVP = @(t)(2.*t.^2 + 4.*t - exp(t) + 2);
-avgTimeIter = 100;
+avgTimeIter = 1000;
 x0   = 1;
 tmax = 2; 
 h = [0.5 0.2 0.05 0.01]';     % step size
@@ -98,7 +91,6 @@ RK4 = cell(1,length(h));
 Analytic = cell(1,length(h));
 lString  = cell(1,length(h)+1);
 
-
 %%% ANALYTICAL SOLUTION & LEGEND STRING
 for i = 1:length(h)
     Analytic{i}.t = 0:h(i):tmax;
@@ -106,7 +98,6 @@ for i = 1:length(h)
     lString{i} = ['h = ', num2str(h(i))];
 end
 lString{end} = 'Analytic';
-
 
 %%% HEUN METHOD SOLUTION
 % Figure initialization
@@ -140,8 +131,8 @@ nexttile
     xlabel('$Time$');   ylabel('$Error$');
 
 drawnow
-% -add graphic export here-
-
+set(gcf,'units','centimeters','position',[0,0,20,11]);
+exportgraphics(gcf,'figure\ex2_heun.eps');
 
 %%% RK4 METHOD SOLUTION
 % Figure initialization
@@ -172,11 +163,10 @@ nexttile
     grid on;    box on;    axis padded;
     title('Integration error')
     legend(lString{1:length(h)},'Location','best')
-    xlabel('$Time$');   ylabel('$Error$');
- 
+    xlabel('$Time$');   ylabel('$Error$'); 
 drawnow
-% -add graphic export here-
-
+set(gcf,'units','centimeters','position',[0,0,20,11]);
+exportgraphics(gcf,'figure\ex2_rk4.eps');
 
 %%% POST PROCESSING
 % Error vs CPU time
@@ -199,11 +189,12 @@ clim([cbTicksPos(1),cbTicksPos(end)])
     cb.TickLabels = {'',num2str(h),''};
 set(cb,'TickLabelInterpreter','latex')
 
-title('Integration solution');      legend('RK2','RK4','Location','best');  % title + legend
-xlabel('Final error');   ylabel('Time cost');                               % axis label
+title('Error vs. Cost comparison');      legend('RK2','RK4','Location','best');     % title + legend
+xlabel('Final error');   ylabel('Time cost');                                       % axis label
 
 drawnow
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,12,10]);
+exportgraphics(gcf,'figure\ex2_error.eps');
 
 
 %% Ex3
@@ -226,14 +217,14 @@ nexttile
 
 nexttile
     [RK2.xF,RK2.yF,RK2.hvec,RK2.stabEdge]=stabRegion(RK2.F,stepNum,RK2.degVec,RK2.guess);
-    xlim([-4 1])
+    xlim([-4 4]);   ylim([-4 4]);
     
 leg = legend('$RK2$','$Stable$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,20,9]);
+exportgraphics(gcf,'figure\ex3_rk2.eps');
 
 fprintf('Solution of the problem in alpha = pi using RK2 is:\n h = %.4f \n\n',RK2.hvec(1));
-
 
 %%% RK4 STABILITY PROBLEM
 figure('Name','RK4');
@@ -247,14 +238,14 @@ nexttile
     
 nexttile
     [RK4.xF,RK4.yF,RK4.hvec,RK4.stabEdge]=stabRegion(RK4.F,stepNum,RK4.degVec,RK4.guess);
-    xlim([-4 1])
+    xlim([-4 4]);   ylim([-4 4]);
 
 leg = legend('$RK4$','$Stable$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,20,9]);
+exportgraphics(gcf,'figure\ex3_rk4.eps');
 
 fprintf('Solution of the problem in alpha = pi using RK4 is:\n h = %.4f \n\n',RK4.hvec(1));
-
 
 %%% STABILITY COMPARE RK2 vs RK4
 figure('Name','RK4 vs. RK2');
@@ -270,7 +261,9 @@ figure('Name','RK4 vs. RK2');
     ylim([-3.5 3.5]);
     legend('$RK4$','$RK2$')
     title('$RK2$ vs $RK4$')
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,12,10]);
+exportgraphics(gcf,'figure\ex3_stability.eps');
+%exportgraphics(gcf,'figure\ex3_stability.png',Resolution=1500);
 
 
 %% Ex4
@@ -296,19 +289,19 @@ Afun = @(a) [0, 1; -1, 2*cos(a)];
 alphalim = deg2rad(degVec);
 alphaVec = linspace(alphalim(1),alphalim(2),stepNum);
 
-
 %%% VARIABLES INITIALIZATION
 Gcell    = cell(length(orders),length(tollVec));
 solEdge = cell(length(orders),length(tollVec));
-hVec  = zeros(length(orders),length(tollVec));
+hVec    = zeros(length(orders),length(tollVec));
+hStart  = zeros(length(orders),length(tollVec));
 feval = zeros(length(orders),length(tollVec));
 xF    = zeros(1,length(alphaVec));
 yF    = zeros(1,length(alphaVec));
 
-
 %%% COMPUTE SOLUTION RK1,2,4 
 for ord = 1:length(RKcell) 
     RK = RKcell{ord};
+    method = sprintf('RK%.0f',orders(ord));
     
     for tols = 1:length(tollVec)
         guess = [tollVec(tols) 1];          % Initial guess definition
@@ -328,6 +321,8 @@ for ord = 1:length(RKcell)
             if i == 1
                 Gcell{ord,tols} = G;                                   % Initial guess analysis
                 feval(ord,tols) = orders(ord) * nstep(hVec(ord,tols)); % Function evaluation count
+                hStart(ord,tols) = hVec(ord,tols);
+                fprintf('Solution of the problem in alpha = pi using %s and toll = %.4e is:\n h = %.4e \n\n',method,tollVec(tols),hStart(ord,tols));
             end
             guess = hVec(ord,tols);    % initial guess update
                    
@@ -344,7 +339,6 @@ for ord = 1:length(RKcell)
         solEdge{ord,tols} = [xF,flip(xF,2);yF,-flip(yF,2)];    % Solution edge
     end
 end
-
 
 %%% PLOT SOLUTION RK1,2,4
 % Visual settings
@@ -403,9 +397,11 @@ for ord = 1:length(RKcell)
         cb.Ticks = cbTicksPos;
         cb.TickLabels = {'',num2str(tollVec),''};
     set(cb,'TickLabelInterpreter','latex')
-    % -add graphic export here-
+    
+    figName = sprintf('figure/ex4_%s.eps',tstring);
+    set(gcf,'units','centimeters','position',[0,0,21,9]);
+    exportgraphics(gcf,figName);
 end
-
 
 %%% ZOOM RK1 PLOT
 % Visual settings
@@ -457,8 +453,8 @@ tileTitle.Interpreter = 'latex';
         cb.Ticks = cbTicksPos;
         cb.TickLabels = {'',num2str(tollVec),''};
     set(cb,'TickLabelInterpreter','latex')
-    % -add graphic export here-
-
+    set(gcf,'units','centimeters','position',[0,0,21,9]);
+    exportgraphics(gcf,'figure/ex4_RK1zoom.eps');
 
 %%% FUNCTION EVALUATION vs TOLLERANCE
 figure("Name",'Feval at alpha=pi')
@@ -472,6 +468,8 @@ grid on;    axis padded;    box on;
 xlabel('Tol');      ylabel('Function evaluations')
 title('Function evaluations for $\alpha = \pi$')
 legend(lString)
+set(gcf,'units','centimeters','position',[0,0,9,7]);
+exportgraphics(gcf,'figure/ex4_feval.eps');
 
 
 %% Ex5
@@ -500,12 +498,14 @@ for i = 1:length(thetaVec)
     
     nexttile
         [~,~,~,solEdge{i}]=stabRegion(F,stepNum,degVec,guess);
-        xlim([-5.5 10.5])
+        xlim([-5.5 10.5]);
     
     lstring{i} = sprintf('$BI2_{%.1f}$',thetaVec(i));
     leg = legend(lstring{i},'$Stable$','Orientation', 'Horizontal');
         leg.Layout.Tile = 'south';        leg.Color = 'w';
-    % -add graphic export here-
+    figName = sprintf('figure/ex5_BI2_%.1f.eps',thetaVec(i));
+    set(gcf,'units','centimeters','position',[0,0,11,9]);
+    exportgraphics(gcf,figName);
 end
 
 figure('Name','BI2 compare');
@@ -532,7 +532,8 @@ xlabel('$Re\{h\lambda\}$');     ylabel('$Im\{h\lambda\}$');
 xlim([-6 11]);
 tstring = sprintf('$BI2_{n}$ stability analysis');
 title(tstring)
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex5_stabReg.eps');
     
 
 %% Ex6
@@ -547,7 +548,6 @@ f = @(x,t) [B(1,1).*x(1) + B(1,2).*x(2); ...
 tmax = 5;       % start and ending time
 x0 = [1 1]';    % initial guess
 h  = 0.1;       % time step
-
 
 %%% IVP SOLUTION
 graphicOutput = false;
@@ -572,7 +572,6 @@ for i = 2 : (length(Analytic.t))
     Analytic.x(:,i) = solutionIVP(tNow);
 end
 
-
 %%% INTEGRATION RESULTS
 figure('Name','Integration results');
     t1 = tiledlayout(1,2);
@@ -586,6 +585,7 @@ nexttile
     %plot(RK4mod.t,RK4mod.x(1,:),'--','Color',cmap(3,:))
     plot(Analytic.t,Analytic.x(1,:),'o','Color',cmap(5,:),MarkerSize=2)
     xlabel('$Time$');   ylabel('$x_1$');
+    title('$x_1$ integration')
     ylim([-0.2 1.2])
     
 nexttile
@@ -595,13 +595,15 @@ nexttile
     %plot(RK4mod.t,RK4mod.x(2,:),'--','Color',cmap(3,:))
     plot(Analytic.t,Analytic.x(2,:),'o','Color',cmap(5,:),MarkerSize=2)
     xlabel('$Time$');   ylabel('$x_2$');
+    title('$x_2$ integration')
     ylim([-0.2 1.2])
 
 leg = legend('$RK4$','$IEX4$','$Analytical$','Orientation', 'Horizontal');
 %leg = legend('$RK4$','$IEX4$','$RK4mod$','$Analytical$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';
-% -add graphic export here-
-    
+set(gcf,'units','centimeters','position',[0,0,20,8]);
+exportgraphics(gcf,'figure/ex6_integOutput.eps');    
+%exportgraphics(gcf,'figure/ex6_integOutputMod.eps');
 
 %%% EIGENVALUE ANALYSIS
 dimSys  = length(x0);
@@ -626,7 +628,8 @@ nexttile
     
 leg = legend('$IEX4$','$Stable$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';      leg.Color = 'w';
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex6_iex4.eps');
 
 % RK4    
 figure('Name','RK4');
@@ -644,7 +647,8 @@ nexttile
 
 leg = legend('$RK4$','$Stable$','Orientation', 'Horizontal');
     leg.Layout.Tile = 'south';
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex6_rk4.eps');
 
 % IEX4 vs RK4 vs matrixB
 figure('Name','IEX4 vs. RK2');
@@ -673,10 +677,12 @@ figure('Name','IEX4 vs. RK2');
     
     xline(0,LineStyle='--');       yline(0,LineStyle='--');
     xlabel('$Re_{h\lambda}$');     ylabel('$Im_{h\lambda}$');
-    xlim([-45 15]);
-    legend('$IEX4$','$RK4$','$h\lambda$','$h_{mod}\lambda$')
+    xlim([-45 15]);                ylim([-10 10]);
+    legend('$IEX4$','$RK4$','$h\lambda$','$h_{mod}\lambda$',Orientation='Horizontal',Location='southoutside')
     title('$RK4$ vs $IEX4$')
-% -add graphic export here-
+set(gcf,'units','centimeters','position',[0,0,11,6]);
+exportgraphics(gcf,'figure/ex6_stabReg.eps');
+%exportgraphics(gcf,'figure/ex6_stabReg.png',Resolution=1500);
 
 
 %% Ex7
@@ -748,6 +754,8 @@ nexttile
     ylim([-10 10]);
     legend('Runge-Kutta starter', 'Adams Bashforth starter', ...
                 Location='southoutside', Orientation='horizontal');
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_ab.eps');
 
 % AM
 figure("Name",'Adams Moulton')
@@ -768,6 +776,8 @@ nexttile
     ylabel('$x_{2}$');      xlabel('Time');
     legend('Runge-Kutta starter', 'Adams Moulton starter', ...
                 Location='southoutside', Orientation='horizontal');
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_am.eps');
 
 % ABM
 figure("Name",'Adams Bashforth Moulton')
@@ -788,6 +798,8 @@ nexttile
     ylabel('$x_{2}$');      xlabel('Time');
     legend('Runge-Kutta starter', 'Adams Bashforth Moulton starter', ...
                 Location='southoutside', Orientation='horizontal');
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_abm.eps');
 
 % BDF
 figure("Name",'Backward Difference Formula')
@@ -808,6 +820,8 @@ nexttile
     ylabel('$x_{2}$');      xlabel('Time');
     legend('Runge-Kutta starter', 'Backward Difference Formula starter', ...
                 Location='southoutside', Orientation='horizontal');
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_bdf.eps');
 
 %%% COMPARE
 figure("Name",'Multistep method compare')
@@ -833,23 +847,35 @@ nexttile
     ylabel('$x_{2}$');      xlabel('Time');
     ylim([-2 22]);
     legend('AM','AB','ABM','BDF', Location='southoutside', Orientation='horizontal');
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_compare.eps');
 
 
 %%% EIGENVALUE ENVELOP
 timeVec = 0:h:tmax;
 figure("Name",'Eigenvalue evolution')
-    hold on;    grid on;    box on;
+    hold on;    grid on;    axis padded;    box on;
     plot(timeVec,h*eig1(timeVec),'r')
     plot(timeVec,h*eig2(timeVec),'b')
-    limitAB3 = yline(-0.6,Color=cmap(3,:),LineWidth=1.5,LineStyle='--',Label='AB3');
+    limitAB3 = yline(-0.6,Color=cmap(1,:),LineWidth=1.5,LineStyle='--',Label='AB3');
         limitAB3.LabelHorizontalAlignment='center';
-    limitAM3 = yline(-6,Color=cmap(5,:),LineWidth=1.5,LineStyle='--',Label='AM3');
+        limitAB3.Interpreter='latex';
+    limitAM3 = yline(-6,Color=cmap(2,:),LineWidth=1.5,LineStyle='--',Label='AM3');
         limitAM3.LabelHorizontalAlignment='center';
-    limitABM3 = yline(-1.7,Color=cmap(6,:),LineWidth=1.5,LineStyle='--',Label='ABM3');
-        limitABM3.LabelHorizontalAlignment='center';        
-    xlabel('Time');     ylabel('$h\lambda_{i}$');     ylim([-6.5,0.5])
+        limitAM3.Interpreter='latex';
+    limitABM3 = yline(-1.7,Color=cmap(5,:),LineWidth=1.5,LineStyle='--',Label='ABM3');
+        limitABM3.LabelHorizontalAlignment='center';
+        limitABM3.Interpreter='latex';
+    xlabel('Time');     ylabel('$h\lambda_{i}$');     ylim([-6.75,0.75])
     legend('$h\lambda_{1}$','$h\lambda_{2}$',Location='best')
+set(gcf,'units','centimeters','position',[0,0,11,9]);
+exportgraphics(gcf,'figure/ex7_eig.eps');
 
 %%% --- END CODE --- 
 
 %% FUNCTIONS
+
+
+
+
+

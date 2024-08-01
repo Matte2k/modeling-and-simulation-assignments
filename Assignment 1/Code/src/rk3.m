@@ -1,5 +1,5 @@
 function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
-%RK4 - Runge-Kutta method of order 3
+%RK3 - Runge-Kutta method of order 3
 %
 %   Syntax:
 %       [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
@@ -21,7 +21,7 @@ function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
 %           - info.implicit,       bool:  true if the method is implicit
 %
 %   Default settings for optional input (*):
-%       rkOptions:  set with default 'Heun' alpha and beta
+%       rkOptions:  set with default alpha and beta
 %
 
     %%% Optional input definition
@@ -31,30 +31,28 @@ function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
         rkOptions.beta   = [];
     end
 
-
     %%% Default method
     if isempty(rkOptions.method)
-        rkOptions.method = 'Heun';           % Heun parameters sets as default
+        rkOptions.method = 'Default';           % Default parameters sets as default
     end
-
 
     %%% Parameters definition
     switch rkOptions.method
-        case 'Heun'
-            alpha3 = [1/3 2/3 1]';           % rk alpha matrix   TO ADDD
-            beta3 = diag([1/3 2/3 3/4 ]);       % rk beta matrix    TO ADDD
+        case 'Default'
+            alpha3 = [1/3 2/3 1]';           
+            beta3 = diag([1/3 2/3 3/4 ]);       
             beta3(3,:) = [1/4 0 3/4];
 
-            if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
+            if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))
                 warning('Parameters matrix unused, standard %s parameters are used instead',...
                     rkOptions.method);       % warning for parameters matrix unused
             end
 
         case 'Custom'
-            if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            % TO DEBUG
+            if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            
                 error('No parameters matrix has been given as input');  % missing parameters matrix
 
-            elseif not(isequal(size(rkOptions.alpha),[3,1])) || not(isequal(size(rkOptions.beta),[3,3]))            % TO DEBUG
+            elseif not(isequal(size(rkOptions.alpha),[3,1])) || not(isequal(size(rkOptions.beta),[3,3]))            
                 error('Parameters matrix dimensions are invalid');      % parameters matrix with wrong size
 
             end
@@ -66,7 +64,6 @@ function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
             error('Insert a valid method as input');
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -77,7 +74,6 @@ function [x,t,info] = rk3(f,x0,tmax,h,rkOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)];   % fval vector allocation
     feval = feval + dimSys;                       % function evaluation counter update
-
 
     %%% RK3 loop
     for i=1:(length(t)-1)                              % calculation loop

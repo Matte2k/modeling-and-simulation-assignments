@@ -47,7 +47,6 @@ function [abmOptions] = abmSettings(order,startup,method,alpha,betaP,betaC)
         end
     end
 
-
     %%% Struct definition
     abmOptions = struct;
         abmOptions.order   = order;

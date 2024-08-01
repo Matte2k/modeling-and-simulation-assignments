@@ -34,7 +34,6 @@ function [x,t,info] = bdf1(f,x0,tmax,h,bdfOptions)
         bdfOptions.gamma   = [];
     end
 
-
     %%% Default method
     if isempty(bdfOptions.method)
         bdfOptions.method = 'Standard';
@@ -44,7 +43,6 @@ function [x,t,info] = bdf1(f,x0,tmax,h,bdfOptions)
         bdfOptions.options = optimoptions ( 'fsolve', 'Display', 'off' );   % default fsolve options
     end
 
-
     %%% Parameters definition
     switch bdfOptions.method
         case 'Standard'
@@ -52,16 +50,16 @@ function [x,t,info] = bdf1(f,x0,tmax,h,bdfOptions)
             beta = 1;       % standard beta parameter
             gamma = 1;      % standard gamma parameter
 
-            if not(isempty(bdfOptions.alpha)) || not(isempty(bdfOptions.beta)) || not(isempty(bdfOptions.gamma))            % TO DEBUG
+            if not(isempty(bdfOptions.alpha)) || not(isempty(bdfOptions.beta)) || not(isempty(bdfOptions.gamma))
                 warning('Parameters matrix unused, standard %s parameters are used instead',...
                     bdfOptions.method);     % warning for parameters matrix unused
             end
 
         case 'Custom'
-            if isempty(bdfOptions.alpha) || isempty(bdfOptions.beta) || isempty(bdfOptions.gamma)            % TO DEBUG
+            if isempty(bdfOptions.alpha) || isempty(bdfOptions.beta) || isempty(bdfOptions.gamma)
                 error('No parameters matrix has been given as input');  % missing parameters matrix
 
-            elseif not(isequal(size(bdfOptions.alpha),[1,1])) || not(isequal(size(bdfOptions.beta),[1,1])) || not(isequal(size(bdfOptions.gamma),[1,1]))            % TO DEBUG
+            elseif not(isequal(size(bdfOptions.alpha),[1,1])) || not(isequal(size(bdfOptions.beta),[1,1])) || not(isequal(size(bdfOptions.gamma),[1,1]))
                 error('Parameters matrix dimensions are invalid');      % parameters matrix with wrong size
 
             end
@@ -75,7 +73,6 @@ function [x,t,info] = bdf1(f,x0,tmax,h,bdfOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -86,7 +83,6 @@ function [x,t,info] = bdf1(f,x0,tmax,h,bdfOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)]; % fval vector allocation
     feval = feval + dimSys;                     % function evaluation counter update
-
 
     %%% BDF1 loop
     for i = 1 : (length(t)-1)       % main loop of the method

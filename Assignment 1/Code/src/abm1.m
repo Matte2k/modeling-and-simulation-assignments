@@ -33,12 +33,10 @@ function [x,t,info] = abm1(f,x0,tmax,h,abmOptions)
         abmOptions.betaC  = [];
     end
 
-
     %%% Default method
     if isempty(abmOptions.method)
         abmOptions.method = 'Standard';
     end
-
 
     %%% Parameters definition
     switch abmOptions.method
@@ -47,16 +45,16 @@ function [x,t,info] = abm1(f,x0,tmax,h,abmOptions)
             betaP = 1;      % standard beta predictor parameter
             betaC = 1;      % standard beta corrector parameter
 
-            if not(isempty(abmOptions.alpha)) || not(isempty(abmOptions.betaP)) || not(isempty(abmOptions.betaC))           % TO DEBUG
+            if not(isempty(abmOptions.alpha)) || not(isempty(abmOptions.betaP)) || not(isempty(abmOptions.betaC))G
                 warning('Parameters matrix unused, standard %s parameters are used instead',...
                     abmOptions.method);      % warning for parameters matrix unused
             end
 
         case 'Custom'
-            if isempty(abmOptions.alpha) || isempty(abmOptions.betaP) || isempty(abmOptions.betaC)           % TO DEBUG
+            if isempty(abmOptions.alpha) || isempty(abmOptions.betaP) || isempty(abmOptions.betaC)
                 error('No parameters matrix has been given as input');  % missing parameters matrix
 
-            elseif not(isequal(size(abmOptions.alpha),[1,1])) || not(isequal(size(abmOptions.betaP),[1,1])) || not(isequal(size(abmOptions.betaC),[1,1]))            % TO DEBUG
+            elseif not(isequal(size(abmOptions.alpha),[1,1])) || not(isequal(size(abmOptions.betaP),[1,1])) || not(isequal(size(abmOptions.betaC),[1,1]))
                 error('Parameters matrix dimensions are invalid');      % parameters matrix with wrong size
 
             end
@@ -70,7 +68,6 @@ function [x,t,info] = abm1(f,x0,tmax,h,abmOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -81,7 +78,6 @@ function [x,t,info] = abm1(f,x0,tmax,h,abmOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)]; % fval vector allocation
     feval = feval + dimSys;                     % function evaluation counter update
-
 
     %%% ABM1 loop
     for i = 1 : (length(t)-1)       % main loop of the method

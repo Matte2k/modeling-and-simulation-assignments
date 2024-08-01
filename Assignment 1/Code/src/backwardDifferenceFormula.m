@@ -31,11 +31,10 @@ function [x,t,info] = backwardDifferenceFormula(f,x0,tmax,h,bdfOptions,visualCon
         visualConfig = true;
     end
 
-
     %%% Dimension Check for initial guess
     if size(x0,2) > 1 && visualConfig == true
         % warning to remember that initial guess correct input format
-        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step\n',h);      % DEBUG
+        warning('INPUT initial guess MUST be evaluated on an equally spaced grid with %.3d as step\n',h);
     end
 
     if size(x0,2) > bdfOptions.order
@@ -52,7 +51,6 @@ function [x,t,info] = backwardDifferenceFormula(f,x0,tmax,h,bdfOptions,visualCon
             warning('Startup method defined will not be used, x0 is already valid')
         end
     end
-
 
     %%% Adams Bashforth Moulton order selector based on 'bdfOptions'
     switch bdfOptions.order
@@ -93,7 +91,6 @@ function [x,t,info] = backwardDifferenceFormula(f,x0,tmax,h,bdfOptions,visualCon
     if visualConfig == true
         plot(t,x,'-');
     end
-
 
     if nargout == 3
         info = struct;

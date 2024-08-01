@@ -40,12 +40,10 @@ function [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualCon
         end
     end
     
-    
     %%% mesh definition and evaluation
     [X1mesh,X2mesh] = meshgrid(meshMin:meshStep:meshMax);
     Z1mesh = f1(X1mesh,X2mesh);
-    Z2mesh = f2(X1mesh,X2mesh);
-    
+    Z2mesh = f2(X1mesh,X2mesh);    
     
     if visualConfig == true
         fig = figure();
@@ -76,23 +74,11 @@ function [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualCon
             s2.FaceColor = 'b';
             s2.FaceAlpha = 0.4;
         
-        % % versors
-        % x1ax = quiver3(0,0,0,1,0,0);
-        %     x1ax.LineWidth = 2;
-        %     x1ax.Color = 'k';
-        % x2ax = quiver3(0,0,0,0,1,0);
-        %     x2ax.LineWidth = 2;
-        %     x2ax.Color = 'k';
-        % zax = quiver3(0,0,0,0,0,1);
-        %     zax.LineWidth = 2;
-        %     zax.Color = 'k';
-        
         % labels
         xlabel('$x_1$');   ylabel('$x_2$');
         title('Surface plot')
         legend('$zero$','$f_1$','$f_2$')
-        
-        
+                
         %%% contour plot of the zero level
         nexttile
         hold on;    box  on;    grid on;    axis padded
@@ -107,8 +93,7 @@ function [Z1mesh,Z2mesh,t] = zerosGuess(f1,f2,meshMin,meshMax,meshStep,visualCon
         % labels
         xlabel('$x_1$');   ylabel('$x_2$');  zlabel('$f(x_1,x_2)$')
         title('Contour plot')
-        legend('$f_1=0$','$f_2=0$')
-    
+        legend('$f_1=0$','$f_2=0$',location='northwest')
     end
-
+    
 end

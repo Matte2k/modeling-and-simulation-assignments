@@ -41,7 +41,6 @@ function [abOptions] = abSettings(order,startup,method,alpha,beta)
         end
     end
 
-
     %%% Struct definition
     abOptions = struct;
         abOptions.order   = order;

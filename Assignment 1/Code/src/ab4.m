@@ -32,12 +32,10 @@ function [x,t,info] = ab4(f,x0,tmax,h,abOptions)
         abOptions.beta   = [];
     end
 
-
     %%% Default method
     if isempty(abOptions.method)
         abOptions.method = 'Standard';
     end
-
 
     %%% Parameters definition
     switch abOptions.method
@@ -67,7 +65,6 @@ function [x,t,info] = ab4(f,x0,tmax,h,abOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -78,7 +75,6 @@ function [x,t,info] = ab4(f,x0,tmax,h,abOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), f(x(:,4),t(4)), ...
                     zeros(dimSys,length(t)-4)];     % fval vector allocation
     feval = feval + 4*dimSys;                       % function evaluation counter update
-
 
     %%% AB4 loop
     for i = 4 : (length(t)-1)       % main loop of the method

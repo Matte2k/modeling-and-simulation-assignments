@@ -31,12 +31,10 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
         rkOptions.beta   = [];
     end
 
-
     %%% Default method
     if isempty(rkOptions.method)
         rkOptions.method = 'Runge-Kutta';      % Runge-Kutta parameters sets as default
     end
-
 
     %%% Parameters definition
     switch rkOptions.method
@@ -45,16 +43,16 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
             beta4 = diag([0.5 0.5 1 1/6]);     % rk beta matrix
             beta4(4,:) = [1/6 1/3 1/3 1/6];
 
-            if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
+            if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))
                 warning('Parameters matrix unused, standard %s parameters are used instead',...
                     rkOptions.method);       % warning for parameters matrix unused
             end
 
         case 'Custom'
-            if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            % TO DEBUG
+            if isempty(rkOptions.alpha) || isempty(rkOptions.beta)            
                 error('No parameters matrix has been given as input');  % missing parameters matrix
 
-            elseif not(isequal(size(rkOptions.alpha),[4,1])) || not(isequal(size(rkOptions.beta),[4,4]))            % TO DEBUG
+            elseif not(isequal(size(rkOptions.alpha),[4,1])) || not(isequal(size(rkOptions.beta),[4,4]))            
                 error('Parameters matrix dimensions are invalid');      % parameters matrix with wrong size
 
             end
@@ -66,7 +64,6 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
             error('Insert a valid method as input');
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -77,7 +74,6 @@ function [x,t,info] = rk4(f,x0,tmax,h,rkOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)];   % fval vector allocation
     feval = feval + dimSys;                       % function evaluation counter update
-
 
     %%% RK4 loop
     for i=1:(length(t)-1)                              % calculation loop

@@ -33,7 +33,6 @@ function [x,t,info] = am4(f,x0,tmax,h,amOptions)
         amOptions.beta    = [];
     end
 
-
     %%% Default method
     if isempty(amOptions.method)
         amOptions.method = 'Standard';
@@ -42,7 +41,6 @@ function [x,t,info] = am4(f,x0,tmax,h,amOptions)
     if isempty(amOptions.options)
         amOptions.options = optimoptions ( 'fsolve', 'Display', 'off' );    % default fsolve options
     end
-
 
     %%% Parameters definition
     switch amOptions.method
@@ -72,7 +70,6 @@ function [x,t,info] = am4(f,x0,tmax,h,amOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -83,7 +80,6 @@ function [x,t,info] = am4(f,x0,tmax,h,amOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), ...
                     zeros(dimSys,length(t)-3)];     % fval vector allocation
     feval = feval + 3*dimSys;                       % function evaluation counter update
-
 
     %%% AM4 loop
     for i = 3 : (length(t)-1)         % main loop of the method

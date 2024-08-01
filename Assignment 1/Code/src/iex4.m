@@ -37,7 +37,6 @@ function [x,t,info] = iex4(f,x0,tmax,h,iOptions,visualConfig)
         iOptions.options = [];
     end
 
-
     %%% Default submethod
     if isempty(iOptions.method)
         iOptions.method = 'fsolve';      % default implicit solver
@@ -47,12 +46,10 @@ function [x,t,info] = iex4(f,x0,tmax,h,iOptions,visualConfig)
         iOptions.options = optimoptions ( 'fsolve', 'Display', 'off' );  % default fsolve options
     end
 
-
     %%% Dimension Check for initial guess
     if size(x0,2) > 1
         error('The initial guess is invalid, too many input in x0 vector compare to the order selected')
     end
-
                     
     %%% Initialization
     timerStart = tic;               % timer start
@@ -65,7 +62,6 @@ function [x,t,info] = iex4(f,x0,tmax,h,iOptions,visualConfig)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)];     % fval vector allocation
     feval = feval + dimSys;                         % function evaluation counter update
-
 
     %%% IEX4 loop
     for i = 1 : (length(t)-1)         % main loop of the method
@@ -145,7 +141,6 @@ function [x,t,info] = iex4(f,x0,tmax,h,iOptions,visualConfig)
             info.fvalVec   = fvalVec;
             info.implicit  = true;
     end
-
 
     %%% plot
     if visualConfig == true

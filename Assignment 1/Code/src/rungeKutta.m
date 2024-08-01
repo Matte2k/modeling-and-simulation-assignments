@@ -33,12 +33,10 @@ function [x,t,info] = rungeKutta(f,x0,tmax,h,rkOptions,visualConfig)
         visualConfig = true;
     end
 
-
     %%% Dimension Check for initial guess
     if size(x0,2) > 1
         error('The initial guess is invalid, too many input in x0 vector compare to the order selected\n')
     end
-
     
     %%% Runge-Kutta method selector based on 'rkOptions'
     switch rkOptions.order
@@ -74,7 +72,6 @@ function [x,t,info] = rungeKutta(f,x0,tmax,h,rkOptions,visualConfig)
             error('Please insert a valid method as input\n');
     end
     info.iterations = rkOptions.iterations;
-
 
     if visualConfig == true
         plot(t,x,'-');

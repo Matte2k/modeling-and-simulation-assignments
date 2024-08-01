@@ -32,17 +32,15 @@ function [x,t,info] = rk1(f,x0,tmax,h,rkOptions)
         rkOptions.beta   = [];
     end
 
-
     %%% Default method
     if isempty(rkOptions.method)
         rkOptions.method = 'FowardEuler';   % FowardEuler parameters sets as default
     end
 
-    if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))            % TO DEBUG
+    if not(isempty(rkOptions.alpha)) || not(isempty(rkOptions.beta))
         warning('Parameters matrix unused, standard %s parameters are used instead',...
             rkOptions.method);      % warning for parameters matrix unused
     end
-
 
     %%% Initialization
     timerStart = tic;               % timer start
@@ -54,7 +52,6 @@ function [x,t,info] = rk1(f,x0,tmax,h,rkOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)];   % fval vector allocation
     feval = feval + dimSys;                       % function evaluation counter update
-
 
     %%% RK1 loop
     for i=1:(length(t)-1)

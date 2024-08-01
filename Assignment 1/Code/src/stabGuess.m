@@ -11,17 +11,17 @@ function [] = stabGuess(F,degStart,hVec)
 %
 %     
 
+
     radStart = deg2rad(degStart);
     A = [0, 1; -1, 2*cos(radStart)];
     S = @(h) max(abs(eig(F(h,A)))) - 1;     % Stability problem definition
     
-    fplot(S,hVec, Color = 'k',LineWidth=1.2);             % Initial guess check for stability region
+    fplot(S,hVec, Color = 'k',LineWidth=1.2);               % Initial guess check for stability region
     hold on;    grid on;    axis padded;    box on; 
     ylim([-1 1]);     yline(0, LineStyle = '--')
-    xlabel('$h$');    ylabel('$S(h)$')      % where S is the stability function
-    tstring = sprintf('Stability function in alpha = %.0f',degStart);
+    xlabel('$h$');    ylabel('$S(h)$')                      % where S is the stability function
+    tstring = sprintf('Stability function in %.0f',degStart);
     title (tstring);
     drawnow
-
 
 end

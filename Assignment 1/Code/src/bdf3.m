@@ -34,7 +34,6 @@ function [x,t,info] = bdf3(f,x0,tmax,h,bdfOptions)
         bdfOptions.gamma   = [];
     end
 
-
     %%% Default method
     if isempty(bdfOptions.method)
         bdfOptions.method = 'Standard';
@@ -43,7 +42,6 @@ function [x,t,info] = bdf3(f,x0,tmax,h,bdfOptions)
     if isempty(bdfOptions.options)
         bdfOptions.options = optimoptions ( 'fsolve', 'Display', 'off' );   % default fsolve options
     end
-
 
     %%% Parameters definition
     switch bdfOptions.method
@@ -75,7 +73,6 @@ function [x,t,info] = bdf3(f,x0,tmax,h,bdfOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -86,7 +83,6 @@ function [x,t,info] = bdf3(f,x0,tmax,h,bdfOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), ...
                     zeros(dimSys,length(t)-3)]; % fval vector allocation
     feval = feval + 3*dimSys;                   % function evaluation counter update
-
 
     %%% BDF3 loop
     for i = 3 : (length(t)-1)       % main loop of the method

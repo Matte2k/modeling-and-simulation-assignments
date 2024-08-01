@@ -40,7 +40,6 @@ function [rkOptions] = rkSettings(order,method,alpha,beta,iterations)
         end
     end
 
-
     %%% Struct definition
     rkOptions = struct;
         rkOptions.order  = order;

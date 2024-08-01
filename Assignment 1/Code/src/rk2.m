@@ -32,12 +32,10 @@ function [x,t,info] = rk2(f,x0,tmax,h,rkOptions)
         rkOptions.beta   = [];
     end
 
-
     %%% Default method
     if isempty(rkOptions.method)
         rkOptions.method = 'Heun';          % Heun parameters sets as default
     end
-
 
     %%% Parameters definition
     switch rkOptions.method
@@ -84,7 +82,6 @@ function [x,t,info] = rk2(f,x0,tmax,h,rkOptions)
             error('Insert a valid method as input');
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -95,7 +92,6 @@ function [x,t,info] = rk2(f,x0,tmax,h,rkOptions)
     fvalVec = [f(x(:,1),t(1)), ...
                     zeros(dimSys,length(t)-1)];   % fval vector allocation
     feval = feval + dimSys;                       % function evaluation counter update
-
 
     %%% RK2 loop
     for i=1:(length(t)-1)

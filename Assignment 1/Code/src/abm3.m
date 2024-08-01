@@ -33,12 +33,10 @@ function [x,t,info] = abm3(f,x0,tmax,h,abmOptions)
         abmOptions.betaC  = [];
     end
 
-
     %%% Default method
     if isempty(abmOptions.method)
         abmOptions.method = 'Standard';
     end
-
 
     %%% Parameters definition
     switch abmOptions.method
@@ -70,7 +68,6 @@ function [x,t,info] = abm3(f,x0,tmax,h,abmOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -81,7 +78,6 @@ function [x,t,info] = abm3(f,x0,tmax,h,abmOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), ...
                     zeros(dimSys,length(t)-3)];     % fval vector allocation
     feval = feval + 3*dimSys;                       % function evaluation counter update
-
 
     %%% ABM3 loop
     for i = 3 : (length(t)-1)       % main loop of the method

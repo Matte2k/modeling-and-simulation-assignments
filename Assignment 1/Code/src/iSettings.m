@@ -27,7 +27,6 @@ function [iOptions] = iSettings(method,options)
         end
     end
 
-
     %%% Struct definition
     iOptions = struct;
         iOptions.method  = method;

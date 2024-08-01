@@ -34,7 +34,6 @@ function [x,t,info] = bdf4(f,x0,tmax,h,bdfOptions)
         bdfOptions.gamma   = [];
     end
 
-
     %%% Default method
     if isempty(bdfOptions.method)
         bdfOptions.method = 'Standard';
@@ -43,7 +42,6 @@ function [x,t,info] = bdf4(f,x0,tmax,h,bdfOptions)
     if isempty(bdfOptions.options)
         bdfOptions.options = optimoptions ( 'fsolve', 'Display', 'off' );   % default fsolve options
     end
-
 
     %%% Parameters definition
     switch bdfOptions.method
@@ -75,7 +73,6 @@ function [x,t,info] = bdf4(f,x0,tmax,h,bdfOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -86,7 +83,6 @@ function [x,t,info] = bdf4(f,x0,tmax,h,bdfOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), f(x(:,4),t(4)), ...
                     zeros(dimSys,length(t)-4)]; % fval vector allocation
     feval = feval + 4*dimSys;                   % function evaluation counter update
-
 
     %%% AB4 loop
     for i = 4 : (length(t)-1)       % main loop of the method

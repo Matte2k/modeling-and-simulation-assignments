@@ -30,7 +30,6 @@ function [x0,infoStartup] = startupGuess(f,x0,guessOrder,h,methodOptions)
     end
     visualConf = false;     % disable plot in the startup problem
 
-
     %%% Startup solver selector vased on 'methodOptions'
     switch methodOptions.startup
         case 'RK'

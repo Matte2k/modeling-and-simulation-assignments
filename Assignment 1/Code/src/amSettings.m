@@ -47,7 +47,6 @@ function [amOptions] = amSettings(order,startup,method,options,alpha,beta)
         end
     end
 
-
     %%% Struct definition
     amOptions = struct;
         amOptions.order   = order;

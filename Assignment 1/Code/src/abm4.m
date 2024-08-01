@@ -33,12 +33,10 @@ function [x,t,info] = abm4(f,x0,tmax,h,abmOptions)
         abmOptions.betaC  = [];
     end
 
-
     %%% Default method
     if isempty(abmOptions.method)
         abmOptions.method = 'Standard';       % Heun parameters sets as default
     end
-
 
     %%% Parameters definition
     switch abmOptions.method
@@ -70,7 +68,6 @@ function [x,t,info] = abm4(f,x0,tmax,h,abmOptions)
 
     end
 
-
     %%% Initialization
     timerStart = tic;               % timer start
     feval = 0;                      % function evaluation counter starts
@@ -81,7 +78,6 @@ function [x,t,info] = abm4(f,x0,tmax,h,abmOptions)
     fvalVec = [f(x(:,1),t(1)), f(x(:,2),t(2)), f(x(:,3),t(3)), f(x(:,4),t(4)), ...
                     zeros(dimSys,length(t)-4)];     % fval vector allocation
     feval = feval + 4*dimSys;                       % function evaluation counter update
-
 
     %%% ABM4 loop
     for i = 4 : (length(t)-1)       % main loop of the method

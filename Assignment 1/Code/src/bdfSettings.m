@@ -53,7 +53,6 @@ function [bdfOptions] = bdfSettings(order,startup,method,options,alpha,beta,gamm
         end
     end
 
-
     %%% Struct definition
     bdfOptions = struct;
         bdfOptions.order   = order;
