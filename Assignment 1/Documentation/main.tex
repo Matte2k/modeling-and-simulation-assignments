@@ -1,18 +1,17 @@
-
 \documentclass[11pt,a4paper,oneside]{article}
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc}
 \usepackage[main=english]{babel}
-\usepackage{graphicx} % 1pt = 0.035146cm
+\usepackage{graphicx}                       % 1pt = 0.035146cm
 \graphicspath{{Figures/}}
-\usepackage[justification=default]{subfig} %Manage sub-figures 
+\usepackage[justification=default]{subfig}  % Manage sub-figures 
 \usepackage[update]{epstopdf}
 \usepackage[labelfont=bf]{caption}
-\usepackage{titlesec} % Allows customization of titles
+\usepackage{titlesec}                       % Allows customization of titles
 \usepackage{booktabs}
-
 \usepackage{color}
 \usepackage[textwidth = 450pt,top = 80pt, bottom = 60pt]{geometry}
+\usepackage{threeparttable}
 \usepackage{soul}
 \newcommand{\hlc}[2][yellow]{{\sethlcolor{#1}\hl{#2}}}
 \usepackage[inline]{enumitem}
@@ -72,6 +71,7 @@
 \crefname{equation}{Eq.}{Eqs.}
 \crefname{table}{Table}{Tables}
 \crefname{figure}{Fig.}{Figs.}
+\setlength{\parindent}{0pt}
 
 %--------------------------------------------------------------------------------
 %       TITLE SECTION
@@ -82,7 +82,7 @@
 \renewcommand*\maketitle{
     \begingroup
     \centering
-    \fontsize{15}{15}% 72pt on 80pt leading
+    \fontsize{14.4}{14.4}       % 72pt on 80pt leading
     \selectfont
     \headlinecolor
     \@title\\
@@ -95,8 +95,8 @@
 }
 \makeatother
 
-\title{MSAS -- Assignment \#1: Simulation} % Article title
-\author{\large Matteo Baio, 10667431}
+\title{MSAS -- Assignment \#1: Simulation}  % Article title
+\author{\large Matteo Baio, 232805}
 \date{}
 
 %--------------------------------------------------------------------------------
@@ -106,65 +106,121 @@
 \pagestyle{fancyplain}  % Defines a new header for all pages (absolutely all pages, use fancy to exclude title-page and chapters, if book class is used) 
 \fancyhf{}              % clears the header and footer, otherwise the elements of the default "plain" page style will appear
 \lhead{Matteo Baio, MSAS -- Assignment \#1}
-\rhead{\vspace{-0.5cm}\includegraphics[width=0.3\textwidth]{figure/newlogo.eps}}
+\rhead{\vspace{-0.5cm}\includegraphics[width=0.3\textwidth]{newlogo.eps}}
 \lfoot{AY 2023-24 -- Prof.\ F.\ Topputo; TA: C.\ Balossi, S.\ Borgia}
 \rfoot{\thepage}
-
 
 %--------------------------------------------------------------------------------
 %       BEGIN DOCUMENT
 %--------------------------------------------------------------------------------
 \begin{document}
-
 \maketitle
-
 \thispagestyle{fancy}
 
+%--------------------------------------------------------------------------------
+%       IMPLICIT EQUATION
+%--------------------------------------------------------------------------------
 \section{Implicit equations}
-
 \subsection{Exercise 1}
-
-Let $\vec{f}$ be a two-dimensional vector-valued function $\vec{f}(\vec{x}) = (x_2^2-x_1-2, \ -x_1^2+x_2+10)^\top$, where $\vec{x} = (x_1, x_2)^\top$. Find the zero(s) of $\vec{f}$ by using Newton's method with $\partial\vec f/\partial\vec x$ 
+Let $\vec{f}$ be a two-dimensional vector-valued function $\vec{f}(\vec{x}) = (x_2^2-x_1-2, \ -x_1^2+x_2+10)^\top$,
+where $\vec{x} = (x_1, x_2)^\top$. Find the zero(s) of $\vec{f}$ by using Newton's method with $\partial\vec f/\partial\vec x$ 
 \begin{enumerate*}[label=\arabic*)]
     \item computed analytically, and
     \item estimated through finite differences.
 \end{enumerate*}
 Which version is more accurate?
 
-
-
 \rightline{\small(3 points)}
-\medskip    \hrule  \medskip
+\medskip
+\hrule
+\medskip
 
-\noindent 
-Prova
+Firstly the problem must be plotted to find how many zero(s) must be found and which educated initial geuss can be used.
+The two components $f_1=(x_2^2-x_1-2)$ and $f_2=(-x_1^2+x_2+10)$ are plotted in \cref{fig:ex1_initGuess} both in 3-D (on the left) and 2-D (on the right) plane.
+The following educated initial guess are also reported and considered to solve the problem: $[3.0,2.0]$ and $[3.0,-2.0]$
 
-\includegraphics*[width=1\textwidth, height=10cm, keepaspectratio]{figure/ex1_initGuess.eps}
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_initGuess.png}
+    %\includegraphics*[width=1\textwidth, keepaspectratio]{ex1_initGuess.eps}
+    \caption[]{\label{fig:ex1_initGuess} $\vec{f}(\vec{x})$ zeros and educated initial guess.}
+\end{figure}
 
-%\tr{\textit{Write your answer here}}
+The zeros are computed using different implementations of the Newton's method starting from the educated initial guesses just defined.
+The first implementation relies on the MATLAB Symbolic Math Toolbox\texttrademark  to compute the exact Jacobian matrix by considering $\vec{x}$ as symbolic variable.
+The second and third implementations estimate the Jacobian matrix respectively by means of the forward difference model \cref{eq:ex1_forwardDiff} and centered difference model \cref{eq:ex1_centeredDiff}.
 
+\begin{equation}
+    f'(x) = \frac{f(x + \epsilon) - f(x)}{\epsilon}
+    \label{eq:ex1_forwardDiff}
+\end{equation}
 
-%%%%%%%%%% TO BE DELETED (BEGINS) %%%%%%%%%%
-\tr{
-\begin{itemize}
-\item Develop the exercises in \underline{one Matlab script}; name the file \mcode{lastname123456_Assign1.m}
-\item Organize the script in sections, one for each exercise; use local functions if needed. 
-\item Download the \underline{PDF} from the Main menu.
-\item \underline{Create a single .zip file} containing both the \underline{report in PDF} and the \underline{MATLAB file}. The name shall be \mcode{lastname123456_Assign1.zip}.
-\item Red text indicates where answers are needed; be sure there is no red stuff in your report.
-\item In your answers, \underline{be concise}: to the point.
-\item \textbf{Deadline for the submission: Nov 20 2023, 23:59}.
-\item \textbf{Load the compressed file to the Homework folder on Webeep}.
-\end{itemize}
-}
-%%%%%%%%%% TO BE DELETED (ENDS) %%%%%%%%%%
+\begin{equation}
+    f'(x) = \frac{f(x + \epsilon) - f(x - \epsilon)}{2 \epsilon}
+    \label{eq:ex1_centeredDiff}
+\end{equation}
 
-%--------------------------------------------------------------------------------
-%       IMPLICIT EQUATION
-%--------------------------------------------------------------------------------
+For both forward and centered difference methods the size of the perturbation is computed as reported in \cref{eq:ex1_perturbation} 
 
+\begin{equation}
+    \epsilon = \max (\left\lvert x \right\rvert\sqrt{\varepsilon}, \sqrt{\varepsilon})
+    \label{eq:ex1_perturbation}
+\end{equation}
 
+Where $\varepsilon=2.2204\times10^{-16}$ is the MATLAB floating point relative accuracy.
+\clearpage
+All the three implementations converge to the same result in 4 iterations with a similiar level of accuracy as can be observed in \cref{fig:ex1_convergence}.
+The final zero coordinates are considered founded once the relative error value computed between two consevutive iterations drops behind a user defined tollerance set, in this case, equal to $10^{-6}$.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_convergence.eps}
+    \caption[]{\label{fig:ex1_convergence} Newton's method relative error convergence}
+\end{figure}
+
+The absolute error on the final result is then obtained by evaluating the norm of the function in the computed zero. 
+Finally by taking a deeper look to the numerical results obtained and reported in \cref{tab:ex1_resultCmp} it's possibile to define which methods is the most accurate.
+
+\begin{table}[ht]
+    \centering
+    \subfloat[Zero 1\label{tab:ex1_zero1}]{
+        \begin{tabular}{lcr}
+            \toprule
+            \toprule
+            Method&  Error& CPU-time $[sec]$\\ 
+            \midrule
+            FD &5.7732 $\times 10^{-15}$& 9.0800$\times 10^{-5}$\\
+            CD &4.3738 $\times 10^{-15}$& 1.2815$\times 10^{-4}$\\
+            Sym&2.8436 $\times 10^{-15}$& 2.6300$\times 10^{-2}$\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    }
+    \hspace{0.05\linewidth}     % Space between table
+    \subfloat[Zero 2\label{tab:ex1_zero2}]{
+        \begin{tabular}{lcr}
+            \toprule
+            \toprule
+            Method&  Error& CPU-time $[sec]$\\ 
+            \midrule
+            FD &1.8310 $\times 10^{-15}$& 9.2350$\times 10^{-5}$\\
+            CD &1.8310 $\times 10^{-15}$& 1.1976$\times 10^{-4}$\\
+            Sym&8.8818 $\times 10^{-16}$& 2.5700$\times 10^{-2}$\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Methods compare on zeros computation}
+    \label{tab:ex1_resultCmp}
+\end{table}
+
+All three methods guarantee high accuracy with an absolute error having an order of magnitude of $10^{-15}$ (near the floating-point relative accuracy).
+For both zeros the method that, as expected, guarantees the lowest error is the analytical method (Symbolic Math).
+Must be noted, however, that the price to be paid is a computational cost two orders of magnitude higher than the Finite Difference methods one.
+The Centered Difference method guarantees slightly better result on the first zero while on the second one it performs exactly the same as the Forward Didfference, but with a greater computational cost.
+\\
+In conclusion, there is no absolute best method; rather, a choice must be made based on the variable to optimize.
+If the requirement is to have the maximum precision the most suitable method is analytical one, while if the requirement is to reduce the computational cost the Finite Forward Differences is the best method.
 
 \clearpage
 
@@ -186,11 +242,83 @@ The Initial Value Problem $\dot x = x- 2t^2+2$, $x(0) = 1$, has analytic solutio
 \rightline{\small(4 points)}
 \medskip \hrule \medskip
 
-\tr{\textit{Write your answer here}}
+The solution of the IVP using the fixed-step Heun's method is computed using four different time step values and compared with the analytical solution in \cref{fig:ex2_heun}.
 
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex2_heun.eps}
+    \caption[]{\label{fig:ex2_heun} Heun's method solution and error over time}
+\end{figure}
+
+The method results stable with every time step and the error rises as the time goes on.
+By decrasing the step size, as expected, the precision increases and the error reduces so much that there is no longer a visible difference between the analytical and numerical solution for $h=0.05$ and $h=0.01$.  
+\\
+Following the same procedure using the fourth order Runge-Kutta method the results presented in \cref{fig:ex2_rk4} are obtained.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex2_rk4.eps}
+    \caption[]{\label{fig:ex2_rk4} Runge-Kutta 4 method solution and error over time}
+\end{figure}
+
+Even in this case the method is stable with every time step and the error incresese as the simulation time rises.
+Unlike the previous case, the error is so small (always less than $10^{-2}$) that it is not visible in the solution graph for all time steps at every time.
+Once again, as expected, by observing the integration error plot can be notice that the precision grows up as the time step dimension goes down. 
+\\
+Finally the trade off between CPU time and integration error is considered. For each method and time step a $for$ cycle of 1000 runs is exectued, the time needed to complete these tasks are measured and post processed by executing an arithmetic mean.
+By following this procedure a valid estimation of the time cost of each cases is retrived and presented in \cref{fig:ex2_error} and \cref{tab:ex2_resultCmp}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex2_error.eps}
+    \caption[]{\label{fig:ex2_error} Comparison between final error and CPU time for Heun's and Runge-Kutta methods}
+\end{figure}
+
+\begin{table}[ht]       
+    \centering
+    \subfloat[Heun's method\label{tab:ex2_heun}]{
+        \begin{tabular}{lcr}
+            \toprule
+            \toprule
+            $h$&  Error& CPU-time $[sec]$\\ 
+            \midrule
+            $0.50$&7.7842$\times 10^{-1}$ & 8.4865$\times 10^{-6}$\\  
+            $0.20$&1.4483$\times 10^{-1}$ & 1.0180$\times 10^{-5}$\\
+            $0.05$&9.6397$\times 10^{-3}$ & 1.1786$\times 10^{-5}$\\
+            $0.01$&3.9124$\times 10^{-4}$ & 1.7955$\times 10^{-5}$\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    }
+    \hspace{0.05\linewidth}     % Space between table
+    \subfloat[Runge-Kutta 4 method\label{tab:ex2_rk4}]{
+        \begin{tabular}{lcr}
+            \toprule
+            \toprule
+            $h$&  Error& CPU-time $[sec]$\\ 
+            \midrule
+            $0.50$&7.7334$\times 10^{-3}$ & 8.9280$\times 10^{-6}$\\
+            $0.20$&2.1790$\times 10^{-4}$ & 9.6987$\times 10^{-6}$\\
+            $0.05$&8.8427$\times 10^{-7}$ & 1.4548$\times 10^{-5}$\\
+            $0.01$&1.4275$\times 10^{-9}$ & 4.0908$\times 10^{-5}$\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    }
+    \caption{Methods error and CPU time results}
+    \label{tab:ex2_resultCmp}
+\end{table}
+
+In conclusion for both methods the choice of a smaller step size produces higher precision but with higher computational cost.
+As it's possible to notice from \cref{fig:ex2_error} the best solutions in terms of trade off are fourth order Runge-Kutta method with 0.5 and 0.2 as time step.
+In alternative, the best step size for the Heun's method (again in terms of trade off) is 0.05.
+
+%--------------------------------------------------------------------------------
+\clearpage
 \subsection*{Exercise 3}
 
-Let $\dot{\vec x} = A(\alpha) \vec x$ be a two-dimensional system with $A(\alpha) = [0, 1; -1, 2\cos\alpha]$. Notice that $A(\alpha)$ has a pair of complex conjugate eigenvalues on the unit circle; $\alpha$ denotes the angle from the $\operatorname{Re}\{\lambda\}$-axis. 
+Let $\dot{\vec x} = A(\alpha) \vec x$ be a two-dimensional system with $A(\alpha) = [0, 1; -1, 2\cos\alpha]$.
+Notice that $A(\alpha)$ has a pair of complex conjugate eigenvalues on the unit circle; $\alpha$ denotes the angle from the $\operatorname{Re}\{\lambda\}$-axis. 
 \begin{enumerate*}[label=\arabic*)]
     \item Write the operator $F_{\rm RK2}(h,\alpha)$ that maps $\vec x_k$ into $\vec x_{k+1}$, namely $\vec x_{k+1} = F_{\rm RK2}(h,\alpha) \, \vec x_k$.
     \item\!With $\alpha = \pi$, solve the problem ``Find $h\ge 0$ s.t.$\max\left(|{\rm eig}(F(h,\alpha))|\right) = 1$''.
@@ -201,9 +329,67 @@ Let $\dot{\vec x} = A(\alpha) \vec x$ be a two-dimensional system with $A(\alpha
 \rightline{\small(5 points)}
 \medskip \hrule \medskip
 
-\tr{\textit{Write your answer here}}
+The operator $F_{\rm RK2}(h,\alpha)$ can be easily computed by considering the second order Runge-Kutta method integration scheme:
+\begin{subequations}
+    \begin{align}
+        \vec{x^p} &= \vec{x}_k + \beta_{11}\,h\, \vec{f}\left(\vec{x}_k, t_k\right) \label{eq:ex3_xp}\\
+        \vec{x^c}_{k+1} &= \vec{x}_k + \alpha_{21}\, h\, \left[ \beta_{21}\, \vec{f}\left(\vec{x}_k, t_k\right) + \beta_{22}\, \vec{f}\left(\vec{x^p}, t_k+\alpha_{11}\, h\right) \right] \label{eq:ex3_xc}
+    \end{align}
+\end{subequations}
 
+The function $\vec{f}$ can be rewritten as function of the matrix $\vec{A}(\alpha)$ and $\vec{x}_k$ as follows:
+\begin{equation}
+    \vec{A}(\alpha)\, \vec{x}_k = \vec{f}\left(\vec{x}_k, t_k\right)
+    \label{eq:ex3_defineF}
+\end{equation}
 
+Finally the operator can be retrived by substituting a set of $\alpha$ and $\beta$ parameters valid for the second order Runge-Kutta method:
+\begin{equation} 
+    F_{RK2}(h,\alpha) = \frac{\vec{x^c}_{k+1}}{\vec{x}_k} = \vec{I} + h\, \vec{A}(\alpha) + \frac{h^2}{2} \vec{A}^2(\alpha)
+    \label{eq:ex3_operatorRK2}
+\end{equation}
+
+The problem ``Find $h\ge 0$ s.t.$\max\left(|{\rm eig}(F(h,\alpha))|\right) = 1$'' is then is then rewritten as a root finding problem and solved for $\alpha\in[0, \pi]$.
+\begin{equation} 
+    S(h,\alpha)=\max\left(|{\rm eig}(F(h,\alpha))|\right) - 1
+    \label{eq:ex3_problemRK2}
+\end{equation}
+
+Firstly the function $S(h,\pi)$ is plotted for different $h$ values to pick a good educated initial guess to find the zero of the function through $fzero$ MATLAB function.
+Once the initial guess is defined the the problem is solved for $\alpha = \pi$ and return the solution $h=2.0000$.
+Iteratively, the problem is solved for all other $\alpha$ using the solution found in the previous step as initial guess for $fzero$.
+The solution in the $(h\lambda)$-plane for $\alpha\in[0, \pi]$ is finally reported in \cref{fig:ex3_stabilityRK2}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex3_rk2.eps}
+    \caption[]{\label{fig:ex3_stabilityRK2} Solution of the problem for RK2}
+\end{figure}
+
+\clearpage
+The exact same process is then applied with the fourth order Runge-Kutta method where the operator $F_{RK4}(h,\alpha)$ is:
+\begin{equation} 
+    F_{RK4}(h,\alpha) = \vec{I} + h\, \vec{A}(\alpha) + \frac{h^2}{2} \vec{A}^2(\alpha) + \frac{h^3}{6} \vec{A}^3(\alpha) + \frac{h^4}{24} \vec{A}^4(\alpha)
+    \label{eq:ex3_operatorRK4}
+\end{equation}
+
+The solution of the problem ``Find $h\ge 0$ s.t.$\max\left(|{\rm eig}(F(h,\pi))|\right) = 1$'' with $F(h,\pi) = F_{RK4}(h,\pi)$ is $h=2.7853$.
+Once the problem is solved for $\alpha\in[0, \pi]$ is possible, once again, to plot the results in the $(h\lambda)$-plane (\cref{fig:ex3_stabilityRK4}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex3_rk4.eps}
+    \caption[]{\label{fig:ex3_stabilityRK4} Solution of the problem for RK4}
+\end{figure}
+
+In conclusion the stability domain for second and fourth order Runge-Kutta method are obtained and plotted in the same graph in (\cref{fig:ex3_stability}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex3_stability.png}
+    %\includegraphics*[width=0.5\textwidth, keepaspectratio]{ex3_stability.eps}
+    \caption[]{\label{fig:ex3_stability} Stability region of RK2 and RK4}
+\end{figure}
+
+%--------------------------------------------------------------------------------
+\clearpage
 \subsection*{Exercise 4}
 
 Consider the IVP $\dot{\vec x}=A(\alpha)\vec x$, $\vec x(0) = [1, 1]^T$, to be integrated in $t\in[0, 1]$.
@@ -216,16 +402,147 @@ Consider the IVP $\dot{\vec x}=A(\alpha)\vec x$, $\vec x(0) = [1, 1]^T$, to be i
 \rightline{\small(4 points)}
 \medskip \hrule \medskip
 
-\tr{\textit{Write your answer here}}
+Following the same procedure of exercise 3, the operator $F(h,\alpha)$ of the numerical method RK1 is retrived (\cref{eq:ex4_operatorRK1}) and the problem is rewritten as a root finding problem (\cref{eq:ex4_rootProb})
+\begin{empheq}[]{align}
+    F_{RK1}(h,\alpha) &= \vec{I} + h\, \vec{A}(\alpha)  \label{eq:ex4_operatorRK1} \\
+    S_{RK1}(h,\alpha) &= \left\|\vec x_{\rm an}(1)-\vec x_{\rm RK1}(1)\right\|_\infty - \mathrm{tol}  \label{eq:ex4_rootProb}
+\end{empheq}
 
+The problem is firstly solved for every tollerance values in $\alpha = \pi$ starting from an educated initial guess obtained by the plot of the function $S_{RK1}(h,\pi)$.
+As done in the previous exercise the solution for all the other $\alpha$ are obtained by using as initial guess the result of the problem at the previous step.
+In (\cref{fig:ex4_RK1}) and (\cref{fig:ex4_RK1zoom}) the function plot to find the initial guess (left figure) and the locus of solution for each tollerance values (right figure) are shown.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex4_RK1.eps}
+    \caption[]{\label{fig:ex4_RK1} TBD}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex4_RK1zoom.eps}
+    \caption[]{\label{fig:ex4_RK1zoom} TBD dire che è zoom}
+\end{figure}
+
+By repeting the exact same procedure using the operators RK2 (\cref{eq:ex3_operatorRK2}) and RK4 (\cref{eq:ex3_operatorRK4}) the solution in \cref{fig:ex4_RK2} and \cref{fig:ex4_RK4} are obtained.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex4_RK2.eps}
+    \caption[]{\label{fig:ex4_RK2} TBD}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex4_RK4.eps}
+    \caption[]{\label{fig:ex4_RK4} TBD}
+\end{figure}
+
+Finally in \cref{fig:ex4_feval} the number of function evaluations for each methods and tollerances are plotted in $\alpha = \pi$.
+As expected, a bigger tollerance value requires less function evaluation.\\
+It's intersting to notice how RK1 is the method that requires always the highest number of function evaluations and RK2 requires more function evaluations than RK4.
+This is because since they are method of lower order a smaller step size, and so a higher number of steps, is needed to satisfy the imposed tollerance value.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.4\textwidth, keepaspectratio]{ex4_feval.eps}
+    \caption[]{\label{fig:ex4_feval} TBD}
+\end{figure}
+
+\begin{table}[ht]       
+    \centering
+        \begin{tabular}{lccc}
+            \toprule
+            \toprule
+            $Toll$ & RK1& RK2& RK4\\ 
+            \midrule
+            $10^{-3}$& 7.3626$\times 10^{-4}$ & 4.7835$\times 10^{-2}$ & 5.0937$\times 10^{-1}$\\
+            $10^{-4}$& 7.3581$\times 10^{-5}$ & 1.4940$\times 10^{-2}$ & 2.7279$\times 10^{-1}$\\
+            $10^{-5}$& 7.3576$\times 10^{-6}$ & 4.7065$\times 10^{-3}$ & 1.4953$\times 10^{-1}$\\
+            $10^{-6}$& 7.3554$\times 10^{-7}$ & 1.4865$\times 10^{-3}$ & 8.2931$\times 10^{-2}$\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    \caption{Methods error and CPU time results}
+    \label{tab:ex4_resultCmp}
+\end{table}
+
+% CHIEDERE AIUTO A QUALCHE LATEX BOIIII PER AFFIANCARE SULLA STESSA RIGA QUESTA TABELLA E IL PLOT
+% METTERE TUTTO QUINDI A PAGINA 8   ================================================================================================= NOTAMI
+
+
+%--------------------------------------------------------------------------------
+\clearpage
 \subsection*{Exercise 5}
 Consider the backinterpolation method $\textrm{BI2}_{0.4}$. 1) Derive the expression of the linear operator $B_{\rm BI2_{0.4}}(h,\alpha)$ such that $\vec x_{k+1} = B_{\rm BI2_{0.4}}(h,\alpha) \vec x_k$. 2) Following the approach of point 3) in Exercise 3, draw the stability domain of $\textrm{BI2}_{0.4}$ in the $(h\lambda)$-plane. 3) Derive the domain of numerical stability of $\textrm{BI2}_{\theta}$ for the values of $\theta = [0.1,\, 0.3,\, 0.7,\, 0.9]$.
 
 \rightline{\small(5 points)}
 \medskip \hrule \medskip
 
-\tr{\textit{Write your answer here}}
+The operator $B_{BI2_{0.4}}(h,\alpha)$ can be computed starting from the second order Runge-Kutta method operator.
+The \cref{eq:ex3_operatorRK2} can be rewritten considering a time step equal to $\theta h$ starting from $\vec{x}_k$ (\cref{eq:ex5_operatorNum}) and equal to $-(1-\theta)h$ starting from $\vec{x}_{k+1}$ (\cref{eq:ex5_operatorDen}):
+\begin{subequations}
+    \begin{align}
+        \vec{x}_{k+\theta h} &= \left[ \vec{I} + h \theta\,    \vec{A} + \frac{h^2 \theta^2}{2} \vec{A}^2 \right] \vec{x}_k         \label{eq:ex5_operatorNum}\\
+        \vec{x}_{k+\theta h} &= \left[ \vec{I} - (1-\theta)h\, \vec{A} + \frac{h^2 (1-\theta)^2}{2} \vec{A}^2 \right] \vec{x}_{k+1} \label{eq:ex5_operatorDen}
+    \end{align}
+\end{subequations}
 
+Equalising the two equations just written it's easy to retrive the $B_{BI2_{\theta}}(h,\alpha)$ operator:
+\begin{equation}
+    B_{BI2_{\theta}}(h,\alpha) = \frac{\vec{x}_{k+1}}{\vec{x}_k}
+                               = \left[ \vec{I} + h \theta\, \vec{A} + \frac{h^2 \theta^2}{2} \vec{A}^2 \right] \left[ \vec{I} - (1-\theta)h\, \vec{A} + \frac{h^2 (1-\theta)^2}{2} \vec{A}^2 \right] ^{-1}
+    \label{eq:ex5_operatorBI}
+\end{equation}
+
+Finally by substituting $\theta = 0.4$ in \cref{eq:ex5_operatorBI} the $B_{BI2_{0.4}}(h,\alpha)$ is computed.
+Following the same approach of exercise 3, the stability region for $\theta = [0.1,\, 0.3,\, 0.4,\, 0.7,\, 0.9]$ is computed and plotted in the $(h\lambda)$-plane (\cref{fig:ex5_stabReg}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex5_stabReg.eps}
+    \caption[]{\label{fig:ex5_stabReg} TBD}
+\end{figure}
+
+It's important to notice that the $BI2_{\theta}$ method is ''A-stable'' for $\theta = [0.1,\, 0.3,\, 0.4]$ while simply stable for the remaning $\theta$ values.
+This particular characteristic isn't visible from \cref{fig:ex5_stabReg} but can be observerd in \cref{fig:ex5_BI2-04}, \cref{fig:ex5_BI2-03} and \cref{fig:ex5_BI2-01}.
+Because of the different position of the stability region boundary even the starting point of the stability problem is placed in $\alpha = 0$.
+
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex5_BI2_0.9.eps}
+        \caption[]{\label{fig:ex5_BI2-09} TBD}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex5_BI2_0.7.eps}
+        \caption[]{\label{fig:ex5_BI2-07} TBD}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex5_BI2_0.4.eps}
+        \caption[]{\label{fig:ex5_BI2-04} TBD}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex5_BI2_0.3.eps}
+        \caption[]{\label{fig:ex5_BI2-03} TBD}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.45\textwidth, keepaspectratio]{ex5_BI2_0.1.eps}
+    \caption[]{\label{fig:ex5_BI2-01} TBD}
+\end{figure}
+
+
+%--------------------------------------------------------------------------------
+\clearpage
 \subsection*{Exercise 6}
 
 Consider the IVP $\dot{\vec x} = B \vec x$ with $B =[-180.5, 219.5; 179.5, -220.5]$ and $\vec{x}(0)=[1, 1]^T$ to be integrated in $t\in[0, 5]$. Notice that $\vec{x}(t)=e^{Bt}\vec{x}(0)$.
@@ -240,9 +557,81 @@ Consider the IVP $\dot{\vec x} = B \vec x$ with $B =[-180.5, 219.5; 179.5, -220.
 \rightline{\small(4 points)}
 \medskip \hrule \medskip
 
-\tr{\textit{Write your answer here}}
+The IVP is solved using the operators $F_{RK4}$ (\cref{eq:ex3_operatorRK4}) and $F_{IEX4}$ (\cref{eq:ex6_operatorIEX4}) with a time step equal to $h=0.1$.
+\begin{equation}
+    F_{IEX4}(h,\alpha) =  -\frac{1}{6} \left(\vec{I} - h\vec{A}\right)^{-1} + 4 \left(\vec{I} - \frac{h\vec{A}}{2}\right)^{-2} -\frac{27}{2} \left(\vec{I} - \frac{h\vec{A}}{3}\right)^{-3} + \frac{32}{3} \left(\vec{I} - \frac{h\vec{A}}{4}\right)^{-4}
+    \label{eq:ex6_operatorIEX4}
+\end{equation}
+
+The two solutions obtained from the numerical methods are compared with the analytical solution \cref{eq:ex6_analytic} in \cref{fig:ex6_integration}
+\begin{equation}
+    \vec{x}(t) = e^{Bt}\vec{x}(0)
+    \label{eq:ex6_analytic}
+\end{equation}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex6_integOutput.eps}
+    \caption[]{\label{fig:ex6_integration} TBD}
+\end{figure}
+
+The numerical solutions obtained through RK4 diverge for both variable, while the ones obtained with IEX4 method follows almost perfectly the analytical solution.
+Due to this behavior it's possibile to hypotize that the IVP just analyze is a ''Stiff problem'' with the two negative eigenvalues having very different magnitude.
+The stability region of the two methods are, once again, computed (\cref{fig:ex6_rk4} and \cref{fig:ex6_iex4}) and the eigenvalues of the system, multiplied for the time step $h=0.1$, are rappresented in the same $(h\lambda)$-plane (\cref{fig:ex6_stabReg}).  
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex6_stabReg.png}
+    %\includegraphics*[width=0.5\textwidth, keepaspectratio]{ex6_stabReg.eps}
+    \caption[]{\label{fig:ex6_stabReg} TBD}
+\end{figure}
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{lcc}
+            \toprule
+            \toprule
+            $step$&  $h\lambda_1$& $h\lambda_2$ \\ 
+            \midrule
+            0.100 & -0.100 & -40\\
+            0.005 & -0.005 & -2\\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    \caption{TBD}
+    \label{tab:ex6_eigs}
+\end{table}
+
+It must be notice that in (\cref{fig:ex6_stabReg}) the red colored area rappresents the stability region for RK4 method, while the blu colored area rappresents the istability region for IEX4 method.
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex6_rk4.eps}
+        \caption[]{\label{fig:ex6_rk4} TBD}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex6_iex4.eps}
+        \caption[]{\label{fig:ex6_iex4} TBD}
+    \end{minipage}
+\end{figure}
+
+The two eigenvalues, as expected, are both stable but has two very different magnitudes.
+For this reason the problem can be classified as 'stiff' and the IEX4, since is an ''A-stable'' method, is the ideal choiche.
+An alternative solution to integrate this IVP with RK4 could be to reduce the time step utill both eigenvalues enters in the stability region.
+This has been done by reducing the time step to $h=0.005$ as visible in (\cref{fig:ex6_stabReg}).
+The results of the new integration are reported in (\cref{fig:ex6_integrationMod}) as $RK4mod$ and, as expected, is consistent with the analytical solution and the IEX4 solution.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex6_integOutputMod.eps}
+    \caption[]{\label{fig:ex6_integrationMod} TBD}
+\end{figure}
 
 
+%--------------------------------------------------------------------------------
+\clearpage
 \subsection*{Exercise 7}
 
 Consider the two-dimensional IVP 
@@ -256,12 +645,104 @@ $$\begin{bmatrix}\dot{x}_1 \\ \dot{x}_2\end{bmatrix}=\begin{bmatrix}-\frac{5}{2}
 \rightline{\small(5 points)}
 \medskip \hrule \medskip
 
+The IVP is solved using AB3, AM3, ABM3, and BDF3 methods; the results are reported in \cref{fig:ex7_ab}, \cref{fig:ex7_am}, \cref{fig:ex7_abm}, \cref{fig:ex7_bdf}.
+Since they are all multistep methods of order 3 and the initial value is known only in $t_0$ two additional starting point must be defined in $t_1=t_0+h$ and $t_2=t_0+2h$.
+The ''Startup'' problem is solved in two different ways:
+\begin{enumerate*}[label=\arabic*)]
+    \item Using a single step method of equivalent order (in this case RK3) to find $\vec{x}(t_1)$ and $\vec{x}(t_2)$;
+    \item Using the same multistep method and increasing the order until the one desired is reached (in this case third order).
+\end{enumerate*}
 
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex7_ab.eps}
+        \caption[]{\label{fig:ex7_ab} TBD}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex7_am.eps}
+        \caption[]{\label{fig:ex7_am} TBD}
+    \end{minipage}
+\end{figure}
 
-\tr{\textit{Write your answer here}}
+\begin{figure}[htb]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex7_abm.eps}
+        \caption[]{\label{fig:ex7_abm} TBD}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{ex7_bdf.eps}
+        \caption[]{\label{fig:ex7_bdf} TBD}
+    \end{minipage}
+\end{figure}
 
+Both the startup approaches produce the same results, a part from the one obtained with Adam Bashforth methods diverges a earlier by using the increasing order approach.
+To have a better overview, all the solutions obtained with the different multistep method are plotted together in the same graph in \cref{fig:ex7_compare}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex7_compare.eps}
+    \caption[]{\label{fig:ex7_compare} TBD}
+\end{figure}
 
+The solution associated to the $x_2$ variable diverges with every method implemented, while, the $x_1$ variable is totally unstable only when integrated with Adams Bashforth method.
+A particular oscillatory behavior can be also observed on the $x_1$ variable when integrated with the Adam Bashforth Moulton method.
+To better understand the reason behind these trends the eigenvalues of the system are computed and compared with the stability region boundary of the different methods. \\
+The eigenvalues are computed starting form the analytical solution of the first equation \cref{eq:ex7_eq1} which is reported in \cref{eq:ex7_solEq1}.
+\begin{empheq}[]{align}
+    \dot{x}_1 &= -\frac{5}{2}\left[1+8\sin(t)\right]x_1  \label{eq:ex7_eq1} \\
+    x_1 &= e^{-\frac{5}{2}(t-t_0)+20(\cos(t)-\cos(t_0))} \label{eq:ex7_solEq1}
+\end{empheq}
 
+The \cref{eq:ex7_solEq1} can be now substite in the second equation of the system and finally the two eigenvalues are retrived as function of time $t$:
+\begin{empheq}[]{align}
+    \lambda_1(t) &= -\frac{5}{2}\left[1+8\sin(t)\right] \label{eq:ex7_eig1} \\
+    \lambda_2(t) &= 1 - e^{20 \cos(t) -2.5t - 20}       \label{eq:ex7_eig2}
+\end{empheq}
+
+The eigenvalues have no immaginary part, so some observations about their stability over time can be done by considering the interceptions of the stability domain of each method with the real axis.
+In particular, as reported in \cref{fig:ex7_eig}, the boundary of AB3, ABM3 and AM3 stability regions are shown on the graph as dashed lines.
+No line is drawn for BDF3 method since it is ''A stable'' and so all the negative part of the complex plain is included in its stability region.
+In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability region are reported.
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{lcccc}
+            \toprule
+            \toprule
+            & AB3 & AM3 & ABM3 & BDF3   \\ 
+            \midrule
+            $\min Re(h\lambda)$ & -0.6 & -6.0 & -1.7 & -$\infty$    \\
+            $\max Re(h\lambda)$ & 0.0  & 0.0  & 0.0  & 0.0          \\
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+    \caption{TBD}
+    \label{tab:ex7_stabLim}
+\end{table}
+
+\clearpage
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex7_eig.eps}
+    \caption[]{\label{fig:ex7_eig} TBD}
+\end{figure}
+
+The product $h\lambda_2$ results always greater or equal than zero, so it's unstable for every $t\in(0,3]$ and it's out of the stability region of every multistep method applied. \\
+The product $h\lambda_1$ is always negative in the time interval considered and has a parabolic behavior.
+For this reason only AM3 and BDF3 methods completly contains in their domain of numerical stability the eigenvalue envelop.
+It's so explained the oscillatory behavior observed with the ABM3 method which doesn't include in its domain the eignevalue when its values drops behind -1.7.
+The situation is even worse when AB3 method is considered; In this case $h\lambda_1$ is outside its stabiliy region as soon as it's value drops behind -0.6, which turns out be the case for the major part of the studied time interval.
+
+In conclusion the two methods that can be used to solve the IVP with the time step $h=0.1$ are AM3 and BDF3. ABM3 and AB3 can be used only with a smaller timestep which guarantee the eigenvalues to fall within the stability region in every time instant.
+
+\clearpage
 \end{document}
 
 %--------------------------------------------------------------------------------
