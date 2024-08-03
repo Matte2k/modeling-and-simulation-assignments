@@ -1,0 +1,12 @@
+ex1	Controllare con il bo: 	SIMULINK --> modello e solutore settati uguale;
+				MATLAB   --> settings solutore ODE;
+	Perplesso che sembri performare meglio solutore non stiff di quelli stiff...
+	Anche se il problema apparentemente sembra parzialmente stiff
+	... CREDO ... che il punto è che ode23t funziona bene perchè gestisce le DAE e non tanto perchè il problema sia stiff
+	STILL non capisco perchè non mi tornano gli stessi risultati del bo... forse per versioni diverse di matlab e simulink (?) BOH
+
+	Se non impongo un solutore a simscape e usa DAESS... allora da matlab il miglior metodo in termini di errore effettivamente risulta ode23t
+	Se impongo ode23t a Simscape... ode45 e ode89 risultano migliori di un ordine di grandezza rispetto a ode23t su matlab
+
+ex2	Non so che dire, controllare i blocchi di dymola per vedere se c'è qualche differenza
+	Sembra tutto uguale ma non tornano i grafici uguali boooooh

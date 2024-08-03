@@ -1,0 +1,799 @@
+#1
+char Aclass(3,24)
+Adymosim
+1.4
+Modelica experiment file
+
+
+#    Experiment parameters
+double experiment(7,1)
+       0                   # StartTime    Time at which integration starts
+                           #              (and linearization and trimming time)
+     300                   # StopTime     Time at which integration stops
+       0                   # Increment    Communication step size, if > 0
+     500                   # nInterval    Number of communication intervals, if > 0
+  1.0000000000000000E-04   # Tolerance    Relative precision of signals for
+                           #              simulation, linearization and trimming
+       0                   # MaxFixedStep Maximum step size of fixed step size
+                           #              integrators, if > 0.0
+       8                   # Algorithm    Integration algorithm as integer (1...28)
+                           #
+                           #             | model|       |        | dense | state |
+                           # Algorithm   | typ  | stiff | order  | output| event |
+                           # ------------+------+-------+--------+-------+-------+
+                           #  1 | deabm  |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  2 | lsode1 |  ode |   no  |  1-12  |  yes  |   no  |
+                           #  3 | lsode2 |  ode |  yes  |  1-5   |  yes  |   no  |
+                           #  4 | lsodar |  ode |  both |1-12,1-5|  yes  |  yes  |
+                           #  5 | dopri5 |  ode |   no  |   5    |   no  |   no  |
+                           #  6 | dopri8 |  ode |   no  |   8    |   no  |   no  |
+                           #  7 | grk4t  |  ode |  yes  |   4    |   no  |   no  |
+                           #  8 | dassl  |  dae |  yes  |  1-5   |  yes  |  yes  |
+                           #  9 | odassl | hdae |  yes  |  1-5   |  yes  |  yes  |
+                           # 10 | mexx   | hdae |   no  |  2-24  |   no  |   no  |
+                           # 11 | euler  |  ode |   no  |   1    |   no  |  yes  |
+                           # 12 | rkfix2 |  ode |   no  |   2    |   no  |  yes  |
+                           # 13 | rkfix3 |  ode |   no  |   3    |   no  |  yes  |
+                           # 14 | rkfix4 |  ode |   no  |   4    |   no  |  yes  |
+                           #>=14| others |  ode |yes/no |  2-5   |   yes |  yes  |
+                           # ---+--------+------+-------+--------+-------+-------+
+                           # euler and rkfix have fixed stepsize.
+
+
+#    Method tuning parameters
+double method(27,1)
+       1                   # grid     type of communication time grid, defined by
+                           #          = 1: equidistant points ("Increment/nInterval")
+                           #          = 2: vector of grid points ("tgrid")
+                           #          = 3: variable step integrator (automatically)
+                           #          = 4: model (call of "increment" in Dymola, e.g.
+                           #                      incr=Time > 2 then 0 else 0.1
+                           #                      dummy=increment(incr))
+                           #          grid = 1,3 is stopped by "StopTime"
+                           #          grid = 2   is stopped by "tgrid(last)"
+                           #          grid = 4   runs forever (stopped by model)
+       1                   # nt       Use every NT time instant, if grid = 3
+       3                   # dense    1/2/3 restart/step/interpolate GRID points
+       1                   # evgrid   0/1 do not/save event points in comm. time grid
+       1                   # evu      0/1 U-discontinuity does not/trigger events
+       0                   # evuord       U-discontinuity order to consider (0,1,...)
+       0                   # error    0/1/2 One message/warning/error messages
+       0                   # jac      0/1 Compute jacobian numerically/by BLOCKJ
+       0                   # xd0c     0/1 Compute/set XD0
+       0                   # f3       0/1 Ignore/use F3 of HDAE (= index 1)
+       0                   # f4       0/1 Ignore/use F4 of HDAE (= index 2)
+       0                   # f5       0/1 Ignore/use F5 of HDAE (= invar.)
+       0                   # debug    flags for debug information (1<<0 uses pdebug) 
+     100                   # pdebug       priority of debug information (1...100)
+       0                   # fmax     Maximum number of evaluations of BLOCKF, if > 0
+       0                   # ordmax   Maximum allowed integration order, if > 0
+       0                   # hmax     Maximum absolute stepsize, if > 0
+       0                   # hmin     Minimum absolute stepsize, if > 0 (use with care!)
+       0                   # h0       Stepsize to be attempted on first step, if > 0
+  2.0000000000000000E-14   # teps     Bound to check, if 2 equal time instants
+  1.0000000000000000E-10   # eveps    Hysteresis epsilon at event points
+      20                   # eviter   Maximum number of event iterations
+  9.9999999999999995E-07   # delaym   Minimum time increment in delay buffers
+       1                   # fexcep   0/1 floating exception crashes/stops dymosim
+       1                   # tscale   clock-time = tscale*simulation-time, if grid = 5
+                           #          > 1: simulation too slow
+                           #          = 1: simulation-time = real-time
+                           #          < 1: simulation too fast
+       1                   # shared   (not used)
+    2473                   # memkey   (not used)
+
+
+#    Output parameters
+int settings(13,1)
+ 0                         # lprec    0/1 do not/store result data in double
+ 1                         # lx       0/1 do not/store x  (state variables)
+ 1                         # lxd      0/1 do not/store xd (derivative of states)
+ 1                         # lu       0/1 do not/store u  (input     signals)
+ 1                         # ly       0/1 do not/store y  (output    signals)
+ 0                         # lz       0/1 do not/store z  (indicator signals)
+ 1                         # lw       0/1 do not/store w  (auxiliary signals)
+ 1                         # la       0/1 do not/store a  (alias     signals)
+ 0                         # lperf    0/1 do not/store performance indicators
+ 0                         # levent   0/1 do not/store event point
+ 1                         # lres     0/1 do not/store results on result file
+ 0                         # lshare   0/1 do not/store info data for shared memory on dsshare.txt
+ 1                         # lform    0/1 ASCII/Matlab-binary storage format of results
+                           #              (for simulation/linearization; not for trimming)
+
+
+#    Names of initial variables
+char initialName(161,35)
+fixedHeatFlow.Q_flow
+fixedHeatFlow.T_ref
+fixedHeatFlow.alpha
+fixedHeatFlow.port.Q_flow
+Gear_unit_T.port.Q_flow
+Water_convection.Q_flow
+Water_convection.dT
+Water_convection.fluid.T
+Convective_conductance.k
+pipe.medium.rho
+pipe.medium.cp
+pipe.medium.cv
+pipe.medium.lambda
+pipe.medium.nu
+pipe.m
+pipe.T0
+pipe.T0fixed
+pipe.tapT
+pipe.dp
+pipe.V_flow
+pipe.Q_flow
+pipe.T
+pipe.der(T)
+pipe.T_a
+pipe.T_b
+pipe.dT
+pipe.h
+pipe.flowPort_a.medium.rho
+pipe.flowPort_a.medium.cp
+pipe.flowPort_a.medium.cv
+pipe.flowPort_a.medium.lambda
+pipe.flowPort_a.medium.nu
+pipe.flowPort_a.p
+pipe.flowPort_a.h
+pipe.flowPort_b.medium.rho
+pipe.flowPort_b.medium.cp
+pipe.flowPort_b.medium.cv
+pipe.flowPort_b.medium.lambda
+pipe.flowPort_b.medium.nu
+pipe.flowPort_b.p
+pipe.flowPort_b.h
+pipe.flowPort_b.H_flow
+pipe.V_flowLaminar
+pipe.dpLaminar
+pipe.V_flowNominal
+pipe.dpNominal
+pipe.frictionLoss
+pipe.pressureDrop
+pipe.Q_friction
+pipe.dpNomMin
+pipe.k
+pipe.useHeatPort
+pipe.h_g
+pipe.g
+Source_tank.medium.rho
+Source_tank.medium.cp
+Source_tank.medium.cv
+Source_tank.medium.lambda
+Source_tank.medium.nu
+Source_tank.T0
+Source_tank.T0fixed
+Source_tank.T_port
+Source_tank.T
+Source_tank.flowPort.medium.rho
+Source_tank.flowPort.medium.cp
+Source_tank.flowPort.medium.cv
+Source_tank.flowPort.medium.lambda
+Source_tank.flowPort.medium.nu
+Source_tank.flowPort.p
+Source_tank.Exchange
+Source_tank.h
+Source_tank.ATank
+Source_tank.hTank
+Source_tank.pAmbient
+Source_tank.g
+Source_tank.useHeatPort
+Source_tank.m
+Source_tank.der(m)
+Source_tank.H
+Source_tank.der(H)
+Source_tank.Q_flow
+Source_tank.level
+volumeFlow.medium.rho
+volumeFlow.medium.cp
+volumeFlow.medium.cv
+volumeFlow.medium.lambda
+volumeFlow.medium.nu
+volumeFlow.m
+volumeFlow.T0
+volumeFlow.T0fixed
+volumeFlow.tapT
+volumeFlow.dp
+volumeFlow.V_flow
+volumeFlow.Q_flow
+volumeFlow.T
+volumeFlow.T_a
+volumeFlow.T_b
+volumeFlow.dT
+volumeFlow.flowPort_a.medium.rho
+volumeFlow.flowPort_a.medium.cp
+volumeFlow.flowPort_a.medium.cv
+volumeFlow.flowPort_a.medium.lambda
+volumeFlow.flowPort_a.medium.nu
+volumeFlow.flowPort_b.medium.rho
+volumeFlow.flowPort_b.medium.cp
+volumeFlow.flowPort_b.medium.cv
+volumeFlow.flowPort_b.medium.lambda
+volumeFlow.flowPort_b.medium.nu
+volumeFlow.useVolumeFlowInput
+volumeFlow.constantVolumeFlow
+Storage_tank.medium.rho
+Storage_tank.medium.cp
+Storage_tank.medium.cv
+Storage_tank.medium.lambda
+Storage_tank.medium.nu
+Storage_tank.T0
+Storage_tank.T0fixed
+Storage_tank.T_port
+Storage_tank.T
+Storage_tank.flowPort.medium.rho
+Storage_tank.flowPort.medium.cp
+Storage_tank.flowPort.medium.cv
+Storage_tank.flowPort.medium.lambda
+Storage_tank.flowPort.medium.nu
+Storage_tank.Exchange
+Storage_tank.h
+Storage_tank.ATank
+Storage_tank.hTank
+Storage_tank.pAmbient
+Storage_tank.g
+Storage_tank.useHeatPort
+Storage_tank.m
+Storage_tank.der(m)
+Storage_tank.H
+Storage_tank.der(H)
+Storage_tank.Q_flow
+Storage_tank.level
+prescribedHeatFlow.T_ref
+prescribedHeatFlow.alpha
+prescribedHeatFlow.Q_flow
+hysteresis.uLow
+hysteresis.uHigh
+hysteresis.pre_y_start
+hysteresis.y
+booleanToReal.realTrue
+booleanToReal.realFalse
+booleanToReal1.realTrue
+booleanToReal1.realFalse
+Gear_unit_T_range.uLow
+Gear_unit_T_range.uHigh
+Gear_unit_T_range.pre_y_start
+Gear_unit_T_range.y
+Gear_wall_capacitance.C
+Gear_wall_capacitance.T
+Gear_wall_capacitance.der(T)
+Gear_wall_capacitance.port.Q_flow
+medium.rho
+medium.cp
+medium.cv
+medium.lambda
+medium.nu
+
+double initialValue(161,6)
+ -1  2.2109000000000001E+03       0                       0                
+  1   280   # fixedHeatFlow.Q_flow
+ -1  2.9314999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # fixedHeatFlow.T_ref
+ -1       0                       0                       0                
+  1   280   # fixedHeatFlow.alpha
+  0       0                       0                       0                
+  6   388   # fixedHeatFlow.port.Q_flow
+  0       0                       0                       0                
+  6   388   # Gear_unit_T.port.Q_flow
+  0       0                       0                       0                
+  6   256   # Water_convection.Q_flow
+  0       0                       0                       0                
+  6   256   # Water_convection.dT
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   260   # Water_convection.fluid.T
+ -1     300                       0                       0                
+  1   280   # Convective_conductance.k
+ -1  9.9970000000000005E+02       0                 1.0000000000000000E+100
+  1   280   # pipe.medium.rho
+ -1    4192                       0                       0                
+  1   280   # pipe.medium.cp
+ -1    4192                       0                       0                
+  1   280   # pipe.medium.cv
+ -1  5.8799999999999997E-01       0                       0                
+  1   280   # pipe.medium.lambda
+ -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
+  1   280   # pipe.medium.nu
+  0  1.5995200000000004E-01       0                 1.0000000000000000E+100
+  6   256   # pipe.m
+ -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # pipe.T0
+  0       0                       0                       0                
+  6   257   # pipe.T0fixed
+ -1       1                       0                       1                
+  1   280   # pipe.tapT
+  0       0                       0                       0                
+  6   256   # pipe.dp
+  0  6.0000000000000002E-05       0                       0                
+  6   256   # pipe.V_flow
+  0       0                       0                       0                
+  6   256   # pipe.Q_flow
+ -1       0                       0                 1.0000000000000000E+100
+  2   272   # pipe.T
+  0       0                       0                       0                
+  3   256   # pipe.der(T)
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # pipe.T_a
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # pipe.T_b
+  0       0                       0                       0                
+  6   256   # pipe.dT
+  0       0                       0                       0                
+  6  1280   # pipe.h
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # pipe.flowPort_a.medium.rho
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_a.medium.cp
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_a.medium.cv
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_a.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # pipe.flowPort_a.medium.nu
+  0       0                       0                       0                
+  6   260   # pipe.flowPort_a.p
+  0       0                       0                       0                
+  6   260   # pipe.flowPort_a.h
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # pipe.flowPort_b.medium.rho
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_b.medium.cp
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_b.medium.cv
+  0       0                       0                       0                
+  6   256   # pipe.flowPort_b.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # pipe.flowPort_b.medium.nu
+  0       0                       0                       0                
+  6   260   # pipe.flowPort_b.p
+  0       0                       0                       0                
+  6   260   # pipe.flowPort_b.h
+  0       0                       0                       0                
+  6   388   # pipe.flowPort_b.H_flow
+  0  1.0000000000000001E-01  9.9999999999999997E-61 1.0000000000000000E+100
+  6   256   # pipe.V_flowLaminar
+ -1  1.0000000000000001E-01       0                       0                
+  1   280   # pipe.dpLaminar
+ -1       1                       0                       0                
+  1   280   # pipe.V_flowNominal
+ -1       1                       0                       0                
+  1   280   # pipe.dpNominal
+ -1       0                       0                       1                
+  1   280   # pipe.frictionLoss
+  0       0                       0                       0                
+  6   256   # pipe.pressureDrop
+  0       0                       0                       0                
+  6   256   # pipe.Q_friction
+  0       0                       0                       0                
+  6  1280   # pipe.dpNomMin
+  0       0                       0                       0                
+  6  1280   # pipe.k
+  0       1                       0                       0                
+  6   769   # pipe.useHeatPort
+ -1       0                       0                       0                
+  1   280   # pipe.h_g
+ -1  9.8066499999999994E+00       0                 1.0000000000000000E+100
+  1   280   # pipe.g
+ -1  9.9970000000000005E+02       0                 1.0000000000000000E+100
+  1   280   # Source_tank.medium.rho
+ -1    4192                       0                       0                
+  1   280   # Source_tank.medium.cp
+ -1    4192                       0                       0                
+  1   280   # Source_tank.medium.cv
+ -1  5.8799999999999997E-01       0                       0                
+  1   280   # Source_tank.medium.lambda
+ -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
+  1   280   # Source_tank.medium.nu
+ -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # Source_tank.T0
+  0       1                       0                       0                
+  6   257   # Source_tank.T0fixed
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # Source_tank.T_port
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Source_tank.T
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Source_tank.flowPort.medium.rho
+  0       0                       0                       0                
+  6   256   # Source_tank.flowPort.medium.cp
+  0       0                       0                       0                
+  6   256   # Source_tank.flowPort.medium.cv
+  0       0                       0                       0                
+  6   256   # Source_tank.flowPort.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Source_tank.flowPort.medium.nu
+  0       0                       0                       0                
+  6   260   # Source_tank.flowPort.p
+  0       1                       0                       0                
+  6   769   # Source_tank.Exchange
+  0       0                       0                       0                
+  6  1280   # Source_tank.h
+ -1  1.0000000000000000E-02       0                       0                
+  1   280   # Source_tank.ATank
+ -1  8.0000000000000004E-01       0                       0                
+  1   280   # Source_tank.hTank
+ -1  1.0132500000000000E+05       0                       0                
+  1   280   # Source_tank.pAmbient
+ -1  9.8066499999999994E+00       0                 1.0000000000000000E+100
+  1   280   # Source_tank.g
+  0       0                       0                       0                
+  6   769   # Source_tank.useHeatPort
+ -1       0                       0                 1.0000000000000000E+100
+  2   272   # Source_tank.m
+  0       0                       0                       0                
+  3   256   # Source_tank.der(m)
+ -1       0                       0                       0                
+  2  1296   # Source_tank.H
+  0       0                       0                       0                
+  3  1280   # Source_tank.der(H)
+  0       0                       0                       0                
+  6  1280   # Source_tank.Q_flow
+  0  8.0000000000000004E-01       0                       0                
+  6   264   # Source_tank.level
+ -1  9.9970000000000005E+02       0                 1.0000000000000000E+100
+  1   280   # volumeFlow.medium.rho
+ -1    4192                       0                       0                
+  1   280   # volumeFlow.medium.cp
+ -1    4192                       0                       0                
+  1   280   # volumeFlow.medium.cv
+ -1  5.8799999999999997E-01       0                       0                
+  1   280   # volumeFlow.medium.lambda
+ -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
+  1   280   # volumeFlow.medium.nu
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.m
+ -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # volumeFlow.T0
+  0       0                       0                       0                
+  6   257   # volumeFlow.T0fixed
+  0       1                       0                       1                
+  6   256   # volumeFlow.tapT
+  0       0                       0                       0                
+  6   256   # volumeFlow.dp
+  0  6.0000000000000002E-05       0                       0                
+  6   320   # volumeFlow.V_flow
+  0       0                       0                       0                
+  6   256   # volumeFlow.Q_flow
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.T
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.T_a
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.T_b
+  0       0                       0                       0                
+  6   256   # volumeFlow.dT
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.flowPort_a.medium.rho
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_a.medium.cp
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_a.medium.cv
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_a.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.flowPort_a.medium.nu
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.flowPort_b.medium.rho
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_b.medium.cp
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_b.medium.cv
+  0       0                       0                       0                
+  6   256   # volumeFlow.flowPort_b.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # volumeFlow.flowPort_b.medium.nu
+  0       1                       0                       0                
+  6   257   # volumeFlow.useVolumeFlowInput
+ -1       1                       0                       0                
+  1   280   # volumeFlow.constantVolumeFlow
+ -1  9.9970000000000005E+02       0                 1.0000000000000000E+100
+  1   280   # Storage_tank.medium.rho
+ -1    4192                       0                       0                
+  1   280   # Storage_tank.medium.cp
+ -1    4192                       0                       0                
+  1   280   # Storage_tank.medium.cv
+ -1  5.8799999999999997E-01       0                       0                
+  1   280   # Storage_tank.medium.lambda
+ -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
+  1   280   # Storage_tank.medium.nu
+ -1  2.7814999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # Storage_tank.T0
+  0       1                       0                       0                
+  6   257   # Storage_tank.T0fixed
+  0  2.8814999999999998E+02       0                 1.0000000000000000E+100
+  6   256   # Storage_tank.T_port
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Storage_tank.T
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Storage_tank.flowPort.medium.rho
+  0       0                       0                       0                
+  6   256   # Storage_tank.flowPort.medium.cp
+  0       0                       0                       0                
+  6   256   # Storage_tank.flowPort.medium.cv
+  0       0                       0                       0                
+  6   256   # Storage_tank.flowPort.medium.lambda
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # Storage_tank.flowPort.medium.nu
+  0       1                       0                       0                
+  6   769   # Storage_tank.Exchange
+  0       0                       0                       0                
+  6  1280   # Storage_tank.h
+ -1  1.0000000000000000E-02       0                       0                
+  1   280   # Storage_tank.ATank
+ -1  8.0000000000000004E-01       0                       0                
+  1   280   # Storage_tank.hTank
+ -1  1.0132500000000000E+05       0                       0                
+  1   280   # Storage_tank.pAmbient
+ -1  9.8066499999999994E+00       0                 1.0000000000000000E+100
+  1   280   # Storage_tank.g
+  0       1                       0                       0                
+  6   769   # Storage_tank.useHeatPort
+ -1       0                       0                 1.0000000000000000E+100
+  2   272   # Storage_tank.m
+  0       0                       0                       0                
+  3   256   # Storage_tank.der(m)
+ -1       0                       0                       0                
+  2  1296   # Storage_tank.H
+  0       0                       0                       0                
+  3  1280   # Storage_tank.der(H)
+  0       0                       0                       0                
+  6  1280   # Storage_tank.Q_flow
+  0       0                       0                       0                
+  6   264   # Storage_tank.level
+ -1  2.9314999999999998E+02       0                 1.0000000000000000E+100
+  1   280   # prescribedHeatFlow.T_ref
+ -1       0                       0                       0                
+  1   280   # prescribedHeatFlow.alpha
+  0       0                       0                       0                
+  6   320   # prescribedHeatFlow.Q_flow
+ -1  2.7814999999999998E+02       0                       0                
+  1   280   # hysteresis.uLow
+ -1  2.8314999999999998E+02       0                       0                
+  1   280   # hysteresis.uHigh
+ -1       0                       0                       0                
+  1   281   # hysteresis.pre_y_start
+  0       0                       0                       0                
+  6   321   # hysteresis.y
+ -1   -6000                       0                       0                
+  1   280   # booleanToReal.realTrue
+ -1       0                       0                       0                
+  1   280   # booleanToReal.realFalse
+ -1  6.0000000000000002E-05       0                       0                
+  1   280   # booleanToReal1.realTrue
+ -1       0                       0                       0                
+  1   280   # booleanToReal1.realFalse
+ -1  3.1314999999999998E+02       0                       0                
+  1   280   # Gear_unit_T_range.uLow
+ -1  3.3314999999999998E+02       0                       0                
+  1   280   # Gear_unit_T_range.uHigh
+ -1       0                       0                       0                
+  1   281   # Gear_unit_T_range.pre_y_start
+  0       0                       0                       0                
+  6   321   # Gear_unit_T_range.y
+ -1    3000                       0                       0                
+  1   280   # Gear_wall_capacitance.C
+ -1  3.7647800000000001E+02       0                 1.0000000000000000E+100
+  2   280   # Gear_wall_capacitance.T
+  0  7.3696700000000004E-01       0                       0                
+  3   256   # Gear_wall_capacitance.der(T)
+  0       0                       0                       0                
+  6   388   # Gear_wall_capacitance.port.Q_flow
+ -1  9.9970000000000005E+02       0                 1.0000000000000000E+100
+  1   280   # medium.rho
+ -1    4192                       0                       0                
+  1   280   # medium.cp
+ -1    4192                       0                       0                
+  1   280   # medium.cv
+ -1  5.8799999999999997E-01       0                       0                
+  1   280   # medium.lambda
+ -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
+  1   280   # medium.nu
+
+
+# Matrix with 6 columns defining the initial value calculation
+# (columns 5 and 6 are not utilized for the calculation but are
+#  reported by dymosim via dymosim -i for user convenience):
+#
+# column 1: Type of initial value
+#           = -2: special case: for continuing simulation (column 2 = value)
+#           = -1: fixed value (column 2 = fixed value)
+#           =  0: free value, i.e., no restriction (column 2 = initial value)
+#           >  0: desired value (column 1 = weight for optimization
+#                                column 2 = desired value)
+#                 use weight=1, since automatic scaling usually
+#                 leads to equally weighted terms
+# column 2: fixed, free or desired value according to column 1.
+# column 3: Minimum value (ignored, if Minimum >= Maximum).
+# column 4: Maximum value (ignored, if Minimum >= Maximum).
+#           Minimum and maximum restrict the search range in initial
+#           value calculation. They might also be used for scaling.
+# column 5: Category of variable.
+#           = 1: parameter.
+#           = 2: state.
+#           = 3: state derivative.
+#           = 4: output.
+#           = 5: input.
+#           = 6: auxiliary variable.
+# column 6: Data type of variable and flags according to dsBaseType
+#  <value>&3= 0: real.
+#  <value>&3= 1: boolean.
+#  <value>&3= 2: integer.
+#
+# Initial values are calculated according to the following procedure:
+#
+# Initial values are calculated according to the following procedure:
+#
+# - If parameters, states and inputs are FIXED, and other variables
+#   are FREE, the initialization is performed in the normal way.
+#
+# - If parameters and inputs are FIXED, and all other variables
+#   have special case for continue (-2 in 1st column), or FREE
+#   the initialization is ignored and variables are set to these values.
+#   This is intended to continue the simulation.
+#
+#   Which variables will be important for initialization and continue
+#   is indicated by value in column 6 & dsStartMasks.
+#
+char initialDescription(161,72)
+Fixed heat flow rate at port [W]
+Reference temperature [K|degC]
+Temperature coefficient of heat flow rate [1/K]
+Heat flow rate (positive if flowing from outside into the component) [W]
+Heat flow rate (positive if flowing from outside into the component) [W]
+Heat flow rate from solid -> fluid [W]
+= solid.T - fluid.T [K,]
+Port temperature [K|degC]
+Constant output value [W/K]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Mass of medium [kg]
+Initial temperature of medium [K|degC]
+Initial temperature guess value or fixed [:#(type=Boolean)]
+Defines temperature of heatPort between inlet and outlet temperature
+Pressure drop a->b [Pa|bar]
+Volume flow a->b [m3/s]
+Heat exchange with ambient [W]
+Outlet temperature of medium [K|degC]
+der(Outlet temperature of medium) [K/s]
+Temperature at flowPort_a [K|degC]
+Temperature at flowPort_b [K|degC]
+Temperature increase of coolant in flow direction [K,]
+Medium's specific enthalpy [J/kg]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+[Pa|bar]
+[J/kg]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+[Pa|bar]
+[J/kg]
+[W]
+Laminar volume flow [m3/s]
+Laminar pressure drop [Pa|bar]
+Nominal volume flow [m3/s]
+Nominal pressure drop [Pa|bar]
+Part of friction losses fed to medium [1]
+[Pa|bar]
+[W]
+[Pa|bar]
+[Pa.s2/m6]
+= true, if HeatPort is enabled [:#(type=Boolean)]
+Geodetic height (height difference from flowPort_a to flowPort_b) [m]
+Gravitation [m/s2]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Initial temperature of medium [K|degC]
+Initial temperature guess value or fixed [:#(type=Boolean)]
+Temperature at flowPort_a [K|degC]
+Outlet temperature of medium [K|degC]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+[Pa|bar]
+Exchange of medium via flowport [:#(type=Boolean)]
+Specific enthalpy in the volume [J/kg]
+Cross section of tank [m2]
+Height of tank [m]
+Ambient pressure [Pa|Pa]
+Gravitation [m/s2]
+= true, if HeatPort is enabled [:#(type=Boolean)]
+Mass of medium in tank [kg]
+der(Mass of medium in tank) [kg/s]
+Enthalpy of medium [J]
+der(Enthalpy of medium) [W]
+Heat flow at the optional heatPort [W]
+Level of medium in tank [m]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Mass of medium [kg]
+Initial temperature of medium [K|degC]
+Initial temperature guess value or fixed [:#(type=Boolean)]
+Defines temperature of heatPort between inlet and outlet temperature
+Pressure drop a->b [Pa|bar]
+Volume flow a->b [m3/s]
+Heat exchange with ambient [W]
+Outlet temperature of medium [K|degC]
+Temperature at flowPort_a [K|degC]
+Temperature at flowPort_b [K|degC]
+Temperature increase of coolant in flow direction [K,]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Enable / disable volume flow input [:#(type=Boolean)]
+Volume flow rate [m3/s]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Initial temperature of medium [K|degC]
+Initial temperature guess value or fixed [:#(type=Boolean)]
+Temperature at flowPort_a [K|degC]
+Outlet temperature of medium [K|degC]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+Exchange of medium via flowport [:#(type=Boolean)]
+Specific enthalpy in the volume [J/kg]
+Cross section of tank [m2]
+Height of tank [m]
+Ambient pressure [Pa|Pa]
+Gravitation [m/s2]
+= true, if HeatPort is enabled [:#(type=Boolean)]
+Mass of medium in tank [kg]
+der(Mass of medium in tank) [kg/s]
+Enthalpy of medium [J]
+der(Enthalpy of medium) [W]
+Heat flow at the optional heatPort [W]
+Level of medium in tank [m]
+Reference temperature [K|degC]
+Temperature coefficient of heat flow rate [1/K]
+[W]
+If y=true and u<uLow, switch to y=false
+If y=false and u>uHigh, switch to y=true
+Value of pre(y) at initial time [:#(type=Boolean)]
+[:#(type=Boolean)]
+Output signal for true Boolean input [W]
+Output signal for false Boolean input [W]
+Output signal for true Boolean input [m3/s]
+Output signal for false Boolean input [m3/s]
+If y=true and u<uLow, switch to y=false
+If y=false and u>uHigh, switch to y=true
+Value of pre(y) at initial time [:#(type=Boolean)]
+[:#(type=Boolean)]
+Heat capacity of element (= cp*m) [J/K]
+Temperature of element [K|degC]
+der(Temperature of element) [K/s]
+Heat flow rate (positive if flowing from outside into the component) [W]
+Density [kg/m3|g/cm3]
+Specific heat capacity at constant pressure [J/(kg.K)]
+Specific heat capacity at constant volume [J/(kg.K)]
+Thermal conductivity [W/(m.K)]
+Kinematic viscosity [m2/s]
+
