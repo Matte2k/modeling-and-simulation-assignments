@@ -55,12 +55,8 @@ function [time, temp, nozzle] = initData()
             nozzle.coating.l   = 0.02;          % material thickness        [m]
             nozzle.coating.c   = [];            % material specific heat    [J/(K*kg)]
 
-        nozzle.diameter = 0.05;                 % nozzle cross-section      [m^2]
-        nozzle.section  = 0.001963;             % nozzle cross-section      [m^2]
-        nozzle.length   = nozzle.lining.l ...   % nozzle length             [m]
-                          + nozzle.conductor.l ...
-                          + nozzle.interface.l ... 
-                          + nozzle.insulator.l ...
-                          + nozzle.coating.l;               
+        nozzle.section  = 1;                    % nozzle cross-section      [m^2]
+        nozzle.length   = 0.5;                  % nozzle length             [m]
+              
 
 end
