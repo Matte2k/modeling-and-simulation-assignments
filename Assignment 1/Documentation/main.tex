@@ -183,6 +183,8 @@ Finally, by taking a deeper look to the numerical results obtained and reported 
 
 \begin{table}[ht]
     \centering
+    \caption{Methods compare on zeros computation}
+    \label{tab:ex1_resultCmp}
     \subfloat[Zero 1\label{tab:ex1_zero1}]{
         \begin{tabular}{lcr}
             \toprule
@@ -210,8 +212,6 @@ Finally, by taking a deeper look to the numerical results obtained and reported 
             \bottomrule
         \end{tabular}
     }
-    \caption{Methods compare on zeros computation}
-    \label{tab:ex1_resultCmp}
 \end{table}
 
 All three methods guarantee high accuracy with an absolute error having an order of magnitude of $10^{-15}$ (near the floating-point relative accuracy).
@@ -276,6 +276,8 @@ By following this procedure a valid estimation of the time cost of each cases is
 
 \begin{table}[ht]       
     \centering
+    \caption{Methods error and CPU time results}
+    \label{tab:ex2_resultCmp}
     \subfloat[Heun's method\label{tab:ex2_heun}]{
         \begin{tabular}{lcr}
             \toprule
@@ -305,8 +307,6 @@ By following this procedure a valid estimation of the time cost of each cases is
             \bottomrule
         \end{tabular}
     }
-    \caption{Methods error and CPU time results}
-    \label{tab:ex2_resultCmp}
 \end{table}
 
 In conclusion for both methods the choice of a smaller step size produces higher precision but with higher computational cost.
@@ -714,6 +714,8 @@ No line is drawn for BDF3 method since it is ''A stable'' and so all the negativ
 In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability region are reported.
 \begin{table}[htb]
     \centering
+    \caption{Multistep methods stability boundary intersection with real axis}
+    \label{tab:ex7_stabLim}
     \begin{tabular}{lcccc}
             \toprule
             \toprule
@@ -724,8 +726,6 @@ In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability
             \bottomrule
             \bottomrule
         \end{tabular}
-    \caption{TBD}
-    \label{tab:ex7_stabLim}
 \end{table}
 
 \clearpage
@@ -733,7 +733,7 @@ In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability
 \begin{figure}[htb]
     \centering
     \includegraphics*[width=0.5\textwidth, keepaspectratio]{ex7_eig.eps}
-    \caption[]{\label{fig:ex7_eig} TBD}
+    \caption[]{\label{fig:ex7_eig} IVP eigenvalues envelop and stability boundary}
 \end{figure}
 
 The product $h\lambda_2$ results always greater or equal than zero, so it's unstable for every $t\in(0,3]$ and it's out of the stability region of every multistep method applied. \\

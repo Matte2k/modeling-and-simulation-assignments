@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1723472739 "/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex" "main.pdf" "main" 1723472740
+["pdflatex"] 1723473340 "/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex" "main.pdf" "main" 1723473341
   "/etc/texmf/web2c/texmf.cnf" 1710177182 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex" 1723472737 38185 6e3822a8b063e33aff25f230eb01116a ""
+  "/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex" 1723473339 38289 ef43552b8e0327b6e2615ee925ceb29f ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx0900.tfm" 1136768653 3584 1a7de6c99457381c64abc1a7c545505f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm" 1136768653 3584 21b378cca2e40816b0e6d74a4dc98f04 ""
@@ -171,9 +171,9 @@
   "Figures//ex7_compare.eps" 1722764133 58031 a74005d4b2d9c2c2ecc81d4aa4686b27 ""
   "Figures//ex7_eig.eps" 1722764133 55101 1813c37165ab5d6f4e1e5366a66e1370 ""
   "Figures//newlogo.eps" 1722764133 529146 6ccd185eee8eb6d5d4cdc9fa6d68d689 ""
-  "main.aux" 1723472740 11248 5913a7296c52168dc35ea5c0e03362ca "pdflatex"
-  "main.out" 1723472740 1083 f31a5169cd62848e828901b749028f76 "pdflatex"
-  "main.tex" 1723472737 38185 6e3822a8b063e33aff25f230eb01116a ""
+  "main.aux" 1723473341 11370 fd9040acc53b7ebfc263d409cf09af3b "pdflatex"
+  "main.out" 1723473341 1083 f31a5169cd62848e828901b749028f76 "pdflatex"
+  "main.tex" 1723473339 38289 ef43552b8e0327b6e2615ee925ceb29f ""
   "mcode.sty" 1710841212 11473 e3c3290432e60d7d82bde7534454793e ""
   (generated)
   "main.aux"
