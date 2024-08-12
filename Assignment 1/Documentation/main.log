@@ -1,482 +1,436 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.30)  1 AUG 2024 18:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.19)  12 AUG 2024 16:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex"
-(d:/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
-(C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
-(C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
-File: size11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+**"/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex"
+(/home/matteo/Documents/GitHub/modeling-and-simulation-assignments/Assignment 1/Documentation/main.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count194
-\c@section=\count195
-\c@subsection=\count196
-\c@subsubsection=\count197
-\c@paragraph=\count198
-\c@subparagraph=\count199
-\c@figure=\count266
-\c@table=\count267
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen141
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2024/06/26 v24.7 The Babel package
-\babel@savecnt=\count268
-\U@D=\dimen142
-\l@unhyphenated=\language79
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2022/01/26 3.70 The Babel package
+\babel@savecnt=\count193
+\U@D=\dimen139
+\l@unhyphenated=\language87
+ (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count269
-
-*************************************
-* Local config file bblopts.cfg used
-*
-(C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-)
-Package babel Info: Main language set with 'main='. Except if you have
-(babel)             problems, prefer the default mechanism for setting
-(babel)             the main language, ie, as the last declared.
-(babel)             Reported on input line 4180.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+\bbl@dirlevel=\count194
+ (/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
+(babel)             (\language79). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
-)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex
-Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 11.
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(babel)             (\language79). Reported on input line 108.
+)) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks19
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen143
-\Gin@req@width=\dimen144
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+\Gin@req@height=\dimen140
+\Gin@req@width=\dimen141
+) (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
-Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
-Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen142
+\captionmargin@=\dimen143
+\captionwidth=\dimen144
 \caption@tempdima=\dimen145
-\captionmargin=\dimen146
-\caption@leftmargin=\dimen147
-\caption@rightmargin=\dimen148
-\caption@width=\dimen149
-\caption@indent=\dimen150
-\caption@parindent=\dimen151
-\caption@hangindent=\dimen152
+\caption@indent=\dimen146
+\caption@parindent=\dimen147
+\caption@hangindent=\dimen148
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count270
-\c@continuedfloat=\count271
+\c@caption@flags=\count195
+\c@continuedfloat=\count196
 )
-\c@KVtest=\count272
-\sf@farskip=\skip51
-\sf@captopadj=\dimen153
-\sf@capskip=\skip52
-\sf@nearskip=\skip53
-\c@subfigure=\count273
-\c@subfigure@save=\count274
-\c@lofdepth=\count275
-\c@subtable=\count276
-\c@subtable@save=\count277
-\c@lotdepth=\count278
-\sf@top=\skip54
-\sf@bottom=\skip55
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.sty
+\c@KVtest=\count197
+\sf@farskip=\skip49
+\sf@captopadj=\dimen149
+\sf@capskip=\skip50
+\sf@nearskip=\skip51
+\c@subfigure=\count198
+\c@subfigure@save=\count199
+\c@lofdepth=\count266
+\c@subtable=\count267
+\c@subtable@save=\count268
+\c@lotdepth=\count269
+\sf@top=\skip52
+\sf@bottom=\skip53
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
 Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
 Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 504.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-))) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
-Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box52
-\beforetitleunit=\skip56
-\aftertitleunit=\skip57
-\ttl@plus=\dimen154
-\ttl@minus=\dimen155
-\ttl@toksa=\toks20
-\titlewidth=\dimen156
-\titlewidthlast=\dimen157
-\titlewidthfirst=\dimen158
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box50
+\beforetitleunit=\skip54
+\aftertitleunit=\skip55
+\ttl@plus=\dimen150
+\ttl@minus=\dimen151
+\ttl@toksa=\toks19
+\titlewidth=\dimen152
+\titlewidthlast=\dimen153
+\titlewidthfirst=\dimen154
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen159
-\lightrulewidth=\dimen160
-\cmidrulewidth=\dimen161
-\belowrulesep=\dimen162
-\belowbottomsep=\dimen163
-\aboverulesep=\dimen164
-\abovetopsep=\dimen165
-\cmidrulesep=\dimen166
-\cmidrulekern=\dimen167
-\defaultaddspace=\dimen168
-\@cmidla=\count279
-\@cmidlb=\count280
-\@aboverulesep=\dimen169
-\@belowrulesep=\dimen170
-\@thisruleclass=\count281
-\@lastruleclass=\count282
-\@thisrulewidth=\dimen171
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2024/01/14 v1.3d Standard LaTeX Color (DPC)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+\heavyrulewidth=\dimen155
+\lightrulewidth=\dimen156
+\cmidrulewidth=\dimen157
+\belowrulesep=\dimen158
+\belowbottomsep=\dimen159
+\aboverulesep=\dimen160
+\abovetopsep=\dimen161
+\cmidrulesep=\dimen162
+\cmidrulekern=\dimen163
+\defaultaddspace=\dimen164
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen165
+\@belowrulesep=\dimen166
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen167
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count283
-\Gm@cntv=\count284
-\c@Gm@tempcnt=\count285
-\Gm@bindingoffset=\dimen172
-\Gm@wd@mp=\dimen173
-\Gm@odd@mp=\dimen174
-\Gm@even@mp=\dimen175
-\Gm@layoutwidth=\dimen176
-\Gm@layoutheight=\dimen177
-\Gm@layouthoffset=\dimen178
-\Gm@layoutvoffset=\dimen179
-\Gm@dimlist=\toks21
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/threeparttable\threeparttable.sty
+\Gm@cnth=\count274
+\Gm@cntv=\count275
+\c@Gm@tempcnt=\count276
+\Gm@bindingoffset=\dimen168
+\Gm@wd@mp=\dimen169
+\Gm@odd@mp=\dimen170
+\Gm@even@mp=\dimen171
+\Gm@layoutwidth=\dimen172
+\Gm@layoutheight=\dimen173
+\Gm@layouthoffset=\dimen174
+\Gm@layoutvoffset=\dimen175
+\Gm@dimlist=\toks20
+) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box53
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul.sty
-Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/soul\soul-ori.sty
-Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
-\SOUL@word=\toks22
-\SOUL@lasttoken=\toks23
-\SOUL@syllable=\toks24
-\SOUL@cmds=\toks25
-\SOUL@buffer=\toks26
-\SOUL@token=\toks27
-\SOUL@syllgoal=\dimen180
-\SOUL@syllwidth=\dimen181
-\SOUL@charkern=\dimen182
-\SOUL@hyphkern=\dimen183
-\SOUL@dimen=\dimen184
-\SOUL@dimeni=\dimen185
-\SOUL@minus=\count286
-\SOUL@comma=\count287
-\SOUL@apo=\count288
-\SOUL@grave=\count289
-\SOUL@spaceskip=\skip58
-\SOUL@ttwidth=\dimen186
-\SOUL@uldp=\dimen187
-\SOUL@ulht=\dimen188
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+\@tempboxb=\box51
+) (/usr/share/texlive/texmf-dist/tex/generic/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks21
+\SOUL@lasttoken=\toks22
+\SOUL@cmds=\toks23
+\SOUL@buffer=\toks24
+\SOUL@token=\toks25
+\SOUL@spaceskip=\skip56
+\SOUL@ttwidth=\dimen176
+\SOUL@uldp=\dimen177
+\SOUL@ulht=\dimen178
+) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip59
-\enit@outerparindent=\dimen189
-\enit@toks=\toks28
-\enit@inbox=\box54
-\enit@count@id=\count290
-\enitdp@description=\count291
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmisc.sty
-Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
-\FN@temptoken=\toks29
-\footnotemargin=\dimen190
-\@outputbox@depth=\dimen191
-Package footmisc Info: Declaring symbol style bringhurst on input line 696.
-Package footmisc Info: Declaring symbol style chicago on input line 704.
-Package footmisc Info: Declaring symbol style wiley on input line 713.
-Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
-Package footmisc Info: Declaring symbol style lamport* on input line 744.
-Package footmisc Info: Declaring symbol style lamport*-robust on input line 765.
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2024/05/23 v2.17q AMS math features
-\@mathmargin=\skip60
+\labelindent=\skip57
+\enit@outerparindent=\dimen179
+\enit@toks=\toks26
+\enit@inbox=\box52
+\enit@count@id=\count277
+\enitdp@description=\count278
+) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks27
+\footnotemargin=\dimen180
+\c@pp@next@reset=\count279
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip58
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks30
-\ex@=\dimen192
-)) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+\@emptytoks=\toks28
+\ex@=\dimen181
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen193
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
+\pmbraise@=\dimen182
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count292
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count293
-\leftroot@=\count294
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count295
-\DOTSCASE@=\count296
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box55
-\strutbox@=\box56
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen194
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count297
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count298
-\dotsspace@=\muskip17
-\c@parentequation=\count299
-\dspbrk@lvl=\count300
-\tag@help=\toks31
-\row@=\count301
-\column@=\count302
-\maxfields@=\count303
-\andhelp@=\toks32
-\eqnshift@=\dimen195
-\alignsep@=\dimen196
-\tagshift@=\dimen197
-\tagwidth@=\dimen198
-\totwidth@=\dimen199
-\lineht@=\dimen256
-\@envbody=\toks33
-\multlinegap=\skip61
-\multlinetaggap=\skip62
-\mathdisplay@stack=\toks34
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\empheq.sty
+\inf@bad=\count280
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count281
+\leftroot@=\count282
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count283
+\DOTSCASE@=\count284
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+\big@size=\dimen183
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count285
+\c@MaxMatrixCols=\count286
+\dotsspace@=\muskip16
+\c@parentequation=\count287
+\dspbrk@lvl=\count288
+\tag@help=\toks29
+\row@=\count289
+\column@=\count290
+\maxfields@=\count291
+\andhelp@=\toks30
+\eqnshift@=\dimen184
+\alignsep@=\dimen185
+\tagshift@=\dimen186
+\tagwidth@=\dimen187
+\totwidth@=\dimen188
+\lineht@=\dimen189
+\@envbody=\toks31
+\multlinegap=\skip59
+\multlinetaggap=\skip60
+\mathdisplay@stack=\toks32
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/empheq.sty
 Package: empheq 2017/03/31 v2.15 Emphasizing equations
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
-Package: mathtools 2024/03/11 v1.30 mathematical typesetting tools
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
-Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count304
-\calc@Bcount=\count305
-\calc@Adimen=\dimen257
-\calc@Bdimen=\dimen258
-\calc@Askip=\skip63
-\calc@Bskip=\skip64
+) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2021/02/02 v1.28 mathematical typesetting tools
+ (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count292
+\calc@Bcount=\count293
+\calc@Adimen=\dimen190
+\calc@Bdimen=\dimen191
+\calc@Askip=\skip61
+\calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count306
-\calc@Cskip=\skip65
+\calc@Ccount=\count294
+\calc@Cskip=\skip63
 )
-\g_MT_multlinerow_int=\count307
-\l_MT_multwidth_dim=\dimen259
-\origjot=\skip66
-\l_MT_shortvdotswithinadjustabove_dim=\dimen260
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen261
-\l_MT_above_intertext_sep=\dimen262
-\l_MT_below_intertext_sep=\dimen263
-\l_MT_above_shortintertext_sep=\dimen264
-\l_MT_below_shortintertext_sep=\dimen265
-\xmathstrut@box=\box57
-\xmathstrut@dim=\dimen266
+\g_MT_multlinerow_int=\count295
+\l_MT_multwidth_dim=\dimen192
+\origjot=\skip64
+\l_MT_shortvdotswithinadjustabove_dim=\dimen193
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen194
+\l_MT_above_intertext_sep=\dimen195
+\l_MT_below_intertext_sep=\dimen196
+\l_MT_above_shortintertext_sep=\dimen197
+\l_MT_below_shortintertext_sep=\dimen198
+\xmathstrut@box=\box55
+\xmathstrut@dim=\dimen199
 )
-\l_EQ_equationtype_int=\count308
-\l_EQ_alignmentmode_int=\count309
-\l_EQ_totalwidth_dim=\dimen267
-\l_EQ_displaywidth_dim=\dimen268
-\l_EQ_temp_linewidth_dim=\dimen269
-\l_EQ_linewidth_dim=\dimen270
-\EmphEqdelimitershortfall=\dimen271
-\EmphEqdelimiterfactor=\count310
-\g_EQ_toptag_height_dim=\dimen272
-\g_EQ_bottomtag_depth_dim=\dimen273
-\g_EQ_toprow_height_dim=\dimen274
-\g_EQ_bottomrow_depth_dim=\dimen275
-\g_EQ_widesttag_dim=\dimen276
-\EQ_mathdisplay_box=\box58
-\EQ_tag_box=\box59
-\g_EQ_temprow_int=\count311
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
-Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
+\l_EQ_equationtype_int=\count296
+\l_EQ_alignmentmode_int=\count297
+\l_EQ_totalwidth_dim=\dimen256
+\l_EQ_displaywidth_dim=\dimen257
+\l_EQ_temp_linewidth_dim=\dimen258
+\l_EQ_linewidth_dim=\dimen259
+\EmphEqdelimitershortfall=\dimen260
+\EmphEqdelimiterfactor=\count298
+\g_EQ_toptag_height_dim=\dimen261
+\g_EQ_bottomtag_depth_dim=\dimen262
+\g_EQ_toprow_height_dim=\dimen263
+\g_EQ_bottomrow_depth_dim=\dimen264
+\g_EQ_widesttag_dim=\dimen265
+\EQ_mathdisplay_box=\box56
+\EQ_tag_box=\box57
+\g_EQ_temprow_int=\count299
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2021/04/25 v1.2e Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
 \symboldletters=\mathgroup5
 \symboldsymbols=\mathgroup6
 Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
-) (mcode.sty
+) (./mcode.sty
 -- Package: `mcode' 2.7 <2015/11/11> --
 Package: mcode 2015/11/11 2.7
  - settings optimized for display (colour formating)
-(C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count312
-\lst@gtempboxa=\box60
-\lst@token=\toks35
-\lst@length=\count313
-\lst@currlwidth=\dimen277
-\lst@column=\count314
-\lst@pos=\count315
-\lst@lostspace=\dimen278
-\lst@width=\dimen279
-\lst@newlines=\count316
-\lst@lineno=\count317
-\lst@maxwidth=\dimen280
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/05/25 1.10b (Carsten Heinz)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
-\c@lstnumber=\count318
-\lst@skipnumbers=\count319
-\lst@framebox=\box61
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2024/05/25 1.10b listings configuration
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count300
+\lst@gtempboxa=\box58
+\lst@token=\toks33
+\lst@length=\count301
+\lst@currlwidth=\dimen266
+\lst@column=\count302
+\lst@pos=\count303
+\lst@lostspace=\dimen267
+\lst@width=\dimen268
+\lst@newlines=\count304
+\lst@lineno=\count305
+\lst@maxwidth=\dimen269
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count306
+\lst@skipnumbers=\count307
+\lst@framebox=\box59
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
-Package: listings 2024/05/25 1.10b (Carsten Heinz)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-\c@section@level=\count320
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count321
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
-)
-\@linkdim=\dimen281
-\Hy@linkcounter=\count322
-\Hy@pagecounter=\count323
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen270
+\Hy@linkcounter=\count308
+\Hy@pagecounter=\count309
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel languages
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count324
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count310
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4157.
-Package hyperref Info: Link nesting OFF on input line 4162.
-Package hyperref Info: Hyper index ON on input line 4165.
-Package hyperref Info: Plain pages OFF on input line 4172.
-Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count325
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip18
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count311
+ (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen282
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen271
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count326
-\Field@Width=\dimen283
-\Fld@charsize=\dimen284
-Package hyperref Info: Hyper figures OFF on input line 6042.
-Package hyperref Info: Link nesting OFF on input line 6047.
-Package hyperref Info: Hyper index ON on input line 6050.
-Package hyperref Info: backreferencing OFF on input line 6057.
-Package hyperref Info: Link coloring OFF on input line 6062.
-Package hyperref Info: Link coloring with OCG OFF on input line 6067.
-Package hyperref Info: PDF/A mode OFF on input line 6072.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+\Fld@menulength=\count312
+\Field@Width=\dimen272
+\Fld@charsize=\dimen273
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count327
-\c@Item=\count328
-\c@Hfootnote=\count329
+\Hy@abspage=\count313
+\c@Item=\count314
+\c@Hfootnote=\count315
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2024-07-10 v7.01j Hyperref driver for pdfTeX
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count330
-\c@bookmark@seq@number=\count331
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+\Fld@listcount=\count316
+\c@bookmark@seq@number=\count317
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip67
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/cleveref\cleveref.sty
+\Hy@SectionHShift=\skip65
+) (/usr/share/texlive/texmf-dist/tex/latex/cleveref/cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
 LaTeX Info: Redefining \cref on input line 2370.
@@ -491,22 +445,22 @@ LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `listings' support loaded on input line 3131.
 Package cleveref Info: `subfig' support loaded on input line 3164.
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
-Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and footers
-\f@nch@headwidth=\skip68
-\f@nch@O@elh=\skip69
-\f@nch@O@erh=\skip70
-\f@nch@O@olh=\skip71
-\f@nch@O@orh=\skip72
-\f@nch@O@elf=\skip73
-\f@nch@O@erf=\skip74
-\f@nch@O@olf=\skip75
-\f@nch@O@orf=\skip76
-) (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count332
-\l__pdf_internal_box=\box62
-) (main.aux)
+) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip66
+\f@nch@O@elh=\skip67
+\f@nch@O@erh=\skip68
+\f@nch@O@olh=\skip69
+\f@nch@O@orh=\skip70
+\f@nch@O@elf=\skip71
+\f@nch@O@erf=\skip72
+\f@nch@O@olf=\skip73
+\f@nch@O@orf=\skip74
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count318
+\l__pdf_internal_box=\box60
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
@@ -527,19 +481,19 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
 LaTeX Font Info:    ... okay on input line 116.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
 LaTeX Font Info:    ... okay on input line 116.
- (C:\Users\Matte\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen285
-\scratchbox=\box63
-\nofMPsegments=\count334
-\nofMParguments=\count335
-\everyMPshowfont=\toks36
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen286
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
-\everyMPtoPDFconversion=\toks37
+\scratchcounter=\count319
+\scratchdimen=\dimen274
+\scratchbox=\box61
+\nofMPsegments=\count320
+\nofMParguments=\count321
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count322
+\MPscratchDim=\dimen275
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
+\everyMPtoPDFconversion=\toks35
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -582,700 +536,668 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count339
+\c@lstlisting=\count325
 Package hyperref Info: Link coloring OFF on input line 116.
-(main.out) (main.out)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count326
+)
+LaTeX Info: Redefining \ref on input line 116.
+LaTeX Info: Redefining \pageref on input line 116.
+LaTeX Info: Redefining \nameref on input line 116.
+ (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<Figures/ex1_initGuess.png, id=16, 462.14256pt x 233.673pt>
-File: Figures/ex1_initGuess.png Graphic file (type png)
-<use Figures/ex1_initGuess.png>
-Package pdftex.def Info: Figures/ex1_initGuess.png  used on input line 144.
+<Figures//ex1_initGuess.png, id=41, 462.14256pt x 233.673pt>
+File: Figures//ex1_initGuess.png Graphic file (type png)
+<use Figures//ex1_initGuess.png>
+Package pdftex.def Info: Figures//ex1_initGuess.png  used on input line 144.
 (pdftex.def)             Requested size: 360.00137pt x 182.03244pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 171.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/newlogo-eps-converted-to.pdf, id=21, 369.38pt x 100.375pt>
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 171.
+<Figures//newlogo-eps-converted-to.pdf, id=46, 369.38pt x 100.375pt>
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 171.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[1{C:/Users/Matte/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./Figures/newlogo-eps-converted-to.pdf> <./Figures/ex1_initGuess.png (PNG copy)>]
-Package epstopdf Info: Source file: <Figures/ex1_convergence.eps>
-(epstopdf)                    date: 2024-07-30 20:41:44
-(epstopdf)                    size: 128242 bytes
-(epstopdf)             Output file: <Figures/ex1_convergence-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 20:42:00
+ <./Figures//ex1_initGuess.png (PNG copy)> <./Figures//newlogo-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex1_convergence.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 125457 bytes
+(epstopdf)             Output file: <Figures//ex1_convergence-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 66961 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex1_convergence-eps-converted-to.pdf Figures/ex1_convergence.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex1_convergence-eps-converted-to.pdf Figures//ex1_convergence.eps>
 (epstopdf)             \includegraphics on input line 177.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_convergence-eps-converted-to.pdf, id=53, 484.81125pt x 235.88126pt>
-File: Figures/ex1_convergence-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex1_convergence-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_convergence-eps-converted-to.pdf  used on input line 177.
+<Figures//ex1_convergence-eps-converted-to.pdf, id=78, 484.81125pt x 235.88126pt>
+File: Figures//ex1_convergence-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex1_convergence-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex1_convergence-eps-converted-to.pdf  used on input line 177.
 (pdftex.def)             Requested size: 360.00137pt x 175.16486pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 225.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 225.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 225.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[2
+ [2
 
- <./Figures/ex1_convergence-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex2_heun.eps>
-(epstopdf)                    date: 2024-07-31 11:11:27
-(epstopdf)                    size: 169732 bytes
-(epstopdf)             Output file: <Figures/ex2_heun-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 11:12:18
+ <./Figures//ex1_convergence-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex2_heun.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 163702 bytes
+(epstopdf)             Output file: <Figures//ex2_heun-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 103511 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex2_heun-eps-converted-to.pdf Figures/ex2_heun.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex2_heun-eps-converted-to.pdf Figures//ex2_heun.eps>
 (epstopdf)             \includegraphics on input line 249.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex2_heun-eps-converted-to.pdf, id=70, 468.75125pt x 292.09125pt>
-File: Figures/ex2_heun-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex2_heun-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex2_heun-eps-converted-to.pdf  used on input line 249.
+<Figures//ex2_heun-eps-converted-to.pdf, id=95, 468.75125pt x 292.09125pt>
+File: Figures//ex2_heun-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex2_heun-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex2_heun-eps-converted-to.pdf  used on input line 249.
 (pdftex.def)             Requested size: 360.00137pt x 224.32262pt.
-Package epstopdf Info: Source file: <Figures/ex2_rk4.eps>
-(epstopdf)                    date: 2024-07-31 11:11:29
-(epstopdf)                    size: 184261 bytes
-(epstopdf)             Output file: <Figures/ex2_rk4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 11:12:19
+Package epstopdf Info: Source file: <Figures//ex2_rk4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 177093 bytes
+(epstopdf)             Output file: <Figures//ex2_rk4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 106994 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex2_rk4-eps-converted-to.pdf Figures/ex2_rk4.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex2_rk4-eps-converted-to.pdf Figures//ex2_rk4.eps>
 (epstopdf)             \includegraphics on input line 260.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex2_rk4-eps-converted-to.pdf, id=73, 468.75125pt x 292.09125pt>
-File: Figures/ex2_rk4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex2_rk4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex2_rk4-eps-converted-to.pdf  used on input line 260.
+<Figures//ex2_rk4-eps-converted-to.pdf, id=98, 468.75125pt x 292.09125pt>
+File: Figures//ex2_rk4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex2_rk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex2_rk4-eps-converted-to.pdf  used on input line 260.
 (pdftex.def)             Requested size: 360.00137pt x 224.32262pt.
-Package epstopdf Info: Source file: <Figures/ex2_error.eps>
-(epstopdf)                    date: 2024-07-31 11:11:30
-(epstopdf)                    size: 90789 bytes
-(epstopdf)             Output file: <Figures/ex2_error-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 11:12:21
+Package epstopdf Info: Source file: <Figures//ex2_error.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 89078 bytes
+(epstopdf)             Output file: <Figures//ex2_error-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 44270 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex2_error-eps-converted-to.pdf Figures/ex2_error.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex2_error-eps-converted-to.pdf Figures//ex2_error.eps>
 (epstopdf)             \includegraphics on input line 273.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex2_error-eps-converted-to.pdf, id=77, 318.18875pt x 273.02pt>
-File: Figures/ex2_error-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex2_error-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex2_error-eps-converted-to.pdf  used on input line 273.
+<Figures//ex2_error-eps-converted-to.pdf, id=102, 318.18875pt x 273.02pt>
+File: Figures//ex2_error-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex2_error-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex2_error-eps-converted-to.pdf  used on input line 273.
 (pdftex.def)             Requested size: 225.0pt x 193.05818pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 317.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 317.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 317.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[3
+ [3
 
- <./Figures/ex2_heun-eps-converted-to.pdf>]
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+ <./Figures//ex2_heun-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 317.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 317.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 317.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[4 <./Figures/ex2_rk4-eps-converted-to.pdf> <./Figures/ex2_error-eps-converted-to.pdf>]
+ [4 <./Figures//ex2_rk4-eps-converted-to.pdf> <./Figures//ex2_error-eps-converted-to.pdf>]
 Overfull \hbox (7.57695pt too wide) in paragraph at lines 320--328
 \OT1/cmr/bx/n/10.95 x[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 F[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h; \OT1/cmr/m/n/10.95 ) \OT1/cmr/bx/n/10.95 x[]$\T1/cmr/m/n/10.95 .[] []2)[]  With $\OML/cmm/m/it/10.95  \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 ^^Y$\T1/cmr/m/n/10.95 , solve the prob-lem ``Find $\OML/cmm/m/it/10.95 h \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$ \T1/cmr/m/n/10.95 s.t.$[] [] \OT1/cmr/m/n/10.95 = 1$\T1/cmr/m/n/10.95 ''.[]
  []
 
-Package epstopdf Info: Source file: <Figures/ex3_rk2.eps>
-(epstopdf)                    date: 2024-07-31 15:47:54
-(epstopdf)                    size: 113662 bytes
-(epstopdf)             Output file: <Figures/ex3_rk2-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 15:48:17
+Package epstopdf Info: Source file: <Figures//ex3_rk2.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 111843 bytes
+(epstopdf)             Output file: <Figures//ex3_rk2-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 48407 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex3_rk2-eps-converted-to.pdf Figures/ex3_rk2.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex3_rk2-eps-converted-to.pdf Figures//ex3_rk2.eps>
 (epstopdf)             \includegraphics on input line 364.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex3_rk2-eps-converted-to.pdf, id=110, 480.79625pt x 238.8925pt>
-File: Figures/ex3_rk2-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex3_rk2-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex3_rk2-eps-converted-to.pdf  used on input line 364.
+<Figures//ex3_rk2-eps-converted-to.pdf, id=135, 480.79625pt x 238.8925pt>
+File: Figures//ex3_rk2-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex3_rk2-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex3_rk2-eps-converted-to.pdf  used on input line 364.
 (pdftex.def)             Requested size: 360.00137pt x 178.8773pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 368.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 368.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 368.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
 [5
 
- <./Figures/ex3_rk2-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex3_rk4.eps>
-(epstopdf)                    date: 2024-07-31 15:47:55
-(epstopdf)                    size: 113325 bytes
-(epstopdf)             Output file: <Figures/ex3_rk4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 16:21:19
+ <./Figures//ex3_rk2-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex3_rk4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 111506 bytes
+(epstopdf)             Output file: <Figures//ex3_rk4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 48075 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex3_rk4-eps-converted-to.pdf Figures/ex3_rk4.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex3_rk4-eps-converted-to.pdf Figures//ex3_rk4.eps>
 (epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex3_rk4-eps-converted-to.pdf, id=132, 480.79625pt x 238.8925pt>
-File: Figures/ex3_rk4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex3_rk4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex3_rk4-eps-converted-to.pdf  used on input line 379.
+<Figures//ex3_rk4-eps-converted-to.pdf, id=158, 480.79625pt x 238.8925pt>
+File: Figures//ex3_rk4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex3_rk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex3_rk4-eps-converted-to.pdf  used on input line 379.
 (pdftex.def)             Requested size: 360.00137pt x 178.8773pt.
-<Figures/ex3_stability.png, id=135, 292.98257pt x 249.86148pt>
-File: Figures/ex3_stability.png Graphic file (type png)
-<use Figures/ex3_stability.png>
-Package pdftex.def Info: Figures/ex3_stability.png  used on input line 386.
+<Figures//ex3_stability.png, id=161, 292.98257pt x 249.86148pt>
+File: Figures//ex3_stability.png Graphic file (type png)
+<use Figures//ex3_stability.png>
+Package pdftex.def Info: Figures//ex3_stability.png  used on input line 386.
 (pdftex.def)             Requested size: 225.0pt x 191.89066pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 392.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 392.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 392.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[6
+ [6
 
- <./Figures/ex3_rk4-eps-converted-to.pdf> <./Figures/ex3_stability.png (PNG copy)>]
-Package epstopdf Info: Source file: <Figures/ex4_RK1.eps>
-(epstopdf)                    date: 2024-07-31 18:34:50
-(epstopdf)                    size: 143913 bytes
-(epstopdf)             Output file: <Figures/ex4_RK1-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 18:35:12
+ <./Figures//ex3_rk4-eps-converted-to.pdf> <./Figures//ex3_stability.png (PNG copy)>]
+Package epstopdf Info: Source file: <Figures//ex4_RK1.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 141212 bytes
+(epstopdf)             Output file: <Figures//ex4_RK1-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 71523 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex4_RK1-eps-converted-to.pdf Figures/ex4_RK1.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex4_RK1-eps-converted-to.pdf Figures//ex4_RK1.eps>
 (epstopdf)             \includegraphics on input line 416.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex4_RK1-eps-converted-to.pdf, id=152, 538.01pt x 236.885pt>
-File: Figures/ex4_RK1-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex4_RK1-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex4_RK1-eps-converted-to.pdf  used on input line 416.
+<Figures//ex4_RK1-eps-converted-to.pdf, id=178, 538.01pt x 236.885pt>
+File: Figures//ex4_RK1-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex4_RK1-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex4_RK1-eps-converted-to.pdf  used on input line 416.
 (pdftex.def)             Requested size: 360.00137pt x 158.5097pt.
-Package epstopdf Info: Source file: <Figures/ex4_RK1zoom.eps>
-(epstopdf)                    date: 2024-07-31 18:34:52
-(epstopdf)                    size: 134587 bytes
-(epstopdf)             Output file: <Figures/ex4_RK1zoom-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 18:35:13
+Package epstopdf Info: Source file: <Figures//ex4_RK1zoom.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 132021 bytes
+(epstopdf)             Output file: <Figures//ex4_RK1zoom-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 66390 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex4_RK1zoom-eps-converted-to.pdf Figures/ex4_RK1zoom.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex4_RK1zoom-eps-converted-to.pdf Figures//ex4_RK1zoom.eps>
 (epstopdf)             \includegraphics on input line 422.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex4_RK1zoom-eps-converted-to.pdf, id=154, 529.98pt x 236.885pt>
-File: Figures/ex4_RK1zoom-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex4_RK1zoom-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex4_RK1zoom-eps-converted-to.pdf  used on input line 422.
+<Figures//ex4_RK1zoom-eps-converted-to.pdf, id=180, 529.98pt x 236.885pt>
+File: Figures//ex4_RK1zoom-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex4_RK1zoom-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex4_RK1zoom-eps-converted-to.pdf  used on input line 422.
 (pdftex.def)             Requested size: 360.00137pt x 160.90977pt.
-Package epstopdf Info: Source file: <Figures/ex4_RK2.eps>
-(epstopdf)                    date: 2024-07-31 18:34:51
-(epstopdf)                    size: 140168 bytes
-(epstopdf)             Output file: <Figures/ex4_RK2-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 18:35:14
+Package epstopdf Info: Source file: <Figures//ex4_RK2.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 137603 bytes
+(epstopdf)             Output file: <Figures//ex4_RK2-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 72685 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex4_RK2-eps-converted-to.pdf Figures/ex4_RK2.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex4_RK2-eps-converted-to.pdf Figures//ex4_RK2.eps>
 (epstopdf)             \includegraphics on input line 429.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex4_RK2-eps-converted-to.pdf, id=160, 534.99875pt x 236.885pt>
-File: Figures/ex4_RK2-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex4_RK2-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex4_RK2-eps-converted-to.pdf  used on input line 429.
+<Figures//ex4_RK2-eps-converted-to.pdf, id=186, 534.99875pt x 236.885pt>
+File: Figures//ex4_RK2-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex4_RK2-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex4_RK2-eps-converted-to.pdf  used on input line 429.
 (pdftex.def)             Requested size: 360.00137pt x 159.40611pt.
-Package epstopdf Info: Source file: <Figures/ex4_RK4.eps>
-(epstopdf)                    date: 2024-07-31 18:34:51
-(epstopdf)                    size: 132868 bytes
-(epstopdf)             Output file: <Figures/ex4_RK4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 18:35:15
+Package epstopdf Info: Source file: <Figures//ex4_RK4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 130526 bytes
+(epstopdf)             Output file: <Figures//ex4_RK4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 65542 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex4_RK4-eps-converted-to.pdf Figures/ex4_RK4.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex4_RK4-eps-converted-to.pdf Figures//ex4_RK4.eps>
 (epstopdf)             \includegraphics on input line 434.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex4_RK4-eps-converted-to.pdf, id=162, 534.99875pt x 236.885pt>
-File: Figures/ex4_RK4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex4_RK4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex4_RK4-eps-converted-to.pdf  used on input line 434.
+<Figures//ex4_RK4-eps-converted-to.pdf, id=188, 534.99875pt x 236.885pt>
+File: Figures//ex4_RK4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex4_RK4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex4_RK4-eps-converted-to.pdf  used on input line 434.
 (pdftex.def)             Requested size: 360.00137pt x 159.40611pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
 (epstopdf)             \includegraphics on input line 442.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 442.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 442.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[7
+ [7
 
- <./Figures/ex4_RK1-eps-converted-to.pdf> <./Figures/ex4_RK1zoom-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex4_feval.eps>
-(epstopdf)                    date: 2024-07-31 18:34:53
-(epstopdf)                    size: 99836 bytes
-(epstopdf)             Output file: <Figures/ex4_feval-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 18:35:17
+ <./Figures//ex4_RK1-eps-converted-to.pdf> <./Figures//ex4_RK1zoom-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex4_feval.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 96163 bytes
+(epstopdf)             Output file: <Figures//ex4_feval-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 35930 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex4_feval-eps-converted-to.pdf Figures/ex4_feval.eps>
-(epstopdf)             \includegraphics on input line 445.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex4_feval-eps-converted-to.pdf Figures//ex4_feval.eps>
+(epstopdf)             \includegraphics on input line 466.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex4_feval-eps-converted-to.pdf, id=188, 230.8625pt x 194.7275pt>
-File: Figures/ex4_feval-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex4_feval-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex4_feval-eps-converted-to.pdf  used on input line 445.
-(pdftex.def)             Requested size: 179.99725pt x 151.82442pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+<Figures//ex4_feval-eps-converted-to.pdf, id=214, 230.8625pt x 194.7275pt>
+File: Figures//ex4_feval-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex4_feval-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex4_feval-eps-converted-to.pdf  used on input line 466.
+(pdftex.def)             Requested size: 182.24753pt x 153.72308pt.
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 472.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 474.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 472.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 474.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[8 <./Figures/ex4_RK2-eps-converted-to.pdf> <./Figures/ex4_RK4-eps-converted-to.pdf>]
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
-(epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
-(epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 472.
-Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 472.
-(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[9 <./Figures/ex4_feval-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex5_stabReg.eps>
-(epstopdf)                    date: 2024-07-31 19:54:21
-(epstopdf)                    size: 93375 bytes
-(epstopdf)             Output file: <Figures/ex5_stabReg-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:55:37
+ [8 <./Figures//ex4_RK2-eps-converted-to.pdf> <./Figures//ex4_RK4-eps-converted-to.pdf> <./Figures//ex4_feval-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex5_stabReg.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 91890 bytes
+(epstopdf)             Output file: <Figures//ex5_stabReg-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 39935 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_stabReg-eps-converted-to.pdf Figures/ex5_stabReg.eps>
-(epstopdf)             \includegraphics on input line 499.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_stabReg-eps-converted-to.pdf Figures//ex5_stabReg.eps>
+(epstopdf)             \includegraphics on input line 501.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_stabReg-eps-converted-to.pdf, id=216, 288.07625pt x 207.77625pt>
-File: Figures/ex5_stabReg-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_stabReg-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_stabReg-eps-converted-to.pdf  used on input line 499.
+<Figures//ex5_stabReg-eps-converted-to.pdf, id=236, 288.07625pt x 207.77625pt>
+File: Figures//ex5_stabReg-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_stabReg-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_stabReg-eps-converted-to.pdf  used on input line 501.
 (pdftex.def)             Requested size: 225.0pt x 162.28673pt.
-Package epstopdf Info: Source file: <Figures/ex5_BI2_0.9.eps>
-(epstopdf)                    date: 2024-07-31 19:54:20
-(epstopdf)                    size: 112927 bytes
-(epstopdf)             Output file: <Figures/ex5_BI2_0.9-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:59:41
+Package epstopdf Info: Source file: <Figures//ex5_BI2_0.9.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 111117 bytes
+(epstopdf)             Output file: <Figures//ex5_BI2_0.9-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 51195 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_BI2_0.9-eps-converted-to.pdf Figures/ex5_BI2_0.9.eps>
-(epstopdf)             \includegraphics on input line 511.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_BI2_0.9-eps-converted-to.pdf Figures//ex5_BI2_0.9.eps>
+(epstopdf)             \includegraphics on input line 513.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_BI2_0.9-eps-converted-to.pdf, id=222, 270.00874pt x 238.8925pt>
-File: Figures/ex5_BI2_0.9-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_BI2_0.9-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_BI2_0.9-eps-converted-to.pdf  used on input line 511.
+<Figures//ex5_BI2_0.9-eps-converted-to.pdf, id=242, 270.00874pt x 238.8925pt>
+File: Figures//ex5_BI2_0.9-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_BI2_0.9-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_BI2_0.9-eps-converted-to.pdf  used on input line 513.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-Package epstopdf Info: Source file: <Figures/ex5_BI2_0.7.eps>
-(epstopdf)                    date: 2024-07-31 19:54:19
-(epstopdf)                    size: 112458 bytes
-(epstopdf)             Output file: <Figures/ex5_BI2_0.7-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:59:03
+Package epstopdf Info: Source file: <Figures//ex5_BI2_0.7.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 110648 bytes
+(epstopdf)             Output file: <Figures//ex5_BI2_0.7-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 50870 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_BI2_0.7-eps-converted-to.pdf Figures/ex5_BI2_0.7.eps>
-(epstopdf)             \includegraphics on input line 517.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_BI2_0.7-eps-converted-to.pdf Figures//ex5_BI2_0.7.eps>
+(epstopdf)             \includegraphics on input line 519.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_BI2_0.7-eps-converted-to.pdf, id=224, 270.00874pt x 238.8925pt>
-File: Figures/ex5_BI2_0.7-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_BI2_0.7-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_BI2_0.7-eps-converted-to.pdf  used on input line 517.
+<Figures//ex5_BI2_0.7-eps-converted-to.pdf, id=244, 270.00874pt x 238.8925pt>
+File: Figures//ex5_BI2_0.7-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_BI2_0.7-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_BI2_0.7-eps-converted-to.pdf  used on input line 519.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-Package epstopdf Info: Source file: <Figures/ex5_BI2_0.4.eps>
-(epstopdf)                    date: 2024-07-31 19:54:18
-(epstopdf)                    size: 109823 bytes
-(epstopdf)             Output file: <Figures/ex5_BI2_0.4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:55:36
+Package epstopdf Info: Source file: <Figures//ex5_BI2_0.4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 108019 bytes
+(epstopdf)             Output file: <Figures//ex5_BI2_0.4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 49184 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_BI2_0.4-eps-converted-to.pdf Figures/ex5_BI2_0.4.eps>
-(epstopdf)             \includegraphics on input line 526.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_BI2_0.4-eps-converted-to.pdf Figures//ex5_BI2_0.4.eps>
+(epstopdf)             \includegraphics on input line 528.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_BI2_0.4-eps-converted-to.pdf, id=226, 270.00874pt x 238.8925pt>
-File: Figures/ex5_BI2_0.4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_BI2_0.4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_BI2_0.4-eps-converted-to.pdf  used on input line 526.
+<Figures//ex5_BI2_0.4-eps-converted-to.pdf, id=246, 270.00874pt x 238.8925pt>
+File: Figures//ex5_BI2_0.4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_BI2_0.4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_BI2_0.4-eps-converted-to.pdf  used on input line 528.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-Package epstopdf Info: Source file: <Figures/ex5_BI2_0.3.eps>
-(epstopdf)                    date: 2024-07-31 19:54:17
-(epstopdf)                    size: 111056 bytes
-(epstopdf)             Output file: <Figures/ex5_BI2_0.3-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:59:02
+Package epstopdf Info: Source file: <Figures//ex5_BI2_0.3.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 109252 bytes
+(epstopdf)             Output file: <Figures//ex5_BI2_0.3-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 50011 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_BI2_0.3-eps-converted-to.pdf Figures/ex5_BI2_0.3.eps>
-(epstopdf)             \includegraphics on input line 532.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_BI2_0.3-eps-converted-to.pdf Figures//ex5_BI2_0.3.eps>
+(epstopdf)             \includegraphics on input line 534.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_BI2_0.3-eps-converted-to.pdf, id=228, 270.00874pt x 238.8925pt>
-File: Figures/ex5_BI2_0.3-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_BI2_0.3-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_BI2_0.3-eps-converted-to.pdf  used on input line 532.
+<Figures//ex5_BI2_0.3-eps-converted-to.pdf, id=248, 270.00874pt x 238.8925pt>
+File: Figures//ex5_BI2_0.3-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_BI2_0.3-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_BI2_0.3-eps-converted-to.pdf  used on input line 534.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-Package epstopdf Info: Source file: <Figures/ex5_BI2_0.1.eps>
-(epstopdf)                    date: 2024-07-31 19:54:17
-(epstopdf)                    size: 110082 bytes
-(epstopdf)             Output file: <Figures/ex5_BI2_0.1-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 19:59:01
+Package epstopdf Info: Source file: <Figures//ex5_BI2_0.1.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 108278 bytes
+(epstopdf)             Output file: <Figures//ex5_BI2_0.1-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 49335 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex5_BI2_0.1-eps-converted-to.pdf Figures/ex5_BI2_0.1.eps>
-(epstopdf)             \includegraphics on input line 539.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex5_BI2_0.1-eps-converted-to.pdf Figures//ex5_BI2_0.1.eps>
+(epstopdf)             \includegraphics on input line 541.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex5_BI2_0.1-eps-converted-to.pdf, id=230, 270.00874pt x 238.8925pt>
-File: Figures/ex5_BI2_0.1-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex5_BI2_0.1-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex5_BI2_0.1-eps-converted-to.pdf  used on input line 539.
+<Figures//ex5_BI2_0.1-eps-converted-to.pdf, id=250, 270.00874pt x 238.8925pt>
+File: Figures//ex5_BI2_0.1-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex5_BI2_0.1-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex5_BI2_0.1-eps-converted-to.pdf  used on input line 541.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 545.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 547.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 545.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 547.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[10
+ [9
 
- <./Figures/ex5_stabReg-eps-converted-to.pdf>]
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+ <./Figures//ex5_stabReg-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 545.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 547.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 545.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 547.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[11 <./Figures/ex5_BI2_0.9-eps-converted-to.pdf> <./Figures/ex5_BI2_0.7-eps-converted-to.pdf> <./Figures/ex5_BI2_0.4-eps-converted-to.pdf> <./Figures/ex5_BI2_0.3-eps-converted-to.pdf> <./Figures/ex5_BI2_0.1-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex6_integOutput.eps>
-(epstopdf)                    date: 2024-07-31 22:19:07
-(epstopdf)                    size: 104437 bytes
-(epstopdf)             Output file: <Figures/ex6_integOutput-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 22:19:44
+ [10 <./Figures//ex5_BI2_0.9-eps-converted-to.pdf> <./Figures//ex5_BI2_0.7-eps-converted-to.pdf> <./Figures//ex5_BI2_0.4-eps-converted-to.pdf> <./Figures//ex5_BI2_0.3-eps-converted-to.pdf> <./Figures//ex5_BI2_0.1-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex6_integOutput.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 101739 bytes
+(epstopdf)             Output file: <Figures//ex6_integOutput-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 68594 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex6_integOutput-eps-converted-to.pdf Figures/ex6_integOutput.eps>
-(epstopdf)             \includegraphics on input line 574.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex6_integOutput-eps-converted-to.pdf Figures//ex6_integOutput.eps>
+(epstopdf)             \includegraphics on input line 576.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex6_integOutput-eps-converted-to.pdf, id=274, 474.77374pt x 210.7875pt>
-File: Figures/ex6_integOutput-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex6_integOutput-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex6_integOutput-eps-converted-to.pdf  used on input line 574.
+<Figures//ex6_integOutput-eps-converted-to.pdf, id=294, 474.77374pt x 210.7875pt>
+File: Figures//ex6_integOutput-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex6_integOutput-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex6_integOutput-eps-converted-to.pdf  used on input line 576.
 (pdftex.def)             Requested size: 360.00137pt x 159.83672pt.
-<Figures/ex6_stabReg.png, id=279, 272.79517pt x 140.30016pt>
-File: Figures/ex6_stabReg.png Graphic file (type png)
-<use Figures/ex6_stabReg.png>
-Package pdftex.def Info: Figures/ex6_stabReg.png  used on input line 584.
+<Figures//ex6_stabReg.png, id=299, 272.79517pt x 140.30016pt>
+File: Figures//ex6_stabReg.png Graphic file (type png)
+<use Figures//ex6_stabReg.png>
+Package pdftex.def Info: Figures//ex6_stabReg.png  used on input line 586.
 (pdftex.def)             Requested size: 225.0pt x 115.72336pt.
-Package epstopdf Info: Source file: <Figures/ex6_rk4.eps>
-(epstopdf)                    date: 2024-07-31 22:19:09
-(epstopdf)                    size: 109595 bytes
-(epstopdf)             Output file: <Figures/ex6_rk4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 22:19:47
+Package epstopdf Info: Source file: <Figures//ex6_rk4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 107799 bytes
+(epstopdf)             Output file: <Figures//ex6_rk4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 47493 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex6_rk4-eps-converted-to.pdf Figures/ex6_rk4.eps>
-(epstopdf)             \includegraphics on input line 610.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex6_rk4-eps-converted-to.pdf Figures//ex6_rk4.eps>
+(epstopdf)             \includegraphics on input line 612.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex6_rk4-eps-converted-to.pdf, id=282, 270.00874pt x 238.8925pt>
-File: Figures/ex6_rk4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex6_rk4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex6_rk4-eps-converted-to.pdf  used on input line 610.
+<Figures//ex6_rk4-eps-converted-to.pdf, id=302, 270.00874pt x 238.8925pt>
+File: Figures//ex6_rk4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex6_rk4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex6_rk4-eps-converted-to.pdf  used on input line 612.
 (pdftex.def)             Requested size: 202.49863pt x 179.16528pt.
-Package epstopdf Info: Source file: <Figures/ex6_iex4.eps>
-(epstopdf)                    date: 2024-07-31 22:19:08
-(epstopdf)                    size: 106679 bytes
-(epstopdf)             Output file: <Figures/ex6_iex4-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 22:19:49
+Package epstopdf Info: Source file: <Figures//ex6_iex4.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 104835 bytes
+(epstopdf)             Output file: <Figures//ex6_iex4-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 49248 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex6_iex4-eps-converted-to.pdf Figures/ex6_iex4.eps>
-(epstopdf)             \includegraphics on input line 616.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex6_iex4-eps-converted-to.pdf Figures//ex6_iex4.eps>
+(epstopdf)             \includegraphics on input line 618.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex6_iex4-eps-converted-to.pdf, id=284, 273.02pt x 238.8925pt>
-File: Figures/ex6_iex4-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex6_iex4-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex6_iex4-eps-converted-to.pdf  used on input line 616.
+<Figures//ex6_iex4-eps-converted-to.pdf, id=304, 273.02pt x 238.8925pt>
+File: Figures//ex6_iex4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex6_iex4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex6_iex4-eps-converted-to.pdf  used on input line 618.
 (pdftex.def)             Requested size: 202.49863pt x 177.18593pt.
-Package epstopdf Info: Source file: <Figures/ex6_integOutputMod.eps>
-(epstopdf)                    date: 2024-07-31 22:43:09
-(epstopdf)                    size: 144266 bytes
-(epstopdf)             Output file: <Figures/ex6_integOutputMod-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-31 22:45:12
+Package epstopdf Info: Source file: <Figures//ex6_integOutputMod.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 141499 bytes
+(epstopdf)             Output file: <Figures//ex6_integOutputMod-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 85502 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex6_integOutputMod-eps-converted-to.pdf Figures/ex6_integOutputMod.eps>
-(epstopdf)             \includegraphics on input line 628.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex6_integOutputMod-eps-converted-to.pdf Figures//ex6_integOutputMod.eps>
+(epstopdf)             \includegraphics on input line 630.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex6_integOutputMod-eps-converted-to.pdf, id=288, 474.77374pt x 210.7875pt>
-File: Figures/ex6_integOutputMod-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex6_integOutputMod-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex6_integOutputMod-eps-converted-to.pdf  used on input line 628.
+<Figures//ex6_integOutputMod-eps-converted-to.pdf, id=308, 474.77374pt x 210.7875pt>
+File: Figures//ex6_integOutputMod-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex6_integOutputMod-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex6_integOutputMod-eps-converted-to.pdf  used on input line 630.
 (pdftex.def)             Requested size: 360.00137pt x 159.83672pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 631.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 633.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 631.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 633.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[12
+ [11
 
- <./Figures/ex6_integOutput-eps-converted-to.pdf> <./Figures/ex6_stabReg.png (PNG copy)>]
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+ <./Figures//ex6_integOutput-eps-converted-to.pdf> <./Figures//ex6_stabReg.png (PNG copy)>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 634.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 636.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 634.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 636.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[13 <./Figures/ex6_rk4-eps-converted-to.pdf> <./Figures/ex6_iex4-eps-converted-to.pdf> <./Figures/ex6_integOutputMod-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex7_ab.eps>
-(epstopdf)                    date: 2024-07-31 23:08:30
-(epstopdf)                    size: 82834 bytes
-(epstopdf)             Output file: <Figures/ex7_ab-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:42:35
+ [12 <./Figures//ex6_rk4-eps-converted-to.pdf> <./Figures//ex6_iex4-eps-converted-to.pdf> <./Figures//ex6_integOutputMod-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex7_ab.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 80690 bytes
+(epstopdf)             Output file: <Figures//ex7_ab-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 42981 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_ab-eps-converted-to.pdf Figures/ex7_ab.eps>
-(epstopdf)             \includegraphics on input line 660.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_ab-eps-converted-to.pdf Figures//ex7_ab.eps>
+(epstopdf)             \includegraphics on input line 662.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_ab-eps-converted-to.pdf, id=328, 265.99374pt x 225.84375pt>
-File: Figures/ex7_ab-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_ab-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_ab-eps-converted-to.pdf  used on input line 660.
+<Figures//ex7_ab-eps-converted-to.pdf, id=348, 265.99374pt x 225.84375pt>
+File: Figures//ex7_ab-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_ab-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_ab-eps-converted-to.pdf  used on input line 662.
 (pdftex.def)             Requested size: 202.49863pt x 171.93594pt.
-Package epstopdf Info: Source file: <Figures/ex7_am.eps>
-(epstopdf)                    date: 2024-07-31 23:08:30
-(epstopdf)                    size: 81395 bytes
-(epstopdf)             Output file: <Figures/ex7_am-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:42:36
+Package epstopdf Info: Source file: <Figures//ex7_am.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 79680 bytes
+(epstopdf)             Output file: <Figures//ex7_am-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 42189 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_am-eps-converted-to.pdf Figures/ex7_am.eps>
-(epstopdf)             \includegraphics on input line 666.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_am-eps-converted-to.pdf Figures//ex7_am.eps>
+(epstopdf)             \includegraphics on input line 668.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_am-eps-converted-to.pdf, id=330, 265.99374pt x 222.8325pt>
-File: Figures/ex7_am-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_am-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_am-eps-converted-to.pdf  used on input line 666.
+<Figures//ex7_am-eps-converted-to.pdf, id=350, 265.99374pt x 222.8325pt>
+File: Figures//ex7_am-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_am-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_am-eps-converted-to.pdf  used on input line 668.
 (pdftex.def)             Requested size: 202.49863pt x 169.64346pt.
-Package epstopdf Info: Source file: <Figures/ex7_abm.eps>
-(epstopdf)                    date: 2024-07-31 23:08:31
-(epstopdf)                    size: 88739 bytes
-(epstopdf)             Output file: <Figures/ex7_abm-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:42:37
+Package epstopdf Info: Source file: <Figures//ex7_abm.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 86984 bytes
+(epstopdf)             Output file: <Figures//ex7_abm-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 46581 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_abm-eps-converted-to.pdf Figures/ex7_abm.eps>
-(epstopdf)             \includegraphics on input line 675.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_abm-eps-converted-to.pdf Figures//ex7_abm.eps>
+(epstopdf)             \includegraphics on input line 677.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_abm-eps-converted-to.pdf, id=332, 275.0275pt x 222.8325pt>
-File: Figures/ex7_abm-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_abm-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_abm-eps-converted-to.pdf  used on input line 675.
+<Figures//ex7_abm-eps-converted-to.pdf, id=352, 275.0275pt x 222.8325pt>
+File: Figures//ex7_abm-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_abm-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_abm-eps-converted-to.pdf  used on input line 677.
 (pdftex.def)             Requested size: 202.49863pt x 164.07402pt.
-Package epstopdf Info: Source file: <Figures/ex7_bdf.eps>
-(epstopdf)                    date: 2024-07-31 23:08:32
-(epstopdf)                    size: 92669 bytes
-(epstopdf)             Output file: <Figures/ex7_bdf-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:42:38
+Package epstopdf Info: Source file: <Figures//ex7_bdf.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 90893 bytes
+(epstopdf)             Output file: <Figures//ex7_bdf-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 48401 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_bdf-eps-converted-to.pdf Figures/ex7_bdf.eps>
-(epstopdf)             \includegraphics on input line 681.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_bdf-eps-converted-to.pdf Figures//ex7_bdf.eps>
+(epstopdf)             \includegraphics on input line 683.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_bdf-eps-converted-to.pdf, id=334, 279.0425pt x 222.8325pt>
-File: Figures/ex7_bdf-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_bdf-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_bdf-eps-converted-to.pdf  used on input line 681.
+<Figures//ex7_bdf-eps-converted-to.pdf, id=354, 279.0425pt x 222.8325pt>
+File: Figures//ex7_bdf-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_bdf-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_bdf-eps-converted-to.pdf  used on input line 683.
 (pdftex.def)             Requested size: 202.49863pt x 161.71092pt.
-Package epstopdf Info: Source file: <Figures/ex7_compare.eps>
-(epstopdf)                    date: 2024-07-31 23:08:32
-(epstopdf)                    size: 60230 bytes
-(epstopdf)             Output file: <Figures/ex7_compare-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:54:35
+Package epstopdf Info: Source file: <Figures//ex7_compare.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 58031 bytes
+(epstopdf)             Output file: <Figures//ex7_compare-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 38242 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_compare-eps-converted-to.pdf Figures/ex7_compare.eps>
-(epstopdf)             \includegraphics on input line 690.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_compare-eps-converted-to.pdf Figures//ex7_compare.eps>
+(epstopdf)             \includegraphics on input line 692.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_compare-eps-converted-to.pdf, id=337, 263.98625pt x 225.84375pt>
-File: Figures/ex7_compare-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_compare-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_compare-eps-converted-to.pdf  used on input line 690.
+<Figures//ex7_compare-eps-converted-to.pdf, id=357, 263.98625pt x 225.84375pt>
+File: Figures//ex7_compare-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_compare-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_compare-eps-converted-to.pdf  used on input line 692.
 (pdftex.def)             Requested size: 225.0pt x 192.48843pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 701.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 703.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 701.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 703.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[14
+ [13
 
- <./Figures/ex7_ab-eps-converted-to.pdf> <./Figures/ex7_am-eps-converted-to.pdf> <./Figures/ex7_abm-eps-converted-to.pdf> <./Figures/ex7_bdf-eps-converted-to.pdf>]
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+ <./Figures//ex7_ab-eps-converted-to.pdf> <./Figures//ex7_am-eps-converted-to.pdf> <./Figures//ex7_abm-eps-converted-to.pdf> <./Figures//ex7_bdf-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 729.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 731.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 729.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 731.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[15 <./Figures/ex7_compare-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <Figures/ex7_eig.eps>
-(epstopdf)                    date: 2024-07-31 23:08:33
-(epstopdf)                    size: 56334 bytes
-(epstopdf)             Output file: <Figures/ex7_eig-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-01 15:54:37
+ [14 <./Figures//ex7_compare-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures//ex7_eig.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
+(epstopdf)                    size: 55101 bytes
+(epstopdf)             Output file: <Figures//ex7_eig-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 25770 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/ex7_eig-eps-converted-to.pdf Figures/ex7_eig.eps>
-(epstopdf)             \includegraphics on input line 733.
+(epstopdf)             Command: <repstopdf --outfile=Figures//ex7_eig-eps-converted-to.pdf Figures//ex7_eig.eps>
+(epstopdf)             \includegraphics on input line 735.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex7_eig-eps-converted-to.pdf, id=383, 271.0125pt x 234.8775pt>
-File: Figures/ex7_eig-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex7_eig-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex7_eig-eps-converted-to.pdf  used on input line 733.
+<Figures//ex7_eig-eps-converted-to.pdf, id=404, 271.0125pt x 234.8775pt>
+File: Figures//ex7_eig-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//ex7_eig-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//ex7_eig-eps-converted-to.pdf  used on input line 735.
 (pdftex.def)             Requested size: 225.0pt x 195.00562pt.
-
-
-Package epstopdf Info: Source file: <Figures/newlogo.eps>
-(epstopdf)                    date: 2024-07-30 12:30:51
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures/newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-07-30 14:30:36
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-04 11:35:33
 (epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <miktex-epstopdf --outfile=Figures/newlogo-eps-converted-to.pdf Figures/newlogo.eps>
-(epstopdf)             \includegraphics on input line 745.
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 747.
 Package epstopdf Info: Output file is already uptodate.
-File: Figures/newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/newlogo-eps-converted-to.pdf  used on input line 745.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 747.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[16
+ [15
 
- <./Figures/ex7_eig-eps-converted-to.pdf>] (main.aux)
- ***********
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
- ***********
+ <./Figures//ex7_eig-eps-converted-to.pdf>] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CCFC1BB6B8E7785051AABB64413F1060;423.
+(rerunfilecheck)             Checksum: F31A5169CD62848E828901B749028F76;1083.
  ) 
 Here is how much of TeX's memory you used:
- 18388 strings out of 473903
- 315220 string characters out of 5726579
- 1941908 words of memory out of 5000000
- 40924 multiletter control sequences out of 15000+600000
- 573375 words of font info for 70 fonts, out of 8000000 for 9000
+ 17684 strings out of 478287
+ 302286 string characters out of 5849289
+ 637634 words of memory out of 5000000
+ 35522 multiletter control sequences out of 15000+600000
+ 484565 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,16n,79p,574b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Matte\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Matte/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (16 pages, 3395030 bytes).
+ 69i,16n,79p,594b,484s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on main.pdf (15 pages, 3426968 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 102 named destinations out of 1000 (max. 500000)
- 360 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 396 compressed objects within 4 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 402 words of extra memory for PDF output out of 10000 (max. 10000000)
 
