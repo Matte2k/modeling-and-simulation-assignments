@@ -117,7 +117,7 @@
 %--------------------------------------------------------------------------------
 %       MODELING PARADIGMS, BASIC SYSTEMS
 %--------------------------------------------------------------------------------
-\section*{Exercise 1}
+\section{Exercise 1}
 The rocket engine in Figure \ref{fig:therm} is fired in laboratory conditions.
 With reference to Figure \ref{fig:therm}, the nozzle is made up of an inner lining ($k_1$), an inner layer having specific heat $c_2$ and high conductivity $k_2$, an insulating layer having specific heat $c_4$ and low conductivity $k_4$, and an outer coating ($k_5$).
 The interface between the conductor and the insulator layers has thermal conductivity $k_3$.
@@ -152,7 +152,7 @@ The nozzle materials are defined following approximatly the available data of th
 The cross section area $A$ and the length $L$ of the nozzle are fixed and respectively equal to \tr{$data m^2$} and \tr{$data m$}.
 \begin{table}[ht]
     \centering
-    \caption{\label{tab:ex1_exampleoftable}Example of table.}
+    \caption{\label{tab:ex1_material} Nozzle materials and properties}
     \begin{tabular}{llcccc}
         \toprule
         \toprule
@@ -168,19 +168,115 @@ The cross section area $A$ and the length $L$ of the nozzle are fixed and respec
     \end{tabular}
 \end{table}
 
-Once defined all the nozzle dimensions and material the thermal resistance and capacitance are computed following \cref{eq:ex1_thermalR} and \cref{eq:ex1_thermalC}.
-% eqs "eq:thermalR" and "eq:thermalC"
+Once defined all the nozzle dimensions and materials, the thermal resistance and capacitance are computed following \cref{eq:ex1_thermalR} and \cref{eq:ex1_thermalC}.
+\begin{empheq}[]{align}
+    R_i &= \frac{l_i}{k_i\,A}   \label{eq:ex1_thermalR} \\
+    C_i &= \rho_i A l_i c_{pi}  \label{eq:ex1_thermalC}
+\end{empheq}
 
-Following the electric circuit analogy a physical model of the system is derived considering one node for each of the five layers (\cref{fig:ex1_phyModelCase1}).
-% drawio "fig:phyModelCase1"
+The different nozzle layers are modelled following the electric circuit analogy. 
+A physical model of the system is derived considering one node for each of the five layers as rappresented in \cref{fig:ex1_phyModelCase1}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio]{Figures/phyModelCase1.pdf}
+    \caption[]{\label{fig:ex1_phyModelCase1} TBD}
+\end{figure}
+
+The model can be simplified by computing the equivalent resistance between the different nodes; the math is reported in \cref{eq:ex1_eqResistence}.
+\begin{subequations}
+    \begin{align}
+        R_{i2} &= R_1 + \frac{R_2}{2}                   \label{eq:ex1_Ri2} \\
+        R_{24} &= \frac{R_2}{2} + R_3 + \frac{R_4}{2}   \label{eq:ex1_R24} \\
+        R_{4o} &= \frac{R_4}{2} + R_5                   \label{eq:ex1_R4o}
+    \end{align}
+    \label{eq:ex1_eqResistence}
+\end{subequations}
 
 Note that only conductor and insulator layers have thermal capacitance as suggested from the exercise instruction.
-This assumption simplifies quite a lot the mathematical since in absence of capacitance the heat flow can be assumed constant.
-As consequence the \cref{eq:ex1_heatFlow} can be written. 
+This assumption simplifies quite a lot the mathematical formulation since, in absence of capacitance, the heat flow can be assumed constant.
+As consequence the \cref{eq:ex1_heatFlow} can be written.
+\begin{equation}
+    \begin{cases}
+        Q_{i1} = Q_{i2} = Q_{12} \\
+        Q_{23} = Q_{24} = Q_{34} \\
+        Q_{45} = Q_{4o} = Q_{5o} 
+    \end{cases}
+    \label{eq:ex1_heatFlow}
+\end{equation}
+
+All the heatflows can be easly put in relationship with the nodes temperature value by means of \cref{eq:ex1_heatVsTemp}.
+\begin{subequations}
+    \begin{align}
+        Q_{i2} &= \frac{T_i-T_2}{R_{i2}}  \label{eq:ex1_Qi2} \\
+        Q_{24} &= \frac{T_2-T_4}{R_{24}}  \label{eq:ex1_Q24} \\
+        Q_{4o} &= \frac{T_4-T_o}{R_{4o}}  \label{eq:ex1_Q4o}
+    \end{align}
+    \label{eq:ex1_heatVsTemp}
+\end{subequations}
+
+The temperature evolution in time of nodes $T_2$ and $T_4$ is obtained solving numerically the ODEs \cref{eq:ex1_T2} and \cref{eq:ex1_T4}. 
+\begin{empheq}[]{align}
+    \dot{T_2} &= \frac{Q_{i2}-Q_{24}}{C_2}    \label{eq:ex1_T2} \\
+    \dot{T_4} &= \frac{Q_{24}-Q_{4o}}{C_4}    \label{eq:ex1_T4}
+\end{empheq}
+
+Finally even $T_1$, $T_3$ and $T_5$ nodes temperature can be evalutaed over time by exploting the heatflows relationship previously written (\cref{eq:ex1_heatFlow} and \cref{eq:ex1_heatVsTemp}) as done in \cref{eq:ex1_T1}, \cref{eq:ex1_T3} and \cref{eq:ex1_T5}.
+\begin{empheq}[]{align}
+    T_1 &= T_i - Q_{i2} \frac{R_1}{2}       \label{eq:ex1_T1} \\
+    T_3 &= T_4 + Q_{24} \frac{R_3+R_4}{2}   \label{eq:ex1_T3} \\
+    T_5 &= T_o + Q_{4o} \frac{R_5}{2}       \label{eq:ex1_T5}
+\end{empheq}
+
+This thermal problem is alse setup and solved in Simscape by building the physical model in \cref{fig:ex1_simscapeCase1}.
+\\
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_simscapeCase1.eps}
+%     \caption[]{\label{fig:simscapeCase1} TBD}
+% \end{figure}
+
+As can be noticed the model built is exactly the same as the one considered in \cref{fig:phyModelCase1}, also the input data given are in common.
+\\
+The \tr{PROBLEM NAME} just presented can be solved using different solver both in MATLAB and Simscape.
+To understand which is the best method to use an eigenvalues analysis is performed to understand if the system analyzed has some particular characteristics.
+
+Firstly the \cref{eq:ex1_T2} and \cref{eq:ex1_T4} are rewritten in matrix form considering $\vec{T}=[T_2;T_4]$ as presented in \cref{eq:ex1_matrixForm}.
+\begin{equation}
+    \frac{d \vec{T}}{dt} = \vec{A} \vec{T} =    \left[
+    \begin{array}{cc}
+        -\left( \frac{1}{C_2 R_{i2}} + \frac{1}{C_2 R_{24}} \right) & \frac{1}{C_2 R_{24}} \\
+        \frac{1}{C_4 R_{24}} & -\left( \frac{1}{C_4 R_{24}} + \frac{1}{C_4 R_{4o}} \right)
+    \end{array}                                 \right] \vec{T}
+    \label{eq:ex1_matrixForm}
+\end{equation}
+
+The eigenvalues of matrix $\vec{A}$ are computed and results equal to $\lambda_1=xxxx$ and $\lambda_2=xxxx$.
+
+\tr{OTTENERE TUTTI I GRAFICI E RISULTATI FINALI, QUINDI COMMENTARE}
+\\
+
+A more precise analysis is finally performed modifying the simscape model.
+The number of nodes for conductor and insulator layers are increased for both to two.
+In this model the mass of these two layers, and so the capacitance, is considered located in two points respectively at $1/4$ and $3/4$ of $l_i$ (\cref{fig:phyModelCase2}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/phyModelCase2.pdf}
+    \caption[]{\label{fig:phyModelCase2} TBD}
+\end{figure}
+
+The simscape model is rappresented in \cref{fig:ex1_simscapeCase2}.
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_simscapeCase2.eps}
+%     \caption[]{\label{fig:simscapeCase2} TBD}
+% \end{figure}
+
+Using the same method and solver settings as before the nodes temperature over time are obtained and reported in %\cred{fig:ex1_}.
+
 
 %--------------------------------------------------------------------------------
 \clearpage
-\section*{Exercise 2}
+\section{Exercise 2}
 The real system of an electric propeller engine is depicted in Figure \ref{fig:propeller}.
 It is composed by a DC permanent magnet motor which drives a propeller shaft.
 Between the motor and propeller shaft there is a single stage gear box to regulate the angular speed ratio.
@@ -325,7 +421,53 @@ The simulation shall last at least $\mathbf{t_{sim}}$ = 300 s starting with no w
 \medskip \hrule \medskip
 \rightline{\small(15 points)}
 
-\tr{\textit{Write your answer here}}
+Starting from the real system a physical model is retrived by means of some assumption and semplification on its components. 
+
+The DC motor is modelled as a circuit composed by a voltage source, a fixed resistor, a fixed inductor and rotor.
+Both the inductor resistance and resistor inductance are considerd negligiable.
+The voltage source recives as input a signal which is then translated in voltage while the rotor converts the voltage in rotational mechanical energy.
+\tr{ANALIZZARE BENE IL DISCORSO INERZIE DA MODELICA}
+
+The gearbox is modelled as a ''lossy gear'', which is a built-in block in modelica, connected to a thermal conductivity and capacitance block.
+All the data, including the loss table, is given as user input to these blocks to correctly model the gearbox behavior.
+
+The propeller is considered rigid and its inertia is modelled \tr{VEDERE DA MODELICA COME}.
+
+The physical system has no delay between input and the state, uncertainty and noise are negletted and all input data are considerd constant in time. 
+Finally the just presented model, built following a lumping approach, is shown in \cref{fig:ex2_droneModel}.
+\\
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex2_droneModel.png}
+%     \caption[]{\label{fig:ex2_droneModel} TBD}
+% \end{figure}
+
+\tr{
+CONSIDERAZIONI SU SOLUTORE\\
+mettere magari una tabella che confronta le performance dei diversi solutori che modelica consente di usare.
+scegliere quindi il migliore (prendi spunto da quel che dice il bo)
+}\\
+
+Note that the input signal to the voltage source is regulated by a PID which has been manually tuned to match the system requirements (given in the exercise instruction).
+The obtained tuning of the PID is reported in \cref{tab:tuningPID}
+\\
+% table
+
+The motor input voltage and the difference between the reference angular velocity and the actual one (defined as $error$) are shown in \tr{cref}.
+Their envelop over time confirm that the voltage is always less than $200V$ and the $error$, a part from the first transitory, is always less than $0.1rad/s$.
+\\
+% immagini
+
+The gear box is the only component of the physical system that heats up, for this reason its thermal propriety are analyzed more in depth.   
+The heat flux, after a small transitory, reaches a constant value of $Q=xxxxW$ (\tr{cref}), while the temperature, as expected, linearly increases over time.
+After $120s$, as shown in \tr{cref}, the temperature reaches $T=xxxxK$.
+\\
+% immagini
+
+From this analysis is clear that a cooling system is needed, otherwise the temperature would increase indefinitely leading to component failure.
+\\
+
+\tr{INIZIA PARTE 2 DELL'ASSIGNMENT}
 
 
 
