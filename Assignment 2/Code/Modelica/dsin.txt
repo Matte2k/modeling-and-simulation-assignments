@@ -16,7 +16,7 @@ double experiment(7,1)
                            #              simulation, linearization and trimming
        0                   # MaxFixedStep Maximum step size of fixed step size
                            #              integrators, if > 0.0
-       8                   # Algorithm    Integration algorithm as integer (1...28)
+      14                   # Algorithm    Integration algorithm as integer (1...28)
                            #
                            #             | model|       |        | dense | state |
                            # Algorithm   | typ  | stiff | order  | output| event |
@@ -102,7 +102,7 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(161,35)
+char initialName(164,35)
 fixedHeatFlow.Q_flow
 fixedHeatFlow.T_ref
 fixedHeatFlow.alpha
@@ -125,7 +125,6 @@ pipe.dp
 pipe.V_flow
 pipe.Q_flow
 pipe.T
-pipe.der(T)
 pipe.T_a
 pipe.T_b
 pipe.dT
@@ -137,6 +136,7 @@ pipe.flowPort_a.medium.lambda
 pipe.flowPort_a.medium.nu
 pipe.flowPort_a.p
 pipe.flowPort_a.h
+pipe.flowPort_a.H_flow
 pipe.flowPort_b.medium.rho
 pipe.flowPort_b.medium.cp
 pipe.flowPort_b.medium.cv
@@ -172,6 +172,7 @@ Source_tank.flowPort.medium.cv
 Source_tank.flowPort.medium.lambda
 Source_tank.flowPort.medium.nu
 Source_tank.flowPort.p
+Source_tank.flowPort.h
 Source_tank.Exchange
 Source_tank.h
 Source_tank.ATank
@@ -198,9 +199,11 @@ volumeFlow.dp
 volumeFlow.V_flow
 volumeFlow.Q_flow
 volumeFlow.T
+volumeFlow.der(T)
 volumeFlow.T_a
 volumeFlow.T_b
 volumeFlow.dT
+volumeFlow.h
 volumeFlow.flowPort_a.medium.rho
 volumeFlow.flowPort_a.medium.cp
 volumeFlow.flowPort_a.medium.cv
@@ -265,7 +268,7 @@ medium.cv
 medium.lambda
 medium.nu
 
-double initialValue(161,6)
+double initialValue(164,6)
  -1  2.2109000000000001E+03       0                       0                
   1   280   # fixedHeatFlow.Q_flow
  -1  2.9314999999999998E+02       0                 1.0000000000000000E+100
@@ -294,9 +297,9 @@ double initialValue(161,6)
   1   280   # pipe.medium.lambda
  -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
   1   280   # pipe.medium.nu
-  0  1.5995200000000004E-01       0                 1.0000000000000000E+100
+  0       0                       0                 1.0000000000000000E+100
   6   256   # pipe.m
- -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+ -1  2.7814999999999998E+02       0                 1.0000000000000000E+100
   1   280   # pipe.T0
   0       0                       0                       0                
   6   257   # pipe.T0fixed
@@ -304,14 +307,12 @@ double initialValue(161,6)
   1   280   # pipe.tapT
   0       0                       0                       0                
   6   256   # pipe.dp
-  0  6.0000000000000002E-05       0                       0                
+  0       0                       0                       0                
   6   256   # pipe.V_flow
   0       0                       0                       0                
   6   256   # pipe.Q_flow
- -1       0                       0                 1.0000000000000000E+100
-  2   272   # pipe.T
-  0       0                       0                       0                
-  3   256   # pipe.der(T)
+  0       0                       0                 1.0000000000000000E+100
+  6   256   # pipe.T
   0  2.8814999999999998E+02       0                 1.0000000000000000E+100
   6   256   # pipe.T_a
   0  2.8814999999999998E+02       0                 1.0000000000000000E+100
@@ -334,6 +335,8 @@ double initialValue(161,6)
   6   260   # pipe.flowPort_a.p
   0       0                       0                       0                
   6   260   # pipe.flowPort_a.h
+  0       0                       0                       0                
+  6   388   # pipe.flowPort_a.H_flow
   0       0                       0                 1.0000000000000000E+100
   6   256   # pipe.flowPort_b.medium.rho
   0       0                       0                       0                
@@ -384,7 +387,7 @@ double initialValue(161,6)
   1   280   # Source_tank.medium.lambda
  -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
   1   280   # Source_tank.medium.nu
- -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+ -1  2.7814999999999998E+02       0                 1.0000000000000000E+100
   1   280   # Source_tank.T0
   0       1                       0                       0                
   6   257   # Source_tank.T0fixed
@@ -404,6 +407,8 @@ double initialValue(161,6)
   6   256   # Source_tank.flowPort.medium.nu
   0       0                       0                       0                
   6   260   # Source_tank.flowPort.p
+  0       0                       0                       0                
+  6   260   # Source_tank.flowPort.h
   0       1                       0                       0                
   6   769   # Source_tank.Exchange
   0       0                       0                       0                
@@ -412,7 +417,7 @@ double initialValue(161,6)
   1   280   # Source_tank.ATank
  -1  8.0000000000000004E-01       0                       0                
   1   280   # Source_tank.hTank
- -1  1.0132500000000000E+05       0                       0                
+ -1       0                       0                       0                
   1   280   # Source_tank.pAmbient
  -1  9.8066499999999994E+00       0                 1.0000000000000000E+100
   1   280   # Source_tank.g
@@ -440,9 +445,9 @@ double initialValue(161,6)
   1   280   # volumeFlow.medium.lambda
  -1  1.3069999999999999E-06       0                 1.0000000000000000E+100
   1   280   # volumeFlow.medium.nu
-  0       0                       0                 1.0000000000000000E+100
+  0  5.0224928000000013E-01       0                 1.0000000000000000E+100
   6   256   # volumeFlow.m
- -1  2.8314999999999998E+02       0                 1.0000000000000000E+100
+ -1  2.7814999999999998E+02       0                 1.0000000000000000E+100
   1   280   # volumeFlow.T0
   0       0                       0                       0                
   6   257   # volumeFlow.T0fixed
@@ -450,18 +455,22 @@ double initialValue(161,6)
   6   256   # volumeFlow.tapT
   0       0                       0                       0                
   6   256   # volumeFlow.dp
-  0  6.0000000000000002E-05       0                       0                
+  0       0                       0                       0                
   6   320   # volumeFlow.V_flow
   0       0                       0                       0                
   6   256   # volumeFlow.Q_flow
-  0       0                       0                 1.0000000000000000E+100
-  6   256   # volumeFlow.T
+ -1       0                       0                 1.0000000000000000E+100
+  2   272   # volumeFlow.T
+  0       0                       0                       0                
+  3   256   # volumeFlow.der(T)
   0  2.8814999999999998E+02       0                 1.0000000000000000E+100
   6   256   # volumeFlow.T_a
   0  2.8814999999999998E+02       0                 1.0000000000000000E+100
   6   256   # volumeFlow.T_b
   0       0                       0                       0                
   6   256   # volumeFlow.dT
+  0       0                       0                       0                
+  6  1280   # volumeFlow.h
   0       0                       0                 1.0000000000000000E+100
   6   256   # volumeFlow.flowPort_a.medium.rho
   0       0                       0                       0                
@@ -522,7 +531,7 @@ double initialValue(161,6)
   1   280   # Storage_tank.ATank
  -1  8.0000000000000004E-01       0                       0                
   1   280   # Storage_tank.hTank
- -1  1.0132500000000000E+05       0                       0                
+ -1  100000                       0                       0                
   1   280   # Storage_tank.pAmbient
  -1  9.8066499999999994E+00       0                 1.0000000000000000E+100
   1   280   # Storage_tank.g
@@ -538,7 +547,7 @@ double initialValue(161,6)
   3  1280   # Storage_tank.der(H)
   0       0                       0                       0                
   6  1280   # Storage_tank.Q_flow
-  0       0                       0                       0                
+  0  1.0000000000000000E-04       0                       0                
   6   264   # Storage_tank.level
  -1  2.9314999999999998E+02       0                 1.0000000000000000E+100
   1   280   # prescribedHeatFlow.T_ref
@@ -550,7 +559,7 @@ double initialValue(161,6)
   1   280   # hysteresis.uLow
  -1  2.8314999999999998E+02       0                       0                
   1   280   # hysteresis.uHigh
- -1       0                       0                       0                
+ -1       1                       0                       0                
   1   281   # hysteresis.pre_y_start
   0       0                       0                       0                
   6   321   # hysteresis.y
@@ -566,15 +575,15 @@ double initialValue(161,6)
   1   280   # Gear_unit_T_range.uLow
  -1  3.3314999999999998E+02       0                       0                
   1   280   # Gear_unit_T_range.uHigh
- -1       0                       0                       0                
+ -1       1                       0                       0                
   1   281   # Gear_unit_T_range.pre_y_start
   0       0                       0                       0                
   6   321   # Gear_unit_T_range.y
  -1    3000                       0                       0                
   1   280   # Gear_wall_capacitance.C
- -1  3.7647800000000001E+02       0                 1.0000000000000000E+100
+ -1  3.7644499999999999E+02       0                 1.0000000000000000E+100
   2   280   # Gear_wall_capacitance.T
-  0  7.3696700000000004E-01       0                       0                
+  0       0                       0                       0                
   3   256   # Gear_wall_capacitance.der(T)
   0       0                       0                       0                
   6   388   # Gear_wall_capacitance.port.Q_flow
@@ -634,7 +643,7 @@ double initialValue(161,6)
 #   Which variables will be important for initialization and continue
 #   is indicated by value in column 6 & dsStartMasks.
 #
-char initialDescription(161,72)
+char initialDescription(164,72)
 Fixed heat flow rate at port [W]
 Reference temperature [K|degC]
 Temperature coefficient of heat flow rate [1/K]
@@ -657,7 +666,6 @@ Pressure drop a->b [Pa|bar]
 Volume flow a->b [m3/s]
 Heat exchange with ambient [W]
 Outlet temperature of medium [K|degC]
-der(Outlet temperature of medium) [K/s]
 Temperature at flowPort_a [K|degC]
 Temperature at flowPort_b [K|degC]
 Temperature increase of coolant in flow direction [K,]
@@ -669,6 +677,7 @@ Thermal conductivity [W/(m.K)]
 Kinematic viscosity [m2/s]
 [Pa|bar]
 [J/kg]
+[W]
 Density [kg/m3|g/cm3]
 Specific heat capacity at constant pressure [J/(kg.K)]
 Specific heat capacity at constant volume [J/(kg.K)]
@@ -704,6 +713,7 @@ Specific heat capacity at constant volume [J/(kg.K)]
 Thermal conductivity [W/(m.K)]
 Kinematic viscosity [m2/s]
 [Pa|bar]
+[J/kg]
 Exchange of medium via flowport [:#(type=Boolean)]
 Specific enthalpy in the volume [J/kg]
 Cross section of tank [m2]
@@ -730,9 +740,11 @@ Pressure drop a->b [Pa|bar]
 Volume flow a->b [m3/s]
 Heat exchange with ambient [W]
 Outlet temperature of medium [K|degC]
+der(Outlet temperature of medium) [K/s]
 Temperature at flowPort_a [K|degC]
 Temperature at flowPort_b [K|degC]
 Temperature increase of coolant in flow direction [K,]
+Medium's specific enthalpy [J/kg]
 Density [kg/m3|g/cm3]
 Specific heat capacity at constant pressure [J/(kg.K)]
 Specific heat capacity at constant volume [J/(kg.K)]
@@ -763,7 +775,7 @@ Exchange of medium via flowport [:#(type=Boolean)]
 Specific enthalpy in the volume [J/kg]
 Cross section of tank [m2]
 Height of tank [m]
-Ambient pressure [Pa|Pa]
+Ambient pressure [Pa|bar]
 Gravitation [m/s2]
 = true, if HeatPort is enabled [:#(type=Boolean)]
 Mass of medium in tank [kg]

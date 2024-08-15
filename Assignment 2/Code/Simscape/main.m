@@ -9,7 +9,7 @@ cmap = graphicSettings();
 %% Data input
 
 % load all system data
-CPUtimeCostIter   = 20;
+CPUtimeCostIter   = 1;
 caseModelSelector = 1;
 [time, temp, nozzle] = initData(); 
 
@@ -37,6 +37,18 @@ mModel.ode89  = mModelSolver(mModel, 'ode89',  solverOpt);
 mModel.ode113 = mModelSolver(mModel, 'ode113', solverOpt);
 mModel.ode23t = mModelSolver(mModel, 'ode23t', solverOpt);
 mModel.ode15s = mModelSolver(mModel, 'ode15s', solverOpt);
+
+% ---------------------------------------------
+% new ode solver
+F = ode;
+F.ODEFcn = mModel.odeSys;
+F.InitialValue = [293.15 293.15];
+F.AbsoluteTolerance = 1e-12;
+F.RelativeTolerance = 1e-6;
+F.Solver = "auto";
+sol = solve(F,0,60);
+F.SelectedSolver
+% ---------------------------------------------
 
 % compute simscape model
 sModel.auto = execSimscapeModel('rocketNozzle', CPUtimeCostIter, caseModelSelector, [time.t0,time.tf],'ode23t',0.01);
