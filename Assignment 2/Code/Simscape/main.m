@@ -129,7 +129,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.Ti, 'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.Ti, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.Ti, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.Ti, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]');
     title('Temperature inner lining')
 
@@ -137,10 +137,10 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.To,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.To, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.To, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.To, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]');
     title('Temperature outer lining')
-set(gcf,'units','centimeters','position',[0,0,20,8]);
+set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_tempInput.eps');
   
 
@@ -151,7 +151,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T2,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T2, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T2, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T2, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 2')
 
@@ -159,10 +159,10 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T4,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T4, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T4, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T4, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 4')
-set(gcf,'units','centimeters','position',[0,0,20,8]);
+set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_tempKeyNodes.eps');
 
 % Temperature nodes 1 - 3 - 5
@@ -172,7 +172,7 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T1,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T1, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T1, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T1, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 1')
 
@@ -180,7 +180,7 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T3,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T3, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T3, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T3, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 3')
 
@@ -188,14 +188,14 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T5,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T5, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T5, ':', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T5, '--', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 5')
 
 lgd = legend('ode45','ode23t','Simscape');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';
-set(gcf,'units','centimeters','position',[0,0,20,8]);
+set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_tempOtherNodes.eps');
 
 % Overall temperature compare case 1
@@ -224,7 +224,7 @@ nexttile
 lgd = legend('$T_1$','$T_2$','$T_3$','$T_4$','$T_5$');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';    
-set(gcf,'units','centimeters','position',[0,0,20,9]);
+set(gcf,'units','centimeters','position',[0,0,20,9],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_tempCompare.eps');
 
 % Overall temperature compare case 2
@@ -241,7 +241,7 @@ figure(Name='all temp case 2')
     title('Simscape simulation')
 lgd = legend('$T_1$','$T_{2a}$','$T_{2b}$','$T_3$','$T_{4a}$','$T_{4b}$','$T_5$',Location='southoutside');
 lgd.Orientation = 'horizontal';
-set(gcf,'units','centimeters','position',[0,0,14,10]);
+set(gcf,'units','centimeters','position',[0,0,14,10],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_tempCase2.eps');
 
 % CPU-Time cost histogram
@@ -252,7 +252,7 @@ figure(Name='time cost')
     hold on;    grid on;    axis padded;    box on;
     bar(visual.timeLabel,visual.timeCostVec)
     ylabel('Time cost [s]');    xlabel('Integration method');
-set(gcf,'units','centimeters','position',[0,0,11,9]);
+set(gcf,'units','centimeters','position',[0,0,11,9],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_CPUtime.eps');
 
 % Eigenvalues
@@ -264,7 +264,7 @@ figure(Name='Eigenvalues')
     plot(real(mModel.lambda(2)), imag(mModel.lambda(2)), 'o', MarkerFaceColor='b',MarkerEdgeColor='b')
     xlabel('$Re_{h\lambda}$');     ylabel('$Im_{h\lambda}$');
     legend('','','$\lambda_1$','$\lambda_2$');
-set(gcf,'units','centimeters','position',[0,0,11,6]);
+set(gcf,'units','centimeters','position',[0,0,11,6],'Renderer','painters');
 exportgraphics(gcf,'figure/ex1_eigenvalues.eps');
 
 % Error
@@ -293,7 +293,7 @@ nexttile
 lgd = legend('$T_1$','$T_2$','$T_3$','$T_4$','$T_5$');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';
-set(gcf,'units','centimeters','position',[0,0,20,9]);
+set(gcf,'units','centimeters','position',[0,0,20,9],'Renderer','painters');
 exportgraphics(gcf,'figure\ex1_errorCompare.eps');
 
 % % Other methods error compare
