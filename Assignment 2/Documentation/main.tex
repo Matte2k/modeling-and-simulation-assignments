@@ -148,8 +148,8 @@ c) Repeat the simulation in Simscape implementing two nodes for the conductor an
 \medskip \hrule \medskip
 \rightline{\small(15 points)}
 
-The nozzle materials are defined following approximatly the available data of the \tr{REAL MODEL EXAMPLE} and reported \cref{tab:ex1_material}.
-The cross section area $A$ and the length $L$ of the nozzle are fixed and respectively equal to \tr{$data m^2$} and \tr{$data m$}.
+The nozzle materials are defined following approximatly the available data of the SpaceX Raptor engine and reported \cref{tab:ex1_material}.
+The cross section area $A$ and the length $L$ of the nozzle are fixed and respectively equal to $4\,m^2$ and $1\,m$.
 \begin{table}[ht]
     \centering
     \caption{\label{tab:ex1_material} Nozzle materials and properties}
@@ -178,7 +178,7 @@ The different nozzle layers are modelled following the electric circuit analogy.
 A physical model of the system is derived considering one node for each of the five layers as rappresented in \cref{fig:ex1_phyModelCase1}.
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=1\textwidth, keepaspectratio]{Figures/phyModelCase1.pdf}
+    \includegraphics[width=1\textwidth]{Figures/ex1_phyModelCase1.pdf}
     \caption[]{\label{fig:ex1_phyModelCase1} TBD}
 \end{figure}
 
@@ -205,14 +205,11 @@ As consequence the \cref{eq:ex1_heatFlow} can be written.
 \end{equation}
 
 All the heatflows can be easly put in relationship with the nodes temperature value by means of \cref{eq:ex1_heatVsTemp}.
-\begin{subequations}
-    \begin{align}
-        Q_{i2} &= \frac{T_i-T_2}{R_{i2}}  \label{eq:ex1_Qi2} \\
-        Q_{24} &= \frac{T_2-T_4}{R_{24}}  \label{eq:ex1_Q24} \\
-        Q_{4o} &= \frac{T_4-T_o}{R_{4o}}  \label{eq:ex1_Q4o}
-    \end{align}
+\begin{equation}
+    Q_{i2} = \frac{T_i-T_2}{R_{i2}}  \qquad Q_{24} = \frac{T_2-T_4}{R_{24}}  \qquad Q_{4o} = \frac{T_4-T_o}{R_{4o}}
     \label{eq:ex1_heatVsTemp}
-\end{subequations}
+\end{equation}
+
 
 The temperature evolution in time of nodes $T_2$ and $T_4$ is obtained solving numerically the ODEs \cref{eq:ex1_T2} and \cref{eq:ex1_T4}. 
 \begin{empheq}[]{align}
@@ -227,18 +224,8 @@ Finally even $T_1$, $T_3$ and $T_5$ nodes temperature can be evalutaed over time
     T_5 &= T_o + Q_{4o} \frac{R_5}{2}       \label{eq:ex1_T5}
 \end{empheq}
 
-This thermal problem is alse setup and solved in Simscape by building the physical model in \cref{fig:ex1_simscapeCase1}.
-\\
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_simscapeCase1.eps}
-%     \caption[]{\label{fig:simscapeCase1} TBD}
-% \end{figure}
-
-As can be noticed the model built is exactly the same as the one considered in \cref{fig:phyModelCase1}, also the input data given are in common.
-\\
-The \tr{PROBLEM NAME} just presented can be solved using different solver both in MATLAB and Simscape.
-To understand which is the best method to use an eigenvalues analysis is performed to understand if the system analyzed has some particular characteristics.
+The IVP obtained combining \cref{eq:ex1_T2} and \cref{eq:ex1_T4} can be integrated in MATLAB using different algorithms.
+To understand which is the best method to use an eigenvalues analysis is performed to find out if the system analyzed has some particular characteristics.
 
 Firstly the \cref{eq:ex1_T2} and \cref{eq:ex1_T4} are rewritten in matrix form considering $\vec{T}=[T_2;T_4]$ as presented in \cref{eq:ex1_matrixForm}.
 \begin{equation}
@@ -250,28 +237,102 @@ Firstly the \cref{eq:ex1_T2} and \cref{eq:ex1_T4} are rewritten in matrix form c
     \label{eq:ex1_matrixForm}
 \end{equation}
 
-The eigenvalues of matrix $\vec{A}$ are computed and results equal to $\lambda_1=xxxx$ and $\lambda_2=xxxx$.
-
-\tr{OTTENERE TUTTI I GRAFICI E RISULTATI FINALI, QUINDI COMMENTARE}
-\\
-
-A more precise analysis is finally performed modifying the simscape model.
-The number of nodes for conductor and insulator layers are increased for both to two.
-In this model the mass of these two layers, and so the capacitance, is considered located in two points respectively at $1/4$ and $3/4$ of $l_i$ (\cref{fig:phyModelCase2}).
+The eigenvalues of matrix $\vec{A}$ are shown in \cref{fig:ex1_eigenvalues} and results equal to $\lambda_1=\tr{xxxx}$ and $\lambda_2=\tr{xxxx}$.
 \begin{figure}[htb]
     \centering
-    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/phyModelCase2.pdf}
+    \includegraphics[width=0.45\textwidth, keepaspectratio]{Figures/ex1_eigenvalues.eps}
+    \caption[]{\label{fig:ex1_eigenvalues} TBD}
+\end{figure}
+\clearpage
+
+The problem turns out to be stable and only marginally stiff.
+The second eigenvalue results about half of the first one, with both presenting the same order of magnitude.
+From this analysis can be concluded that a nonstiff method such as $ode45$ might be suitable for integration.
+Another good candidate might also be $ode23t$, which is ideal for solving only moderatly stiff problems.
+
+The choice of $ode45$ is also confirmed by the automatic ODE selector built-in in MATLAB.
+
+The thermal problem is also solved in Simscape by building the physical model shown in \cref{fig:ex1_simscapeCase1}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_simscapeCase1.pdf}
+    \caption[]{\label{fig:ex1_simscapeCase1} TBD}
+\end{figure}
+
+To solve the problem Simscape builds a DAEs system to compute simultaneously all the nodes temperature.
+By doing so methods that guarantees efficiency in solving Differential-algebraic system of equations, as $daessc$ or $ode23t$, are suggested. 
+
+In \cref{fig:ex1_tempKeyNodes} and \cref{fig:ex1_tempOtherNodes} the temperature profiles of the different nodes obtained on MATLAB with $ode45$ and $ode23t$ are reported and compared with the one obtained on Simscape using $ode23t$.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.7\textwidth, keepaspectratio]{Figures/ex1_tempKeyNodes.eps}
+    \caption[]{\label{fig:ex1_tempKeyNodes} TBD}
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex1_tempOtherNodes.eps}
+    \caption[]{\label{fig:ex1_tempOtherNodes} TBD}
+\end{figure}
+
+Both in MATLAB and Simscape the maximum step size has been manually set to $h=0.01$.
+Note that the temperature curves obtained with the different methods are perfectly overlapped.
+The same conclusion can be made observing \cref{fig:ex1_tempCompare} where all the nodes temperature are plotted on the same graph.
+On the left the temperature obtained integrating the problem on MATLAB with $ode45$ is shown, while on the right the results obtained on Simscape with $ode23t$ are reported.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex1_tempCompare.eps}
+    \caption[]{\label{fig:ex1_tempCompare} TBD}
+\end{figure}
+
+Note that $ode23t$ is picked, instead of $daessc$, for the Simscape simulation because of the important differences of the temperature evolution trends over time.
+
+An analysis on the time cost of the different methods has also been performed.
+For each method a cycle of 50 runs is exectued, the time needed to complete these tasks is measured and post processed by means of an arithmetic mean.
+In this phase a bigger pool of integration method is considered, this allows to verify if the considerations previusly done, based on the eigenanalysis results, are correct.
+The integration methods tested on MATLAB are $ode45$, $ode89$, $ode113$, $ode23t$ and $ode15s$, while the Simscape simulaton is, once again, done with $ode23t$.
+The results of the analysis are reported in the histogram shown in \cref{fig:ex1_CPUtime}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{Figures/ex1_CPUtime.eps}
+    \caption[]{\label{fig:ex1_CPUtime} TBD}
+\end{figure}
+
+As expected $ode45$ turns out to be the best method to integrate the thermal problem on MATLAB.
+$ode23t$ applied on MATLAB model performs a little bit worse than expected, probably due to the fact the problem isn't sufficiently stiff, while it works well on Simscape to solve the DAE system.
+
+The temperature curves obtained through MATLAB $ode45$ and $ode89$ are then compared with the Simscape results.
+This analysis is done to check if the bigger computational cost is justified by a higher precision.
+To do so a time grid of 30 elements is built and the temperature value in each point is retrived by means of a linear interpolation.
+The results are shown in \cref{fig:ex1_errorCompare}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.75\textwidth, keepaspectratio]{Figures/ex1_errorCompare.eps}
+    \caption[]{\label{fig:ex1_errorCompare} TBD}
+\end{figure}
+
+Both methods, as expected, present a very small error over all the time intervall but, unfortunatly, $ode89$ doesn't perform clearly better than $ode45$.
+
+Finally a more precise analysis is performed modifying the simscape model.
+The number of nodes for conductor and insulator layers are increased to two and the mass of these two layers is considered located in two points, respectivly at $1/4$ and $3/4$ of $l_i$ (\cref{fig:phyModelCase2} and \cref{fig:ex1_simscapeCase2}).
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_phyModelCase2.pdf}
     \caption[]{\label{fig:phyModelCase2} TBD}
 \end{figure}
 
-The simscape model is rappresented in \cref{fig:ex1_simscapeCase2}.
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex1_simscapeCase2.eps}
-%     \caption[]{\label{fig:simscapeCase2} TBD}
-% \end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_simscapeCase2.pdf}
+    \caption[]{\label{fig:ex1_simscapeCase2} TBD}
+\end{figure}
+\clearpage
 
-Using the same method and solver settings as before the nodes temperature over time are obtained and reported in %\cred{fig:ex1_}.
+Using, once again, $ode23t$ as integration method and $h=0.01$ as maximum step size the new model nodes temperature are obtained and reported in \cref{fig:ex1_tempCase2}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics*[width=0.6\textwidth, keepaspectratio]{Figures/ex1_tempCase2.eps}
+    \caption[]{\label{fig:ex1_tempCase2} TBD}
+\end{figure}
 
 
 %--------------------------------------------------------------------------------
