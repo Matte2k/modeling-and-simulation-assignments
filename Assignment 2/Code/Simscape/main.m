@@ -129,7 +129,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.Ti, 'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.Ti, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.Ti, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.Ti, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]');
     title('Temperature inner lining')
 
@@ -137,7 +137,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.To,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.To, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.To, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.To, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]');
     title('Temperature outer lining')
 set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
@@ -151,7 +151,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T2,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T2, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T2, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T2, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 2')
 
@@ -159,7 +159,7 @@ tiledlayout(1,2)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T4,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T4, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T4, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T4, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 4')
 set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
@@ -172,7 +172,7 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T1,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T1, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T1, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T1, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 1')
 
@@ -180,7 +180,7 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T3,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T3, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T3, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T3, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 3')
 
@@ -188,7 +188,7 @@ tiledlayout(1,3)
     hold on;    grid on;    axis padded;    box on;
     plot(mModel.ode45.time,  mModel.ode45.T5,  'Color', cmap(1,:))
     plot(mModel.ode23t.time, mModel.ode23t.T5, '--', 'Color', cmap(2,:))
-    plot(sModel.auto.case1.time, sModel.auto.case1.T5, '--', 'Color', cmap(5,:))
+    plot(sModel.auto.case1.time, sModel.auto.case1.T5, ':', 'Color', cmap(5,:))
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 5')
 
