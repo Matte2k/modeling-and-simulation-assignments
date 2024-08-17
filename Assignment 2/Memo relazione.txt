@@ -1,3 +1,0 @@
-cose da dire su ex2
--consider the convection between the gear and the coolant as the main contribution
--to guarantee recirculation is enough to control the temperature of the sink
