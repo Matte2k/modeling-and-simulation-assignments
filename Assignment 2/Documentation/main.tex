@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[main=english]{babel}
 \usepackage{graphicx}                       % 1pt = 0.035146cm
+\usepackage{float}
 \graphicspath{{Figures/}}
 \usepackage[justification=default]{subfig}  % Manage sub-figures 
 \usepackage[update]{epstopdf}
@@ -147,25 +148,32 @@ c) Repeat the simulation in Simscape implementing two nodes for the conductor an
 
 \medskip \hrule \medskip
 \rightline{\small(15 points)}
+\medskip
 
 The nozzle materials are defined following approximatly the available data of the SpaceX Raptor engine and reported \cref{tab:ex1_material}.
 The cross section area $A$ and the length $L$ of the nozzle are fixed and respectively equal to $4\,m^2$ and $1\,m$.
-\begin{table}[ht]
+\begin{table}[H]
     \centering
+    \begin{threeparttable}
     \caption{\label{tab:ex1_material} Nozzle materials and properties}
-    \begin{tabular}{llcccc}
-        \toprule
-        \toprule
-        Layer &  Material & $l_i, m$ & $\rho, \frac{kg}{m^3}$ & $c_{pi}, \frac{J}{kgK}$ & $k_i, \frac{W}{mK}$  \\ 
-        \midrule
-        Inner lining    & $--$ & $--$ & $--$ & $--$ & $--$ \\ 
-        Conductor       & $--$ & $--$ & $--$ & $--$ & $--$ \\ 
-        Interface       & $--$ & $--$ & $--$ & $--$ & $--$ \\ 
-        Insulator       & $--$ & $--$ & $--$ & $--$ & $--$ \\ 
-        Outer coating   & $--$ & $--$ & $--$ & $--$ & $--$ \\ 
-        \bottomrule
-        \bottomrule
-    \end{tabular}
+        \begin{tabular}{llcccc}
+            \toprule
+            \toprule
+            Layer           & Material              & $l_i, m$  & $\rho, \frac{kg}{m^3}$    & $c_{pi}, \frac{J}{kgK}$   & $k_i, \frac{W}{mK}$  \\ 
+            \midrule
+            Inner lining    & $Inconel$             & $0.02$    & $8840$                    & $--$                      & $14.5$ \\ 
+            Conductor       & $Copper$              & $0.03$    & $8960$                    & $385$                     & $400$ \\ 
+            Interface\tnote{$\star$} &              & $0.01$    & $--$                      & $--$                      & $--$ \\ 
+            Insulator       & $Ceramic$             & $0.02$    & $2800$                    & $800$                     & $1.5$ \\     
+            Outer coating   & $Stainless\,steel$    & $0.02$    & $8000$                    & $--$                      & $16$ \\ 
+            \bottomrule
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \footnotesize
+            \item[$\star$] Thermal resistance value fixed $K=0.000678\,K/W$
+        \end{tablenotes}
+    \end{threeparttable}
 \end{table}
 
 Once defined all the nozzle dimensions and materials, the thermal resistance and capacitance are computed following \cref{eq:ex1_thermalR} and \cref{eq:ex1_thermalC}.
@@ -176,10 +184,10 @@ Once defined all the nozzle dimensions and materials, the thermal resistance and
 
 The different nozzle layers are modelled following the electric circuit analogy. 
 A physical model of the system is derived considering one node for each of the five layers as rappresented in \cref{fig:ex1_phyModelCase1}.
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Figures/ex1_phyModelCase1.pdf}
-    \caption[]{\label{fig:ex1_phyModelCase1} TBD}
+    \caption[]{\label{fig:ex1_phyModelCase1} Physical model with one node for each layer}
 \end{figure}
 
 The model can be simplified by computing the equivalent resistance between the different nodes; the math is reported in \cref{eq:ex1_eqResistence}.
@@ -210,7 +218,6 @@ All the heatflows can be easly put in relationship with the nodes temperature va
     \label{eq:ex1_heatVsTemp}
 \end{equation}
 
-
 The temperature evolution in time of nodes $T_2$ and $T_4$ is obtained solving numerically the ODEs \cref{eq:ex1_T2} and \cref{eq:ex1_T4}. 
 \begin{empheq}[]{align}
     \dot{T_2} &= \frac{Q_{i2}-Q_{24}}{C_2}    \label{eq:ex1_T2} \\
@@ -237,101 +244,99 @@ Firstly the \cref{eq:ex1_T2} and \cref{eq:ex1_T4} are rewritten in matrix form c
     \label{eq:ex1_matrixForm}
 \end{equation}
 
-The eigenvalues of matrix $\vec{A}$ are shown in \cref{fig:ex1_eigenvalues} and results equal to $\lambda_1=\tr{xxxx}$ and $\lambda_2=\tr{xxxx}$.
-\begin{figure}[htb]
+The eigenvalues of matrix $\vec{A}$ are shown in \cref{fig:ex1_eigenvalues} and results equal to $\lambda_1=-0.0086$ and $\lambda_2=-0.0045$.
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.45\textwidth, keepaspectratio]{Figures/ex1_eigenvalues.eps}
-    \caption[]{\label{fig:ex1_eigenvalues} TBD}
+    \caption[]{\label{fig:ex1_eigenvalues} System eigenvalues}
 \end{figure}
-\clearpage
 
 The problem turns out to be stable and only marginally stiff.
 The second eigenvalue results about half of the first one, with both presenting the same order of magnitude.
-From this analysis can be concluded that a nonstiff method such as $ode45$ might be suitable for integration.
-Another good candidate might also be $ode23t$, which is ideal for solving only moderatly stiff problems.
+From this analysis can be concluded that a nonstiff method such as \mcode{ode45} might be suitable for integration.
+Another good candidate might also be \mcode{ode23t}, which is ideal for solving only moderatly stiff problems.
 
-The choice of $ode45$ is also confirmed by the automatic ODE selector built-in in MATLAB.
+The choice of \mcode{ode45} is also confirmed by the automatic ODE selector built-in in MATLAB.
 
 The thermal problem is also solved in Simscape by building the physical model shown in \cref{fig:ex1_simscapeCase1}.
 \begin{figure}[htb]
     \centering
     \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_simscapeCase1.pdf}
-    \caption[]{\label{fig:ex1_simscapeCase1} TBD}
+    \caption[]{\label{fig:ex1_simscapeCase1} Simscape model with one node for each layer}
 \end{figure}
 
 To solve the problem Simscape builds a DAEs system to compute simultaneously all the nodes temperature.
-By doing so methods that guarantees efficiency in solving Differential-algebraic system of equations, as $daessc$ or $ode23t$, are suggested. 
+By doing so methods that guarantees efficiency in solving Differential-algebraic system of equations, as \mcode{daessc} or \mcode{ode23t}, are suggested. 
 
-In \cref{fig:ex1_tempKeyNodes} and \cref{fig:ex1_tempOtherNodes} the temperature profiles of the different nodes obtained on MATLAB with $ode45$ and $ode23t$ are reported and compared with the one obtained on Simscape using $ode23t$.
-\begin{figure}[htb]
+In \cref{fig:ex1_tempKeyNodes} and \cref{fig:ex1_tempOtherNodes} the temperature profiles of the different nodes obtained on MATLAB with \mcode{ode45} and \mcode{ode23t} are reported and compared with the one obtained on Simscape using \mcode{ode23t}.
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.7\textwidth, keepaspectratio]{Figures/ex1_tempKeyNodes.eps}
-    \caption[]{\label{fig:ex1_tempKeyNodes} TBD}
+    \caption[]{\label{fig:ex1_tempKeyNodes} $T_2$ and $T_4$ evolution over time}
 \end{figure}
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex1_tempOtherNodes.eps}
-    \caption[]{\label{fig:ex1_tempOtherNodes} TBD}
+    \caption[]{\label{fig:ex1_tempOtherNodes} $T_1$, $T_3$ and $T_5$ evolution over time}
 \end{figure}
 
 Both in MATLAB and Simscape the maximum step size has been manually set to $h=0.01$.
 Note that the temperature curves obtained with the different methods are perfectly overlapped.
 The same conclusion can be made observing \cref{fig:ex1_tempCompare} where all the nodes temperature are plotted on the same graph.
-On the left the temperature obtained integrating the problem on MATLAB with $ode45$ is shown, while on the right the results obtained on Simscape with $ode23t$ are reported.
-\begin{figure}[htb]
+On the left the temperature obtained integrating the problem on MATLAB with $ode45$ is shown, while on the right the results obtained on Simscape with \mcode{ode23t} are reported.
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex1_tempCompare.eps}
-    \caption[]{\label{fig:ex1_tempCompare} TBD}
+    \caption[]{\label{fig:ex1_tempCompare} System temperature profile with MATLAB and Simscape}
 \end{figure}
 
-Note that $ode23t$ is picked, instead of $daessc$, for the Simscape simulation because of the important differences of the temperature evolution trends over time.
+Note that \mcode{ode23t} is picked, instead of \mcode{daessc}, for the Simscape simulation because of the important differences of the temperature evolution trends over time.
 
 An analysis on the time cost of the different methods has also been performed.
 For each method a cycle of 50 runs is exectued, the time needed to complete these tasks is measured and post processed by means of an arithmetic mean.
 In this phase a bigger pool of integration method is considered, this allows to verify if the considerations previusly done, based on the eigenanalysis results, are correct.
-The integration methods tested on MATLAB are $ode45$, $ode89$, $ode113$, $ode23t$ and $ode15s$, while the Simscape simulaton is, once again, done with $ode23t$.
+The integration methods tested on MATLAB are \mcode{ode45}, \mcode{ode89}, \mcode{ode113}, \mcode{ode23t} and \mcode{ode15s}, while the Simscape simulaton is, once again, done with \mcode{ode23t}.
 The results of the analysis are reported in the histogram shown in \cref{fig:ex1_CPUtime}.
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.5\textwidth, keepaspectratio]{Figures/ex1_CPUtime.eps}
-    \caption[]{\label{fig:ex1_CPUtime} TBD}
+    \caption[]{\label{fig:ex1_CPUtime} CPU-time cost histogram}
 \end{figure}
 
 As expected $ode45$ turns out to be the best method to integrate the thermal problem on MATLAB.
 $ode23t$ applied on MATLAB model performs a little bit worse than expected, probably due to the fact the problem isn't sufficiently stiff, while it works well on Simscape to solve the DAE system.
 
-The temperature curves obtained through MATLAB $ode45$ and $ode89$ are then compared with the Simscape results.
+The temperature curves obtained through MATLAB \mcode{ode45} and \mcode{ode89} are then compared with the Simscape results.
 This analysis is done to check if the bigger computational cost is justified by a higher precision.
 To do so a time grid of 30 elements is built and the temperature value in each point is retrived by means of a linear interpolation.
 The results are shown in \cref{fig:ex1_errorCompare}.
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.75\textwidth, keepaspectratio]{Figures/ex1_errorCompare.eps}
-    \caption[]{\label{fig:ex1_errorCompare} TBD}
+    \caption[]{\label{fig:ex1_errorCompare} MATLAB integration error compared to Simscape}
 \end{figure}
 
-Both methods, as expected, present a very small error over all the time intervall but, unfortunatly, $ode89$ doesn't perform clearly better than $ode45$.
+Both methods, as expected, present a very small error over all the time intervall but, unfortunatly, \mcode{ode89} doesn't perform clearly better than \mcode{ode45}.
 
 Finally a more precise analysis is performed modifying the simscape model.
 The number of nodes for conductor and insulator layers are increased to two and the mass of these two layers is considered located in two points, respectivly at $1/4$ and $3/4$ of $l_i$ (\cref{fig:phyModelCase2} and \cref{fig:ex1_simscapeCase2}).
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_phyModelCase2.pdf}
-    \caption[]{\label{fig:phyModelCase2} TBD}
+    \caption[]{\label{fig:phyModelCase2} Physical model with two nodes for conductor and insulator}
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex1_simscapeCase2.pdf}
-    \caption[]{\label{fig:ex1_simscapeCase2} TBD}
+    \caption[]{\label{fig:ex1_simscapeCase2} Simscape model with two nodes for conductor and insulator}
 \end{figure}
-\clearpage
 
-Using, once again, $ode23t$ as integration method and $h=0.01$ as maximum step size the new model nodes temperature are obtained and reported in \cref{fig:ex1_tempCase2}.
-\begin{figure}[htb]
+Using, once again, \mcode{ode23t} as integration method and $h=0.01$ as maximum step size the new model nodes temperature are obtained and reported in \cref{fig:ex1_tempCase2}.
+\begin{figure}[H]
     \centering
     \includegraphics*[width=0.6\textwidth, keepaspectratio]{Figures/ex1_tempCase2.eps}
-    \caption[]{\label{fig:ex1_tempCase2} TBD}
+    \caption[]{\label{fig:ex1_tempCase2} System temperature profile for \cref{fig:ex1_simscapeCase2} model}
 \end{figure}
 
 
@@ -439,8 +444,6 @@ The reference angular speed signal to be tracked by the propeller is given in Fi
     \caption{\label{fig:refsignal} Angular speed reference for the propeller.}
 \end{figure}
 
-
-
 \subsection*{2.2) Part 2: Cooling System}
 After the previous gear unit thermal analysis, now consider the steady-state condition reached by the propeller engine at the end of the simulation to model and simulate a single \textbf{fixed} volume flow rate cooling system (as shown in Figure \ref{fig:propeller}) for the gear unit and considering only \textbf{convection} as heat transfer. In particular, you are asked to:
 
@@ -481,76 +484,181 @@ The simulation shall last at least $\mathbf{t_{sim}}$ = 300 s starting with no w
 \medskip
 \medskip \hrule \medskip
 \rightline{\small(15 points)}
+\clearpage
 
 Starting from the real system a physical model is retrived by means of some assumption and semplification on its components. 
 
-The DC motor is modelled as a circuit composed by a voltage source, a fixed resistor, a fixed inductor and rotor.
+The DC motor is modelled as a circuit composed by a voltage source, a fixed resistor, a fixed inductor, a rotor with its inertia.
 Both the inductor resistance and resistor inductance are considerd negligiable.
-The voltage source recives as input a signal which is then translated in voltage while the rotor converts the voltage in rotational mechanical energy.
-\tr{ANALIZZARE BENE IL DISCORSO INERZIE DA MODELICA}
+The voltage source recives as input a signal which is then translated in voltage while the rotor converts the voltage signal in rotational mechanical energy.
 
-The gearbox is modelled as a ''lossy gear'', which is a built-in block in modelica, connected to a thermal conductivity and capacitance block.
+The gearbox is modelled as a ''lossy gear'', a built-in block in modelica, connected to a thermal conductivity and capacitance block.
 All the data, including the loss table, is given as user input to these blocks to correctly model the gearbox behavior.
 
-The propeller is considered rigid and its inertia is modelled \tr{VEDERE DA MODELICA COME}.
+The propeller is considered rigid and its inertia is modelled as a rod with the pole positioned in its center.
 
 The physical system has no delay between input and the state, uncertainty and noise are negletted and all input data are considerd constant in time. 
-Finally the just presented model, built following a lumping approach, is shown in \cref{fig:ex2_droneModel}.
-\\
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics*[width=0.8\textwidth, keepaspectratio]{Figures/ex2_droneModel.png}
-%     \caption[]{\label{fig:ex2_droneModel} TBD}
-% \end{figure}
+The just presented model, built following a lumping approach, is shown in \cref{fig:ex2a_droneModel}.
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=1\textwidth, keepaspectratio]{Figures/ex2a_blockDiag.pdf}
+    \caption[]{\label{fig:ex2a_droneModel} Dymola physical model of the propeller electric engine}
+\end{figure}
 
-\tr{
-CONSIDERAZIONI SU SOLUTORE\\
-mettere magari una tabella che confronta le performance dei diversi solutori che modelica consente di usare.
-scegliere quindi il migliore (prendi spunto da quel che dice il bo)
-}\\
+The integration scheme picked for the simulation is \mcode{dassl}, but also \mcode{lsodar} and \mcode{rk4fix} are tested.
+The choice is made after a comparison between these three methods.
+In \cref{tab:ex2a_compInteg} the main datas concerning the performance of each method are reported.
+\begin{table}[H]
+    \centering
+    \caption{Compare between different integration schemes for \cref{fig:ex2a_droneModel} system}
+    \label{tab:ex2a_compInteg}
+    \begin{tabular}{lcccc}
+        \toprule
+        \toprule
+            Method          & CPU-time integration  & CPU-time grid interval    & Feval & Max order \\ 
+        \midrule
+            \mcode{dassl}   & 0.002 $sec$           & 0.004 $millisec$          & 360   & 5         \\
+            \mcode{lsodar}  & 0.006 $sec$           & 0.012 $millisec$          & 368   & 5         \\
+            \mcode{rk4fix}  & 0.005 $sec$           & 0.010 $millisec$          & 2000  & 4         \\
+        \bottomrule
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-Note that the input signal to the voltage source is regulated by a PID which has been manually tuned to match the system requirements (given in the exercise instruction).
-The obtained tuning of the PID is reported in \cref{tab:tuningPID}
-\\
-% table
+In the considered system the input signal to the voltage source is regulated by a PID controller manually tuned to match the system requirements (given in the exercise instruction).
+The obtained tuning of the PID is reported in \cref{tab:ex2a_tuningPID}.
+\begin{table}[H]
+    \centering
+    \caption{PID tuning values}
+    \label{tab:ex2a_tuningPID}
+    \begin{tabular}{ccc}
+        \toprule
+        \toprule
+            Gain - $k$  & Integrator - $T_i$  & Derivative - $T_d$ \\ 
+        \midrule
+            0.085       & 0.185 $sec$         & 0.5 $sec$  \\
+        \bottomrule
+        \bottomrule
+    \end{tabular}
+\end{table}
 
-The motor input voltage and the difference between the reference angular velocity and the actual one (defined as $error$) are shown in \tr{cref}.
-Their envelop over time confirm that the voltage is always less than $200V$ and the $error$, a part from the first transitory, is always less than $0.1rad/s$.
-\\
-% immagini
+The motor input voltage and the difference between the reference angular velocity and the actual one (defined as $error$) are shown in \cref{fig:ex2a_voltage}, \cref{fig:ex2a_error} and \cref{fig:ex2a_errorZoom}.
+Their envelop over time confirms that the voltage is always less than $200\,V$ and the $error$, a part from the first transitory, is always less than $0.1\,rad/s$.
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{Figures/ex2a_voltage.pdf}
+    \caption[]{\label{fig:ex2a_voltage} Motor input voltage}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2a_error.pdf}
+        \caption[]{\label{fig:ex2a_error} PID Signal error}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2a_errorZoom.pdf}
+        \caption[]{\label{fig:ex2a_errorZoom} Zoom of \cref{fig:ex2a_error}}
+    \end{minipage}
+\end{figure}
 
 The gear box is the only component of the physical system that heats up, for this reason its thermal propriety are analyzed more in depth.   
-The heat flux, after a small transitory, reaches a constant value of $Q=xxxxW$ (\tr{cref}), while the temperature, as expected, linearly increases over time.
-After $120s$, as shown in \tr{cref}, the temperature reaches $T=xxxxK$.
-\\
-% immagini
+The heat flux, after a small transitory, reaches a constant value of $Q=2210.9\,W$ as reported in \cref{fig:ex2a_gearHeat}, while the temperature, as expected, linearly increases over time.
+After $120s$, as shown in \cref{fig:ex2a_gearTemp}, the temperature reaches $T=103.295\,C^{\circ}$.
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2a_gearHeat.pdf}
+        \caption[]{\label{fig:ex2a_gearHeat} Gear box wall heat flux}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2a_gearTemp.pdf}
+        \caption[]{\label{fig:ex2a_gearTemp} Gear box wall temperature}
+    \end{minipage}
+\end{figure}
 
 From this analysis is clear that a cooling system is needed, otherwise the temperature would increase indefinitely leading to component failure.
-\\
+A physical model of such a system is retrived from the real one considering some assumptions and created in Dymola as shows \cref{fig:ex2b_coolingModel}.
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=0.9\textwidth, keepaspectratio]{Figures/ex2b_blockDiag.pdf}
+    \caption[]{\label{fig:ex2b_coolingModel} Dymola physical model of the propeller electric engine}
+\end{figure}
 
-\tr{INIZIA PARTE 2 DELL'ASSIGNMENT}
+The gear box is the only heat source of the system and the convection with the water of the cooling system is the only form of heat exchange considered. 
+As for the previous model, there is no delay between input and the state, uncertainty and noise are negletted and all input data are considerd constant in time. 
 
+Considering the cooling loop must be point out that no friction effects in the pipe line are modelled and the volume flow doesn't present any transient.
+The whole system is also considered isolated, no mass or heat exchange is considered with the enviroment around it.
 
+The source and storage tanks present the same dimensions and the recirculation is considered guaranteed once the storage tank tempereature is kept under control.
 
+To match the requirements on gearbox wall and cooling fluid temperature two control logics based on ''hysteresis'' and ''boolean'' blocks are added to the system.
+The gearbox temperature is kept between $40\,^{\circ}C$ and $60\,^{\circ}C$ thanks to a controller which regulates the volume flow of the medium in the pipe line.
+The volue flow rate is regulated based on the output of a sensor which measuers the gear wall temperature in every time instants.
+The results of the tuned system obtained during the simulation are shown in \cref{fig:ex2b_gearWallTemp}, \cref{fig:ex2b_sourceTankFlow} and \cref{fig:ex2b_sourceTankLevel}.
+\begin{figure}[H]
+    \centering
+    \includegraphics*[width=0.5\textwidth, keepaspectratio]{Figures/ex2b_gearWallTemp.pdf}
+    \caption[]{\label{fig:ex2b_gearWallTemp} Gear box wall temperature with cooling system}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2b_sourceTankFlow.pdf}
+        \caption[]{\label{fig:ex2b_sourceTankFlow} Source tank volume flow}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2b_sourceTankLevel.pdf}
+        \caption[]{\label{fig:ex2b_sourceTankLevel} Source tank water level}
+    \end{minipage}
+\end{figure}
 
+In a similar way a simple thermal system is implemented to regulate the temperature of the fluid in the storage tank.
+As defined in the requirements, the system is tuned to avoid that the power consumption exceed the limit value of $6\,kW$.
+Once again the obtained results are shon in \cref{fig:ex2b_storageTankCooling} and \cref{fig:ex2b_storageTankTemp}.
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2b_storageTankCooling.pdf}
+        \caption[]{\label{fig:ex2b_storageTankCooling} Storage tank heat flow}
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth, keepaspectratio]{Figures/ex2b_storageTankTemp.pdf}
+        \caption[]{\label{fig:ex2b_storageTankTemp} Storage tank temperature}
+    \end{minipage}
+\end{figure}
 
-
-%%%%%%%%%% TO BE DELETED (BEGINS) %%%%%%%%%%
-\clearpage
-\tr{
-\begin{itemize}
-\item Develop \underline{one Matlab script} for Exercise 1; name the file \mcode{lastname123456_Assign2.m}. If needed, organize the script in sections and use local functions. 
-\item Develop \underline{one Simulink model} for Exercise 1; name the file \mcode{lastname123456_Assign2.slx}. 
-\item Develop \underline{two Dymola models} for Exercise 2; name the files \mcode{lastname123456_Assign2_Part_1.mo} and  \mcode{lastname123456_Assign2_Part_2.mo}. 
-\item \underline{Create a single .zip file} containing the \underline{report in PDF}, the \underline{MATLAB file}, the \underline{Simulink model}, and the \underline{two Dymola models}. The name shall be \mcode{lastname123456_Assign2.zip}.
-\item Red text indicates where answers are needed; be sure there is no red stuff in your report.
-\item In your answers, \underline{be concise}: to the point.
-\item \textbf{Deadline for the submission: Dec 18 2023, 23:59}.
-\item \textbf{Load the compressed file to the Homework folder on Webeep}.
-\end{itemize}
-}
-%%%%%%%%%% TO BE DELETED (ENDS) %%%%%%%%%%
-
+The integration scheme used to obtained the reported results is \mcode{dassl}.
+Anyway, as done before, some simulation with other methods are exectued to find out if better integration scheme can be used.
+In \cref{tab:ex2b_compInteg} the main perfomance values of \mcode{dassl}, \mcode{lsodar} and \mcode{rk4fix} are reported.
+\begin{table}[H]
+    \centering
+    \caption{Compare between different integration scheme for \cref{fig:ex2b_coolingModel} system}
+    \label{tab:ex2b_compInteg}
+    \begin{tabular}{lcccc}
+        \toprule
+        \toprule
+            Method          & CPU-time integration  & CPU-time grid interval    & Feval & Max order \\ 
+        \midrule
+            \mcode{dassl}   & 0.003 $sec$           & 0.006 $millisec$          & 445   & 3         \\
+            \mcode{lsodar}  & 0.001 $sec$           & 0.002 $millisec$          & 178   & 4         \\
+            \mcode{rk4fix}  & 0.001 $sec$           & 0.002 $millisec$          & 2000  & 4         \\
+        \bottomrule
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \clearpage
 \end{document}
@@ -558,4 +666,3 @@ From this analysis is clear that a cooling system is needed, otherwise the tempe
 %--------------------------------------------------------------------------------
 %       END DOCUMENT
 %--------------------------------------------------------------------------------
-

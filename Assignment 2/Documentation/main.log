@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.19)  16 AUG 2024 17:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.19)  17 AUG 2024 18:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -62,6 +62,13 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen140
 \Gin@req@width=\dimen141
+) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count195
+\float@exts=\toks19
+\float@box=\box50
+\@float@everytoks=\toks20
+\@floatcapt=\box51
 ) (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
  (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
@@ -77,20 +84,21 @@ Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \caption@hangindent=\dimen148
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count195
-\c@continuedfloat=\count196
+\c@caption@flags=\count196
+\c@continuedfloat=\count197
+Package caption Info: float package is loaded.
 )
-\c@KVtest=\count197
+\c@KVtest=\count198
 \sf@farskip=\skip49
 \sf@captopadj=\dimen149
 \sf@capskip=\skip50
 \sf@nearskip=\skip51
-\c@subfigure=\count198
-\c@subfigure@save=\count199
-\c@lofdepth=\count266
-\c@subtable=\count267
-\c@subtable@save=\count268
-\c@lotdepth=\count269
+\c@subfigure=\count199
+\c@subfigure@save=\count266
+\c@lofdepth=\count267
+\c@subtable=\count268
+\c@subtable@save=\count269
+\c@lotdepth=\count270
 \sf@top=\skip52
 \sf@bottom=\skip53
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf.sty
@@ -125,12 +133,12 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
-\ttl@box=\box50
+\ttl@box=\box52
 \beforetitleunit=\skip54
 \aftertitleunit=\skip55
 \ttl@plus=\dimen150
 \ttl@minus=\dimen151
-\ttl@toksa=\toks19
+\ttl@toksa=\toks21
 \titlewidth=\dimen152
 \titlewidthlast=\dimen153
 \titlewidthfirst=\dimen154
@@ -146,12 +154,12 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen162
 \cmidrulekern=\dimen163
 \defaultaddspace=\dimen164
-\@cmidla=\count270
-\@cmidlb=\count271
+\@cmidla=\count271
+\@cmidlb=\count272
 \@aboverulesep=\dimen165
 \@belowrulesep=\dimen166
-\@thisruleclass=\count272
-\@lastruleclass=\count273
+\@thisruleclass=\count273
+\@lastruleclass=\count274
 \@thisrulewidth=\dimen167
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2021/12/07 v1.3c Standard LaTeX Color (DPC)
@@ -164,9 +172,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count274
-\Gm@cntv=\count275
-\c@Gm@tempcnt=\count276
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
 \Gm@bindingoffset=\dimen168
 \Gm@wd@mp=\dimen169
 \Gm@odd@mp=\dimen170
@@ -175,17 +183,17 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen173
 \Gm@layouthoffset=\dimen174
 \Gm@layoutvoffset=\dimen175
-\Gm@dimlist=\toks20
+\Gm@dimlist=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box51
+\@tempboxb=\box53
 ) (/usr/share/texlive/texmf-dist/tex/generic/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
-\SOUL@word=\toks21
-\SOUL@lasttoken=\toks22
-\SOUL@cmds=\toks23
-\SOUL@buffer=\toks24
-\SOUL@token=\toks25
+\SOUL@word=\toks23
+\SOUL@lasttoken=\toks24
+\SOUL@cmds=\toks25
+\SOUL@buffer=\toks26
+\SOUL@token=\toks27
 \SOUL@spaceskip=\skip56
 \SOUL@ttwidth=\dimen176
 \SOUL@uldp=\dimen177
@@ -194,15 +202,15 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip57
 \enit@outerparindent=\dimen179
-\enit@toks=\toks26
-\enit@inbox=\box52
-\enit@count@id=\count277
-\enitdp@description=\count278
+\enit@toks=\toks28
+\enit@inbox=\box54
+\enit@count@id=\count278
+\enitdp@description=\count279
 ) (/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
-\FN@temptoken=\toks27
+\FN@temptoken=\toks29
 \footnotemargin=\dimen180
-\c@pp@next@reset=\count279
+\c@pp@next@reset=\count280
 Package footmisc Info: Declaring symbol style bringhurst on input line 855.
 Package footmisc Info: Declaring symbol style chicago on input line 863.
 Package footmisc Info: Declaring symbol style wiley on input line 872.
@@ -218,7 +226,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks28
+\@emptytoks=\toks30
 \ex@=\dimen181
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -226,41 +234,41 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count280
+\inf@bad=\count281
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count281
-\leftroot@=\count282
+\uproot@=\count282
+\leftroot@=\count283
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count283
-\DOTSCASE@=\count284
+\classnum@=\count284
+\DOTSCASE@=\count285
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
+\Mathstrutbox@=\box55
+\strutbox@=\box56
 \big@size=\dimen183
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count285
-\c@MaxMatrixCols=\count286
+\macc@depth=\count286
+\c@MaxMatrixCols=\count287
 \dotsspace@=\muskip16
-\c@parentequation=\count287
-\dspbrk@lvl=\count288
-\tag@help=\toks29
-\row@=\count289
-\column@=\count290
-\maxfields@=\count291
-\andhelp@=\toks30
+\c@parentequation=\count288
+\dspbrk@lvl=\count289
+\tag@help=\toks31
+\row@=\count290
+\column@=\count291
+\maxfields@=\count292
+\andhelp@=\toks32
 \eqnshift@=\dimen184
 \alignsep@=\dimen185
 \tagshift@=\dimen186
 \tagwidth@=\dimen187
 \totwidth@=\dimen188
 \lineht@=\dimen189
-\@envbody=\toks31
+\@envbody=\toks33
 \multlinegap=\skip59
 \multlinetaggap=\skip60
-\mathdisplay@stack=\toks32
+\mathdisplay@stack=\toks34
 LaTeX Info: Redefining \[ on input line 2938.
 LaTeX Info: Redefining \] on input line 2939.
 ) (/usr/share/texlive/texmf-dist/tex/latex/mathtools/empheq.sty
@@ -271,18 +279,18 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 Package: mathtools 2021/02/02 v1.28 mathematical typesetting tools
  (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count292
-\calc@Bcount=\count293
+\calc@Acount=\count293
+\calc@Bcount=\count294
 \calc@Adimen=\dimen190
 \calc@Bdimen=\dimen191
 \calc@Askip=\skip61
 \calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count294
+\calc@Ccount=\count295
 \calc@Cskip=\skip63
 )
-\g_MT_multlinerow_int=\count295
+\g_MT_multlinerow_int=\count296
 \l_MT_multwidth_dim=\dimen192
 \origjot=\skip64
 \l_MT_shortvdotswithinadjustabove_dim=\dimen193
@@ -291,25 +299,25 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \l_MT_below_intertext_sep=\dimen196
 \l_MT_above_shortintertext_sep=\dimen197
 \l_MT_below_shortintertext_sep=\dimen198
-\xmathstrut@box=\box55
+\xmathstrut@box=\box57
 \xmathstrut@dim=\dimen199
 )
-\l_EQ_equationtype_int=\count296
-\l_EQ_alignmentmode_int=\count297
+\l_EQ_equationtype_int=\count297
+\l_EQ_alignmentmode_int=\count298
 \l_EQ_totalwidth_dim=\dimen256
 \l_EQ_displaywidth_dim=\dimen257
 \l_EQ_temp_linewidth_dim=\dimen258
 \l_EQ_linewidth_dim=\dimen259
 \EmphEqdelimitershortfall=\dimen260
-\EmphEqdelimiterfactor=\count298
+\EmphEqdelimiterfactor=\count299
 \g_EQ_toptag_height_dim=\dimen261
 \g_EQ_bottomtag_depth_dim=\dimen262
 \g_EQ_toprow_height_dim=\dimen263
 \g_EQ_bottomrow_depth_dim=\dimen264
 \g_EQ_widesttag_dim=\dimen265
-\EQ_mathdisplay_box=\box56
-\EQ_tag_box=\box57
-\g_EQ_temprow_int=\count299
+\EQ_mathdisplay_box=\box58
+\EQ_tag_box=\box59
+\g_EQ_temprow_int=\count300
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2021/04/25 v1.2e Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
@@ -322,23 +330,23 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 Package: mcode 2015/11/11 2.7
  - settings optimized for display (colour formating)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count300
-\lst@gtempboxa=\box58
-\lst@token=\toks33
-\lst@length=\count301
+\lst@mode=\count301
+\lst@gtempboxa=\box60
+\lst@token=\toks35
+\lst@length=\count302
 \lst@currlwidth=\dimen266
-\lst@column=\count302
-\lst@pos=\count303
+\lst@column=\count303
+\lst@pos=\count304
 \lst@lostspace=\dimen267
 \lst@width=\dimen268
-\lst@newlines=\count304
-\lst@lineno=\count305
+\lst@newlines=\count305
+\lst@lineno=\count306
 \lst@maxwidth=\dimen269
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count306
-\lst@skipnumbers=\count307
-\lst@framebox=\box59
+\c@lstnumber=\count307
+\lst@skipnumbers=\count308
+\lst@framebox=\box61
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
@@ -355,8 +363,8 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen270
-\Hy@linkcounter=\count308
-\Hy@pagecounter=\count309
+\Hy@linkcounter=\count309
+\Hy@pagecounter=\count310
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -368,7 +376,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count310
+\Hy@SavedSpaceFactor=\count311
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -381,7 +389,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count311
+\c@Hy@tempcnt=\count312
  (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -393,7 +401,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count312
+\Fld@menulength=\count313
 \Field@Width=\dimen272
 \Fld@charsize=\dimen273
 Package hyperref Info: Hyper figures OFF on input line 6076.
@@ -409,9 +417,9 @@ LaTeX Info: Redefining \pageref on input line 6150.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count313
-\c@Item=\count314
-\c@Hfootnote=\count315
+\Hy@abspage=\count314
+\c@Item=\count315
+\c@Hfootnote=\count316
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -420,8 +428,8 @@ File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count316
-\c@bookmark@seq@number=\count317
+\Fld@listcount=\count317
+\c@bookmark@seq@number=\count318
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -458,42 +466,42 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@orf=\skip74
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count318
-\l__pdf_internal_box=\box60
+\l__color_backend_stack_int=\count319
+\l__pdf_internal_box=\box62
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
+\scratchcounter=\count320
 \scratchdimen=\dimen274
-\scratchbox=\box61
-\nofMPsegments=\count320
-\nofMParguments=\count321
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count322
+\scratchbox=\box63
+\nofMPsegments=\count321
+\nofMParguments=\count322
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count323
 \MPscratchDim=\dimen275
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
-\everyMPtoPDFconversion=\toks35
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
+\everyMPtoPDFconversion=\toks37
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -536,8 +544,8 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count325
-Package hyperref Info: Link coloring OFF on input line 113.
+\c@lstlisting=\count326
+Package hyperref Info: Link coloring OFF on input line 114.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -545,11 +553,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count326
+\c@section@level=\count327
 )
-LaTeX Info: Redefining \ref on input line 113.
-LaTeX Info: Redefining \pageref on input line 113.
-LaTeX Info: Redefining \nameref on input line 113.
+LaTeX Info: Redefining \ref on input line 114.
+LaTeX Info: Redefining \pageref on input line 114.
+LaTeX Info: Redefining \nameref on input line 114.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -557,7 +565,7 @@ LaTeX Info: Redefining \nameref on input line 113.
 <Figures/fig_therm.pdf, id=16, 533.25928pt x 271.3819pt>
 File: Figures/fig_therm.pdf Graphic file (type pdf)
 <use Figures/fig_therm.pdf>
-Package pdftex.def Info: Figures/fig_therm.pdf  used on input line 131.
+Package pdftex.def Info: Figures/fig_therm.pdf  used on input line 132.
 (pdftex.def)             Requested size: 360.00137pt x 183.208pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
@@ -566,12 +574,12 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 147.
+(epstopdf)             \includegraphics on input line 148.
 Package epstopdf Info: Output file is already uptodate.
 <Figures//newlogo-eps-converted-to.pdf, id=17, 369.38pt x 100.375pt>
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 147.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 148.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -581,7 +589,7 @@ pdfTeX warning: pdflatex (file ./Figures/ex1_phyModelCase1.pdf): PDF inclusion: 
 <Figures/ex1_phyModelCase1.pdf, id=80, 551.1792pt x 185.73389pt>
 File: Figures/ex1_phyModelCase1.pdf Graphic file (type pdf)
 <use Figures/ex1_phyModelCase1.pdf>
-Package pdftex.def Info: Figures/ex1_phyModelCase1.pdf  used on input line 181.
+Package pdftex.def Info: Figures/ex1_phyModelCase1.pdf  used on input line 189.
 (pdftex.def)             Requested size: 450.0pt x 151.64243pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
@@ -590,27 +598,31 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 198.
+(epstopdf)             \includegraphics on input line 206.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 198.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 206.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
 [2 <./Figures/ex1_phyModelCase1.pdf>]
 Package epstopdf Info: Source file: <Figures/ex1_eigenvalues.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
+(epstopdf)                    date: 2024-08-16 19:26:22
 (epstopdf)                    size: 46600 bytes
 (epstopdf)             Output file: <Figures/ex1_eigenvalues-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 15:06:01
+(epstopdf)                    date: 2024-08-17 18:26:17
 (epstopdf)                    size: 20916 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_eigenvalues-eps-converted-to.pdf Figures/ex1_eigenvalues.eps>
-(epstopdf)             \includegraphics on input line 243.
+(epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_eigenvalues-eps-converted-to.pdf, id=129, 268.00125pt x 126.4725pt>
+<Figures/ex1_eigenvalues-eps-converted-to.pdf, id=132, 268.00125pt x 126.4725pt>
 File: Figures/ex1_eigenvalues-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_eigenvalues-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_eigenvalues-eps-converted-to.pdf  used on input line 243.
+Package pdftex.def Info: Figures/ex1_eigenvalues-eps-converted-to.pdf  used on input line 250.
 (pdftex.def)             Requested size: 202.49863pt x 95.56044pt.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 256.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 529146 bytes
@@ -618,60 +630,60 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 246.
+(epstopdf)             \includegraphics on input line 259.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 246.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 259.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [3 <./Figures/ex1_eigenvalues-eps-converted-to.pdf>]
-<Figures/ex1_simscapeCase1.pdf, id=151, 574.32971pt x 137.98752pt>
+<Figures/ex1_simscapeCase1.pdf, id=154, 574.32971pt x 137.98752pt>
 File: Figures/ex1_simscapeCase1.pdf Graphic file (type pdf)
 <use Figures/ex1_simscapeCase1.pdf>
-Package pdftex.def Info: Figures/ex1_simscapeCase1.pdf  used on input line 258.
+Package pdftex.def Info: Figures/ex1_simscapeCase1.pdf  used on input line 264.
 (pdftex.def)             Requested size: 450.0pt x 108.1183pt.
 Package epstopdf Info: Source file: <Figures/ex1_tempKeyNodes.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
-(epstopdf)                    size: 49673 bytes
+(epstopdf)                    date: 2024-08-16 19:26:22
+(epstopdf)                    size: 1399985 bytes
 (epstopdf)             Output file: <Figures/ex1_tempKeyNodes-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 16:01:44
-(epstopdf)                    size: 47095 bytes
+(epstopdf)                    date: 2024-08-17 18:26:19
+(epstopdf)                    size: 446920 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_tempKeyNodes-eps-converted-to.pdf Figures/ex1_tempKeyNodes.eps>
-(epstopdf)             \includegraphics on input line 268.
+(epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_tempKeyNodes-eps-converted-to.pdf, id=155, 570.13pt x 227.85126pt>
+<Figures/ex1_tempKeyNodes-eps-converted-to.pdf, id=158, 476.78125pt x 207.77625pt>
 File: Figures/ex1_tempKeyNodes-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_tempKeyNodes-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_tempKeyNodes-eps-converted-to.pdf  used on input line 268.
-(pdftex.def)             Requested size: 314.99863pt x 125.88875pt.
+Package pdftex.def Info: Figures/ex1_tempKeyNodes-eps-converted-to.pdf  used on input line 274.
+(pdftex.def)             Requested size: 314.99863pt x 137.27856pt.
 Package epstopdf Info: Source file: <Figures/ex1_tempOtherNodes.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
-(epstopdf)                    size: 59588 bytes
+(epstopdf)                    date: 2024-08-16 19:26:22
+(epstopdf)                    size: 2083412 bytes
 (epstopdf)             Output file: <Figures/ex1_tempOtherNodes-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 16:01:44
-(epstopdf)                    size: 55694 bytes
+(epstopdf)                    date: 2024-08-17 18:26:23
+(epstopdf)                    size: 678224 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_tempOtherNodes-eps-converted-to.pdf Figures/ex1_tempOtherNodes.eps>
-(epstopdf)             \includegraphics on input line 273.
+(epstopdf)             \includegraphics on input line 279.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_tempOtherNodes-eps-converted-to.pdf, id=157, 570.13pt x 227.85126pt>
+<Figures/ex1_tempOtherNodes-eps-converted-to.pdf, id=160, 476.78125pt x 209.78375pt>
 File: Figures/ex1_tempOtherNodes-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_tempOtherNodes-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_tempOtherNodes-eps-converted-to.pdf  used on input line 273.
-(pdftex.def)             Requested size: 360.00137pt x 143.87386pt.
+Package pdftex.def Info: Figures/ex1_tempOtherNodes-eps-converted-to.pdf  used on input line 279.
+(pdftex.def)             Requested size: 360.00137pt x 158.40976pt.
 Package epstopdf Info: Source file: <Figures/ex1_tempCompare.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
-(epstopdf)                    size: 50755 bytes
+(epstopdf)                    date: 2024-08-16 19:26:22
+(epstopdf)                    size: 2807075 bytes
 (epstopdf)             Output file: <Figures/ex1_tempCompare-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 16:39:53
-(epstopdf)                    size: 50211 bytes
+(epstopdf)                    date: 2024-08-17 18:26:26
+(epstopdf)                    size: 721823 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_tempCompare-eps-converted-to.pdf Figures/ex1_tempCompare.eps>
-(epstopdf)             \includegraphics on input line 283.
+(epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_tempCompare-eps-converted-to.pdf, id=160, 570.13pt x 256.96pt>
+<Figures/ex1_tempCompare-eps-converted-to.pdf, id=163, 481.8pt x 237.88875pt>
 File: Figures/ex1_tempCompare-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_tempCompare-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_tempCompare-eps-converted-to.pdf  used on input line 283.
-(pdftex.def)             Requested size: 360.00137pt x 162.25421pt.
+Package pdftex.def Info: Figures/ex1_tempCompare-eps-converted-to.pdf  used on input line 289.
+(pdftex.def)             Requested size: 360.00137pt x 177.75546pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 529146 bytes
@@ -679,43 +691,27 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 286.
+(epstopdf)             \includegraphics on input line 291.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 286.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 291.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
- [4
-
- <./Figures/ex1_simscapeCase1.pdf> <./Figures/ex1_tempKeyNodes-eps-converted-to.pdf> <./Figures/ex1_tempOtherNodes-eps-converted-to.pdf>]
+ [4 <./Figures/ex1_simscapeCase1.pdf> <./Figures/ex1_tempKeyNodes-eps-converted-to.pdf> <./Figures/ex1_tempOtherNodes-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/ex1_CPUtime.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
-(epstopdf)                    size: 89903 bytes
+(epstopdf)                    date: 2024-08-16 19:26:22
+(epstopdf)                    size: 96080 bytes
 (epstopdf)             Output file: <Figures/ex1_CPUtime-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 17:06:18
-(epstopdf)                    size: 42726 bytes
+(epstopdf)                    date: 2024-08-17 18:26:27
+(epstopdf)                    size: 47054 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_CPUtime-eps-converted-to.pdf Figures/ex1_CPUtime.eps>
-(epstopdf)             \includegraphics on input line 296.
+(epstopdf)             \includegraphics on input line 302.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_CPUtime-eps-converted-to.pdf, id=190, 276.03125pt x 240.9pt>
+<Figures/ex1_CPUtime-eps-converted-to.pdf, id=191, 276.03125pt x 240.9pt>
 File: Figures/ex1_CPUtime-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_CPUtime-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_CPUtime-eps-converted-to.pdf  used on input line 296.
+Package pdftex.def Info: Figures/ex1_CPUtime-eps-converted-to.pdf  used on input line 302.
 (pdftex.def)             Requested size: 225.0pt x 196.37402pt.
-Package epstopdf Info: Source file: <Figures/ex1_errorCompare.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
-(epstopdf)                    size: 86994 bytes
-(epstopdf)             Output file: <Figures/ex1_errorCompare-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 17:29:17
-(epstopdf)                    size: 60059 bytes
-(epstopdf)             Command: <repstopdf --outfile=Figures/ex1_errorCompare-eps-converted-to.pdf Figures/ex1_errorCompare.eps>
-(epstopdf)             \includegraphics on input line 309.
-Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_errorCompare-eps-converted-to.pdf, id=193, 473.77pt x 237.88875pt>
-File: Figures/ex1_errorCompare-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures/ex1_errorCompare-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_errorCompare-eps-converted-to.pdf  used on input line 309.
-(pdftex.def)             Requested size: 337.5pt x 169.46844pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 529146 bytes
@@ -723,52 +719,53 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 312.
+(epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 312.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 309.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [5 <./Figures/ex1_tempCompare-eps-converted-to.pdf> <./Figures/ex1_CPUtime-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/ex1_errorCompare.eps>
+(epstopdf)                    date: 2024-08-16 19:26:22
+(epstopdf)                    size: 86994 bytes
+(epstopdf)             Output file: <Figures/ex1_errorCompare-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-17 18:26:28
+(epstopdf)                    size: 60059 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/ex1_errorCompare-eps-converted-to.pdf Figures/ex1_errorCompare.eps>
+(epstopdf)             \includegraphics on input line 315.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/ex1_errorCompare-eps-converted-to.pdf, id=204, 473.77pt x 237.88875pt>
+File: Figures/ex1_errorCompare-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/ex1_errorCompare-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/ex1_errorCompare-eps-converted-to.pdf  used on input line 315.
+(pdftex.def)             Requested size: 337.5pt x 169.46844pt.
+
 
 pdfTeX warning: pdflatex (file ./Figures/ex1_phyModelCase2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Figures/ex1_phyModelCase2.pdf, id=208, 551.1792pt x 185.73389pt>
 File: Figures/ex1_phyModelCase2.pdf Graphic file (type pdf)
 <use Figures/ex1_phyModelCase2.pdf>
-Package pdftex.def Info: Figures/ex1_phyModelCase2.pdf  used on input line 319.
+Package pdftex.def Info: Figures/ex1_phyModelCase2.pdf  used on input line 325.
 (pdftex.def)             Requested size: 450.0pt x 151.64243pt.
 <Figures/ex1_simscapeCase2.pdf, id=210, 575.79515pt x 129.57408pt>
 File: Figures/ex1_simscapeCase2.pdf Graphic file (type pdf)
 <use Figures/ex1_simscapeCase2.pdf>
-Package pdftex.def Info: Figures/ex1_simscapeCase2.pdf  used on input line 325.
+Package pdftex.def Info: Figures/ex1_simscapeCase2.pdf  used on input line 331.
 (pdftex.def)             Requested size: 450.0pt x 101.26706pt.
-Package epstopdf Info: Source file: <Figures//newlogo.eps>
-(epstopdf)                    date: 2024-08-11 16:43:42
-(epstopdf)                    size: 529146 bytes
-(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-11 16:43:42
-(epstopdf)                    size: 55084 bytes
-(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 328.
-Package epstopdf Info: Output file is already uptodate.
-File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
-<use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 328.
-(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[6 <./Figures/ex1_errorCompare-eps-converted-to.pdf> <./Figures/ex1_phyModelCase2.pdf> <./Figures/ex1_simscapeCase2.pdf>]
 Package epstopdf Info: Source file: <Figures/ex1_tempCase2.eps>
-(epstopdf)                    date: 2024-08-16 14:33:32
+(epstopdf)                    date: 2024-08-16 19:26:22
 (epstopdf)                    size: 840081 bytes
 (epstopdf)             Output file: <Figures/ex1_tempCase2-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-08-16 17:42:12
+(epstopdf)                    date: 2024-08-17 18:26:29
 (epstopdf)                    size: 265836 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/ex1_tempCase2-eps-converted-to.pdf Figures/ex1_tempCase2.eps>
-(epstopdf)             \includegraphics on input line 333.
+(epstopdf)             \includegraphics on input line 338.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/ex1_tempCase2-eps-converted-to.pdf, id=308, 349.305pt x 249.93375pt>
+<Figures/ex1_tempCase2-eps-converted-to.pdf, id=213, 349.305pt x 249.93375pt>
 File: Figures/ex1_tempCase2-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/ex1_tempCase2-eps-converted-to.pdf>
-Package pdftex.def Info: Figures/ex1_tempCase2-eps-converted-to.pdf  used on input line 333.
+Package pdftex.def Info: Figures/ex1_tempCase2-eps-converted-to.pdf  used on input line 338.
 (pdftex.def)             Requested size: 270.00275pt x 193.20087pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
@@ -777,24 +774,36 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 339.
+(epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 339.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 340.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
- [7
-
- <./Figures/ex1_tempCase2-eps-converted-to.pdf>]
-<Figures/RealSystem_msas.png, id=320, 758.3532pt x 456.2646pt>
+[6 <./Figures/ex1_errorCompare-eps-converted-to.pdf> <./Figures/ex1_phyModelCase2.pdf> <./Figures/ex1_simscapeCase2.pdf>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 529146 bytes
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 55084 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 344.
+Package epstopdf Info: Output file is already uptodate.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 344.
+(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
+ [7 <./Figures/ex1_tempCase2-eps-converted-to.pdf>]
+<Figures/RealSystem_msas.png, id=322, 758.3532pt x 456.2646pt>
 File: Figures/RealSystem_msas.png Graphic file (type png)
 <use Figures/RealSystem_msas.png>
-Package pdftex.def Info: Figures/RealSystem_msas.png  used on input line 349.
+Package pdftex.def Info: Figures/RealSystem_msas.png  used on input line 354.
 (pdftex.def)             Requested size: 360.00137pt x 216.59566pt.
-<Figures/BlockScheme_msas.png, id=322, 787.2612pt x 371.9496pt>
+<Figures/BlockScheme_msas.png, id=324, 787.2612pt x 371.9496pt>
 File: Figures/BlockScheme_msas.png Graphic file (type png)
 <use Figures/BlockScheme_msas.png>
-Package pdftex.def Info: Figures/BlockScheme_msas.png  used on input line 355.
+Package pdftex.def Info: Figures/BlockScheme_msas.png  used on input line 360.
 (pdftex.def)             Requested size: 404.99725pt x 191.34334pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
@@ -803,19 +812,19 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 365.
+(epstopdf)             \includegraphics on input line 370.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 365.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 370.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [8
 
  <./Figures/RealSystem_msas.png> <./Figures/BlockScheme_msas.png>]
-<Figures/ReferenceSignal.png, id=340, 1445.4pt x 787.44188pt>
+<Figures/ReferenceSignal.png, id=342, 1445.4pt x 787.44188pt>
 File: Figures/ReferenceSignal.png Graphic file (type png)
 <use Figures/ReferenceSignal.png>
-Package pdftex.def Info: Figures/ReferenceSignal.png  used on input line 438.
+Package pdftex.def Info: Figures/ReferenceSignal.png  used on input line 443.
 (pdftex.def)             Requested size: 360.00137pt x 196.12704pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
@@ -824,11 +833,11 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 449.
+(epstopdf)             \includegraphics on input line 452.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 449.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 452.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [9]
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
@@ -838,49 +847,26 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 492.
+(epstopdf)             \includegraphics on input line 487.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 492.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 487.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
  [10 <./Figures/ReferenceSignal.png (PNG copy)>]
-
-LaTeX Warning: Reference `fig:ex2_droneModel' on page 1 undefined on input line 498.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 497--505
-
- []
+<Figures/ex2a_blockDiag.pdf, id=374, 591.20876pt x 236.885pt>
+File: Figures/ex2a_blockDiag.pdf Graphic file (type pdf)
+<use Figures/ex2a_blockDiag.pdf>
+Package pdftex.def Info: Figures/ex2a_blockDiag.pdf  used on input line 504.
+(pdftex.def)             Requested size: 450.0pt x 180.30917pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
-
- []
-
-
-LaTeX Warning: Reference `tab:tuningPID' on page 1 undefined on input line 513.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 512--516
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 517--521
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 522--527
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 528--530
-
- []
-
+pdfTeX warning: pdflatex (file ./Figures/ex2a_voltage.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2a_voltage.pdf, id=383, 597.55246pt x 421.09319pt>
+File: Figures/ex2a_voltage.pdf Graphic file (type pdf)
+<use Figures/ex2a_voltage.pdf>
+Package pdftex.def Info: Figures/ex2a_voltage.pdf  used on input line 549.
+(pdftex.def)             Requested size: 225.0pt x 158.55208pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 529146 bytes
@@ -888,31 +874,54 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 539.
+(epstopdf)             \includegraphics on input line 551.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 539.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 551.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[11]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 551.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (3.34244pt too wide) in paragraph at lines 551--551
-[]\T1/cmr/m/n/10.95 Develop $[]$ for Ex-er-cise 1; name the file [][][]. 
- []
+[11
+
+ <./Figures/ex2a_blockDiag.pdf>]
+
+pdfTeX warning: pdflatex (file ./Figures/ex2a_error.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2a_error.pdf, id=2113, 597.55246pt x 421.09319pt>
+File: Figures/ex2a_error.pdf Graphic file (type pdf)
+<use Figures/ex2a_error.pdf>
+Package pdftex.def Info: Figures/ex2a_error.pdf  used on input line 556.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
 
 
-Overfull \hbox (40.81812pt too wide) in paragraph at lines 551--551
-[]\T1/cmr/m/n/10.95 Develop $[]$ for Ex-er-cise 2; name the files [][][]
- []
+pdfTeX warning: pdflatex (file ./Figures/ex2a_errorZoom.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2a_errorZoom.pdf, id=2115, 597.55246pt x 421.09319pt>
+File: Figures/ex2a_errorZoom.pdf Graphic file (type pdf)
+<use Figures/ex2a_errorZoom.pdf>
+Package pdftex.def Info: Figures/ex2a_errorZoom.pdf  used on input line 562.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
 
 
-Overfull \hbox (15.42737pt too wide) in paragraph at lines 551--551
-[]$[]$ \T1/cmr/m/n/10.95 con-tain-ing the $[]$, the $[]$, the $[]$,
- []
+pdfTeX warning: pdflatex (file ./Figures/ex2a_gearHeat.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2a_gearHeat.pdf, id=2121, 597.55246pt x 421.09319pt>
+File: Figures/ex2a_gearHeat.pdf Graphic file (type pdf)
+<use Figures/ex2a_gearHeat.pdf>
+Package pdftex.def Info: Figures/ex2a_gearHeat.pdf  used on input line 574.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
 
+
+pdfTeX warning: pdflatex (file ./Figures/ex2a_gearTemp.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2a_gearTemp.pdf, id=2123, 597.55246pt x 421.09319pt>
+File: Figures/ex2a_gearTemp.pdf Graphic file (type pdf)
+<use Figures/ex2a_gearTemp.pdf>
+Package pdftex.def Info: Figures/ex2a_gearTemp.pdf  used on input line 580.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
+
+
+pdfTeX warning: pdflatex (file ./Figures/ex2b_blockDiag.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_blockDiag.pdf, id=2126, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_blockDiag.pdf Graphic file (type pdf)
+<use Figures/ex2b_blockDiag.pdf>
+Package pdftex.def Info: Figures/ex2b_blockDiag.pdf  used on input line 589.
+(pdftex.def)             Requested size: 404.99725pt x 285.4079pt.
 Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 529146 bytes
@@ -920,34 +929,109 @@ Package epstopdf Info: Source file: <Figures//newlogo.eps>
 (epstopdf)                    date: 2024-08-11 16:43:42
 (epstopdf)                    size: 55084 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
-(epstopdf)             \includegraphics on input line 555.
+(epstopdf)             \includegraphics on input line 591.
 Package epstopdf Info: Output file is already uptodate.
 File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures//newlogo-eps-converted-to.pdf>
-Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 555.
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 591.
 (pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
-[12
+[12 <./Figures/ex2a_voltage.pdf> <./Figures/ex2a_error.pdf> <./Figures/ex2a_errorZoom.pdf> <./Figures/ex2a_gearHeat.pdf> <./Figures/ex2a_gearTemp.pdf>]
 
-] (./main.aux)
+pdfTeX warning: pdflatex (file ./Figures/ex2b_gearWallTemp.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_gearWallTemp.pdf, id=2193, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_gearWallTemp.pdf Graphic file (type pdf)
+<use Figures/ex2b_gearWallTemp.pdf>
+Package pdftex.def Info: Figures/ex2b_gearWallTemp.pdf  used on input line 607.
+(pdftex.def)             Requested size: 225.0pt x 158.55208pt.
 
-LaTeX Warning: There were undefined references.
 
+pdfTeX warning: pdflatex (file ./Figures/ex2b_sourceTankFlow.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_sourceTankFlow.pdf, id=2195, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_sourceTankFlow.pdf Graphic file (type pdf)
+<use Figures/ex2b_sourceTankFlow.pdf>
+Package pdftex.def Info: Figures/ex2b_sourceTankFlow.pdf  used on input line 614.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
+
+
+pdfTeX warning: pdflatex (file ./Figures/ex2b_sourceTankLevel.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_sourceTankLevel.pdf, id=2197, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_sourceTankLevel.pdf Graphic file (type pdf)
+<use Figures/ex2b_sourceTankLevel.pdf>
+Package pdftex.def Info: Figures/ex2b_sourceTankLevel.pdf  used on input line 620.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 529146 bytes
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 55084 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 623.
+Package epstopdf Info: Output file is already uptodate.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 623.
+(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
+[13 <./Figures/ex2b_blockDiag.pdf>]
+
+pdfTeX warning: pdflatex (file ./Figures/ex2b_storageTankCooling.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_storageTankCooling.pdf, id=2220, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_storageTankCooling.pdf Graphic file (type pdf)
+<use Figures/ex2b_storageTankCooling.pdf>
+Package pdftex.def Info: Figures/ex2b_storageTankCooling.pdf  used on input line 632.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
+
+
+pdfTeX warning: pdflatex (file ./Figures/ex2b_storageTankTemp.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Figures/ex2b_storageTankTemp.pdf, id=2222, 597.55246pt x 421.09319pt>
+File: Figures/ex2b_storageTankTemp.pdf Graphic file (type pdf)
+<use Figures/ex2b_storageTankTemp.pdf>
+Package pdftex.def Info: Figures/ex2b_storageTankTemp.pdf  used on input line 638.
+(pdftex.def)             Requested size: 202.49863pt x 142.70073pt.
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 529146 bytes
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 55084 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 662.
+Package epstopdf Info: Output file is already uptodate.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 662.
+(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
+[14 <./Figures/ex2b_gearWallTemp.pdf> <./Figures/ex2b_sourceTankFlow.pdf> <./Figures/ex2b_sourceTankLevel.pdf> <./Figures/ex2b_storageTankCooling.pdf> <./Figures/ex2b_storageTankTemp.pdf>]
+Package epstopdf Info: Source file: <Figures//newlogo.eps>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 529146 bytes
+(epstopdf)             Output file: <Figures//newlogo-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-08-11 16:43:42
+(epstopdf)                    size: 55084 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures//newlogo-eps-converted-to.pdf Figures//newlogo.eps>
+(epstopdf)             \includegraphics on input line 663.
+Package epstopdf Info: Output file is already uptodate.
+File: Figures//newlogo-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures//newlogo-eps-converted-to.pdf>
+Package pdftex.def Info: Figures//newlogo-eps-converted-to.pdf  used on input line 663.
+(pdftex.def)             Requested size: 135.00137pt x 36.6848pt.
+ [15] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6C9FB1084C6B06D09DF10581B3D920E1;192.
  ) 
 Here is how much of TeX's memory you used:
- 17811 strings out of 478287
- 299186 string characters out of 5849289
- 642634 words of memory out of 5000000
- 35684 multiletter control sequences out of 15000+600000
- 488932 words of font info for 78 fonts, out of 8000000 for 9000
+ 18005 strings out of 478287
+ 303993 string characters out of 5849289
+ 643915 words of memory out of 5000000
+ 35848 multiletter control sequences out of 15000+600000
+ 488591 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,16n,79p,510b,1212s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on main.pdf (12 pages, 2069708 bytes).
+ 69i,18n,79p,510b,1335s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on main.pdf (15 pages, 5174365 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2416 PDF objects out of 2487 (max. 8388607)
+ 1637 compressed objects within 17 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
 
