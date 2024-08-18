@@ -1,6 +1,6 @@
 % Modeling and Simulation of Aerospace Systems (2023/2024)
 % Assignment # 2
-% Author: Matteo Baio 10667431
+% Author: Matteo Baio 232805
 
 % Written and executed on MATLAB 2024a - Windows 11
 clearvars;  close all;  clc;
@@ -10,7 +10,7 @@ cmap = graphicSettings();
 %% Data input
 
 % load all system data
-CPUtimeCostIter   = 50;
+CPUtimeCostIter   = 1;
 caseModelSelector = 0;
 [time, temp, nozzle] = initData(); 
 
@@ -21,37 +21,38 @@ temp.tOut = @(t) temp.tExt;
 
 
 %% Model build and simulation
-%compute thermal resistance and capacitance from data
+% Compute thermal resistance and capacitance from data
 nozzle.lining    = cmpPart(nozzle.lining,    nozzle.section);
 nozzle.conductor = cmpPart(nozzle.conductor, nozzle.section);
 nozzle.insulator = cmpPart(nozzle.insulator, nozzle.section);
 nozzle.coating   = cmpPart(nozzle.coating,   nozzle.section);
 
-% compute mathematical model 
+% Compute mathematical model 
 mModel = cmpMathModel(temp,nozzle);
 
+% Set generic ode solver settings
 odeOptions = odeset('MaxStep',0.01);
 solverOpt  = solverSettings([time.t0,time.tf], [293.15 293.15], odeOptions, CPUtimeCostIter);
 
-% nonstiff solver
+% Nonstiff solver
 mModel.ode45  = mModelSolver(mModel, 'ode45',  solverOpt);
 mModel.ode89  = mModelSolver(mModel, 'ode89',  solverOpt);
 mModel.ode113 = mModelSolver(mModel, 'ode113', solverOpt);
-% stiff solver
+% Stiff solver
 mModel.ode23t = mModelSolver(mModel, 'ode23t', solverOpt);
 mModel.ode15s = mModelSolver(mModel, 'ode15s', solverOpt);
 
-% automatic solver pick
+% Automatic solver pick
 mModel.odeAUTO = ode;
 mModel.odeAUTO.ODEFcn = mModel.odeSys;
 mModel.odeAUTO.InitialValue = [293.15 293.15];
 mModel.odeAUTO.Solver = "auto";         % automatic pick of the solver
 fprintf('MATLAB suggested solver is: %s\n', mModel.odeAUTO.SelectedSolver);
 
-% compute simscape model
+% Compute simscape model
 sModel.auto = execSimscapeModel('Baio232805_Assign2', CPUtimeCostIter, caseModelSelector, [time.t0,time.tf],'ode23t',0.01);
 
-% interpolate simscape and ode data on same grid
+% Interpolate simscape and ode data on same grid
 mModel.ode45.interpT1 = interp1(mModel.ode45.time, mModel.ode45.T1, time.vec);
 mModel.ode45.interpT2 = interp1(mModel.ode45.time, mModel.ode45.T2, time.vec);
 mModel.ode45.interpT3 = interp1(mModel.ode45.time, mModel.ode45.T3, time.vec);
@@ -88,7 +89,7 @@ sModel.auto.case1.interpT3 = interp1(sModel.auto.case1.time, sModel.auto.case1.T
 sModel.auto.case1.interpT4 = interp1(sModel.auto.case1.time, sModel.auto.case1.T4, time.vec);
 sModel.auto.case1.interpT5 = interp1(sModel.auto.case1.time, sModel.auto.case1.T5, time.vec);
 
-% compute error between simscape and ode solver
+% Compute error between simscape and ode solver
 error.ode45.T1 = sModel.auto.case1.interpT1 - mModel.ode45.interpT1;
 error.ode45.T2 = sModel.auto.case1.interpT2 - mModel.ode45.interpT2;
 error.ode45.T3 = sModel.auto.case1.interpT3 - mModel.ode45.interpT3;
@@ -141,7 +142,7 @@ tiledlayout(1,2)
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]');
     title('Temperature outer lining')
 set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_tempInput.eps');
+%exportgraphics(gcf,'figure\ex1_tempInput.eps');
   
 
 % Temperature nodes 2 - 4
@@ -163,7 +164,7 @@ tiledlayout(1,2)
     xlabel('Time [$sec$]');   ylabel('Temperature [$K$]')
     title('Temperature node 4')
 set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_tempKeyNodes.eps');
+%exportgraphics(gcf,'figure\ex1_tempKeyNodes.eps');
 
 % Temperature nodes 1 - 3 - 5
 figure(Name='Remaining nodes')
@@ -196,7 +197,7 @@ lgd = legend('ode45','ode23t','Simscape');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';
 set(gcf,'units','centimeters','position',[0,0,20,8],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_tempOtherNodes.eps');
+%exportgraphics(gcf,'figure\ex1_tempOtherNodes.eps');
 
 % Overall temperature compare case 1
 figure(Name='all temp case 1')
@@ -225,7 +226,7 @@ lgd = legend('$T_1$','$T_2$','$T_3$','$T_4$','$T_5$');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';    
 set(gcf,'units','centimeters','position',[0,0,20,9],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_tempCompare.eps');
+%exportgraphics(gcf,'figure\ex1_tempCompare.eps');
 
 % Overall temperature compare case 2
 figure(Name='all temp case 2')
@@ -242,7 +243,7 @@ figure(Name='all temp case 2')
 lgd = legend('$T_1$','$T_{2a}$','$T_{2b}$','$T_3$','$T_{4a}$','$T_{4b}$','$T_5$',Location='southoutside');
 lgd.Orientation = 'horizontal';
 set(gcf,'units','centimeters','position',[0,0,14,10],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_tempCase2.eps');
+%exportgraphics(gcf,'figure\ex1_tempCase2.eps');
 
 % CPU-Time cost histogram
 visual.timeCostVec = [mModel.ode45.CPUtime mModel.ode89.CPUtime mModel.ode113.CPUtime mModel.ode23t.CPUtime mModel.ode15s.CPUtime sModel.auto.CPUtime];
@@ -253,7 +254,7 @@ figure(Name='time cost')
     bar(visual.timeLabel,visual.timeCostVec)
     ylabel('Time cost [s]');    xlabel('Integration method');
 set(gcf,'units','centimeters','position',[0,0,11,9],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_CPUtime.eps');
+%exportgraphics(gcf,'figure\ex1_CPUtime.eps');
 
 % Eigenvalues
 figure(Name='Eigenvalues')
@@ -265,9 +266,9 @@ figure(Name='Eigenvalues')
     xlabel('$Re_{h\lambda}$');     ylabel('$Im_{h\lambda}$');
     legend('','','$\lambda_1$','$\lambda_2$');
 set(gcf,'units','centimeters','position',[0,0,11,6],'Renderer','painters');
-exportgraphics(gcf,'figure/ex1_eigenvalues.eps');
+%exportgraphics(gcf,'figure/ex1_eigenvalues.eps');
 
-% Error
+% Error computation
 figure(Name='Error compare')
 tiledlayout(1,2)
 nexttile
@@ -294,7 +295,7 @@ lgd = legend('$T_1$','$T_2$','$T_3$','$T_4$','$T_5$');
 lgd.Layout.Tile = 'south';
 lgd.Orientation = 'horizontal';
 set(gcf,'units','centimeters','position',[0,0,20,9],'Renderer','painters');
-exportgraphics(gcf,'figure\ex1_errorCompare.eps');
+%exportgraphics(gcf,'figure\ex1_errorCompare.eps');
 
 % % Other methods error compare
 % figure(Name='Error ode113')
@@ -563,6 +564,7 @@ function [modelSol,rawOdeSol] = mModelSolver(mModel,solverName,solverOpt)
 %
 
 
+    % Solver selection and execution based on input data
     switch solverName
         case 'ode45'
             tic
@@ -618,6 +620,7 @@ function [modelSol,rawOdeSol] = mModelSolver(mModel,solverName,solverOpt)
         modelSol.To(i,1) = mModel.To(modelSol.time(i));
     end
 
+    % Solutions organization in output struct
     modelSol.T1 = mModel.T1(modelSol.Ti,rawOdeSol.Tx(:,1));
     modelSol.T2 = rawOdeSol.Tx(:,1);
     modelSol.T3 = mModel.T3(rawOdeSol.Tx(:,1),rawOdeSol.Tx(:,2));
@@ -652,15 +655,15 @@ function [modelSol] = execSimscapeModel(modelName,timeCostIter,caseID,timeLimit,
 %
 
     
-    % case model selector
+    % Case model selector
     if nargin < 3 || isempty(caseID)
         caseID = 0;
     end
 
-    % load simulink model
+    % Load simulink model
     load_system(modelName)
        
-    % set simulink solver option for current model
+    % Set simulink solver option for current model
     if nargin < 4 || isempty(timeLimit)
         set_param(modelName,'StopTime',  '60');
         set_param(modelName,'StartTime', '0');
@@ -677,7 +680,7 @@ function [modelSol] = execSimscapeModel(modelName,timeCostIter,caseID,timeLimit,
         set_param(modelName,'MaxStep', num2str(maxStep));
     end
 
-    % execute simulink model
+    % Execute simulink model
     tic
     for i = 1:timeCostIter
         simulinkModel.simOut = sim(modelName);
@@ -685,7 +688,7 @@ function [modelSol] = execSimscapeModel(modelName,timeCostIter,caseID,timeLimit,
     modelSol.CPUtime = toc/timeCostIter;
     
     if caseID == 1 || caseID == 0
-        % retrive simulink simulation solutions for model case 1
+        % Retrive simulink simulation solutions for model case 1
         modelSol.case1.Ti   = simulinkModel.simOut.simlog.Ti_1.T.series.values('K');
         modelSol.case1.T1   = simulinkModel.simOut.simlog.T1_1.T.series.values('K');
         modelSol.case1.T2   = simulinkModel.simOut.simlog.T2_1.T.series.values('K');
@@ -697,7 +700,7 @@ function [modelSol] = execSimscapeModel(modelName,timeCostIter,caseID,timeLimit,
     end
 
     if caseID == 2 || caseID == 0
-        % retrive simulink simulation solutions for model case 2
+        % Retrive simulink simulation solutions for model case 2
         modelSol.case2.Ti    = simulinkModel.simOut.simlog.Ti_2.T.series.values('K');
         modelSol.case2.T1    = simulinkModel.simOut.simlog.T1_2.T.series.values('K');
         modelSol.case2.T2a   = simulinkModel.simOut.simlog.T2a_2.T .series.values('K');
@@ -710,11 +713,11 @@ function [modelSol] = execSimscapeModel(modelName,timeCostIter,caseID,timeLimit,
         modelSol.case2.time  = simulinkModel.simOut.simlog.T1_2.T.series.time;
     end
 
-    % export all the simulation log
+    % Export all the simulation log
     modelSol.simulationOutput = simulinkModel.simOut;
     modelSol.modelName = modelName;
 
-    % close simulink model
+    % Close simulink model
     close_system(modelName,0);
 
 end
