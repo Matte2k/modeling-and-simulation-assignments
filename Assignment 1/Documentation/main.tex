@@ -135,9 +135,9 @@ Which version is more accurate?
 \hrule
 \medskip
 
-Firstly the problem must be plotted to find how many zero(s) must be found and which educated initial guess can be used.
+Firstly the problem is plotted to find how many zero(s) must be found and which educated initial guess can be used.
 The two components $f_1=(x_2^2-x_1-2)$ and $f_2=(-x_1^2+x_2+10)$ are plotted in \cref{fig:ex1_initGuess} both in 3-D (on the left) and 2-D (on the right) plane.
-The chosen educated initial guesses used to solve the problem are: $[3.0,2.0]$ and $[3.0,-2.0]$
+The chosen educated initial guesses to solve the problem are: $[3.0,2.0]$ and $[3.0,-2.0]$
 
 \begin{figure}[htb]
     \centering
@@ -160,7 +160,7 @@ The second and third implementations estimate the Jacobian matrix respectively b
     \label{eq:ex1_centeredDiff}
 \end{equation}
 
-For both forward and centered difference methods the size of the perturbation is computed as reported in \cref{eq:ex1_perturbation} 
+For both forward and centered difference methods the size of the perturbation is computed as reported in \cref{eq:ex1_perturbation}.
 
 \begin{equation}
     \epsilon = \max (\left\lvert x \right\rvert\sqrt{\varepsilon}, \sqrt{\varepsilon})
@@ -179,7 +179,7 @@ The final zero coordinates are considered founded once the relative error value 
 \end{figure}
 
 The absolute error on the final result is then obtained by evaluating the norm of the function in the computed zero. 
-Finally, by taking a deeper look to the numerical results obtained and reported in \cref{tab:ex1_resultCmp}, it's possibile to define which method is the most accurate.
+Finally, by taking a deeper look to the numerical results obtained and reported in \cref{tab:ex1_resultCmp}, it's possible to define which method is the most accurate.
 
 \begin{table}[ht]
     \centering
@@ -219,7 +219,7 @@ For both zeros the method that, as expected, guarantees the lowest error is the 
 Must be noted, however, that the price to be paid is a computational cost two orders of magnitude higher than the Finite Difference methods.
 The Centered Difference method guarantees slightly better result on the first zero while on the second one it performs exactly the same as the Forward Difference, but with a greater computational cost.
 \\
-In conclusion, there isn't and absolute best method; rather, a choice must be made based on the variable to optimize.
+In conclusion, there isn't an absolute best method; rather, a choice must be made based on the variable to optimize.
 If the requirement is to have the maximum precision the most suitable method is the analytical one, while if the requirement is to reduce the computational cost the Finite Forward Differences is the best method.
 
 \clearpage
@@ -253,7 +253,7 @@ The solution of the IVP using the fixed-step Heun's method is computed using fou
 The method results stable with every time step and the error rises as the time goes on.
 By decreasing the step size, as expected, the precision increases and the error reduces so much that there is no longer a visible difference between the analytical and numerical solution for $h=0.05$ and $h=0.01$.  
 \\
-Following the same procedure using the fourth order Runge-Kutta method the results presented in \cref{fig:ex2_rk4} are obtained.
+Following the same procedure, using the fourth order Runge-Kutta method the results presented in \cref{fig:ex2_rk4} are obtained.
 
 \begin{figure}[htb]
     \centering
@@ -261,12 +261,12 @@ Following the same procedure using the fourth order Runge-Kutta method the resul
     \caption[]{\label{fig:ex2_rk4} Runge-Kutta 4 method solution and error over time}
 \end{figure}
 
-Even in this case the method is stable with every time step and the error incresese as the simulation time rises.
-Unlike the previous case, the error is so small (always less than $10^{-2}$) that it is not visible in the solution graph (left figure) for all time steps at every time.
+Even in this case the method is stable with every time step and the error increases as the simulation time rises.
+Unlike the previous case, the error is so small (always less than $10^{-2}$) that it is not visible in the solution graph (left figure) for all time steps at any time.
 Once again, as expected, by observing the integration error plot (right figure) can be noticed that the precision grows up as the time step dimension goes down. 
 \\
-Finally the trade off between CPU time and integration error is considered. For each method and time step a $for$ cycle of 1000 runs is exectued, the time needed to complete these tasks are measured and post processed by means of an arithmetic mean.
-By following this procedure a valid estimation of the time cost of each cases is retrived and presented in \cref{fig:ex2_error} and \cref{tab:ex2_resultCmp}
+Finally the trade off between CPU time and integration error is considered. For each method and time step a $for$ cycle of 1000 runs is executed, the time needed to complete these tasks are measured and post processed by means of an arithmetic mean.
+By following this procedure a valid estimation of the time cost of each case is retrieved and presented in \cref{fig:ex2_error} and \cref{tab:ex2_resultCmp}
 
 \begin{figure}[htb]
     \centering
@@ -343,7 +343,7 @@ The function $\vec{f}$ can be rewritten as function of the matrix $\vec{A}(\alph
     \label{eq:ex3_defineF}
 \end{equation}
 
-Finally the operator can be retrived by substituting a set of $\alpha$ and $\beta$ parameters valid for the second order Runge-Kutta method:
+Finally the operator can be retrieved by substituting a set of $\alpha$ and $\beta$ parameters valid for the second order Runge-Kutta method:
 \begin{equation} 
     F_{RK2}(h,\alpha) = \frac{\vec{x^c}_{k+1}}{\vec{x}_k} = \vec{I} + h\, \vec{A}(\alpha) + \frac{h^2}{2} \vec{A}^2(\alpha)
     \label{eq:ex3_operatorRK2}
@@ -402,15 +402,15 @@ Consider the IVP $\dot{\vec x}=A(\alpha)\vec x$, $\vec x(0) = [1, 1]^T$, to be i
 \rightline{\small(4 points)}
 \medskip \hrule \medskip
 
-Following the same procedure of exercise 3, the operator $F(h,\alpha)$ of the numerical method RK1 is retrived (\cref{eq:ex4_operatorRK1}) and the problem is rewritten as a root finding problem (\cref{eq:ex4_rootProb}).
+Following the same procedure of exercise 3, the operator $F(h,\alpha)$ of the numerical method RK1 is retrieved (\cref{eq:ex4_operatorRK1}) and the problem is rewritten as a root finding problem (\cref{eq:ex4_rootProb}).
 \begin{empheq}[]{align}
     F_{RK1}(h,\alpha) &= \vec{I} + h\, \vec{A}(\alpha)  \label{eq:ex4_operatorRK1} \\
     S_{RK1}(h,\alpha) &= \left\|\vec x_{\rm an}(1)-\vec x_{\rm RK1}(1)\right\|_\infty - \mathrm{tol}  \label{eq:ex4_rootProb}
 \end{empheq}
 
-The problem is firstly solved for every tollerance values in $\alpha = \pi$ starting from an educated initial guess obtained by the plot of the function $S_{RK1}(h,\pi)$.
+The problem is firstly solved for every tolerance values in $\alpha = \pi$ starting from an educated initial guess obtained by the plot of the function $S_{RK1}(h,\pi)$.
 As done in the previous exercise the solution for all the other $\alpha$ are obtained by using as initial guess the result of the problem at the previous step.
-In \cref{fig:ex4_RK1} and \cref{fig:ex4_RK1zoom} the function is plotted to find the initial guess (left figure) and the locus of solution for each tollerance values (right figure) are shown.
+In \cref{fig:ex4_RK1} and \cref{fig:ex4_RK1zoom} the function is plotted to find the initial guess (left figure) and the locus of solution for each tolerance values (right figure) are shown.
 \begin{figure}[htb]
     \centering
     \includegraphics*[width=0.8\textwidth, keepaspectratio]{ex4_RK1.eps}
@@ -435,17 +435,17 @@ By repeating the exact same procedure using the operators RK2 (\cref{eq:ex3_oper
     \caption[]{\label{fig:ex4_RK4} Solution of the problem with RK4}
 \end{figure}
 
-Finally in \cref{fig:ex4_feval} the number of function evaluations for each methods and tollerances are plotted in $\alpha = \pi$.
-As expected, a bigger tollerance value requires less function evaluations.\\
-It's intersting to notice how RK1 is the method that requires always the highest number of function evaluations and RK2 requires more function evaluations than RK4.
-This is because since they are methods of lower order a smaller step size, and so a higher number of steps, is needed to satisfy the imposed tollerance value.
+Finally in \cref{fig:ex4_feval} the number of function evaluations for each method and tolerances are plotted in $\alpha = \pi$.
+As expected, a bigger tolerance value requires less function evaluations.\\
+It's interesting to notice how RK1 is the method that requires always the highest number of function evaluations and RK2 requires more function evaluations than RK4.
+This is because since they are methods of lower order a smaller step size, and so a higher number of steps, is needed to satisfy the imposed tolerance value.
 
 \begin{minipage}{0.50\textwidth}
     \centering
     \begin{center}
         \captionsetup{type=table}
         \captionof{table}{\label{tab:ex4_feval} Solutions of root finding problem}
-        \begin{tabular}{lccc}               % ##### ricontrolla risultati con quelli ottenuti dal fisso
+        \begin{tabular}{lccc}
             \toprule
             \toprule
             $Toll$ & RK1& RK2& RK4\\ 
@@ -487,7 +487,7 @@ The \cref{eq:ex3_operatorRK2} can be rewritten considering a time step equal to 
     \end{align}
 \end{subequations}
 
-Equalising the two equations just written it's easy to retrive the $B_{BI2_{\theta}}(h,\alpha)$ operator:
+Equalising the two equations just written it's easy to retrieve the $B_{BI2_{\theta}}(h,\alpha)$ operator:
 \begin{equation}
     B_{BI2_{\theta}}(h,\alpha) = \frac{\vec{x}_{k+1}}{\vec{x}_k}
                                = \left[ \vec{I} + h \theta\, \vec{A} + \frac{h^2 \theta^2}{2} \vec{A}^2 \right] \left[ \vec{I} - (1-\theta)h\, \vec{A} + \frac{h^2 (1-\theta)^2}{2} \vec{A}^2 \right] ^{-1}
@@ -502,8 +502,8 @@ Following the same approach of exercise 3, the stability region for $\theta = [0
     \caption[]{\label{fig:ex5_stabReg} Stability region of $BI2_{\theta}$ for different $\theta$}
 \end{figure}
 
-It's important to notice that the $BI2_{\theta}$ method is ''A-stable'' for $\theta = [0.1,\, 0.3,\, 0.4]$ while simply stable for the remaning $\theta$ values tested.
-This particular characteristic isn't visible from \cref{fig:ex5_stabReg} but can be observerd in \cref{fig:ex5_BI2-04}, \cref{fig:ex5_BI2-03} and \cref{fig:ex5_BI2-01}.
+It's important to notice that the $BI2_{\theta}$ method is ''A-stable'' for $\theta = [0.1,\, 0.3,\, 0.4]$ while simply stable for the remaining $\theta$ values tested.
+This particular characteristic isn't visible from \cref{fig:ex5_stabReg} but can be observed in \cref{fig:ex5_BI2-04}, \cref{fig:ex5_BI2-03} and \cref{fig:ex5_BI2-01}.
 Because of the different position of the stability region boundary the starting point of the stability problem is placed in $\alpha = 0$.
 
 \begin{figure}[htb]
@@ -578,8 +578,8 @@ The two solutions obtained from the numerical methods are compared with the anal
 \end{figure}
 
 The numerical solutions obtained through RK4 diverge for both variables, while the ones obtained with IEX4 method follows almost perfectly the analytical solution.
-Due to this behavior it's possibile to hypotize that the IVP just analyzed is a ''Stiff problem'' with the two negative eigenvalues having very different magnitude.
-The stability region of the two methods are, once again, computed (\cref{fig:ex6_rk4} and \cref{fig:ex6_iex4}) and the eigenvalues of the system, multiplied for the time step $h=0.1$, are rappresented in the same $(h\lambda)$-plane (\cref{fig:ex6_stabReg}).  
+Due to this behaviour it's possible to hypothesize that the IVP just analysed is a ''Stiff problem'' with the two negative eigenvalues having very different magnitude.
+The stability region of the two methods is, once again, computed (\cref{fig:ex6_rk4} and \cref{fig:ex6_iex4}) and the eigenvalues of the system, multiplied for the time step $h=0.1$, are represented in the same $(h\lambda)$-plane (\cref{fig:ex6_stabReg}).  
 
 \begin{figure}[htb]
     \centering
@@ -604,7 +604,7 @@ The stability region of the two methods are, once again, computed (\cref{fig:ex6
         \end{tabular}
 \end{table}
 
-It must be noticed that in (\cref{fig:ex6_stabReg}) the red colored area rappresents the stability region for RK4 method, while the blu colored area rappresents the instability region for IEX4 method.
+It must be noticed that in (\cref{fig:ex6_stabReg}) the red coloured area represents the stability region for RK4 method, while the blue coloured area represents the instability region for IEX4 method.
 \begin{figure}[htb]
     \centering
     \begin{minipage}{0.45\textwidth}
@@ -620,9 +620,9 @@ It must be noticed that in (\cref{fig:ex6_stabReg}) the red colored area rappres
     \end{minipage}
 \end{figure}
 
-The two eigenvalues, as expected, are both stable but has two very different magnitudes.
-For this reason the problem can be classified as ''stiff'' and the IEX4, since is an ''A-stable'' method, is the ideal choiche.
-An alternative solution to integrate this IVP with RK4 could be to reduce the time step utill both eigenvalues enters in the stability region.
+The two eigenvalues, as expected, are both stable but have two very different magnitudes.
+For this reason the problem can be classified as ''stiff'' and the IEX4, since is an ''A-stable'' method, is the ideal choice.
+An alternative solution to integrate this IVP with RK4 could be to reduce the time step untill both eigenvalues enter in the stability region.
 This has been done by reducing the time step to $h=0.005$ as visible in (\cref{fig:ex6_stabReg}).
 The results of the new integration are reported in (\cref{fig:ex6_integrationMod}) as $RK4mod$ and, as expected, is consistent with the analytical solution and the IEX4 solution.
 \begin{figure}[htb]
@@ -685,7 +685,7 @@ The ''Startup'' problem is solved in two different ways:
     \end{minipage}
 \end{figure}
 
-Both the startup approaches produce the same results, besides the one obtained with Adam Bashforth methods which diverges earlier by using the increasing order approach.
+Both the startup approaches produce the same results, besides the one obtained with Adam Bashforth method which diverges earlier by using the increasing order approach.
 To have a better overview, all the solutions obtained with the different multistep methods are plotted together in \cref{fig:ex7_compare}.
 \begin{figure}[htb]
     \centering
@@ -694,24 +694,24 @@ To have a better overview, all the solutions obtained with the different multist
 \end{figure}
 
 The solution associated to the $x_2$ variable diverges with every method implemented, while, the $x_1$ variable is totally unstable only when integrated with Adams Bashforth method.
-A particular oscillatory behavior can also be observed on the $x_1$ variable when integrated with the Adam Bashforth Moulton method.
+A particular oscillatory behaviour can also be observed on the $x_1$ variable when integrated with the Adam Bashforth Moulton method.
 To better understand the reason behind these trends the eigenvalues of the system are computed and compared with the stability region boundary of the different methods. \\
-The eigenvalues are computed starting form the analytical solution of the first equation \cref{eq:ex7_eq1} which is reported in \cref{eq:ex7_solEq1}.
+The eigenvalues are computed starting from the analytical solution of the first equation \cref{eq:ex7_eq1} which is reported in \cref{eq:ex7_solEq1}.
 \begin{empheq}[]{align}
     \dot{x}_1 &= -\frac{5}{2}\left[1+8\sin(t)\right]x_1  \label{eq:ex7_eq1} \\
     x_1 &= e^{-\frac{5}{2}(t-t_0)+20(\cos(t)-\cos(t_0))} \label{eq:ex7_solEq1}
 \end{empheq}
 
-The \cref{eq:ex7_solEq1} can now be substited in the second equation of the system and finally the two eigenvalues are retrived as function of time $t$:
+The \cref{eq:ex7_solEq1} can now be substituted in the second equation of the system and finally the two eigenvalues are retrieved as function of time $t$:
 \begin{empheq}[]{align}
     \lambda_1(t) &= -\frac{5}{2}\left[1+8\sin(t)\right] \label{eq:ex7_eig1} \\
     \lambda_2(t) &= 1 - e^{20 \cos(t) -2.5t - 20}       \label{eq:ex7_eig2}
 \end{empheq}
 
-The eigenvalues have no immaginary part, so some observations about their stability over time can be done by considering the interceptions of the stability domain of each method with the real axis.
+The eigenvalues have no imaginary part, so some observations about their stability over time can be done by considering the interceptions of the stability domain of each method with the real axis.
 In particular, as reported in \cref{fig:ex7_eig}, the boundary of AB3, ABM3 and AM3 stability regions are shown on the graph as dashed lines.
 No line is drawn for BDF3 method since it is ''A stable'' and so all the negative part of the complex plain is included in its stability region.
-In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability region are reported.
+In \cref{tab:ex7_stabLim} the limits of the analysed multistep methods stability region are reported.
 \begin{table}[htb]
     \centering
     \caption{Multistep methods stability boundary intersection with real axis}
@@ -737,12 +737,12 @@ In \cref{tab:ex7_stabLim} the limits of the analyzed multistep methods stability
 \end{figure}
 
 The product $h\lambda_2$ results always greater or equal than zero, so it's unstable for every $t\in(0,3]$ and it's out of the stability region of every multistep method applied. \\
-The product $h\lambda_1$ is always negative in the time interval considered and has a parabolic behavior.
-For this reason only AM3 and BDF3 methods completly contains in their domain of numerical stability the eigenvalue envelop.
-It's so explained the oscillatory behavior observed with the ABM3 method which doesn't include in its domain the eignevalue when its values drops behind -1.7.
-The situation is even worse when AB3 method is considered; In this case $h\lambda_1$ is outside its stabiliy region as soon as it's value drops behind -0.6, which turns out to be the case for the major part of the studied time interval.
+The product $h\lambda_1$ is always negative in the time interval considered and has a parabolic behaviour.
+For this reason only AM3 and BDF3 methods completely contains in their domain of numerical stability the eigenvalue envelop.
+It's so explained the oscillatory behaviour observed with the ABM3 method which doesn't include in its domain the eigenvalue when its value drops behind -1.7.
+The situation is even worse when AB3 method is considered; In this case $h\lambda_1$ is outside its stability region as soon as its value drops behind -0.6, which turns out to be the case for the major part of the studied time interval.
 
-In conclusion the two methods that can be used to solve the IVP with the time step $h=0.1$ are AM3 and BDF3. ABM3 and AB3 can be used only with a smaller timestep which guarantee the eigenvalues to fall within the stability region in every time instant.
+In conclusion the two methods that can be used to solve the IVP with the time step $h=0.1$ are AM3 and BDF3. ABM3 and AB3 can be applied only with a smaller timestep which guarantee the eigenvalues to fall within the stability region in every time instant.
 
 \clearpage
 \end{document}
